@@ -1,0 +1,104 @@
+{
+  "format_version": "1.21.0",
+  "minecraft:entity": {
+    "description": {
+      "identifier": "warcraft:great_unclean_one",
+      "is_spawnable": true,
+      "is_summonable": true,
+      "is_experimental": false
+    },
+    "components": {
+      "minecraft:type_family": {
+        "family": [
+          "great_unclean_one",
+          "monster"
+        ]
+      },
+      "minecraft:health": {
+        "value": 500,
+        "max": 500
+      },
+      "minecraft:attack": {
+        "damage": 14,
+        "effect_name": "poison",
+        "effect_duration": 6
+      },
+      "minecraft:movement": {
+        "value": 0.22
+      },
+      "minecraft:follow_range": {
+        "value": 40
+      },
+      "minecraft:knockback_resistance": {
+        "value": 1.0
+      },
+      "minecraft:collision_box": {
+        "width": 2.2,
+        "height": 4.0
+      },
+      "minecraft:physics": {},
+      "minecraft:pushable": {
+        "is_pushable": true,
+        "is_pushable_by_piston": true
+      },
+      "minecraft:nameable": {},
+      "minecraft:persistent": {},
+      "minecraft:experience_reward": {
+        "on_death": "60"
+      },
+      "minecraft:loot": {
+        "table": "loot_tables/entities/great_unclean_one.json"
+      },
+      "minecraft:movement.basic": {},
+      "minecraft:jump.static": {},
+      "minecraft:navigation.walk": {
+        "can_path_over_water": false,
+        "avoid_water": true,
+        "can_break_doors": true
+      },
+      "minecraft:behavior.float": {
+        "priority": 0
+      },
+      "minecraft:behavior.hurt_by_target": {
+        "priority": 1
+      },
+      "minecraft:behavior.melee_attack": {
+        "priority": 2,
+        "speed_multiplier": 1.0,
+        "track_target": true,
+        "reach_multiplier": 1.6
+      },
+      "minecraft:behavior.nearest_attackable_target": {
+        "priority": 2,
+        "must_see": true,
+        "reselect_targets": true,
+        "entity_types": [
+          {
+            "filters": {
+              "test": "is_family",
+              "subject": "other",
+              "value": "player"
+            },
+            "max_dist": 40
+          }
+        ]
+      },
+      "minecraft:behavior.random_stroll": {
+        "priority": 6,
+        "speed_multiplier": 0.7
+      },
+      "minecraft:behavior.look_at_player": {
+        "priority": 7,
+        "look_distance": 10
+      },
+      "minecraft:behavior.random_look_around": {
+        "priority": 8
+      },
+      "minecraft:boss": {
+        "hud_range": 48,
+        "name": "Great Unclean One",
+        "should_darken_sky": false
+      }
+    }
+  }
+}

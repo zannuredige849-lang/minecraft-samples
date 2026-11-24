@@ -1,0 +1,162 @@
+{
+  "format_version": "1.10.0",
+  "animation_controllers": {
+    "controller.animation.great_unclean_one": {
+      "initial_state": "idle_a",
+      "states": {
+        "idle_a": {
+          "animations": [
+            "idle_a"
+          ],
+          "blend_transition": 0.3,
+          "transitions": [
+            {
+              "death": "!query.is_alive"
+            },
+            {
+              "attack_a": "variable.attack_time > 0 && math.random(0, 1) < 0.34"
+            },
+            {
+              "attack_b": "variable.attack_time > 0 && math.random(0, 1) < 0.5"
+            },
+            {
+              "slam": "variable.attack_time > 0"
+            },
+            {
+              "walk": "query.ground_speed > 0.1"
+            },
+            {
+              "idle_b": "query.all_animations_finished && math.random(0, 1) < 0.6"
+            },
+            {
+              "channel": "query.all_animations_finished"
+            }
+          ]
+        },
+        "idle_b": {
+          "animations": [
+            "idle_b"
+          ],
+          "blend_transition": 0.3,
+          "transitions": [
+            {
+              "death": "!query.is_alive"
+            },
+            {
+              "attack_a": "variable.attack_time > 0 && math.random(0, 1) < 0.34"
+            },
+            {
+              "attack_b": "variable.attack_time > 0 && math.random(0, 1) < 0.5"
+            },
+            {
+              "slam": "variable.attack_time > 0"
+            },
+            {
+              "walk": "query.ground_speed > 0.1"
+            },
+            {
+              "idle_a": "query.all_animations_finished"
+            }
+          ]
+        },
+        "channel": {
+          "animations": [
+            "channel"
+          ],
+          "blend_transition": 0.3,
+          "transitions": [
+            {
+              "death": "!query.is_alive"
+            },
+            {
+              "attack_a": "variable.attack_time > 0 && math.random(0, 1) < 0.34"
+            },
+            {
+              "attack_b": "variable.attack_time > 0 && math.random(0, 1) < 0.5"
+            },
+            {
+              "slam": "variable.attack_time > 0"
+            },
+            {
+              "walk": "query.ground_speed > 0.1"
+            },
+            {
+              "idle_a": "query.all_animations_finished"
+            }
+          ]
+        },
+        "walk": {
+          "animations": [
+            "walk"
+          ],
+          "blend_transition": 0.25,
+          "transitions": [
+            {
+              "death": "!query.is_alive"
+            },
+            {
+              "attack_a": "variable.attack_time > 0 && math.random(0, 1) < 0.34"
+            },
+            {
+              "attack_b": "variable.attack_time > 0 && math.random(0, 1) < 0.5"
+            },
+            {
+              "slam": "variable.attack_time > 0"
+            },
+            {
+              "idle_a": "query.ground_speed <= 0.1"
+            }
+          ]
+        },
+        "attack_a": {
+          "animations": [
+            "attack_a"
+          ],
+          "blend_transition": 0.15,
+          "transitions": [
+            {
+              "death": "!query.is_alive"
+            },
+            {
+              "idle_a": "query.all_animations_finished"
+            }
+          ]
+        },
+        "attack_b": {
+          "animations": [
+            "attack_b"
+          ],
+          "blend_transition": 0.15,
+          "transitions": [
+            {
+              "death": "!query.is_alive"
+            },
+            {
+              "idle_a": "query.all_animations_finished"
+            }
+          ]
+        },
+        "slam": {
+          "animations": [
+            "slam"
+          ],
+          "blend_transition": 0.15,
+          "transitions": [
+            {
+              "death": "!query.is_alive"
+            },
+            {
+              "idle_a": "query.all_animations_finished"
+            }
+          ]
+        },
+        "death": {
+          "animations": [
+            "death"
+          ],
+          "blend_transition": 0.2
+        }
+      }
+    }
+  }
+}
