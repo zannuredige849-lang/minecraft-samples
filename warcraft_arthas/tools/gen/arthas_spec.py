@@ -158,10 +158,10 @@ def build_arthas(with_sword=True, rest_pose=True):
     C("shoulder_right", (-14.5, 30, -4), (8, 2, 8), "plate", detail="plate_lame")
     C("shoulder_right", (-15, 30, -3), (1, 6, 6), "plate_trim")
     C("shoulder_right", (-14, 31, -5.5), (5, 5, 1), "plate_trim", detail="plate_fluted")
-    m.spike("shoulder_right", (-13, 36, 0), 4, 4, 12, 4, -24, plane="z", mat="spike")
-    m.spike("shoulder_right", (-10.5, 36, -3), 3, 3, 8, 3, -10, plane="z", mat="spike")
-    m.spike("shoulder_right", (-10.5, 36, 3), 3, 3, 8, 3, -14, plane="z", mat="spike")
-    m.spike("shoulder_right", (-15, 31, 0), 3, 3, 5, 2, -75, plane="z", mat="spike")
+    m.spike("shoulder_right", (-13, 36, 0), 3, 3, 14, 4, -24, plane="z", mat="spike")
+    m.spike("shoulder_right", (-10.5, 36, -3), 2, 2, 9, 3, -10, plane="z", mat="spike")
+    m.spike("shoulder_right", (-10.5, 36, 3), 2, 2, 9, 3, -14, plane="z", mat="spike")
+    m.spike("shoulder_right", (-15, 31, 0), 2, 2, 6, 2, -75, plane="z", mat="spike")
     # frost on shoulder
     m.spike("frost_shoulder_right", (-12, 36, -2), 1, 2, 5, 2, -30, plane="z", mat="ice")
     m.spike("frost_shoulder_right", (-9, 36, 2), 1, 2, 4, 2, 10, plane="z", mat="ice")
@@ -221,11 +221,11 @@ def build_arthas(with_sword=True, rest_pose=True):
     C("helmet", (-0.5, 38, -4.8), (1, 3, 1), "plate_trim", inflate=-0.15)             # slim nasal guard
     C("helmet", (-1, 43, -5.6), (2, 2, 1), "gem", detail="gem_blue")                  # forehead soul-gem
     # crown of spikes: tall centre, fanning pairs, sweeping side horns, swept-back crest
-    m.spike("helmet_crown", (0, 45, -3.5), 3, 3, 14, 4, 0, plane="z", mat="spike")
+    m.spike("helmet_crown", (0, 45, -3.5), 2, 2, 15, 4, 0, plane="z", mat="spike")
     for s_ in (R, L):
-        m.spike("helmet_crown", (3.5 * s_, 45, -3), 3, 3, 11, 3, 10 * s_, plane="z", mat="spike")
-        m.spike("helmet_crown", (5.5 * s_, 44.5, -1.5), 3, 3, 10, 3, 24 * s_, plane="z", mat="spike")
-        m.spike("helmet_crown", (5.5 * s_, 44, 1.5), 3, 3, 9, 3, 40 * s_, plane="z", mat="spike")
+        m.spike("helmet_crown", (3.5 * s_, 45, -3), 2, 2, 12, 3, 10 * s_, plane="z", mat="spike")
+        m.spike("helmet_crown", (5.5 * s_, 44.5, -1.5), 2, 2, 11, 3, 24 * s_, plane="z", mat="spike")
+        m.spike("helmet_crown", (5.5 * s_, 44, 1.5), 2, 2, 10, 3, 40 * s_, plane="z", mat="spike")
         chain_yz(m, "helmet_crown", [(44.5, 3), (47.5, 5.5), (51, 8.5)], [3, 2], 2, "spike", x=2.5 * s_)
     chain_yz(m, "helmet_crown", [(44.5, 3), (48, 5.5), (52, 9.5)], [3, 2], 2, "spike", x=0)
     m.spike("frost_crown", (-2.5, 45.5, -5), 1, 2, 4, 2, -18, plane="z", mat="ice")

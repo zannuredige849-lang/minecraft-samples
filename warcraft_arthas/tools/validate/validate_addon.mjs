@@ -97,6 +97,16 @@ for (const [id, g] of Object.entries(geos)) {
   const cubes = g.bones.reduce((s, b) => s + (b.cubes?.length ?? 0), 0);
   notes.push(`${id}: ${g.bones.length} bones, ${cubes} cubes, atlas ${TW}x${TH}, ${((pxMap.reduce((a, b) => a + b, 0) / (TW * TH)) * 100).toFixed(0)}% used`);
 }
+// poly_mesh (experimental smooth Frostmourne): index/UV sanity
+for (const [id, g] of Object.entries(geos)) for (const b of g.bones) if (b.poly_mesh) {
+  const pm = b.poly_mesh;
+  ok(pm.normalized_uvs === true, `${id}/${b.name}: poly_mesh expected normalized_uvs`);
+  ok(pm.uvs.every((u) => u[0] >= 0 && u[0] <= 1 && u[1] >= 0 && u[1] <= 1), `${id}/${b.name}: poly_mesh uv outside 0..1`);
+  ok(pm.polys.every((poly) => (poly.length === 3 || poly.length === 4) && poly.every(([p, n, u]) => p < pm.positions.length && n < pm.normals.length && u < pm.uvs.length)), `${id}/${b.name}: poly index out of range`);
+  const tp = path.join(RP, "textures/entity/frostmourne/frostmourne_mesh.png");
+  ok(exists(tp) && pngSize(tp)[0] === g.description.texture_width, `${id}: frostmourne_mesh.png missing or wrong size`);
+  notes.push(`${id}: poly_mesh ${pm.positions.length} verts, ${pm.polys.length} polys (EXPERIMENTAL, not wired to the entity)`);
+}
 const boneSet = new Set(arthasGeo?.bones.map((b) => b.name));
 
 // ---------- 5. render controllers, textures

@@ -121,23 +121,17 @@ class Face:
         return ox + U * sx, Yc, oz + sz - V * sz
 
     def frost_speckle(self, amount, top_bias=True):
-        """Rime that gathers on upper edges / upward faces, plus a few sparkles."""
+        """Clean rime: a soft frosted cap on upward faces and along the top edge of vertical faces."""
         if amount <= 0:
             return
-        n = self.n
         if self.name == "up":
-            cover = np.clip((n - (0.82 - amount * 0.5)) * 7, 0, 1)
+            cover = np.clip(0.55 * amount + 0.35 * (self.n - 0.5), 0, 0.8) * np.clip(self.dmin / (self.S * 0.8) + 0.35, 0, 1)
         elif top_bias:
-            depth = amount * self.S * 2.6 * (0.3 + n * 1.3)
-            cover = np.clip((depth - self.dt) / max(1.0, self.S * 0.8), 0, 1)
+            depth = amount * self.S * 1.6
+            cover = np.clip((depth - self.dt) / max(1.0, self.S * 1.2), 0, 1) * 0.7
         else:
-            cover = np.clip((n - (0.9 - amount * 0.4)) * 6, 0, 1)
-        side = np.clip(1 - np.minimum(self.dl, self.dr) / (self.S * 1.5), 0, 1) * np.clip((n - 0.62) * 4, 0, 1) * amount
-        cover = np.clip(cover + side, 0, 0.85)
-        self.rgb[:] = self.rgb * (1 - 0.75 * cover[..., None]) + (ICE_HI * 0.9 + 10) * 0.75 * cover[..., None]
-        rs = np.random.RandomState(self.seed + 5)
-        sp = (rs.rand(self.h, self.w) > 1 - 0.012 * amount) & (cover > 0.2)
-        self.rgb[sp] = 255
+            return
+        self.rgb[:] = self.rgb * (1 - cover[..., None]) + C(214, 238, 252) * cover[..., None]
 
     def finish(self, canvas):
         rgb = np.clip(self.rgb * self.light, 0, 255)
@@ -150,61 +144,46 @@ class Face:
 
 # ------------------------------------------------------------------- materials
 def m_plate(f: Face, trim=False, spike=False):
-    base_lo, base_hi = (TRIM_MID * 0.5, TRIM_MID) if trim else (STEEL_DARK, STEEL_MID)
-    brushed = fbm(f.h, f.w, f.seed + 3, (max(1, f.S * 6), 1))
-    f.lerp_v(base_hi, base_lo)
-    f.rgb[:] *= (0.82 + 0.30 * f.n[..., None]) * (0.94 + 0.12 * brushed[..., None])
-    f.rgb[:] += np.array([0, 3, 8], np.float32) * f.n[..., None]
+    """Saronite plate: smooth gradient, crisp 1px rim light, one engraved inset panel line, nothing else."""
+    lo, hi = (C(36, 48, 72), C(62, 80, 110)) if trim else (C(15, 20, 34), C(34, 44, 68))
+    f.lerp_v(hi, lo)
+    f.rgb[:] *= 0.97 + 0.06 * f.n[..., None]
     if spike:
-        # smooth tapered horn: darker root, brighter tip, one soft ridge
         tip = (1 - f.V)[..., None]
-        f.rgb[:] = f.rgb * (0.7 + 0.55 * tip) + C(30, 40, 60) * 0.25 * tip
-        ridge = np.clip(1 - np.abs(f.U - 0.5) / 0.22, 0, 1)[..., None]
-        f.rgb[:] = f.rgb * (1 - 0.35 * ridge) + STEEL_HI * 0.35 * ridge * (0.5 + 0.5 * tip)
-    f.bevel(TRIM_HI if trim else STEEL_HI, STEEL_DARK * 0.5, width=max(1, int(f.S * 0.5)), strength=0.4 if not spike else 0.2)
+        f.rgb[:] = lo * (1 - tip) * 1.2 + C(120, 150, 185) * tip * 0.75
+    one = max(1, int(f.S * 0.5))
+    f.bevel(C(150, 180, 212) if trim else C(96, 122, 160), C(6, 9, 18), width=one, strength=0.55 if not spike else 0.25)
     det = f.cube.detail
+    big = f.w >= 6 * f.S and f.h >= 5 * f.S and f.name in ("north", "south")
+    inset = int(f.S * 1.5)
+    panel = big & np.zeros((f.h, f.w), bool) if False else (f.dmin == inset) if big else np.zeros((f.h, f.w), bool)
+    if big:
+        f.line(panel, C(120, 150, 185), 0.45)
     if det == "plate_fluted" and f.name in ("north", "south", "up") and f.w >= 5 * f.S:
-        fl = (0.5,) if f.w < 9 * f.S else (0.33, 0.67)
-        for fx in fl:
-            f.line(np.abs(f.U - fx) < (0.5 / f.w * f.S), STEEL_DARK * 0.5, 0.9)
-            f.line(np.abs(f.U - fx - 1.0 / f.w * f.S) < 0.5 / f.w * f.S, STEEL_HI, 0.35)
+        cx = np.abs(f.U - 0.5) < (0.5 / f.w * f.S)
+        f.line(cx, C(6, 9, 18), 0.8)
+        f.line(np.abs(f.U - 0.5 - 1.0 / f.w * f.S) < 0.5 / f.w * f.S, C(130, 160, 196), 0.4)
     if det == "plate_lame" and f.name in ("north", "south"):
-        f.line(f.dt < max(1, f.S * 0.5), STEEL_DARK * 0.4, 0.8)
-        f.line((f.dt >= max(1, f.S * 0.5)) & (f.dt < f.S * 1.1), STEEL_HI, 0.22)
-        if f.w >= 10 * f.S:
-            for cx in range(int(f.S * 3), f.w - int(f.S * 2), int(f.S * 8)):
-                f.rivet(cx, f.h * 0.5, f.S * 0.45)
-    # phase effects ---------------------------------------------------------------
+        f.line(f.db < one, C(6, 9, 18), 0.7)
     p = f.p
-    if p["seam"] > 0 and det in ("plate_fluted", "plate_lame") and f.w >= 5 * f.S:
-        seam = (np.abs(f.U - 0.5) < 0.5 / f.w * f.S) if det == "plate_fluted" else (f.dt == int(f.S * 0.5))
-        f.glow(seam.astype(np.float32) * p["seam"], GLOW_BLUE, p["rune_a"] + 40)
-    if p["crack"] > 0 and f.name == "north" and f.w >= 6 * f.S and f.h >= 4 * f.S:
-        rs = np.random.RandomState(f.seed + 11)
-        x, y = rs.randint(0, f.w), 0
-        for _ in range(f.h + f.w):
-            if y >= f.h:
-                break
-            if 0 <= x < f.w:
-                f.rgb[y, x] = GLOW_WHITE
-                f.a[y, x] = p["rune_a"]
-            y += 1
-            x += rs.randint(-1, 2)
-    f.frost_speckle(p["frost"] * (0.5 if spike else 0.8))
+    if p["seam"] > 0:                       # phase 2/3: the engraved lines ignite
+        mask = panel if big else (np.abs(f.U - 0.5) < 0.5 / f.w * f.S) & (det == "plate_fluted") if f.w >= 5 * f.S else np.zeros((f.h, f.w), bool)
+        f.glow(mask.astype(np.float32) * min(1.0, p["seam"]), GLOW_BLUE, p["rune_a"] + 45)
+    f.frost_speckle(p["frost"] * (0.6 if spike else 1.0))
 
 
 def m_cloth(f: Face, dark=True):
     col0, col1 = (CLOTH_DARK, CLOTH_MID) if dark else (CAPE_MID * 0.6, CAPE_MID)
     f.lerp_v(col1, col0)
     weave = ((f.xx + f.yy) % max(2, f.S * 2) < f.S).astype(np.float32)
-    f.rgb[:] *= (0.8 + 0.3 * f.n[..., None]) * (0.95 + 0.07 * weave[..., None])
-    f.bevel(CLOTH_MID * 1.6, CLOTH_DARK * 0.4, strength=0.25)
+    f.rgb[:] *= (0.94 + 0.1 * f.n[..., None]) * (0.985 + 0.03 * weave[..., None])
+    f.bevel(CLOTH_MID * 1.5, CLOTH_DARK * 0.5, strength=0.2)
 
 
 def m_cape(f: Face, fold=False):
     f.lerp_v(CAPE_HI * 0.85, CAPE_MID * 0.55)
     folds = 0.5 + 0.5 * np.sin(f.U * math.pi * 2 * max(1, f.w // (5 * f.S)) + f.n * 2.5)
-    f.rgb[:] *= (0.65 + 0.5 * folds[..., None]) * (0.85 + 0.3 * f.n[..., None])
+    f.rgb[:] *= (0.78 + 0.34 * folds[..., None]) * (0.94 + 0.1 * f.n[..., None])
     if fold:
         f.rgb[:] *= 1.25
     f.line((f.dt < f.S * 0.6) & (f.name == "north"), CAPE_LINE * 0.6, 0.35)
@@ -223,7 +202,6 @@ def m_cape(f: Face, fold=False):
         jag = (rs.rand(f.w) * f.S * 1.5).astype(int)
         for x in range(f.w):
             f.a[f.h - jag[x]:, x] = 0
-    f.frost_speckle(f.p["frost"] * 0.35, top_bias=False)
 
 
 def m_skin(f: Face):
@@ -300,14 +278,12 @@ def m_rune(f: Face):
 
 def m_ice(f: Face):
     p = f.p
-    n = f.n
-    f.lerp_v(ICE_HI, ICE_BASE * 0.78)
-    f.rgb[:] *= 0.88 + 0.25 * n[..., None]
+    f.lerp_v(ICE_HI, ICE_BASE * 0.8)
     facet = np.abs(f.U - 0.5) * 2
-    f.rgb[:] = f.rgb * (1 - 0.25 * facet[..., None]) + ICE_HI * 0.25 * facet[..., None]
-    f.line(np.abs(f.U - 0.5) < 0.6 / max(2, f.w) * f.S, C(250, 255, 255), 0.7)
-    f.bevel(C(255, 255, 255), C(90, 160, 215), strength=0.5)
-    f.a[:] = np.clip(120 + 110 * f.V + 25 * (1 - n) - 35 * (p["frost"] - 0.3), 70, 235)
+    f.rgb[:] = f.rgb * (1 - 0.2 * facet[..., None]) + ICE_HI * 0.2 * facet[..., None]
+    f.line(np.abs(f.U - 0.5) < 0.5 / max(2, f.w) * f.S, C(250, 255, 255), 0.6)
+    f.bevel(C(255, 255, 255), C(90, 160, 215), strength=0.45)
+    f.a[:] = np.clip(125 + 100 * f.V - 30 * (p["frost"] - 0.3), 80, 230)
 
 
 def m_skull(f: Face, base=None):
@@ -378,9 +354,9 @@ def m_blade(f: Face, edge=False, spine=False):
     f.rgb[:] = col
     if f.name in ("north", "south"):
         # sharpened steel edge bevel, fading into the dark fuller flats
-        bev = np.clip(1 - d_edge / 1.3, 0, 1)
+        bev = np.clip(1 - d_edge / 0.8, 0, 1)
         f.rgb[:] = f.rgb * (1 - bev[..., None] * 0.9) + C(205, 226, 245) * bev[..., None] * 0.9
-        inner = np.clip(1 - np.abs(d_edge - 1.2) / 0.35, 0, 1)
+        inner = np.clip(1 - np.abs(d_edge - 0.95) / 0.3, 0, 1)
         f.rgb[:] = f.rgb * (1 - 0.35 * inner[..., None]) + C(10, 14, 24) * 0.35 * inner[..., None]
         if spine:
             f.rgb[:] = C(20, 26, 42) * (0.85 + 0.3 * f.n[..., None])
@@ -405,7 +381,6 @@ def m_blade(f: Face, edge=False, spine=False):
     if edge:
         f.rgb[:] = f.rgb * 0.25 + C(205, 225, 240) * 0.75
         f.bevel(C(255, 255, 255), C(90, 120, 150), strength=0.6)
-    f.frost_speckle(p["frost"] * 0.6, top_bias=False)
 
 
 def m_guard(f: Face, trim=False):

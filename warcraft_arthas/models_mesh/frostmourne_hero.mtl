@@ -1,0 +1,8 @@
+newmtl frostmourne
+Ka 1 1 1
+Kd 1 1 1
+Ks 0.6 0.6 0.7
+Ns 60
+map_Kd frostmourne_hero_base.png
+Ke 1 1 1
+map_Ke frostmourne_hero_emissive.png

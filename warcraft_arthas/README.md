@@ -11,6 +11,7 @@ Minecraft Bedrock add-on (behavior pack + resource pack). Target: `min_engine_ve
 |---|---|---|
 | 1 | Architecture, manifests, validation tooling | ✅ done (static validation only) |
 | 2 | Arthas model + UV + textures, Frostmourne | ✅ done (370-cube model, 3 phase texture sets, standalone sword) |
+| 2b | Revision: slimmer/smaller sword, cleaner textures, smooth-mesh Frostmourne experiment | ✅ done (mesh variant is experimental) |
 | 3 | Entity registration, rendering, animations | 🟡 entity + 4-layer render controllers + `idle`/`walk` done; action animations ⏳ |
 | 4–10 | AI, abilities, souls, servants, phases, cinematic, audio, final QA | ⏳ not started |
 
@@ -28,7 +29,7 @@ tests/           node:test unit tests
 Models and textures are **generated** from `tools/gen/*_spec.py`: edit the spec, run `python3 tools/gen/build_all.py`.
 
 ## The model (Stage 2)
-* 50 bones / 370 cubes; hierarchy `root → body → torso, chest_armor, waist(_armor), tabard, cape → cape_mid → cape_low → cape_tail,
+* 50 bones / 360 cubes; hierarchy `root → body → torso, chest_armor, waist(_armor), tabard, cape → cape_mid → cape_low → cape_tail,
   shoulder_*, arm_* → forearm_* → gauntlet_* → frostmourne, head → helmet → helmet_crown, eyes, hair…; leg_* → shin_* → boot_*`.
 * Rendered as **four texture layers** by four render controllers (`part_visibility` is generated from each bone's layer):
   `body.png` (skin/cloth/hair/cape/tabard), `armor.png` (Saronite plate), `frost_effect.png` (ice crystals), `frostmourne.png` (sword).
@@ -40,6 +41,17 @@ Models and textures are **generated** from `tools/gen/*_spec.py`: edit the spec,
 * Frostmourne exists twice: embedded in `geometry.warcraft_arthas` (bone `frostmourne`, held in the right fist) and as the standalone
   `geometry.warcraft_frostmourne` + `attachable` for the player-held item. ⚠️ attachable hold offsets (`animations/frostmourne.animation.json`) are estimates.
 * Rest pose is baked into the geometry (right arm raised, blade up-forward); animations are additive on top.
+
+## Beyond cubes: smooth mesh Frostmourne (experimental)
+`python3 tools/gen/mesh_frostmourne.py` builds Frostmourne as a real mesh (lenticular blade with raised rune ridge and glowing fuller,
+swept horn-like guard prongs, skull, wrapped grip, ice crystals; 3456 verts / 5728 tris) and exports:
+* `models_mesh/frostmourne_hero.glb` / `.obj` + `.mtl` + base & emissive PNGs — open in Blender, any glTF viewer, or Blockbench (Generic model).
+* `resource_pack/models/entity/frostmourne_mesh.geo.json` — Bedrock **`poly_mesh`** geometry (`geometry.warcraft_frostmourne_mesh`) +
+  `textures/entity/frostmourne/frostmourne_mesh.png`. `poly_mesh` is documented in the official geometry schema (all versions up to 1.26.x),
+  but it is **not wired to any entity/attachable** and is unverified in game: Blockbench cannot edit/round-trip it, and UV-v/handedness
+  conventions are assumptions. To try it, point `attachables/frostmourne.attachable.json` `geometry.default` at the mesh geometry and its texture
+  at `frostmourne_mesh`. The cube sword remains the safe default.
+* Hero renders (three.js + bloom) are in `previews/08_*`, `09_*`; render your own with `tools/preview/render_glb.cjs` (serve the project root on `:8766`).
 
 ## Commands (⚠️ syntactically checked only, not run in game)
 ```
