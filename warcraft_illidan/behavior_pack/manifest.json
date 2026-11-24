@@ -1,0 +1,39 @@
+{
+  "format_version": 2,
+  "header": {
+    "name": "Illidan Stormrage - Behavior",
+    "description": "Illidan boss entities.",
+    "uuid": "b4df3104-8123-55a1-a3f4-baa697fa2772",
+    "version": [
+      1,
+      0,
+      0
+    ],
+    "min_engine_version": [
+      1,
+      20,
+      0
+    ]
+  },
+  "modules": [
+    {
+      "type": "data",
+      "uuid": "97e72a55-49d3-5744-9941-ad0cb71fdf38",
+      "version": [
+        1,
+        0,
+        0
+      ]
+    }
+  ],
+  "dependencies": [
+    {
+      "uuid": "11bdbc39-2ec1-53d0-8d89-da03cced126b",
+      "version": [
+        1,
+        0,
+        0
+      ]
+    }
+  ]
+}

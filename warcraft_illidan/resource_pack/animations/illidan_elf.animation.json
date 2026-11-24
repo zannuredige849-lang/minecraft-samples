@@ -1,0 +1,200 @@
+{
+  "format_version": "1.8.0",
+  "animations": {
+    "animation.illidan_elf.crossed": {
+      "loop": true,
+      "animation_length": 3.0,
+      "bones": {
+        "arm_r": {
+          "rotation": [
+            -23.7,
+            0,
+            -37.7
+          ]
+        },
+        "arm_l": {
+          "rotation": [
+            -28.2,
+            0,
+            38.8
+          ]
+        },
+        "forearm_r": {
+          "rotation": [
+            -20.3,
+            0,
+            -43.0
+          ]
+        },
+        "forearm_l": {
+          "rotation": [
+            -24.1,
+            0,
+            33.9
+          ]
+        },
+        "body": {
+          "rotation": [
+            3,
+            0,
+            0
+          ],
+          "position": {
+            "0.0": [
+              0,
+              0,
+              0
+            ],
+            "1.5": [
+              0,
+              -0.35,
+              0
+            ],
+            "3.0": [
+              0,
+              0,
+              0
+            ]
+          }
+        },
+        "head": {
+          "rotation": {
+            "0.0": [
+              0,
+              0,
+              0
+            ],
+            "1.5": [
+              1.5,
+              1.2,
+              0
+            ],
+            "3.0": [
+              0,
+              0,
+              0
+            ]
+          }
+        },
+        "glaive_r": {
+          "scale": 0
+        },
+        "glaive_l": {
+          "scale": 0
+        }
+      }
+    },
+    "animation.illidan_elf.armed": {
+      "loop": true,
+      "animation_length": 3.0,
+      "bones": {
+        "arm_r": {
+          "rotation": [
+            -30,
+            0,
+            -6
+          ]
+        },
+        "arm_l": {
+          "rotation": [
+            -30,
+            0,
+            6
+          ]
+        },
+        "forearm_r": {
+          "rotation": [
+            -55,
+            0,
+            0
+          ]
+        },
+        "forearm_l": {
+          "rotation": [
+            -55,
+            0,
+            0
+          ]
+        },
+        "body": {
+          "position": {
+            "0.0": [
+              0,
+              0,
+              0
+            ],
+            "1.5": [
+              0,
+              -0.35,
+              0
+            ],
+            "3.0": [
+              0,
+              0,
+              0
+            ]
+          }
+        },
+        "head": {
+          "rotation": {
+            "0.0": [
+              0,
+              0,
+              0
+            ],
+            "1.5": [
+              1.5,
+              1.2,
+              0
+            ],
+            "3.0": [
+              0,
+              0,
+              0
+            ]
+          }
+        }
+      }
+    },
+    "animation.illidan_elf.walk": {
+      "loop": true,
+      "bones": {
+        "leg_r": {
+          "rotation": [
+            "Math.cos(query.limb_swing * 38.17) * 42 * query.limb_swing_amount",
+            0,
+            0
+          ]
+        },
+        "leg_l": {
+          "rotation": [
+            "Math.cos(query.limb_swing * 38.17 + 180) * 42 * query.limb_swing_amount",
+            0,
+            0
+          ]
+        },
+        "shin_r": {
+          "rotation": [
+            "Math.max(0, Math.cos(query.limb_swing * 38.17 + 70)) * 38 * query.limb_swing_amount",
+            0,
+            0
+          ]
+        },
+        "shin_l": {
+          "rotation": [
+            "Math.max(0, Math.cos(query.limb_swing * 38.17 + 250)) * 38 * query.limb_swing_amount",
+            0,
+            0
+          ]
+        },
+        "body": {
+          "rotation": [
+            0,
+            "Math.cos(query.limb_swing * 38.17) * 3 * query.limb_swing_amount",
+            0
+          ]
+        }
+      }
+    }
+  }
+}

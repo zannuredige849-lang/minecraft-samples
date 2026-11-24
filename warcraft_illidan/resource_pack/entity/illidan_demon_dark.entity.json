@@ -1,0 +1,37 @@
+{
+  "format_version": "1.10.0",
+  "minecraft:client_entity": {
+    "description": {
+      "identifier": "warcraft:illidan_demon_dark",
+      "min_engine_version": "1.16.0",
+      "materials": {
+        "default": "entity_alphatest"
+      },
+      "textures": {
+        "default": "textures/entity/illidan_demon_dark"
+      },
+      "geometry": {
+        "default": "geometry.illidan_demon_dark"
+      },
+      "animations": {
+        "idle": "animation.illidan_demon_dark.idle",
+        "walk": "animation.illidan_demon_dark.walk"
+      },
+      "scripts": {
+        "animate": [
+          "idle",
+          {
+            "walk": "query.limb_swing_amount > 0.05"
+          }
+        ]
+      },
+      "render_controllers": [
+        "controller.render.illidan"
+      ],
+      "spawn_egg": {
+        "base_color": "#3a2548",
+        "overlay_color": "#20d62a"
+      }
+    }
+  }
+}
