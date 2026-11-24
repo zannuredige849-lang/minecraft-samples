@@ -1,0 +1,29 @@
+{
+  "format_version": 2,
+  "header": {
+    "name": "Illidan Stormrage - Resources",
+    "description": "Illidan models: night elf, demon and dark demon forms.",
+    "uuid": "11bdbc39-2ec1-53d0-8d89-da03cced126b",
+    "version": [
+      1,
+      0,
+      0
+    ],
+    "min_engine_version": [
+      1,
+      20,
+      0
+    ]
+  },
+  "modules": [
+    {
+      "type": "resources",
+      "uuid": "53b64e87-c591-59cd-9d3a-4acdaeab56a8",
+      "version": [
+        1,
+        0,
+        0
+      ]
+    }
+  ]
+}

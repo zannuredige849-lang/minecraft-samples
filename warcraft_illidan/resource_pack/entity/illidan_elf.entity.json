@@ -1,0 +1,43 @@
+{
+  "format_version": "1.10.0",
+  "minecraft:client_entity": {
+    "description": {
+      "identifier": "warcraft:illidan_elf",
+      "min_engine_version": "1.16.0",
+      "materials": {
+        "default": "entity_alphatest"
+      },
+      "textures": {
+        "default": "textures/entity/illidan_elf"
+      },
+      "geometry": {
+        "default": "geometry.illidan_elf"
+      },
+      "animations": {
+        "crossed": "animation.illidan_elf.crossed",
+        "armed": "animation.illidan_elf.armed",
+        "walk": "animation.illidan_elf.walk"
+      },
+      "scripts": {
+        "animate": [
+          {
+            "crossed": "!query.has_target"
+          },
+          {
+            "armed": "query.has_target"
+          },
+          {
+            "walk": "query.limb_swing_amount > 0.05"
+          }
+        ]
+      },
+      "render_controllers": [
+        "controller.render.illidan"
+      ],
+      "spawn_egg": {
+        "base_color": "#2a2614",
+        "overlay_color": "#4d7d1c"
+      }
+    }
+  }
+}
