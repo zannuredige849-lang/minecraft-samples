@@ -1,0 +1,39 @@
+{
+  "format_version": 2,
+  "header": {
+    "name": "Great Unclean One - Behavior",
+    "description": "Great Unclean One boss entity.",
+    "uuid": "529d1cdf-f898-556b-b95b-ac1620185b89",
+    "version": [
+      1,
+      0,
+      0
+    ],
+    "min_engine_version": [
+      1,
+      21,
+      0
+    ]
+  },
+  "modules": [
+    {
+      "type": "data",
+      "uuid": "439668fa-8676-5ca2-aedb-67cf4713a6ec",
+      "version": [
+        1,
+        0,
+        0
+      ]
+    }
+  ],
+  "dependencies": [
+    {
+      "uuid": "a43fbfe8-d3d2-5a5f-ab7a-dbc98474c930",
+      "version": [
+        1,
+        0,
+        0
+      ]
+    }
+  ]
+}
