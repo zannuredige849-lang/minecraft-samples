@@ -205,31 +205,31 @@ def boot_paint(face, w, h):
 
 # ---- wings ---------------------------------------------------------------------------------------------
 def feather_paint(idx, length):
-    cols = [WG[0], WG[2], WG[1], WG[2], WG[0], WG[3]]
+    """one 4px-wide vertical strip of the wing membrane: long vertical streaks, darker towards the tip,
+    stair-stepped ragged lower edge (the stairs run diagonally across neighbouring strips)"""
+    cols = [WG[2], WG[0], WG[1], WG[0], WG[3], WG[2]]
 
     def f(face, w, h):
         if face in ("up", "down"):
-            return solid(WG_EDGE, w, h)
+            return Image.new("RGBA", (w, h), (0, 0, 0, 0))
         im = Image.new("RGBA", (w, h))
         px = im.load()
         for y in range(h):
             for x in range(w):
-                # long diagonal streaks: the stripe index drifts slowly with y
-                k = (x + y // 7 + idx) // 2
-                col = cols[k % len(cols)]
-                shade = 1.10 - 0.30 * y / max(1, h - 1)
+                gx = idx * 4 + x
+                col = cols[(gx * 5 + y // 13) % len(cols)]
+                if gx % 6 == 0:
+                    col = mix(col, WG_EDGE, 0.55)  # dark navy streak
+                shade = 1.10 - 0.38 * y / max(1, h - 1)
                 px[x, y] = lit(col, shade)
-            px[0, y] = WG_EDGE
-            if w > 2:
-                px[w - 1, y] = lit(WG_EDGE, 1.3)
-        # stair-stepped ragged tip with a dark navy outline row
         for x in range(w):
-            depth = (x * 2 + idx) % 6 + 1
-            for y in range(h - 1 - depth, h):
+            gx = idx * 4 + x
+            depth = 1 + (gx * 2) % 9
+            for y in range(h - depth, h):
                 if y >= 0:
                     px[x, y] = (0, 0, 0, 0)
-            if h - 2 - depth >= 0:
-                px[x, h - 2 - depth] = WG_EDGE
+            if h - depth - 1 >= 0:
+                px[x, h - depth - 1] = WG_EDGE
         return im
 
     return f
@@ -321,7 +321,7 @@ def build():
         B(f"glaive_{s}", f"forearm_{s}", (sx * 11, 21, -4))
         B(f"leg_{s}", "root", (sx * 3.5, LEG, 0))
         B(f"shin_{s}", f"leg_{s}", (sx * 3.5, 13, 0))
-        B(f"wing_{s}", "body", (sx * 4, 34, 6), rot=[4, sx * 14, 0])
+        B(f"wing_{s}", "body", (sx * 4, 34, 6), rot=[4, sx * 16, sx * 10])
     B("loin", "body", (0, 22, -5))
     B("tail_cloth", "body", (0, 22, 5))
 
@@ -371,20 +371,24 @@ def build():
         bx = 0.5 if sx > 0 else -6.5
         m.cube(f"shin_{s}", [bx, 0, -4.5], [6, 4, 8], boot_paint)
 
-    # ---- wings: leading bar + fan of long feathers + hooked claw
+    # ---- wings: hanging membrane of vertical feather strips under a slanted lilac leading edge + hook
     for s, sx in (("r", 1), ("l", -1)):
         bone = f"wing_{s}"
         pv = [sx * 4, 34, 6]
-        bar_len = 38
-        ang = -sx * 33
-        m.cube(bone, [sx * 4 - 1.5, 34, 6], [3, bar_len, 2], bar_paint, pivot=pv, rot=[0, 0, ang])
-        angles = [40, 50, 60, 70, 80, 90, 100, 110, 120]
-        lens = [37, 39, 41, 42, 42, 41, 39, 36, 33]
-        for i, (a, ln) in enumerate(zip(angles, lens)):
-            m.cube(bone, [sx * 4 - 4.5, 34, 6.5 + i * 0.1], [9, ln, 1], feather_paint(i, ln), pivot=pv, rot=[0, 0, -sx * a])
-        top = [sx * 4 - 0.5, 34 + bar_len, 6.5]
-        m.cube(bone, top, [1, 4, 1], claw_paint, pivot=pv, rot=[0, 0, ang])
-        m.cube(bone, [top[0] + (1 if sx > 0 else -3), top[1] + 3, top[2]], [3, 1, 1], claw_paint, pivot=pv, rot=[0, 0, ang])
+        n_strips, sw = 8, 4
+        for i in range(n_strips):
+            top = 33.5 + 0.4452 * (sw * (i + 1)) + 0.6
+            bottom = 9 - 0.5 * i
+            x0 = 4 + sw * i if sx > 0 else -(4 + sw * (i + 1))
+            m.cube(bone, [x0, bottom, 6.6], [sw, round(top - bottom), 1], feather_paint(i, round(top - bottom)))
+        blen = sw * n_strips
+        slope = 24 * sx
+        bx = 4 if sx > 0 else -(4 + blen)
+        m.cube(bone, [bx, 33.5, 6], [blen, 3, 2], bar_paint, pivot=[sx * 4, 33.5, 6], rot=[0, 0, slope])
+        ex = (4 + blen - 1) if sx > 0 else -(4 + blen)
+        m.cube(bone, [ex, 36.0, 6.5], [1, 5, 1], claw_paint, pivot=[sx * 4, 33.5, 6], rot=[0, 0, slope])
+        hx = ex - 3 if sx > 0 else ex + 1
+        m.cube(bone, [hx, 40.0, 6.5], [3, 1, 1], claw_paint, pivot=[sx * 4, 33.5, 6], rot=[0, 0, slope])
 
     # ---- warglaives: skull guard + curved red/cream blades both ways
     for s, sx in (("r", 1), ("l", -1)):

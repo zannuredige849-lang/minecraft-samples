@@ -194,6 +194,23 @@ def boot_paint(face, w, h):
     return layer(shaded(BOOT, bands=3, top=1.4, bottom=0.9), edge(GOLD, ("top",)))(face, w, h)
 
 
+BACK_PLATE = [
+    ".OOO..OOO.",
+    "OOOOGGOOOO",
+    ".OOGGGGOO.",
+    "OOOOGGOOOO",
+    ".OOO..OOO.",
+]
+
+
+def back_plate_paint(face, w, h):
+    base = layer(shaded(hexc("#a89a26"), bands=3, top=1.12, bottom=0.82), edge(GOLD_D, ("top", "bottom", "left", "right")))
+    im = base(face, w, h)
+    if face == "south":
+        art(BACK_PLATE, {"O": hexc("#c8801c"), "G": GRN_L}, 0, 1)("south", im, w, h)
+    return im
+
+
 def sash_paint(face, w, h):
     return layer(shaded(GRN, bands=3, top=1.15, bottom=0.8), edge(GOLD, ("top", "bottom")))(face, w, h)
 
@@ -203,7 +220,13 @@ def collar_paint(face, w, h):
 
 
 # ---- Azzinoth glaive ------------------------------------------------------------------------------------
+MOTTLE = [hexc("#77753a"), hexc("#6d8e32"), hexc("#a9a37e"), hexc("#585334"), hexc("#6d8e32")]
+
+
 def glaive_blade_paint(i, side):
+    """leafy Azzinoth blade: mottled grey-green bone spine down the middle, saturated green leaf edges
+    with ragged pixel-leaf teeth on both sides"""
+
     def f(face, w, h):
         if face in ("up", "down"):
             return solid(GRN_D if face == "down" else GRN, w, h)
@@ -212,19 +235,21 @@ def glaive_blade_paint(i, side):
         mid = h // 2
         for y in range(h):
             for x in range(w):
-                if y == mid:
-                    px[x, y] = BONE_L if (x + i) % 3 else BONE
-                elif abs(y - mid) == 1:
-                    px[x, y] = GRN_L if (x + i) % 2 else GRN
+                gx = x + i * 9
+                d = abs(y - mid)
+                if d <= 1:
+                    px[x, y] = MOTTLE[(gx * 3 + y) % len(MOTTLE)]
+                elif d == 2:
+                    px[x, y] = GRN_L if gx % 3 else GRN
                 else:
-                    px[x, y] = GRN_D if (x * 2 + y) % 7 == 0 else GRN
-        # leafy jagged upper and lower edges
+                    px[x, y] = GRN if (gx + y) % 4 else GRN_D
         for x in range(w):
-            ta = (x * 2 + i) % 4
-            for y in range(0, ta):
+            gx = x + i * 9
+            up = [0, 2, 1, 3, 0, 2, 3, 1][gx % 8] if h >= 6 else 0
+            dn = [2, 0, 3, 1, 2, 0, 1, 3][(gx + 3) % 8] if h >= 6 else 0
+            for y in range(0, up):
                 px[x, y] = (0, 0, 0, 0)
-            tb = (x * 3 + i + 1) % 4
-            for y in range(h - tb, h):
+            for y in range(h - dn, h):
                 px[x, y] = (0, 0, 0, 0)
         return im
 
@@ -264,6 +289,7 @@ def build():
     m.cube("body", [-5.5, 20, -3.5], [11, 7, 7], chest_paint)
     m.cube("body", [-5.5, 15, -3.5], [11, 2, 7], belt_paint, inflate=0.2)
     m.cube("body", [-3, 26, -3.4], [6, 1, 6.8 if False else 7], collar_paint, inflate=0.1)
+    m.cube("body", [-5, 19.5, 3.6], [10, 7, 1], back_plate_paint)
     m.cube("tabard", [-3, 7, -4.2], [6, 10, 1], tasset_paint(False))
     m.cube("tabard", [-3, 7, 3.2], [6, 10, 1], tasset_paint(False))
     m.cube("tasset_r", [5.0, 8, -4.1], [5, 8, 1], tasset_paint(True), pivot=[5, 16, -3.5], rot=[0, 0, -16])
@@ -272,7 +298,7 @@ def build():
     # head
     m.cube("head", [-4, 27, -4], [8, 8, 8], head_paint)
     m.cube("head", [-4, 33, -4], [8, 2, 8], hair_paint, inflate=0.35)
-    m.cube("hair_back", [-4.5, 21, 4], [9, 14, 2], hair_paint)
+    m.cube("hair_back", [-4.5, 27, 4], [9, 8, 2], hair_paint)
     for s, sx in (("r", 1), ("l", -1)):
         lx = 3.8 if sx > 0 else -6.2
         m.cube(f"lock_{s}", [lx, 22, -3], [2.4 if False else 2, 11, 6], lock_paint)
@@ -318,7 +344,7 @@ def build():
         for side in (1, -1):
             chain_xy(
                 m, bone, (cx + side * 2.0, 14.5, z - 0.3),
-                [(8, 6, 1, 4), (8, 6, 1, 12), (7, 5, 1, 18)],
+                [(9, 7, 1, 3), (9, 7, 1, 9), (8, 6, 1, 14)],
                 side=side, factory=lambda i, side=side: glaive_blade_paint(i, side), tag="glaive",
             )
     m.pack()

@@ -138,21 +138,29 @@ def spiral_paint(face, w, h):
 
 
 def wing_paint(idx, ln, solid_core=True):
+    """4px vertical membrane strip, obsidian streaks, crumbling stair-stepped lower end"""
+    cols = [OB, OB_L, OB_D, OB_L, OB, OB_LL]
+
     def f(face, w, h):
         if face in ("up", "down"):
-            return solid(OB_D, w, h)
+            return Image.new("RGBA", (w, h), (0, 0, 0, 0))
         im = Image.new("RGBA", (w, h))
         px = im.load()
         for y in range(h):
             for x in range(w):
-                col = [OB, OB_L, OB_D, OB_L, OB][(x + y // 6 + idx) % 5]
-                px[x, y] = lit(col, 1.12 - 0.3 * y / max(1, h - 1))
-            px[0, y] = OB_DD
-        # crumbling lower end: ragged and dithered
+                gx = idx * 4 + x
+                col = cols[(gx * 5 + y // 11) % len(cols)]
+                if gx % 6 == 0:
+                    col = mix(col, OB_DD, 0.6)
+                px[x, y] = lit(col, 1.1 - 0.3 * y / max(1, h - 1))
         for x in range(w):
-            depth = (x * 3 + idx * 2) % 7 + 3
-            for y in range(max(0, h - depth - 6), h):
-                if y > h - depth or ((x + y + idx) % 2 == 0 and y > h - depth - 6):
+            gx = idx * 4 + x
+            depth = 2 + (gx * 3) % 8
+            for y in range(h - depth, h):
+                px[x, y] = (0, 0, 0, 0)
+            # dithered crumble zone above the cut
+            for y in range(max(0, h - depth - 5), h - depth):
+                if (gx + y) % 3 == 0:
                     px[x, y] = (0, 0, 0, 0)
         return im
 
@@ -181,7 +189,7 @@ def build():
         B(f"forearm_{s}", f"arm_{s}", (sx * 11, 28, 0))
         B(f"leg_{s}", "root", (sx * 3.5, LEG, 0))
         B(f"shin_{s}", f"leg_{s}", (sx * 3.5, 13, 0))
-        B(f"wing_{s}", "body", (sx * 4, 34, 6), rot=[4, sx * 14, 0])
+        B(f"wing_{s}", "body", (sx * 4, 34, 6), rot=[4, sx * 16, sx * 10])
 
     # torso
     m.cube("body", [-5.5, 25, -3.5], [11, 3, 7], obsidian(OB_D))
@@ -232,24 +240,29 @@ def build():
     m.cube("body", [-8, 21, -4.5], [16, 1, 9], layer(obsidian(OB_D), only(SIDES, lambda f, im, w, h: ImageDraw.Draw(im).rectangle([0, 0, w - 1, 0], fill=GR))), inflate=0.1)
     m.cube("tail", [-1, 14, 3.5], [2, 12, 2], obsidian(OB_D), pivot=[0, 26, 4], rot=[-30, 0, 0])
 
-    # wings: solid bone-like core + dissolving pixel cloud
+    # wings: hanging obsidian membrane (vertical strips) under a slanted bone edge, crumbling into pixels
     for s, sx in (("r", 1), ("l", -1)):
         bone = f"wing_{s}"
-        pv = [sx * 4, 34, 6]
-        m.cube(bone, [sx * 4 - 1.5, 34, 6], [3, 36, 2], obsidian(OB_LL), pivot=pv, rot=[0, 0, -sx * 33])
-        for i, (a, ln) in enumerate(zip([40, 50, 60, 70, 80, 90, 100, 110], [40, 42, 42, 40, 38, 36, 33, 30])):
-            m.cube(bone, [sx * 4 - 4.5, 34, 6.5 + i * 0.1], [9, ln, 1], wing_paint(i, ln), pivot=pv, rot=[0, 0, -sx * a])
-        # pixel cloud beyond the solid part
+        pv = [sx * 4, 33.5, 6]
+        n_strips, sw = 8, 4
+        for i in range(n_strips):
+            top = 33.5 + 0.4452 * (sw * (i + 1)) + 0.6
+            bottom = 10 - 0.5 * i
+            x0 = 4 + sw * i if sx > 0 else -(4 + sw * (i + 1))
+            m.cube(bone, [x0, bottom, 6.6], [sw, round(top - bottom), 1], wing_paint(i, round(top - bottom)))
+        blen = sw * n_strips
+        bx = 4 if sx > 0 else -(4 + blen)
+        m.cube(bone, [bx, 33.5, 6], [blen, 3, 2], obsidian(OB_LL), pivot=pv, rot=[0, 0, 24 * sx])
         rr = random.Random(11 + sx)
-        for k in range(110):
-            a = math.radians(rr.uniform(36, 100))
-            r = rr.uniform(34, 58)
-            if rr.random() < (r - 34) / 30 * 0.6:
+        for k in range(70):
+            d = rr.uniform(6, 44)  # distance outward along the wing
+            y = rr.uniform(-4, 22)  # position below the leading edge area
+            if y > 14 and rr.random() < 0.5:
                 continue
             size = rr.choice([2, 2, 3, 3, 4])
-            x = sx * 4 + sx * math.sin(a) * r
-            y = 34 + math.cos(a) * r
-            m.cube(bone, [x - size / 2, y - size / 2, 6.3], [size, size, 1], scrap_paint, uvkey=f"scrap{size}")
+            x = sx * (4 + d)
+            yy = (33.5 + 0.4452 * d) - 8 - y * 1.2
+            m.cube(bone, [x - size / 2, yy - size / 2, 6.3], [size, size, 1], scrap_paint, uvkey=f"scrap{size}")
     m.pack()
     return m
 
