@@ -1,0 +1,4 @@
+entity.warcraft:arthas.name=Arthas Menethil, the Lich King
+item.spawn_egg.entity.warcraft:arthas.name=Spawn Arthas Menethil
+item.warcraft:frostmourne.name=Frostmourne
+itemGroup.name.sword=Swords

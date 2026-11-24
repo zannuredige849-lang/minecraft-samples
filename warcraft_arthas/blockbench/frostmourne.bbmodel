@@ -1,0 +1,3793 @@
+{
+  "meta": {
+    "format_version": "5.0",
+    "model_format": "bedrock",
+    "box_uv": true
+  },
+  "name": "frostmourne",
+  "model_identifier": "warcraft_frostmourne",
+  "visible_box": [
+    2,
+    3.4,
+    1.4
+  ],
+  "variable_placeholders": "",
+  "bedrock_animation_mode": "entity",
+  "timeline_setups": [],
+  "unhandled_root_fields": {},
+  "resolution": {
+    "width": 128,
+    "height": 128
+  },
+  "elements": [
+    {
+      "name": "grip",
+      "from": [
+        0,
+        14,
+        0
+      ],
+      "color": 0,
+      "locked": false,
+      "type": "locator",
+      "uuid": "748baa5a-2241-5867-8596-72178e482936"
+    },
+    {
+      "name": "pommel",
+      "from": [
+        0,
+        5,
+        0
+      ],
+      "color": 0,
+      "locked": false,
+      "type": "locator",
+      "uuid": "f1455153-a150-5126-9c94-851687d6bf21"
+    },
+    {
+      "name": "guard",
+      "from": [
+        0,
+        18.5,
+        0
+      ],
+      "color": 0,
+      "locked": false,
+      "type": "locator",
+      "uuid": "4e0ea064-6eb8-547f-aa4e-6efc6bc8fe5f"
+    },
+    {
+      "name": "blade_mid",
+      "from": [
+        0,
+        31,
+        0
+      ],
+      "color": 0,
+      "locked": false,
+      "type": "locator",
+      "uuid": "da4c337f-a17e-5327-b491-c698b5326dcd"
+    },
+    {
+      "name": "sword_tip",
+      "from": [
+        0,
+        44,
+        0
+      ],
+      "color": 0,
+      "locked": false,
+      "type": "locator",
+      "uuid": "d278150c-be50-564b-b7f6-7da5889f5f26"
+    },
+    {
+      "name": "frostmourne_blade_0",
+      "box_uv": true,
+      "rescale": false,
+      "locked": false,
+      "light_emission": 0,
+      "render_order": "default",
+      "allow_mirror_modeling": false,
+      "visibility": true,
+      "from": [
+        -2,
+        20,
+        -0.5
+      ],
+      "to": [
+        2,
+        22,
+        0.5
+      ],
+      "autouv": 0,
+      "color": 0,
+      "inflate": 0.0,
+      "origin": [
+        0,
+        14,
+        0
+      ],
+      "uv_offset": [
+        76,
+        24
+      ],
+      "mirror_uv": false,
+      "faces": {
+        "north": {
+          "uv": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "texture": 0
+        },
+        "east": {
+          "uv": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "texture": 0
+        },
+        "south": {
+          "uv": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "texture": 0
+        },
+        "west": {
+          "uv": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "texture": 0
+        },
+        "up": {
+          "uv": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "texture": 0
+        },
+        "down": {
+          "uv": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "texture": 0
+        }
+      },
+      "type": "cube",
+      "uuid": "e637174b-efa3-54a0-9c78-970e9f05f899"
+    },
+    {
+      "name": "frostmourne_blade_1",
+      "box_uv": true,
+      "rescale": false,
+      "locked": false,
+      "light_emission": 0,
+      "render_order": "default",
+      "allow_mirror_modeling": false,
+      "visibility": true,
+      "from": [
+        -2.5,
+        22,
+        -0.5
+      ],
+      "to": [
+        2.5,
+        25,
+        0.5
+      ],
+      "autouv": 0,
+      "color": 0,
+      "inflate": 0.0,
+      "origin": [
+        0,
+        14,
+        0
+      ],
+      "uv_offset": [
+        72,
+        0
+      ],
+      "mirror_uv": false,
+      "faces": {
+        "north": {
+          "uv": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "texture": 0
+        },
+        "east": {
+          "uv": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "texture": 0
+        },
+        "south": {
+          "uv": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "texture": 0
+        },
+        "west": {
+          "uv": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "texture": 0
+        },
+        "up": {
+          "uv": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "texture": 0
+        },
+        "down": {
+          "uv": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "texture": 0
+        }
+      },
+      "type": "cube",
+      "uuid": "2f2349d3-f9b7-550d-8f88-21481561c14f"
+    },
+    {
+      "name": "frostmourne_blade_2",
+      "box_uv": true,
+      "rescale": false,
+      "locked": false,
+      "light_emission": 0,
+      "render_order": "default",
+      "allow_mirror_modeling": false,
+      "visibility": true,
+      "from": [
+        -2.5,
+        25,
+        -0.5
+      ],
+      "to": [
+        2.5,
+        29,
+        0.5
+      ],
+      "autouv": 0,
+      "color": 0,
+      "inflate": 0.0,
+      "origin": [
+        0,
+        14,
+        0
+      ],
+      "uv_offset": [
+        28,
+        0
+      ],
+      "mirror_uv": false,
+      "faces": {
+        "north": {
+          "uv": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "texture": 0
+        },
+        "east": {
+          "uv": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "texture": 0
+        },
+        "south": {
+          "uv": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "texture": 0
+        },
+        "west": {
+          "uv": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "texture": 0
+        },
+        "up": {
+          "uv": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "texture": 0
+        },
+        "down": {
+          "uv": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "texture": 0
+        }
+      },
+      "type": "cube",
+      "uuid": "8f0146f2-9bdb-5900-9d07-f48d6af60c6c"
+    },
+    {
+      "name": "frostmourne_blade_3",
+      "box_uv": true,
+      "rescale": false,
+      "locked": false,
+      "light_emission": 0,
+      "render_order": "default",
+      "allow_mirror_modeling": false,
+      "visibility": true,
+      "from": [
+        -2,
+        29,
+        -0.5
+      ],
+      "to": [
+        2,
+        33,
+        0.5
+      ],
+      "autouv": 0,
+      "color": 0,
+      "inflate": 0.0,
+      "origin": [
+        0,
+        14,
+        0
+      ],
+      "uv_offset": [
+        52,
+        0
+      ],
+      "mirror_uv": false,
+      "faces": {
+        "north": {
+          "uv": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "texture": 0
+        },
+        "east": {
+          "uv": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "texture": 0
+        },
+        "south": {
+          "uv": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "texture": 0
+        },
+        "west": {
+          "uv": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "texture": 0
+        },
+        "up": {
+          "uv": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "texture": 0
+        },
+        "down": {
+          "uv": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "texture": 0
+        }
+      },
+      "type": "cube",
+      "uuid": "8e74b808-b400-5013-9f0b-8f004a4c80d7"
+    },
+    {
+      "name": "frostmourne_blade_4",
+      "box_uv": true,
+      "rescale": false,
+      "locked": false,
+      "light_emission": 0,
+      "render_order": "default",
+      "allow_mirror_modeling": false,
+      "visibility": true,
+      "from": [
+        -2,
+        33,
+        -0.5
+      ],
+      "to": [
+        2,
+        37,
+        0.5
+      ],
+      "autouv": 0,
+      "color": 0,
+      "inflate": 0.0,
+      "origin": [
+        0,
+        14,
+        0
+      ],
+      "uv_offset": [
+        62,
+        0
+      ],
+      "mirror_uv": false,
+      "faces": {
+        "north": {
+          "uv": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "texture": 0
+        },
+        "east": {
+          "uv": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "texture": 0
+        },
+        "south": {
+          "uv": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "texture": 0
+        },
+        "west": {
+          "uv": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "texture": 0
+        },
+        "up": {
+          "uv": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "texture": 0
+        },
+        "down": {
+          "uv": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "texture": 0
+        }
+      },
+      "type": "cube",
+      "uuid": "e8e13cea-9dbc-5e70-8ae2-a92c668cf03b"
+    },
+    {
+      "name": "frostmourne_blade_5",
+      "box_uv": true,
+      "rescale": false,
+      "locked": false,
+      "light_emission": 0,
+      "render_order": "default",
+      "allow_mirror_modeling": false,
+      "visibility": true,
+      "from": [
+        -1.5,
+        37,
+        -0.5
+      ],
+      "to": [
+        1.5,
+        40,
+        0.5
+      ],
+      "autouv": 0,
+      "color": 0,
+      "inflate": 0.0,
+      "origin": [
+        0,
+        14,
+        0
+      ],
+      "uv_offset": [
+        36,
+        24
+      ],
+      "mirror_uv": false,
+      "faces": {
+        "north": {
+          "uv": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "texture": 0
+        },
+        "east": {
+          "uv": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "texture": 0
+        },
+        "south": {
+          "uv": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "texture": 0
+        },
+        "west": {
+          "uv": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "texture": 0
+        },
+        "up": {
+          "uv": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "texture": 0
+        },
+        "down": {
+          "uv": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "texture": 0
+        }
+      },
+      "type": "cube",
+      "uuid": "d591fd18-643c-53fd-9586-cddfafa8b189"
+    },
+    {
+      "name": "frostmourne_blade_6",
+      "box_uv": true,
+      "rescale": false,
+      "locked": false,
+      "light_emission": 0,
+      "render_order": "default",
+      "allow_mirror_modeling": false,
+      "visibility": true,
+      "from": [
+        -1,
+        40,
+        -0.5
+      ],
+      "to": [
+        1,
+        42,
+        0.5
+      ],
+      "autouv": 0,
+      "color": 0,
+      "inflate": 0.0,
+      "origin": [
+        0,
+        14,
+        0
+      ],
+      "uv_offset": [
+        106,
+        24
+      ],
+      "mirror_uv": false,
+      "faces": {
+        "north": {
+          "uv": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "texture": 0
+        },
+        "east": {
+          "uv": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "texture": 0
+        },
+        "south": {
+          "uv": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "texture": 0
+        },
+        "west": {
+          "uv": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "texture": 0
+        },
+        "up": {
+          "uv": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "texture": 0
+        },
+        "down": {
+          "uv": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "texture": 0
+        }
+      },
+      "type": "cube",
+      "uuid": "023c8776-5209-57dd-aba1-30a7757f7f12"
+    },
+    {
+      "name": "frostmourne_blade_7",
+      "box_uv": true,
+      "rescale": false,
+      "locked": false,
+      "light_emission": 0,
+      "render_order": "default",
+      "allow_mirror_modeling": false,
+      "visibility": true,
+      "from": [
+        -0.5,
+        42,
+        -0.5
+      ],
+      "to": [
+        0.5,
+        44,
+        0.5
+      ],
+      "autouv": 0,
+      "color": 0,
+      "inflate": 0.0,
+      "origin": [
+        0,
+        14,
+        0
+      ],
+      "uv_offset": [
+        112,
+        24
+      ],
+      "mirror_uv": false,
+      "faces": {
+        "north": {
+          "uv": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "texture": 0
+        },
+        "east": {
+          "uv": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "texture": 0
+        },
+        "south": {
+          "uv": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "texture": 0
+        },
+        "west": {
+          "uv": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "texture": 0
+        },
+        "up": {
+          "uv": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "texture": 0
+        },
+        "down": {
+          "uv": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "texture": 0
+        }
+      },
+      "type": "cube",
+      "uuid": "b4a43a2a-b1ba-52e4-9196-9989da9917c6"
+    },
+    {
+      "name": "frostmourne_blade_8",
+      "box_uv": true,
+      "rescale": false,
+      "locked": false,
+      "light_emission": 0,
+      "render_order": "default",
+      "allow_mirror_modeling": false,
+      "visibility": true,
+      "from": [
+        -0.5,
+        44,
+        -0.5
+      ],
+      "to": [
+        0.5,
+        46,
+        0.5
+      ],
+      "autouv": 0,
+      "color": 0,
+      "inflate": -0.2,
+      "origin": [
+        0,
+        14,
+        0
+      ],
+      "uv_offset": [
+        116,
+        24
+      ],
+      "mirror_uv": false,
+      "faces": {
+        "north": {
+          "uv": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "texture": 0
+        },
+        "east": {
+          "uv": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "texture": 0
+        },
+        "south": {
+          "uv": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "texture": 0
+        },
+        "west": {
+          "uv": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "texture": 0
+        },
+        "up": {
+          "uv": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "texture": 0
+        },
+        "down": {
+          "uv": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "texture": 0
+        }
+      },
+      "type": "cube",
+      "uuid": "a0fd927d-f5fb-5b4c-a822-95a2204e3d27"
+    },
+    {
+      "name": "frostmourne_blade_9",
+      "box_uv": true,
+      "rescale": false,
+      "locked": false,
+      "light_emission": 0,
+      "render_order": "default",
+      "allow_mirror_modeling": false,
+      "visibility": true,
+      "from": [
+        -0.5,
+        21,
+        -1
+      ],
+      "to": [
+        0.5,
+        43,
+        1
+      ],
+      "autouv": 0,
+      "color": 0,
+      "inflate": 0.0,
+      "origin": [
+        0,
+        14,
+        0
+      ],
+      "uv_offset": [
+        0,
+        0
+      ],
+      "mirror_uv": false,
+      "faces": {
+        "north": {
+          "uv": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "texture": 0
+        },
+        "east": {
+          "uv": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "texture": 0
+        },
+        "south": {
+          "uv": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "texture": 0
+        },
+        "west": {
+          "uv": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "texture": 0
+        },
+        "up": {
+          "uv": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "texture": 0
+        },
+        "down": {
+          "uv": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "texture": 0
+        }
+      },
+      "type": "cube",
+      "uuid": "2f5d8e75-0539-59d5-81a0-83ab957ab09e"
+    },
+    {
+      "name": "frostmourne_blade_10",
+      "box_uv": true,
+      "rescale": false,
+      "locked": false,
+      "light_emission": 0,
+      "render_order": "default",
+      "allow_mirror_modeling": false,
+      "visibility": true,
+      "from": [
+        -3.4,
+        26,
+        -0.5
+      ],
+      "to": [
+        -2.4,
+        28,
+        0.5
+      ],
+      "autouv": 0,
+      "color": 0,
+      "inflate": -0.1,
+      "origin": [
+        0,
+        14,
+        0
+      ],
+      "uv_offset": [
+        120,
+        24
+      ],
+      "mirror_uv": false,
+      "faces": {
+        "north": {
+          "uv": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "texture": 0
+        },
+        "east": {
+          "uv": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "texture": 0
+        },
+        "south": {
+          "uv": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "texture": 0
+        },
+        "west": {
+          "uv": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "texture": 0
+        },
+        "up": {
+          "uv": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "texture": 0
+        },
+        "down": {
+          "uv": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "texture": 0
+        }
+      },
+      "type": "cube",
+      "uuid": "b47e8565-e74e-5816-8dd0-a57503e22509"
+    },
+    {
+      "name": "frostmourne_blade_11",
+      "box_uv": true,
+      "rescale": false,
+      "locked": false,
+      "light_emission": 0,
+      "render_order": "default",
+      "allow_mirror_modeling": false,
+      "visibility": true,
+      "from": [
+        2.4,
+        26,
+        -0.5
+      ],
+      "to": [
+        3.4,
+        28,
+        0.5
+      ],
+      "autouv": 0,
+      "color": 0,
+      "inflate": -0.1,
+      "origin": [
+        0,
+        14,
+        0
+      ],
+      "uv_offset": [
+        124,
+        24
+      ],
+      "mirror_uv": false,
+      "faces": {
+        "north": {
+          "uv": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "texture": 0
+        },
+        "east": {
+          "uv": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "texture": 0
+        },
+        "south": {
+          "uv": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "texture": 0
+        },
+        "west": {
+          "uv": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "texture": 0
+        },
+        "up": {
+          "uv": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "texture": 0
+        },
+        "down": {
+          "uv": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "texture": 0
+        }
+      },
+      "type": "cube",
+      "uuid": "46c96564-4ddc-56ca-be03-7c859751943a"
+    },
+    {
+      "name": "frostmourne_blade_12",
+      "box_uv": true,
+      "rescale": false,
+      "locked": false,
+      "light_emission": 0,
+      "render_order": "default",
+      "allow_mirror_modeling": false,
+      "visibility": true,
+      "from": [
+        -2.9,
+        31,
+        -0.5
+      ],
+      "to": [
+        -1.9,
+        33,
+        0.5
+      ],
+      "autouv": 0,
+      "color": 0,
+      "inflate": -0.1,
+      "origin": [
+        0,
+        14,
+        0
+      ],
+      "uv_offset": [
+        0,
+        28
+      ],
+      "mirror_uv": false,
+      "faces": {
+        "north": {
+          "uv": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "texture": 0
+        },
+        "east": {
+          "uv": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "texture": 0
+        },
+        "south": {
+          "uv": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "texture": 0
+        },
+        "west": {
+          "uv": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "texture": 0
+        },
+        "up": {
+          "uv": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "texture": 0
+        },
+        "down": {
+          "uv": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "texture": 0
+        }
+      },
+      "type": "cube",
+      "uuid": "a08e3b25-6bab-5dbe-9205-0a5366722366"
+    },
+    {
+      "name": "frostmourne_blade_13",
+      "box_uv": true,
+      "rescale": false,
+      "locked": false,
+      "light_emission": 0,
+      "render_order": "default",
+      "allow_mirror_modeling": false,
+      "visibility": true,
+      "from": [
+        1.9,
+        31,
+        -0.5
+      ],
+      "to": [
+        2.9,
+        33,
+        0.5
+      ],
+      "autouv": 0,
+      "color": 0,
+      "inflate": -0.1,
+      "origin": [
+        0,
+        14,
+        0
+      ],
+      "uv_offset": [
+        4,
+        28
+      ],
+      "mirror_uv": false,
+      "faces": {
+        "north": {
+          "uv": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "texture": 0
+        },
+        "east": {
+          "uv": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "texture": 0
+        },
+        "south": {
+          "uv": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "texture": 0
+        },
+        "west": {
+          "uv": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "texture": 0
+        },
+        "up": {
+          "uv": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "texture": 0
+        },
+        "down": {
+          "uv": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "texture": 0
+        }
+      },
+      "type": "cube",
+      "uuid": "d64b4139-ec32-5ccc-acd7-31af13b546a3"
+    },
+    {
+      "name": "frostmourne_blade_14",
+      "box_uv": true,
+      "rescale": false,
+      "locked": false,
+      "light_emission": 0,
+      "render_order": "default",
+      "allow_mirror_modeling": false,
+      "visibility": true,
+      "from": [
+        -2.9,
+        35,
+        -0.5
+      ],
+      "to": [
+        -1.9,
+        37,
+        0.5
+      ],
+      "autouv": 0,
+      "color": 0,
+      "inflate": -0.1,
+      "origin": [
+        0,
+        14,
+        0
+      ],
+      "uv_offset": [
+        8,
+        28
+      ],
+      "mirror_uv": false,
+      "faces": {
+        "north": {
+          "uv": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "texture": 0
+        },
+        "east": {
+          "uv": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "texture": 0
+        },
+        "south": {
+          "uv": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "texture": 0
+        },
+        "west": {
+          "uv": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "texture": 0
+        },
+        "up": {
+          "uv": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "texture": 0
+        },
+        "down": {
+          "uv": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "texture": 0
+        }
+      },
+      "type": "cube",
+      "uuid": "b4411a00-8e60-5964-9476-d56060406967"
+    },
+    {
+      "name": "frostmourne_blade_15",
+      "box_uv": true,
+      "rescale": false,
+      "locked": false,
+      "light_emission": 0,
+      "render_order": "default",
+      "allow_mirror_modeling": false,
+      "visibility": true,
+      "from": [
+        1.9,
+        35,
+        -0.5
+      ],
+      "to": [
+        2.9,
+        37,
+        0.5
+      ],
+      "autouv": 0,
+      "color": 0,
+      "inflate": -0.1,
+      "origin": [
+        0,
+        14,
+        0
+      ],
+      "uv_offset": [
+        12,
+        28
+      ],
+      "mirror_uv": false,
+      "faces": {
+        "north": {
+          "uv": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "texture": 0
+        },
+        "east": {
+          "uv": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "texture": 0
+        },
+        "south": {
+          "uv": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "texture": 0
+        },
+        "west": {
+          "uv": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "texture": 0
+        },
+        "up": {
+          "uv": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "texture": 0
+        },
+        "down": {
+          "uv": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "texture": 0
+        }
+      },
+      "type": "cube",
+      "uuid": "8fc6bb07-e3ef-5963-bbcd-a7bb65a5e8d9"
+    },
+    {
+      "name": "frostmourne_blade_16",
+      "box_uv": true,
+      "rescale": false,
+      "locked": false,
+      "light_emission": 0,
+      "render_order": "default",
+      "allow_mirror_modeling": false,
+      "visibility": true,
+      "from": [
+        1.5,
+        21.5,
+        -0.5
+      ],
+      "to": [
+        5.5,
+        23.5,
+        0.5
+      ],
+      "autouv": 0,
+      "color": 0,
+      "inflate": -0.15,
+      "origin": [
+        3.5,
+        22.5,
+        0
+      ],
+      "uv_offset": [
+        86,
+        24
+      ],
+      "mirror_uv": false,
+      "faces": {
+        "north": {
+          "uv": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "texture": 0
+        },
+        "east": {
+          "uv": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "texture": 0
+        },
+        "south": {
+          "uv": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "texture": 0
+        },
+        "west": {
+          "uv": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "texture": 0
+        },
+        "up": {
+          "uv": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "texture": 0
+        },
+        "down": {
+          "uv": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "texture": 0
+        }
+      },
+      "type": "cube",
+      "uuid": "58887089-631d-521d-9188-354e04c7f372",
+      "rotation": [
+        0,
+        0,
+        135
+      ]
+    },
+    {
+      "name": "frostmourne_blade_17",
+      "box_uv": true,
+      "rescale": false,
+      "locked": false,
+      "light_emission": 0,
+      "render_order": "default",
+      "allow_mirror_modeling": false,
+      "visibility": true,
+      "from": [
+        -5.5,
+        21.5,
+        -0.5
+      ],
+      "to": [
+        -1.5,
+        23.5,
+        0.5
+      ],
+      "autouv": 0,
+      "color": 0,
+      "inflate": -0.15,
+      "origin": [
+        -3.5,
+        22.5,
+        0
+      ],
+      "uv_offset": [
+        96,
+        24
+      ],
+      "mirror_uv": false,
+      "faces": {
+        "north": {
+          "uv": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "texture": 0
+        },
+        "east": {
+          "uv": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "texture": 0
+        },
+        "south": {
+          "uv": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "texture": 0
+        },
+        "west": {
+          "uv": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "texture": 0
+        },
+        "up": {
+          "uv": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "texture": 0
+        },
+        "down": {
+          "uv": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "texture": 0
+        }
+      },
+      "type": "cube",
+      "uuid": "79cf5284-d06c-5419-b3fd-f1df4a2ba941",
+      "rotation": [
+        0,
+        0,
+        45
+      ]
+    },
+    {
+      "name": "frostmourne_guard_0",
+      "box_uv": true,
+      "rescale": false,
+      "locked": false,
+      "light_emission": 0,
+      "render_order": "default",
+      "allow_mirror_modeling": false,
+      "visibility": true,
+      "from": [
+        -2,
+        17,
+        -1.5
+      ],
+      "to": [
+        2,
+        20,
+        1.5
+      ],
+      "autouv": 0,
+      "color": 0,
+      "inflate": 0.0,
+      "origin": [
+        0,
+        14,
+        0
+      ],
+      "uv_offset": [
+        14,
+        0
+      ],
+      "mirror_uv": false,
+      "faces": {
+        "north": {
+          "uv": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "texture": 0
+        },
+        "east": {
+          "uv": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "texture": 0
+        },
+        "south": {
+          "uv": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "texture": 0
+        },
+        "west": {
+          "uv": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "texture": 0
+        },
+        "up": {
+          "uv": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "texture": 0
+        },
+        "down": {
+          "uv": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "texture": 0
+        }
+      },
+      "type": "cube",
+      "uuid": "8c10a56d-81cc-5cfb-a07d-d6479d279375"
+    },
+    {
+      "name": "frostmourne_guard_1",
+      "box_uv": true,
+      "rescale": false,
+      "locked": false,
+      "light_emission": 0,
+      "render_order": "default",
+      "allow_mirror_modeling": false,
+      "visibility": true,
+      "from": [
+        -1,
+        17.5,
+        -2
+      ],
+      "to": [
+        1,
+        18.5,
+        -1
+      ],
+      "autouv": 0,
+      "color": 0,
+      "inflate": 0.0,
+      "origin": [
+        0,
+        14,
+        0
+      ],
+      "uv_offset": [
+        40,
+        28
+      ],
+      "mirror_uv": false,
+      "faces": {
+        "north": {
+          "uv": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "texture": 0
+        },
+        "east": {
+          "uv": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "texture": 0
+        },
+        "south": {
+          "uv": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "texture": 0
+        },
+        "west": {
+          "uv": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "texture": 0
+        },
+        "up": {
+          "uv": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "texture": 0
+        },
+        "down": {
+          "uv": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "texture": 0
+        }
+      },
+      "type": "cube",
+      "uuid": "d58a38ee-c755-5469-b39e-84106a7dbfd9"
+    },
+    {
+      "name": "frostmourne_guard_2",
+      "box_uv": true,
+      "rescale": false,
+      "locked": false,
+      "light_emission": 0,
+      "render_order": "default",
+      "allow_mirror_modeling": false,
+      "visibility": true,
+      "from": [
+        1.25,
+        17.75,
+        -1
+      ],
+      "to": [
+        5.25,
+        19.75,
+        1
+      ],
+      "autouv": 0,
+      "color": 0,
+      "inflate": 0,
+      "origin": [
+        3.25,
+        18.75,
+        0
+      ],
+      "uv_offset": [
+        84,
+        0
+      ],
+      "mirror_uv": false,
+      "faces": {
+        "north": {
+          "uv": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "texture": 0
+        },
+        "east": {
+          "uv": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "texture": 0
+        },
+        "south": {
+          "uv": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "texture": 0
+        },
+        "west": {
+          "uv": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "texture": 0
+        },
+        "up": {
+          "uv": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "texture": 0
+        },
+        "down": {
+          "uv": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "texture": 0
+        }
+      },
+      "type": "cube",
+      "uuid": "4cb29de5-4602-5362-8969-0beb0cc6d7c0",
+      "rotation": [
+        0,
+        0,
+        168.6901
+      ]
+    },
+    {
+      "name": "frostmourne_guard_3",
+      "box_uv": true,
+      "rescale": false,
+      "locked": false,
+      "light_emission": 0,
+      "render_order": "default",
+      "allow_mirror_modeling": false,
+      "visibility": true,
+      "from": [
+        3.75,
+        18.75,
+        -1
+      ],
+      "to": [
+        7.75,
+        20.75,
+        1
+      ],
+      "autouv": 0,
+      "color": 0,
+      "inflate": 0,
+      "origin": [
+        5.75,
+        19.75,
+        0
+      ],
+      "uv_offset": [
+        96,
+        0
+      ],
+      "mirror_uv": false,
+      "faces": {
+        "north": {
+          "uv": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "texture": 0
+        },
+        "east": {
+          "uv": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "texture": 0
+        },
+        "south": {
+          "uv": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "texture": 0
+        },
+        "west": {
+          "uv": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "texture": 0
+        },
+        "up": {
+          "uv": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "texture": 0
+        },
+        "down": {
+          "uv": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "texture": 0
+        }
+      },
+      "type": "cube",
+      "uuid": "e961e0db-56dc-5a29-9ae6-bae8a17b5acd",
+      "rotation": [
+        0,
+        0,
+        149.0362
+      ]
+    },
+    {
+      "name": "frostmourne_guard_4",
+      "box_uv": true,
+      "rescale": false,
+      "locked": false,
+      "light_emission": 0,
+      "render_order": "default",
+      "allow_mirror_modeling": false,
+      "visibility": true,
+      "from": [
+        5.25,
+        21.5,
+        -1
+      ],
+      "to": [
+        10.25,
+        22.5,
+        1
+      ],
+      "autouv": 0,
+      "color": 0,
+      "inflate": -0.15,
+      "origin": [
+        7.75,
+        22,
+        0
+      ],
+      "uv_offset": [
+        48,
+        24
+      ],
+      "mirror_uv": false,
+      "faces": {
+        "north": {
+          "uv": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "texture": 0
+        },
+        "east": {
+          "uv": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "texture": 0
+        },
+        "south": {
+          "uv": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "texture": 0
+        },
+        "west": {
+          "uv": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "texture": 0
+        },
+        "up": {
+          "uv": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "texture": 0
+        },
+        "down": {
+          "uv": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "texture": 0
+        }
+      },
+      "type": "cube",
+      "uuid": "d2835db4-c4ff-5e95-bdd3-2c8d6bece022",
+      "rotation": [
+        0,
+        0,
+        116.5651
+      ]
+    },
+    {
+      "name": "frostmourne_guard_5",
+      "box_uv": true,
+      "rescale": false,
+      "locked": false,
+      "light_emission": 0,
+      "render_order": "default",
+      "allow_mirror_modeling": false,
+      "visibility": true,
+      "from": [
+        -5.25,
+        17.75,
+        -1
+      ],
+      "to": [
+        -1.25,
+        19.75,
+        1
+      ],
+      "autouv": 0,
+      "color": 0,
+      "inflate": 0,
+      "origin": [
+        -3.25,
+        18.75,
+        0
+      ],
+      "uv_offset": [
+        108,
+        0
+      ],
+      "mirror_uv": false,
+      "faces": {
+        "north": {
+          "uv": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "texture": 0
+        },
+        "east": {
+          "uv": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "texture": 0
+        },
+        "south": {
+          "uv": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "texture": 0
+        },
+        "west": {
+          "uv": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "texture": 0
+        },
+        "up": {
+          "uv": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "texture": 0
+        },
+        "down": {
+          "uv": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "texture": 0
+        }
+      },
+      "type": "cube",
+      "uuid": "e845c393-4241-584f-aa4f-1b809a2e0dc7",
+      "rotation": [
+        0,
+        0,
+        11.3099
+      ]
+    },
+    {
+      "name": "frostmourne_guard_6",
+      "box_uv": true,
+      "rescale": false,
+      "locked": false,
+      "light_emission": 0,
+      "render_order": "default",
+      "allow_mirror_modeling": false,
+      "visibility": true,
+      "from": [
+        -7.75,
+        18.75,
+        -1
+      ],
+      "to": [
+        -3.75,
+        20.75,
+        1
+      ],
+      "autouv": 0,
+      "color": 0,
+      "inflate": 0,
+      "origin": [
+        -5.75,
+        19.75,
+        0
+      ],
+      "uv_offset": [
+        0,
+        24
+      ],
+      "mirror_uv": false,
+      "faces": {
+        "north": {
+          "uv": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "texture": 0
+        },
+        "east": {
+          "uv": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "texture": 0
+        },
+        "south": {
+          "uv": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "texture": 0
+        },
+        "west": {
+          "uv": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "texture": 0
+        },
+        "up": {
+          "uv": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "texture": 0
+        },
+        "down": {
+          "uv": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "texture": 0
+        }
+      },
+      "type": "cube",
+      "uuid": "695cec3e-8de2-5abc-85da-ce10797a3c57",
+      "rotation": [
+        0,
+        0,
+        30.9638
+      ]
+    },
+    {
+      "name": "frostmourne_guard_7",
+      "box_uv": true,
+      "rescale": false,
+      "locked": false,
+      "light_emission": 0,
+      "render_order": "default",
+      "allow_mirror_modeling": false,
+      "visibility": true,
+      "from": [
+        -10.25,
+        21.5,
+        -1
+      ],
+      "to": [
+        -5.25,
+        22.5,
+        1
+      ],
+      "autouv": 0,
+      "color": 0,
+      "inflate": -0.15,
+      "origin": [
+        -7.75,
+        22,
+        0
+      ],
+      "uv_offset": [
+        62,
+        24
+      ],
+      "mirror_uv": false,
+      "faces": {
+        "north": {
+          "uv": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "texture": 0
+        },
+        "east": {
+          "uv": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "texture": 0
+        },
+        "south": {
+          "uv": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "texture": 0
+        },
+        "west": {
+          "uv": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "texture": 0
+        },
+        "up": {
+          "uv": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "texture": 0
+        },
+        "down": {
+          "uv": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "texture": 0
+        }
+      },
+      "type": "cube",
+      "uuid": "b34e1708-2c8e-5e43-94c2-c03094569e1e",
+      "rotation": [
+        0,
+        0,
+        63.4349
+      ]
+    },
+    {
+      "name": "frostmourne_grip_0",
+      "box_uv": true,
+      "rescale": false,
+      "locked": false,
+      "light_emission": 0,
+      "render_order": "default",
+      "allow_mirror_modeling": false,
+      "visibility": true,
+      "from": [
+        -1,
+        9,
+        -1
+      ],
+      "to": [
+        1,
+        17,
+        1
+      ],
+      "autouv": 0,
+      "color": 0,
+      "inflate": 0.0,
+      "origin": [
+        0,
+        14,
+        0
+      ],
+      "uv_offset": [
+        6,
+        0
+      ],
+      "mirror_uv": false,
+      "faces": {
+        "north": {
+          "uv": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "texture": 0
+        },
+        "east": {
+          "uv": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "texture": 0
+        },
+        "south": {
+          "uv": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "texture": 0
+        },
+        "west": {
+          "uv": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "texture": 0
+        },
+        "up": {
+          "uv": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "texture": 0
+        },
+        "down": {
+          "uv": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "texture": 0
+        }
+      },
+      "type": "cube",
+      "uuid": "af3585f3-f2e3-5180-94a5-6449f65d8092"
+    },
+    {
+      "name": "frostmourne_grip_1",
+      "box_uv": true,
+      "rescale": false,
+      "locked": false,
+      "light_emission": 0,
+      "render_order": "default",
+      "allow_mirror_modeling": false,
+      "visibility": true,
+      "from": [
+        -1.5,
+        11,
+        -1.5
+      ],
+      "to": [
+        1.5,
+        12,
+        1.5
+      ],
+      "autouv": 0,
+      "color": 0,
+      "inflate": 0.0,
+      "origin": [
+        0,
+        14,
+        0
+      ],
+      "uv_offset": [
+        12,
+        24
+      ],
+      "mirror_uv": false,
+      "faces": {
+        "north": {
+          "uv": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "texture": 0
+        },
+        "east": {
+          "uv": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "texture": 0
+        },
+        "south": {
+          "uv": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "texture": 0
+        },
+        "west": {
+          "uv": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "texture": 0
+        },
+        "up": {
+          "uv": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "texture": 0
+        },
+        "down": {
+          "uv": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "texture": 0
+        }
+      },
+      "type": "cube",
+      "uuid": "f8879c94-a244-53a8-a764-1fe172f033a1"
+    },
+    {
+      "name": "frostmourne_grip_2",
+      "box_uv": true,
+      "rescale": false,
+      "locked": false,
+      "light_emission": 0,
+      "render_order": "default",
+      "allow_mirror_modeling": false,
+      "visibility": true,
+      "from": [
+        -1.5,
+        14,
+        -1.5
+      ],
+      "to": [
+        1.5,
+        15,
+        1.5
+      ],
+      "autouv": 0,
+      "color": 0,
+      "inflate": 0.0,
+      "origin": [
+        0,
+        14,
+        0
+      ],
+      "uv_offset": [
+        24,
+        24
+      ],
+      "mirror_uv": false,
+      "faces": {
+        "north": {
+          "uv": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "texture": 0
+        },
+        "east": {
+          "uv": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "texture": 0
+        },
+        "south": {
+          "uv": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "texture": 0
+        },
+        "west": {
+          "uv": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "texture": 0
+        },
+        "up": {
+          "uv": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "texture": 0
+        },
+        "down": {
+          "uv": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "texture": 0
+        }
+      },
+      "type": "cube",
+      "uuid": "2dc6edef-04a5-5706-8874-53832b198594"
+    },
+    {
+      "name": "frostmourne_grip_3",
+      "box_uv": true,
+      "rescale": false,
+      "locked": false,
+      "light_emission": 0,
+      "render_order": "default",
+      "allow_mirror_modeling": false,
+      "visibility": true,
+      "from": [
+        -1.5,
+        7,
+        -1.5
+      ],
+      "to": [
+        1.5,
+        9,
+        1.5
+      ],
+      "autouv": 0,
+      "color": 0,
+      "inflate": 0.0,
+      "origin": [
+        0,
+        14,
+        0
+      ],
+      "uv_offset": [
+        40,
+        0
+      ],
+      "mirror_uv": false,
+      "faces": {
+        "north": {
+          "uv": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "texture": 0
+        },
+        "east": {
+          "uv": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "texture": 0
+        },
+        "south": {
+          "uv": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "texture": 0
+        },
+        "west": {
+          "uv": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "texture": 0
+        },
+        "up": {
+          "uv": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "texture": 0
+        },
+        "down": {
+          "uv": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "texture": 0
+        }
+      },
+      "type": "cube",
+      "uuid": "c40aba6d-120b-5da4-8dcd-c8cf0660a3e1"
+    },
+    {
+      "name": "frostmourne_grip_4",
+      "box_uv": true,
+      "rescale": false,
+      "locked": false,
+      "light_emission": 0,
+      "render_order": "default",
+      "allow_mirror_modeling": false,
+      "visibility": true,
+      "from": [
+        -1,
+        7.5,
+        -2
+      ],
+      "to": [
+        1,
+        8.5,
+        -1
+      ],
+      "autouv": 0,
+      "color": 0,
+      "inflate": 0.0,
+      "origin": [
+        0,
+        14,
+        0
+      ],
+      "uv_offset": [
+        46,
+        28
+      ],
+      "mirror_uv": false,
+      "faces": {
+        "north": {
+          "uv": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "texture": 0
+        },
+        "east": {
+          "uv": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "texture": 0
+        },
+        "south": {
+          "uv": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "texture": 0
+        },
+        "west": {
+          "uv": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "texture": 0
+        },
+        "up": {
+          "uv": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "texture": 0
+        },
+        "down": {
+          "uv": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "texture": 0
+        }
+      },
+      "type": "cube",
+      "uuid": "1913e179-0a26-5276-9f00-5c10b1190577"
+    },
+    {
+      "name": "frostmourne_grip_5",
+      "box_uv": true,
+      "rescale": false,
+      "locked": false,
+      "light_emission": 0,
+      "render_order": "default",
+      "allow_mirror_modeling": false,
+      "visibility": true,
+      "from": [
+        -0.5,
+        4,
+        -0.5
+      ],
+      "to": [
+        0.5,
+        7,
+        0.5
+      ],
+      "autouv": 0,
+      "color": 0,
+      "inflate": -0.1,
+      "origin": [
+        0,
+        14,
+        0
+      ],
+      "uv_offset": [
+        44,
+        24
+      ],
+      "mirror_uv": false,
+      "faces": {
+        "north": {
+          "uv": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "texture": 0
+        },
+        "east": {
+          "uv": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "texture": 0
+        },
+        "south": {
+          "uv": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "texture": 0
+        },
+        "west": {
+          "uv": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "texture": 0
+        },
+        "up": {
+          "uv": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "texture": 0
+        },
+        "down": {
+          "uv": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "texture": 0
+        }
+      },
+      "type": "cube",
+      "uuid": "39b8984d-8b56-566e-b626-7ab7c3eb71e1"
+    },
+    {
+      "name": "frostmourne_frost_0",
+      "box_uv": true,
+      "rescale": false,
+      "locked": false,
+      "light_emission": 0,
+      "render_order": "default",
+      "allow_mirror_modeling": false,
+      "visibility": true,
+      "from": [
+        -3.2305,
+        26.9914,
+        -0.5
+      ],
+      "to": [
+        -2.2305,
+        28.9914,
+        0.5
+      ],
+      "autouv": 0,
+      "color": 0,
+      "inflate": 0,
+      "origin": [
+        -2.7305,
+        27.9914,
+        0
+      ],
+      "uv_offset": [
+        16,
+        28
+      ],
+      "mirror_uv": false,
+      "faces": {
+        "north": {
+          "uv": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "texture": 0
+        },
+        "east": {
+          "uv": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "texture": 0
+        },
+        "south": {
+          "uv": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "texture": 0
+        },
+        "west": {
+          "uv": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "texture": 0
+        },
+        "up": {
+          "uv": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "texture": 0
+        },
+        "down": {
+          "uv": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "texture": 0
+        }
+      },
+      "type": "cube",
+      "uuid": "d3b1802d-2dcc-59ad-954b-6ecb765a6054",
+      "rotation": [
+        0,
+        0,
+        -7.5
+      ]
+    },
+    {
+      "name": "frostmourne_frost_1",
+      "box_uv": true,
+      "rescale": false,
+      "locked": false,
+      "light_emission": 0,
+      "render_order": "default",
+      "allow_mirror_modeling": false,
+      "visibility": true,
+      "from": [
+        -3.7437,
+        28.9068,
+        -0.5
+      ],
+      "to": [
+        -2.7437,
+        30.9068,
+        0.5
+      ],
+      "autouv": 0,
+      "color": 0,
+      "inflate": -0.25,
+      "origin": [
+        -3.2437,
+        29.9068,
+        0
+      ],
+      "uv_offset": [
+        20,
+        28
+      ],
+      "mirror_uv": false,
+      "faces": {
+        "north": {
+          "uv": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "texture": 0
+        },
+        "east": {
+          "uv": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "texture": 0
+        },
+        "south": {
+          "uv": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "texture": 0
+        },
+        "west": {
+          "uv": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "texture": 0
+        },
+        "up": {
+          "uv": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "texture": 0
+        },
+        "down": {
+          "uv": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "texture": 0
+        }
+      },
+      "type": "cube",
+      "uuid": "f25bb177-ea72-53c1-b0da-dd962cbcaec3",
+      "rotation": [
+        0,
+        0,
+        -22.5
+      ]
+    },
+    {
+      "name": "frostmourne_frost_2",
+      "box_uv": true,
+      "rescale": false,
+      "locked": false,
+      "light_emission": 0,
+      "render_order": "default",
+      "allow_mirror_modeling": false,
+      "visibility": true,
+      "from": [
+        1.7305,
+        33.9914,
+        -0.5
+      ],
+      "to": [
+        2.7305,
+        35.9914,
+        0.5
+      ],
+      "autouv": 0,
+      "color": 0,
+      "inflate": 0,
+      "origin": [
+        2.2305,
+        34.9914,
+        0
+      ],
+      "uv_offset": [
+        24,
+        28
+      ],
+      "mirror_uv": false,
+      "faces": {
+        "north": {
+          "uv": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "texture": 0
+        },
+        "east": {
+          "uv": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "texture": 0
+        },
+        "south": {
+          "uv": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "texture": 0
+        },
+        "west": {
+          "uv": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "texture": 0
+        },
+        "up": {
+          "uv": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "texture": 0
+        },
+        "down": {
+          "uv": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "texture": 0
+        }
+      },
+      "type": "cube",
+      "uuid": "fc2bf591-623c-5e2f-806c-b906962ed819",
+      "rotation": [
+        0,
+        0,
+        7.5
+      ]
+    },
+    {
+      "name": "frostmourne_frost_3",
+      "box_uv": true,
+      "rescale": false,
+      "locked": false,
+      "light_emission": 0,
+      "render_order": "default",
+      "allow_mirror_modeling": false,
+      "visibility": true,
+      "from": [
+        2.2437,
+        35.9068,
+        -0.5
+      ],
+      "to": [
+        3.2437,
+        37.9068,
+        0.5
+      ],
+      "autouv": 0,
+      "color": 0,
+      "inflate": -0.25,
+      "origin": [
+        2.7437,
+        36.9068,
+        0
+      ],
+      "uv_offset": [
+        28,
+        28
+      ],
+      "mirror_uv": false,
+      "faces": {
+        "north": {
+          "uv": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "texture": 0
+        },
+        "east": {
+          "uv": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "texture": 0
+        },
+        "south": {
+          "uv": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "texture": 0
+        },
+        "west": {
+          "uv": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "texture": 0
+        },
+        "up": {
+          "uv": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "texture": 0
+        },
+        "down": {
+          "uv": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "texture": 0
+        }
+      },
+      "type": "cube",
+      "uuid": "3652b23d-306c-5acc-bb25-a0396939ef07",
+      "rotation": [
+        0,
+        0,
+        22.5
+      ]
+    },
+    {
+      "name": "frostmourne_frost_4",
+      "box_uv": true,
+      "rescale": false,
+      "locked": false,
+      "light_emission": 0,
+      "render_order": "default",
+      "allow_mirror_modeling": false,
+      "visibility": true,
+      "from": [
+        -2.2305,
+        37.9914,
+        -0.5
+      ],
+      "to": [
+        -1.2305,
+        39.9914,
+        0.5
+      ],
+      "autouv": 0,
+      "color": 0,
+      "inflate": 0,
+      "origin": [
+        -1.7305,
+        38.9914,
+        0
+      ],
+      "uv_offset": [
+        32,
+        28
+      ],
+      "mirror_uv": false,
+      "faces": {
+        "north": {
+          "uv": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "texture": 0
+        },
+        "east": {
+          "uv": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "texture": 0
+        },
+        "south": {
+          "uv": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "texture": 0
+        },
+        "west": {
+          "uv": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "texture": 0
+        },
+        "up": {
+          "uv": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "texture": 0
+        },
+        "down": {
+          "uv": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "texture": 0
+        }
+      },
+      "type": "cube",
+      "uuid": "7bfac78f-574e-521d-9722-69754fde03e3",
+      "rotation": [
+        0,
+        0,
+        -7.5
+      ]
+    },
+    {
+      "name": "frostmourne_frost_5",
+      "box_uv": true,
+      "rescale": false,
+      "locked": false,
+      "light_emission": 0,
+      "render_order": "default",
+      "allow_mirror_modeling": false,
+      "visibility": true,
+      "from": [
+        -2.7437,
+        39.9068,
+        -0.5
+      ],
+      "to": [
+        -1.7437,
+        41.9068,
+        0.5
+      ],
+      "autouv": 0,
+      "color": 0,
+      "inflate": -0.25,
+      "origin": [
+        -2.2437,
+        40.9068,
+        0
+      ],
+      "uv_offset": [
+        36,
+        28
+      ],
+      "mirror_uv": false,
+      "faces": {
+        "north": {
+          "uv": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "texture": 0
+        },
+        "east": {
+          "uv": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "texture": 0
+        },
+        "south": {
+          "uv": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "texture": 0
+        },
+        "west": {
+          "uv": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "texture": 0
+        },
+        "up": {
+          "uv": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "texture": 0
+        },
+        "down": {
+          "uv": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "texture": 0
+        }
+      },
+      "type": "cube",
+      "uuid": "85472a65-3706-5297-b9e6-f5d81fef8428",
+      "rotation": [
+        0,
+        0,
+        -22.5
+      ]
+    }
+  ],
+  "outliner": [
+    {
+      "name": "root",
+      "origin": [
+        0,
+        0,
+        0
+      ],
+      "color": 0,
+      "uuid": "2e4d2799-d04c-585a-ba35-fae7d9730ab4",
+      "export": true,
+      "mirror_uv": false,
+      "isOpen": false,
+      "locked": false,
+      "visibility": true,
+      "autouv": 0,
+      "children": [
+        {
+          "name": "frostmourne",
+          "origin": [
+            0,
+            14,
+            0
+          ],
+          "color": 0,
+          "uuid": "34370d71-7f9b-5500-86d4-3e99d195e3ba",
+          "export": true,
+          "mirror_uv": false,
+          "isOpen": false,
+          "locked": false,
+          "visibility": true,
+          "autouv": 0,
+          "children": [
+            "748baa5a-2241-5867-8596-72178e482936",
+            "f1455153-a150-5126-9c94-851687d6bf21",
+            "4e0ea064-6eb8-547f-aa4e-6efc6bc8fe5f",
+            "da4c337f-a17e-5327-b491-c698b5326dcd",
+            "d278150c-be50-564b-b7f6-7da5889f5f26",
+            {
+              "name": "frostmourne_blade",
+              "origin": [
+                0,
+                14,
+                0
+              ],
+              "color": 0,
+              "uuid": "e35452a5-4bc6-55a8-8201-9cc277955407",
+              "export": true,
+              "mirror_uv": false,
+              "isOpen": false,
+              "locked": false,
+              "visibility": true,
+              "autouv": 0,
+              "children": [
+                "e637174b-efa3-54a0-9c78-970e9f05f899",
+                "2f2349d3-f9b7-550d-8f88-21481561c14f",
+                "8f0146f2-9bdb-5900-9d07-f48d6af60c6c",
+                "8e74b808-b400-5013-9f0b-8f004a4c80d7",
+                "e8e13cea-9dbc-5e70-8ae2-a92c668cf03b",
+                "d591fd18-643c-53fd-9586-cddfafa8b189",
+                "023c8776-5209-57dd-aba1-30a7757f7f12",
+                "b4a43a2a-b1ba-52e4-9196-9989da9917c6",
+                "a0fd927d-f5fb-5b4c-a822-95a2204e3d27",
+                "2f5d8e75-0539-59d5-81a0-83ab957ab09e",
+                "b47e8565-e74e-5816-8dd0-a57503e22509",
+                "46c96564-4ddc-56ca-be03-7c859751943a",
+                "a08e3b25-6bab-5dbe-9205-0a5366722366",
+                "d64b4139-ec32-5ccc-acd7-31af13b546a3",
+                "b4411a00-8e60-5964-9476-d56060406967",
+                "8fc6bb07-e3ef-5963-bbcd-a7bb65a5e8d9",
+                "58887089-631d-521d-9188-354e04c7f372",
+                "79cf5284-d06c-5419-b3fd-f1df4a2ba941",
+                {
+                  "name": "frostmourne_frost",
+                  "origin": [
+                    0,
+                    14,
+                    0
+                  ],
+                  "color": 0,
+                  "uuid": "9b8dcd48-e87f-5f53-b1a9-249e2acf70e4",
+                  "export": true,
+                  "mirror_uv": false,
+                  "isOpen": false,
+                  "locked": false,
+                  "visibility": true,
+                  "autouv": 0,
+                  "children": [
+                    "d3b1802d-2dcc-59ad-954b-6ecb765a6054",
+                    "f25bb177-ea72-53c1-b0da-dd962cbcaec3",
+                    "fc2bf591-623c-5e2f-806c-b906962ed819",
+                    "3652b23d-306c-5acc-bb25-a0396939ef07",
+                    "7bfac78f-574e-521d-9722-69754fde03e3",
+                    "85472a65-3706-5297-b9e6-f5d81fef8428"
+                  ]
+                }
+              ]
+            },
+            {
+              "name": "frostmourne_guard",
+              "origin": [
+                0,
+                14,
+                0
+              ],
+              "color": 0,
+              "uuid": "581dadaa-36b7-55a1-9730-281850f2c98d",
+              "export": true,
+              "mirror_uv": false,
+              "isOpen": false,
+              "locked": false,
+              "visibility": true,
+              "autouv": 0,
+              "children": [
+                "8c10a56d-81cc-5cfb-a07d-d6479d279375",
+                "d58a38ee-c755-5469-b39e-84106a7dbfd9",
+                "4cb29de5-4602-5362-8969-0beb0cc6d7c0",
+                "e961e0db-56dc-5a29-9ae6-bae8a17b5acd",
+                "d2835db4-c4ff-5e95-bdd3-2c8d6bece022",
+                "e845c393-4241-584f-aa4f-1b809a2e0dc7",
+                "695cec3e-8de2-5abc-85da-ce10797a3c57",
+                "b34e1708-2c8e-5e43-94c2-c03094569e1e"
+              ]
+            },
+            {
+              "name": "frostmourne_grip",
+              "origin": [
+                0,
+                14,
+                0
+              ],
+              "color": 0,
+              "uuid": "2c8d04bc-741b-53ac-8574-6b1fb6afd7eb",
+              "export": true,
+              "mirror_uv": false,
+              "isOpen": false,
+              "locked": false,
+              "visibility": true,
+              "autouv": 0,
+              "children": [
+                "af3585f3-f2e3-5180-94a5-6449f65d8092",
+                "f8879c94-a244-53a8-a764-1fe172f033a1",
+                "2dc6edef-04a5-5706-8874-53832b198594",
+                "c40aba6d-120b-5da4-8dcd-c8cf0660a3e1",
+                "1913e179-0a26-5276-9f00-5c10b1190577",
+                "39b8984d-8b56-566e-b626-7ab7c3eb71e1"
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "textures": [
+    {
+      "path": "",
+      "name": "frostmourne.png",
+      "folder": "",
+      "namespace": "",
+      "id": "0",
+      "width": 512,
+      "height": 512,
+      "uv_width": 128,
+      "uv_height": 128,
+      "particle": false,
+      "use_as_default": true,
+      "layers_enabled": false,
+      "sync_to_project": "",
+      "render_mode": "default",
+      "render_sides": "auto",
+      "frame_time": 1,
+      "frame_order_type": "loop",
+      "frame_order": "",
+      "frame_interpolate": false,
+      "visible": true,
+      "internal": true,
+      "saved": false,
+      "uuid": "4cc8bcb2-97b7-5355-82be-4983faac87f4",
+      "source": "data:image/png;base64,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AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAHiP+/8A62uIWmMd1B4AAAAASUVORK5CYII="
+    }
+  ]
+}

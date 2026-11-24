@@ -1,0 +1,53 @@
+{
+  "format_version": "1.10.0",
+  "minecraft:client_entity": {
+    "description": {
+      "identifier": "warcraft:arthas",
+      "materials": {
+        "default": "entity_emissive_alpha"
+      },
+      "textures": {
+        "body_1": "textures/entity/arthas/body",
+        "body_2": "textures/entity/arthas/body_phase2",
+        "body_3": "textures/entity/arthas/body_phase3",
+        "armor_1": "textures/entity/arthas/armor",
+        "armor_2": "textures/entity/arthas/armor_phase2",
+        "armor_3": "textures/entity/arthas/armor_phase3",
+        "frost_1": "textures/entity/arthas/frost_effect",
+        "frost_2": "textures/entity/arthas/frost_effect_phase2",
+        "frost_3": "textures/entity/arthas/frost_effect_phase3",
+        "sword_1": "textures/entity/arthas/frostmourne",
+        "sword_2": "textures/entity/arthas/frostmourne_phase2",
+        "sword_3": "textures/entity/arthas/frostmourne_phase3"
+      },
+      "geometry": {
+        "default": "geometry.warcraft_arthas"
+      },
+      "animations": {
+        "idle": "animation.warcraft_arthas.idle",
+        "walk": "animation.warcraft_arthas.walk",
+        "locomotion": "controller.animation.warcraft_arthas.locomotion"
+      },
+      "scripts": {
+        "animate": [
+          "locomotion"
+        ]
+      },
+      "particle_effects": {
+        "frost_aura": "warcraft:frost_aura",
+        "soul_absorption": "warcraft:soul_absorption",
+        "frost_impact": "warcraft:frost_impact"
+      },
+      "render_controllers": [
+        "controller.render.warcraft_arthas_body",
+        "controller.render.warcraft_arthas_armor",
+        "controller.render.warcraft_arthas_frost",
+        "controller.render.warcraft_arthas_sword"
+      ],
+      "spawn_egg": {
+        "base_color": "#0a1530",
+        "overlay_color": "#7fe3ff"
+      }
+    }
+  }
+}

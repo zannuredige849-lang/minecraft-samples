@@ -1,0 +1,37 @@
+<!doctype html><meta charset="utf-8">
+<style>html,body{margin:0;height:100%;background:radial-gradient(ellipse at 50% 35%,#27406b 0%,#101c36 70%,#070d1c 100%);overflow:hidden}canvas{display:block}</style>
+<script type="importmap">{"imports":{"three":"/node_modules/three/build/three.module.js","three/addons/":"/node_modules/three/examples/jsm/"}}</script>
+<script type="module">
+import * as THREE from 'three';
+import {GLTFLoader} from 'three/addons/loaders/GLTFLoader.js';
+import {EffectComposer} from 'three/addons/postprocessing/EffectComposer.js';
+import {RenderPass} from 'three/addons/postprocessing/RenderPass.js';
+import {UnrealBloomPass} from 'three/addons/postprocessing/UnrealBloomPass.js';
+const q = new URLSearchParams(location.search);
+const az = +(q.get('az')||-30)*Math.PI/180, el = +(q.get('el')||8)*Math.PI/180, dist = +(q.get('dist')||3.2);
+const ty = +(q.get('ty')||1.35), tx = +(q.get('tx')||0), bloom = +(q.get('bloom')||0.7);
+const W = innerWidth, H = innerHeight;
+const renderer = new THREE.WebGLRenderer({antialias:true, alpha:true, preserveDrawingBuffer:true});
+renderer.setSize(W,H); renderer.setClearColor(0x0c1730, 1); renderer.toneMapping = THREE.ACESFilmicToneMapping; renderer.toneMappingExposure = 1.15;
+renderer.outputColorSpace = THREE.SRGBColorSpace; document.body.appendChild(renderer.domElement);
+const scene = new THREE.Scene();
+const cam = new THREE.PerspectiveCamera(30, W/H, 0.01, 50);
+cam.position.set(tx+Math.sin(az)*Math.cos(el)*dist, ty+Math.sin(el)*dist, Math.cos(az)*Math.cos(el)*dist); cam.lookAt(tx,ty,0);
+scene.add(new THREE.HemisphereLight(0xd8e6ff, 0x2a3350, 1.0));
+const key = new THREE.DirectionalLight(0xffffff, 3.2); key.position.set(-2,3,3); scene.add(key);
+const rim = new THREE.DirectionalLight(0x7fd4ff, 1.4); rim.position.set(3,2,-3); scene.add(rim);
+const fill = new THREE.PointLight(0x9fd0ff, 3, 6); fill.position.set(0,1.5,1.2); scene.add(fill);
+// tiny procedural environment so the metal has something to reflect
+const pm = new THREE.PMREMGenerator(renderer);
+const envScene = new THREE.Scene(); envScene.background = new THREE.Color(0x1d2b4a);
+const strip = new THREE.Mesh(new THREE.PlaneGeometry(6,1.2), new THREE.MeshBasicMaterial({color:0xffffff, side:2})); strip.position.set(-2,2,2); strip.lookAt(0,0,0); envScene.add(strip);
+const strip2 = strip.clone(); strip2.position.set(3,1,-2); strip2.lookAt(0,0,0); strip2.material = new THREE.MeshBasicMaterial({color:0x9fd4ff, side:2}); envScene.add(strip2);
+scene.environment = pm.fromScene(envScene, 0.04).texture;
+new GLTFLoader().load(q.get('model'), g => {
+  g.scene.traverse(o => { if (o.isMesh) { o.material.envMapIntensity = 0.9; } });
+  scene.add(g.scene);
+  const comp = new EffectComposer(renderer); comp.addPass(new RenderPass(scene, cam));
+  comp.addPass(new UnrealBloomPass(new THREE.Vector2(W,H), bloom, 0.55, 0.78));
+  comp.render(); window.__ready = true;
+}, undefined, e => { window.__error = String(e); });
+</script>

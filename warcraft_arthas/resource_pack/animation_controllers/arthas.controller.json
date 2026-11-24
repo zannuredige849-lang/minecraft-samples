@@ -1,0 +1,33 @@
+{
+  "format_version": "1.10.0",
+  "animation_controllers": {
+    "controller.animation.warcraft_arthas.locomotion": {
+      "initial_state": "idle",
+      "states": {
+        "idle": {
+          "animations": [
+            "idle"
+          ],
+          "transitions": [
+            {
+              "walk": "query.modified_move_speed > 0.1"
+            }
+          ],
+          "blend_transition": 0.25
+        },
+        "walk": {
+          "animations": [
+            "idle",
+            "walk"
+          ],
+          "transitions": [
+            {
+              "idle": "query.modified_move_speed <= 0.1"
+            }
+          ],
+          "blend_transition": 0.25
+        }
+      }
+    }
+  }
+}
