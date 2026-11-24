@@ -1,0 +1,43 @@
+{
+  "format_version": "1.21.70",
+  "minecraft:item": {
+    "description": {
+      "identifier": "warcraft:frostmourne",
+      "menu_category": {
+        "category": "equipment",
+        "group": "itemGroup.name.sword"
+      }
+    },
+    "components": {
+      "minecraft:icon": "warcraft:frostmourne",
+      "minecraft:display_name": {
+        "value": "item.warcraft:frostmourne.name"
+      },
+      "minecraft:max_stack_size": 1,
+      "minecraft:hand_equipped": true,
+      "minecraft:damage": {
+        "value": 12
+      },
+      "minecraft:durability": {
+        "max_durability": 2031,
+        "damage_chance": {
+          "min": 5,
+          "max": 15
+        }
+      },
+      "minecraft:enchantable": {
+        "slot": "sword",
+        "value": 22
+      },
+      "minecraft:glint": true,
+      "minecraft:rarity": "epic",
+      "minecraft:can_destroy_in_creative": false,
+      "minecraft:tags": {
+        "tags": [
+          "minecraft:is_sword",
+          "warcraft:frostmourne"
+        ]
+      }
+    }
+  }
+}

@@ -1,0 +1,255 @@
+{
+  "format_version": "1.8.0",
+  "render_controllers": {
+    "controller.render.warcraft_arthas_body": {
+      "arrays": {
+        "textures": {
+          "Array.body": [
+            "Texture.body_1",
+            "Texture.body_2",
+            "Texture.body_3"
+          ]
+        }
+      },
+      "geometry": "Geometry.default",
+      "materials": [
+        {
+          "*": "Material.default"
+        }
+      ],
+      "textures": [
+        "Array.body[q.property('warcraft:phase') - 1]"
+      ],
+      "part_visibility": [
+        {
+          "*": false
+        },
+        {
+          "root": true
+        },
+        {
+          "body": true
+        },
+        {
+          "waist": true
+        },
+        {
+          "tabard": true
+        },
+        {
+          "torso": true
+        },
+        {
+          "cape": true
+        },
+        {
+          "cape_mid": true
+        },
+        {
+          "cape_low": true
+        },
+        {
+          "cape_tail": true
+        },
+        {
+          "head": true
+        },
+        {
+          "eyes": true
+        },
+        {
+          "hair": true
+        },
+        {
+          "hair_strands": true
+        },
+        {
+          "arm_right": true
+        },
+        {
+          "forearm_right": true
+        },
+        {
+          "leg_right": true
+        },
+        {
+          "shin_right": true
+        },
+        {
+          "arm_left": true
+        },
+        {
+          "forearm_left": true
+        },
+        {
+          "leg_left": true
+        },
+        {
+          "shin_left": true
+        }
+      ]
+    },
+    "controller.render.warcraft_arthas_armor": {
+      "arrays": {
+        "textures": {
+          "Array.armor": [
+            "Texture.armor_1",
+            "Texture.armor_2",
+            "Texture.armor_3"
+          ]
+        }
+      },
+      "geometry": "Geometry.default",
+      "materials": [
+        {
+          "*": "Material.default"
+        }
+      ],
+      "textures": [
+        "Array.armor[q.property('warcraft:phase') - 1]"
+      ],
+      "part_visibility": [
+        {
+          "*": false
+        },
+        {
+          "waist_armor": true
+        },
+        {
+          "chest_armor": true
+        },
+        {
+          "cape_trim": true
+        },
+        {
+          "helmet": true
+        },
+        {
+          "helmet_crown": true
+        },
+        {
+          "shoulder_right": true
+        },
+        {
+          "arm_armor_right": true
+        },
+        {
+          "forearm_armor_right": true
+        },
+        {
+          "gauntlet_right": true
+        },
+        {
+          "leg_armor_right": true
+        },
+        {
+          "shin_armor_right": true
+        },
+        {
+          "boot_right": true
+        },
+        {
+          "shoulder_left": true
+        },
+        {
+          "arm_armor_left": true
+        },
+        {
+          "forearm_armor_left": true
+        },
+        {
+          "gauntlet_left": true
+        },
+        {
+          "leg_armor_left": true
+        },
+        {
+          "shin_armor_left": true
+        },
+        {
+          "boot_left": true
+        }
+      ]
+    },
+    "controller.render.warcraft_arthas_frost": {
+      "arrays": {
+        "textures": {
+          "Array.frost": [
+            "Texture.frost_1",
+            "Texture.frost_2",
+            "Texture.frost_3"
+          ]
+        }
+      },
+      "geometry": "Geometry.default",
+      "materials": [
+        {
+          "*": "Material.default"
+        }
+      ],
+      "textures": [
+        "Array.frost[q.property('warcraft:phase') - 1]"
+      ],
+      "part_visibility": [
+        {
+          "*": false
+        },
+        {
+          "frost_shoulder_right": true
+        },
+        {
+          "frost_shoulder_left": true
+        },
+        {
+          "frost_crown": true
+        },
+        {
+          "frost_p2_aura": "q.property('warcraft:phase') >= 2"
+        },
+        {
+          "frost_p3_wings": "q.property('warcraft:phase') >= 3"
+        }
+      ]
+    },
+    "controller.render.warcraft_arthas_sword": {
+      "arrays": {
+        "textures": {
+          "Array.sword": [
+            "Texture.sword_1",
+            "Texture.sword_2",
+            "Texture.sword_3"
+          ]
+        }
+      },
+      "geometry": "Geometry.default",
+      "materials": [
+        {
+          "*": "Material.default"
+        }
+      ],
+      "textures": [
+        "Array.sword[q.property('warcraft:phase') - 1]"
+      ],
+      "part_visibility": [
+        {
+          "*": false
+        },
+        {
+          "frostmourne": true
+        },
+        {
+          "frostmourne_blade": true
+        },
+        {
+          "frostmourne_guard": true
+        },
+        {
+          "frostmourne_grip": true
+        },
+        {
+          "frostmourne_frost": true
+        }
+      ]
+    }
+  }
+}

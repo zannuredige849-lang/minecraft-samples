@@ -1,0 +1,40 @@
+{
+  "format_version": 2,
+  "header": {
+    "name": "Warcraft: Arthas Menethil RP",
+    "description": "Arthas Menethil, Frostmourne and the Enslavement of Souls - resource pack",
+    "uuid": "6b1f2a74-3c5e-4d0a-9a41-0a7a5e000011",
+    "version": [
+      0,
+      1,
+      0
+    ],
+    "min_engine_version": [
+      1,
+      26,
+      10
+    ]
+  },
+  "modules": [
+    {
+      "description": "Arthas resources",
+      "type": "resources",
+      "uuid": "6b1f2a74-3c5e-4d0a-9a41-0a7a5e000012",
+      "version": [
+        0,
+        1,
+        0
+      ]
+    }
+  ],
+  "dependencies": [
+    {
+      "uuid": "6b1f2a74-3c5e-4d0a-9a41-0a7a5e000001",
+      "version": [
+        0,
+        1,
+        0
+      ]
+    }
+  ]
+}

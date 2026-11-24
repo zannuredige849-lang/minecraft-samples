@@ -1,0 +1,41 @@
+{
+  "format_version": "1.8.0",
+  "animations": {
+    "animation.warcraft_frostmourne.hold_first_person": {
+      "loop": true,
+      "bones": {
+        "root": {
+          "rotation": [
+            -12,
+            32,
+            6
+          ],
+          "position": [
+            9,
+            -1,
+            -9
+          ],
+          "scale": 0.42
+        }
+      }
+    },
+    "animation.warcraft_frostmourne.hold_third_person": {
+      "loop": true,
+      "bones": {
+        "root": {
+          "rotation": [
+            90,
+            0,
+            0
+          ],
+          "position": [
+            0,
+            -1,
+            -7
+          ],
+          "scale": 0.5
+        }
+      }
+    }
+  }
+}
