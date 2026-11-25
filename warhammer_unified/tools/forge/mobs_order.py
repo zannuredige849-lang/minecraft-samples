@@ -62,7 +62,7 @@ def dark_plate_knight():
     r.head_helm("great", plume=None, trim="trim", horns="trim", eyes="glow")
     r.pauldrons("round", spikes=3, trim="trim", size=1.25)
     r.tabard("cloth", "trim", None, length=6); r.cape("cloth", trim="trim", length=16)
-    r.weapon("greatsword", glow="glow"); 
+    r.weapon("claymore", glow="glow"); 
     _riding_legs(q)
     attach(q, r)
     return Spec(q, rig="rider", heavy=1.4)
@@ -123,7 +123,7 @@ def high_elf_spearman():
     m.box(m.head, (-hs / 2, m.sh + hs - 1, -hs / 2 - 0.5), (hs, 1, 1), M("trim", "plate", 3.8))
     m.pauldrons("round", trim="trim", size=0.95); m.belt("leather", "trim"); m.tabard("cloth", "trim", "cross", length=9)
     m.cape("cloth", trim="trim", length=15)
-    m.weapon("spear", slot="metal", trim="trim", rest=-15)
+    m.weapon("glaive", slot="metal", trim="trim")
     return Spec(m)
 
 
@@ -133,7 +133,7 @@ def imperial_guard():
     m.base(armor="armor", cloth="cloth", trim="trim")
     m.head_helm("sallet", plume="plume", trim="trim", crest=None); m.pauldrons("round", trim="trim", size=1.1)
     m.belt("leather", "trim"); m.tabard("cloth", "trim", "chevrons", length=9)
-    m.weapon("axe", length=40, rest=-12); m.shield("tower", emblem="chevrons")
+    m.weapon("halberd"); m.shield("tower", emblem="chevrons")
     return Spec(m)
 
 
@@ -181,7 +181,7 @@ def chival_warrior():
     m.base(armor="armor", cloth="cloth", trim="trim")
     m.head_helm("great", plume="plume", trim="trim"); m.pauldrons("round", trim="trim", size=1.15)
     m.belt("leather", "trim"); m.tabard("cloth", "trim", "chevrons"); m.cape("plume", trim="trim", length=13)
-    m.weapon("greatsword", glow=None)
+    m.weapon("claymore", glow=None)
     return Spec(m)
 
 

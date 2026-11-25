@@ -26,6 +26,8 @@ def R(v):
 HOLD = {  # kind: (final tilt forward, forearm bend)
     "sword": (48, -52), "greatsword": (30, -40), "axe": (52, -52), "greataxe": (34, -42), "hammer": (44, -48), "mace": (50, -52),
     "cleaver": (50, -52), "dagger": (60, -55), "spear": (14, -36), "staff": (10, -34), "scythe": (18, -36),
+    "trident": (12, -36), "halberd": (16, -38), "glaive": (22, -40), "scimitar": (50, -52), "claymore": (28, -40),
+    "bone_club": (46, -50), "war_pick": (44, -48),
 }
 
 
@@ -38,7 +40,7 @@ class Humanoid(Model):
         self.s = s; self.H = H
         self.lh = lh or R(12 * s)
         self.th = th or R(12 * s)
-        self.hs = hs or R(9 * s)
+        self.hs = hs or R(8.3 * s)
         self.tw = (tw or R(10 * s * w)) // 2 * 2
         self.td = td or R(6 * s * (0.5 + 0.5 * w))
         self.aw = aw or R(5 * s * w * bulk)
@@ -88,6 +90,7 @@ class Humanoid(Model):
         s, tw, td, th, lh, aw, sh = self.s, self.tw, self.td, self.th, self.lh, self.aw, self.sh
         b = self.body
         trimslot = trim if trim in self.pal else armor
+        dk = "leather" if "leather" in self.pal else trimslot       # worn leather for gloves, bracers and boots
         pel_h = R(3 * s); ch_h = R(7 * s); ab_h = max(2, th - pel_h - ch_h)
         y_ab = lh + pel_h; y_ch = y_ab + ab_h
         # --- torso: pelvis, abdomen, chest, pecs, back plate, neck, gorget
@@ -106,14 +109,21 @@ class Humanoid(Model):
         for side, up, fo in ((1, self.arm_l, self.farm_l), (-1, self.arm_r, self.farm_r)):
             ox = side * (tw / 2) if side > 0 else -(tw / 2) - aw
             self.box(up, (ox, self.elbow_y, -aw / 2), (aw, self.ua, aw), M(slot, arm_style, 3.0))
-            self.box(up, (ox - 0.5, self.elbow_y + 1, -aw / 2 - 0.5), (aw + 1, 1, aw + 1), M(trimslot, "woven", 3.1))
+            self.box(up, (ox - 0.5, self.elbow_y + 1, -aw / 2 - 0.5), (aw + 1, 1, aw + 1), M(dk, "leather", 2.6))
             self.box(fo, (ox, self.hand_y + 3, -aw / 2), (aw, fa_h, aw), M(slot, arm_style, 2.8))
             self.box(fo, (ox - 0.5, self.elbow_y - 2, -aw / 2 - 1), (aw + 1, 2, aw + 1), M(armor if armor != skin else trimslot, "plate", 3.2))
-            self.box(fo, (ox - 0.5, self.hand_y + 3, -aw / 2 - 0.5), (aw + 1, min(3, fa_h), aw + 1), M(trimslot, "woven", 3.0))
-            hm = M(trimslot, "plate", 3.0) if gauntlets else M(skin, "skin", 3.0)
-            self.box(fo, (ox, self.hand_y, -aw / 2), (aw, 3, aw), hm)
-            self.box(fo, (ox + 0.5, self.hand_y + 1, -aw / 2 - 1), (max(1, aw - 1), 2, 1), M(trimslot if gauntlets else skin, "plate" if gauntlets else "skin", 3.4))
+            self.box(fo, (ox - 0.5, self.hand_y + 3, -aw / 2 - 0.5), (aw + 1, min(3, fa_h), aw + 1), M(dk, "leather", 2.8))
+            hm = M(dk, "leather", 2.4) if gauntlets else M(skin, "skin", 3.0)
+            self.box(fo, (ox + 0.5, self.hand_y + 1, -aw / 2 + 0.5), (max(1, aw - 1), 2, max(1, aw - 1)), hm)       # palm
+            nf = max(2, (aw - 1) // 2 + 1)
+            for k in range(nf):                                                                                        # fingers
+                self.box(fo, (ox + 0.5 + k * max(1, (aw - 2) / max(1, nf - 1)), self.hand_y - 1, -aw / 2 - 0.5), (1, 2, 1), hm)
+            self.box(fo, (ox + (aw - 0.5 if side > 0 else 0.0), self.hand_y, -aw / 2 + 1), (1, 2, 1), hm)            # thumb
         self.pose_arm("l"); self.pose_arm("r")
+        if not self.pre:   # hunched, heavy stance (Warcraft proportions): chest forward, head set back on the shoulders
+            hunch = 6 if self.s >= 1.3 else 4
+            self.bones[self.body]["rot"] = [hunch, 0, 0]
+            self.bones[self.head]["rot"] = [-hunch * 0.7, 0, 0]
         # --- legs
         if not self.has_legs:
             self.base_done = True
@@ -129,9 +139,9 @@ class Humanoid(Model):
                 self.box(bone, (ox, lh - th_h - 1, -lw / 2 - 1), (lw, 2, 1), M(armor, "plate", 3.3))
                 self.box(bone, (ox + 0.5, boot_h, -lw / 2 + 0.5), (max(1, lw - 1), sh_h, max(1, lw - 1)), M(cloth, leg_style, 2.5))
                 if sh_h > 3: self.box(bone, (ox + 0.5, boot_h + 1, -lw / 2 - 0.5), (max(1, lw - 1), sh_h - 2, 1), M(armor, "plate", 3.0))
-                self.box(bone, (ox - 0.5, 0, -lw / 2 - 1), (lw + 1, boot_h, lw + 1), M(trimslot, "plate", 2.8))
-                self.box(bone, (ox + 0.5, 0, -lw / 2 - 2.5), (max(1, lw - 1), 2, 2), M(trimslot, "plate", 3.1))
-                self.box(bone, (ox - 0.5, boot_h, -lw / 2 - 0.5), (lw + 1, 1, lw + 1), M(trimslot, "woven", 3.0))
+                self.box(bone, (ox - 0.5, 0, -lw / 2 - 1), (lw + 1, boot_h, lw + 1), M(dk, "leather", 2.4))
+                self.box(bone, (ox + 0.5, 0, -lw / 2 - 2.5), (max(1, lw - 1), 2, 2), M(dk, "leather", 2.6))
+                self.box(bone, (ox - 0.5, boot_h, -lw / 2 - 0.5), (lw + 1, 1, lw + 1), M(dk, "leather", 3.0))
             else:
                 self.box(bone, (ox + 0.5, 0, -lw / 2 + 0.5), (max(1, lw - 1), lh - th_h, max(1, lw - 1)), M(cloth, leg_style, 2.5))
         self.base_done = True
@@ -144,7 +154,7 @@ class Humanoid(Model):
     def head_bare(self, skin="skin", hair=None, eyes="glow", beard=None, eye_y=None, brow=True):
         hs, sh = self.hs, self.sh
         ey = eye_y if eye_y is not None else R(hs * 0.45)
-        self.head_box(dec(M(skin, "skin", 3.0), ("north", "eyes", eyes, ey)))
+        self.head_box(dec(M(skin, "skin", 3.0), ("north", "face", eyes, ey)))
         self.box(self.head, (-1, sh + ey - 2, -hs / 2 - 1), (2, 2, 1), M(skin, "skin", 3.3))          # nose
         for sgn in (1, -1):                                                                        # ears
             self.box(self.head, (sgn * hs / 2 - (0 if sgn > 0 else -0), sh + ey - 1, -1), (1 if sgn > 0 else 1, 3, 2), M(skin, "skin", 2.6)) if False else \
@@ -179,7 +189,7 @@ class Humanoid(Model):
             self.box(self.head, (-hs / 2 - 1, sh - 2, hs / 2 - 1), (hs + 2, hs, 2), M(metal, "plate", 2.8))
             self.box(self.head, (-hs / 2, sh + hs - 4, -hs / 2 - 1.5), (hs, 1, 1), M(trim, "plate", 3.4))
         elif kind == "open":
-            self.head_box(dec(M(skin, "skin", 3.0), ("north", "eyes", eyes, ey)))
+            self.head_box(dec(M(skin, "skin", 3.0), ("north", "face", eyes, ey)))
             self.box(self.head, (-hs / 2 - 1, sh + hs - 3, -hs / 2 - 1), (hs + 2, 4, hs + 2), M(metal, "plate", 3.2))
             self.box(self.head, (-1, sh + 2, -hs / 2 - 2), (2, hs - 3, 1), M(metal, "plate", 3.0))
             self.box(self.head, (-1, sh + ey - 2, -hs / 2 - 1), (2, 2, 1), M(skin, "skin", 3.3))
@@ -225,8 +235,9 @@ class Humanoid(Model):
     # ---------------------------------------------------------------- armour pieces
     def pauldrons(self, kind="round", slot="armor", spikes=None, trim="trim", skull=False, size=1.0):
         aw = self.aw; s = self.s; tw = self.tw
-        pw = R((aw + 3) * size); ph = R(3 * s * size)
         for side, bone in ((1, self.arm_l), (-1, self.arm_r)):
+            k = size * 0.84 * (1.14 if side < 0 else 0.9)
+            pw = R((aw + 3) * k); ph = R(3 * s * k)
             ox = side * tw / 2 - (pw - aw) / 2 if side > 0 else -tw / 2 - aw - (pw - aw) / 2
             y = self.sh - ph + 1
             mat = M(slot, "plate", 3.2)
@@ -238,6 +249,16 @@ class Humanoid(Model):
             if spikes:
                 for k in range(spikes):
                     self.box(bone, (ox + pw / 2 - 1 + side * 0.5, y + ph + 1, -pw / 2 + 1 + k * 2 if spikes > 1 else -0.5), (1, 2 + k % 2, 1), M(trim, "bone", 3.8))
+
+    def tatter(self, bone, x0, x1, y, z, slot, tone=2.5, depth=1):
+        """Ragged hem: uneven strips under a piece of cloth."""
+        x = x0
+        i = 0
+        while x < x1 - 0.5:
+            w = 1 + (i % 2)
+            ln = 2 + (i * 7 + int(x * 3)) % 4
+            self.box(bone, (x, y - ln, z), (min(w, int(x1 - x)) or 1, ln, depth), M(slot, "cloth", tone - 0.1 * (ln % 3)))
+            x += w + (1 if i % 3 == 2 else 0); i += 1
 
     def fur_collar(self, slot="fur"):
         tw = self.tw; td = self.td
@@ -279,8 +300,8 @@ class Humanoid(Model):
         if emblem: mat = dec(mat, ("north", emblem, trim))
         self.box(self.body, (-tw / 2 + 2, lh - L + 3, -td / 2 - 1.5), (tw - 4, L, 1), mat)
         self.box(self.body, (-tw / 2 + 2, lh + 3, td / 2 + 0.5), (tw - 4, L - 3, 1), M(slot, "cloth", 2.6))
-        self.box(self.body, (-tw / 2 + 2, lh - L + 3, -td / 2 - 1.5), (tw - 4, 1, 1), M(trim, "woven", 3.3))
-        self.box(self.body, (-tw / 2 + 3, lh - L + 2, -td / 2 - 1.5), (tw - 6, 1, 1), M(slot, "cloth", 2.3))
+        self.box(self.body, (-tw / 2 + 2, lh - L + 3, -td / 2 - 1.5), (tw - 4, 1, 1), M(trim, "woven", 3.1))
+        self.tatter(self.body, -tw / 2 + 2, tw / 2 - 2, lh - L + 3, -td / 2 - 1.5, slot, 2.7)
 
     def skirt(self, slot="cloth", length=None, widen=2, trim=None):
         if self.n("skirt") not in self.bones:
@@ -293,7 +314,8 @@ class Humanoid(Model):
         self.box(k, (-tw / 2 - widen / 2, self.lh + 2 - L, -td / 2 - widen / 2), (tw + widen, L - top, td + widen), M(slot, "cloth", 2.7))
         self.box(k, (-tw / 2 - widen / 2 - 0.5, self.lh + 2 - L, -td / 2 - widen / 2 - 0.5), (tw + widen + 1, 1, td + widen + 1), M(trim or slot, "woven" if trim else "cloth", 3.4 if trim else 2.2))
         if trim:
-            self.box(k, (-tw / 2 - widen / 4 - 0.5, self.lh + 2 - top, -td / 2 - widen / 4 - 0.5), (tw + widen / 2 + 1, 1, td + widen / 2 + 1), M(trim, "plate", 3.3))
+            self.box(k, (-tw / 2 - widen / 4 - 0.5, self.lh + 2 - top, -td / 2 - widen / 4 - 0.5), (tw + widen / 2 + 1, 1, td + widen / 2 + 1), M(trim, "plate", 3.1))
+        self.tatter(k, -tw / 2 - widen / 2, tw / 2 + widen / 2, self.lh + 2 - L, -td / 2 - widen / 2, slot, 2.5)
 
     def cape(self, slot="cloth", length=None, trim=None, half=False):
         if self.n("cape") not in self.bones:
@@ -304,6 +326,7 @@ class Humanoid(Model):
         up = R(L * 0.45)
         self.box(k, (-tw / 2, self.sh - 1 - up, td / 2), (tw, up, 1), M(slot, "cloth", 2.7))
         self.box(k, (-tw / 2 + 1, self.sh - 1 - L, td / 2 + 0.5), (tw - 2, L - up, 1), M(slot, "cloth", 2.5))
+        self.tatter(k, -tw / 2 + 1, tw / 2 - 1, self.sh - 1 - L, td / 2 + 0.5, slot, 2.4)
         self.box(k, (-tw / 2 - 1, self.sh - 2, td / 2 - 1), (tw + 2, 2, 2), M(trim or slot, "plate", 3.3))
         if trim:
             self.box(k, (-tw / 2 + 1, self.sh - 1 - L, td / 2 + 0.5), (tw - 2, 1, 1), M(trim, "woven", 3.4))
@@ -421,6 +444,58 @@ class Humanoid(Model):
             self.box(wb, (gx - 1, hy - 8 + L - 1, gz - 0.5), (3, 2, 2), M(slot, "metal", 3.6))
             self.box(wb, (gx - 6, hy - 8 + L, gz - 0.5), (7, 2, 1), M(slot, "metal", 3.9))
             self.box(wb, (gx - 8, hy - 8 + L - 3, gz - 0.5), (3, 3, 1), M(slot, "metal", 4.2))
+        elif kind == "trident":     # vanilla-trident silhouette: three barbed prongs
+            L = R(34 * s)
+            self.box(wb, (gx, hy - 8, gz), (1, L, 1), M(grip, "wood", 2.7))
+            self.box(wb, (gx - 2, hy - 8 + L - 1, gz - 0.5), (5, 1, 2), M(slot, "metal", 3.3))
+            self.box(wb, (gx, hy - 8 + L, gz), (1, 7, 1), M(slot, "metal", 4.0))
+            for dx in (-2, 2):
+                self.box(wb, (gx + dx, hy - 8 + L, gz), (1, 5, 1), M(slot, "metal", 3.6))
+                self.box(wb, (gx + dx + (1 if dx < 0 else -1), hy - 8 + L + 3, gz), (1, 1, 1), M(slot, "metal", 4.2))
+            self.box(wb, (gx - 1, hy - 8 + L - 3, gz - 0.5), (3, 2, 2), M(trim, "woven", 3.0))
+        elif kind == "halberd":
+            L = R(36 * s)
+            self.box(wb, (gx, hy - 8, gz), (1, L, 1), M(grip, "wood", 2.7))
+            self.box(wb, (gx - 5, hy - 8 + L - 8, gz - 1), (5, 6, 2), M(slot, "metal", 3.3))              # axe blade
+            self.box(wb, (gx - 6, hy - 8 + L - 7, gz - 0.5), (1, 4, 1), M(slot, "metal", 4.1))
+            self.box(wb, (gx, hy - 8 + L - 2, gz - 0.5), (1, 6, 2), M(slot, "metal", 3.7))                 # spear tip
+            self.box(wb, (gx + 1, hy - 8 + L - 6, gz - 0.5), (2, 2, 1), M(slot, "metal", 3.2))             # rear hook
+            self.box(wb, (gx - 1, hy - 8 + L - 9, gz - 0.5), (3, 1, 2), M(trim, "woven", 3.0))
+        elif kind == "glaive":
+            L = R(32 * s)
+            self.box(wb, (gx, hy - 8, gz), (1, L, 1), M(grip, "wood", 2.7))
+            for i, (dx, dy, w_) in enumerate(((0, 0, 2), (1, 3, 2), (2, 6, 2), (2, 9, 1))):
+                self.box(wb, (gx - 0.5 + dx - 1, hy - 8 + L + dy, gz - 0.5), (w_, 3, 1), M(slot, "metal", 3.5 + i * 0.2))
+            self.box(wb, (gx - 1, hy - 8 + L - 2, gz - 0.5), (3, 2, 2), M(trim, "plate", 3.2))
+        elif kind == "scimitar":
+            self.box(wb, (gx, hy - 3, gz), (1, 6, 1), wrap)
+            self.box(wb, (gx - 0.5, hy - 4, gz - 0.5), (2, 1, 2), M(trim, "plate", 3.2))
+            self.box(wb, (gx - 2, hy + 3, gz - 1), (5, 1, 3), M(trim, "plate", 3.2))
+            for i in range(5):                                         # curved blade
+                self.box(wb, (gx - 0.5 + (i * i) * 0.18, hy + 4 + i * 3, gz - 0.5), (2, 3, 1), M(slot, "metal", 3.3 + i * 0.15))
+            self.box(wb, (gx + 3.5, hy + 19, gz - 0.5), (1, 2, 1), M(slot, "metal", 4.2))
+        elif kind == "claymore":
+            L = R(30 * s)
+            self.box(wb, (gx, hy - 6, gz), (1, 11, 1), wrap)
+            self.box(wb, (gx - 1, hy - 7, gz - 1), (3, 2, 3), M(trim, "plate", 3.3))
+            self.box(wb, (gx - 5, hy + 5, gz - 1.5), (11, 2, 4), M(trim, "plate", 3.3))
+            self.box(wb, (gx - 6, hy + 3, gz - 1), (2, 3, 3), M(trim, "plate", 3.0)); self.box(wb, (gx + 5, hy + 3, gz - 1), (2, 3, 3), M(trim, "plate", 3.0))
+            self.box(wb, (gx - 1, hy + 7, gz - 1), (3, L, 2), M(slot, "metal", 3.4))
+            self.box(wb, (gx, hy + 7 + L, gz - 0.5), (1, 3, 1), M(slot, "metal", 4.2))
+            self.box(wb, (gx, hy + 8, gz - 2), (1, L - 4, 1), M(glow or slot, "glow" if glow else "metal", 4.4 if glow else 2.5))
+        elif kind == "bone_club":
+            L = R(20 * s)
+            self.box(wb, (gx - 0.5, hy - 4, gz - 0.5), (2, L, 2), M("bone", "bone", 3.0))
+            self.box(wb, (gx - 2, hy - 4 + L - 6, gz - 2), (5, 7, 5), M("bone", "bone", 3.3))
+            for dx, dz in ((-3, 0), (3, 0), (0, -3), (0, 3)):
+                self.box(wb, (gx + dx - 0.5, hy - 4 + L - 3, gz + dz - 0.5), (1, 2, 1), M("bone", "bone", 4.0))
+            self.box(wb, (gx - 0.5, hy - 4 + L + 1, gz - 0.5), (2, 2, 2), M("bone", "bone", 3.8))
+        elif kind == "war_pick":
+            L = R(22 * s)
+            self.box(wb, (gx, hy - 4, gz), (1, L, 1), M(grip, "wood", 2.8))
+            self.box(wb, (gx - 2, hy - 4 + L - 3, gz - 1.5), (5, 4, 4), M(slot, "metal", 3.1))
+            self.box(wb, (gx - 6, hy - 4 + L - 2, gz - 0.5), (4, 2, 1), M(slot, "metal", 3.8)); self.box(wb, (gx - 7, hy - 4 + L - 1, gz - 0.5), (1, 1, 1), M(slot, "metal", 4.3))
+            self.box(wb, (gx + 3, hy - 4 + L - 2, gz - 0.5), (3, 2, 1), M(slot, "metal", 3.5))
         elif kind == "dagger":
             self.box(wb, (gx, hy - 2, gz), (1, 5, 1), wrap)
             self.box(wb, (gx - 1.5, hy + 3, gz - 0.5), (4, 1, 2), M(trim, "plate", 3.5))

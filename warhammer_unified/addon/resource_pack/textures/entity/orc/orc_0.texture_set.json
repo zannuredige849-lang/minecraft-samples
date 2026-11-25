@@ -1,8 +1,0 @@
-{
-  "format_version": "1.16.100",
-  "minecraft:texture_set": {
-    "color": "orc_0",
-    "metalness_emissive_roughness": "orc_0_mer",
-    "heightmap": "orc_0_height"
-  }
-}

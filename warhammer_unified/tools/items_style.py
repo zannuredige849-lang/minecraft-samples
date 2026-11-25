@@ -175,11 +175,14 @@ def run(out, generated=()):
             ap = f"{rp}/textures/models/armor/{name}.png"
             if os.path.exists(ap):
                 V.wool_fabric(64, dye).save(ap); _drop_siblings(rp, f"textures/models/armor/{name}"); stats["armor"] += 1
-    refs = [V.icon(n) for n in ("iron_sword", "gold_sword", "stick", "iron_axe", "copper_ingot")]
-    for name in WEAPONS:
+    import weapon_icons as WI
+    for name, fn in (("cb_hell_scimitar", WI.hell_scimitar), ("cb_laestrygonian_sword", WI.laestrygonian_sword)):
         if name not in itd: continue
         p = f"{rp}/{path_of(name)}.png"
-        V.palette_map(Image.open(p), refs).save(p); stats["weapons"] += 1
+        old = Image.open(p)
+        img = fn()
+        assert img.size == old.size, (name, img.size, old.size)
+        img.save(p); stats["weapons"] += 1
     json.dump(doc, open(itd_path, "w", encoding="utf-8"), indent=2)
     return stats
 

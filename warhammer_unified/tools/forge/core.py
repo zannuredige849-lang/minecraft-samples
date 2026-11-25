@@ -29,7 +29,7 @@ def make_ramp(base, n=6):
         o = i - 3
         ll = l + o * (0.085 if o < 0 else 0.07)
         ll = min(max(ll, 0.04), 0.96)
-        ss = min(1.0, s * (1 - 0.06 * o)) if s > 0.05 else s
+        ss = min(1.0, s * 0.86 * (1 - 0.06 * o)) if s > 0.05 else s
         hh = h
         if s > 0.05:
             tgt = 0.68 if o < 0 else 0.12
@@ -74,7 +74,8 @@ def _hash(*a):
 
 def paint_face(mat, face, w, h, pal, seed=0):
     """Return (h,w,4) uint8 array for one face. mat = dict(slot, style, tone, decals=[...])."""
-    ramp = pal[mat.get("slot", "armor")]
+    slot_ = mat.get("slot", "armor")
+    ramp = pal[slot_]
     style = mat.get("style", "plate")
     tone = mat.get("tone", 3.0) + FACE_TONE[face]
     img = np.zeros((h, w, 4), np.uint8)
@@ -109,6 +110,12 @@ def paint_face(mat, face, w, h, pal, seed=0):
         if w >= 6 and h >= 6:
             for (x, y) in ((1, 1), (w - 2, 1), (1, h - 2), (w - 2, h - 2)):
                 put(x, y, hi if (x + y) % 2 == 0 else light)
+        if w >= 5 and h >= 5 and slot_ not in ("glow", "bone"):   # rust and edge wear
+            for k in range(max(1, (w * h) // 70)):
+                rx_ = 1 + _hash(seed, k, "rx") % max(w - 3, 1); ry_ = 1 + _hash(seed, k, "ry") % max(h - 3, 1)
+                for dx_, dy_ in ((0, 0), (1, 0), (0, 1)):
+                    if _hash(seed, k, dx_, dy_) % 3:
+                        put(rx_ + dx_, ry_ + dy_, tuple(int(a * 0.62 + b * 0.38) for a, b in zip(img[ry_ + dy_, rx_ + dx_][:3], (122, 74, 44))) + (255,) if (0 <= rx_ + dx_ < w and 0 <= ry_ + dy_ < h) else (0, 0, 0, 0))
         if w >= 8 and h >= 8:   # inset panel groove + two scratches
             for x in range(2, w - 2):
                 put(x, 2, dark); put(x, h - 3, light)
@@ -218,17 +225,19 @@ def paint_face(mat, face, w, h, pal, seed=0):
         v = (grid[y0_, x0_] * (1 - tx_) * (1 - ty_) + grid[y0_, x0_ + 1] * tx_ * (1 - ty_) +
              grid[y0_ + 1, x0_] * (1 - tx_) * ty_ + grid[y0_ + 1, x0_ + 1] * tx_ * ty_)
         grad = (ys_ / max(h - 1, 1)) * -0.10 + 0.05
-        f = (1.0 + v * 0.07 + grad)[..., None]
+        f = (1.0 + v * 0.11 + grad * 1.6)[..., None]
         img[..., :3] = np.clip(img[..., :3].astype(float) * f, 0, 255).astype(np.uint8)
 
-    # ---- bevel (skipped for glow/flame so they stay bright)
+    # ---- edges: matte ambient occlusion (no plastic highlights); only metal gets a faint rim light
     if style not in ("glow", "flame") and w >= 3 and h >= 3 and not mat.get("nobevel"):
-        img[0, :] = light
-        img[:, 0] = light
-        img[h - 1, :] = dark
-        img[:, w - 1] = dark
-        img[0, w - 1] = base
-        img[h - 1, 0] = base
+        f = img[..., :3].astype(float)
+        if style in ("plate", "metal"):
+            f[0, :] = f[0, :] * 0.93 + 255 * 0.07
+            f[:, 0] = f[:, 0] * 0.93 + 255 * 0.07
+        f[h - 1, :] *= 0.72
+        f[:, w - 1] *= 0.80
+        f[0, :] *= 0.94 if style not in ("plate", "metal") else 1.0
+        img[..., :3] = np.clip(f, 0, 255).astype(np.uint8)
     elif style in ("glow",) and w >= 3 and h >= 3:
         img[0, :] = ramp_at(ramp, 3.0); img[h - 1, :] = ramp_at(ramp, 3.0)
         img[:, 0] = ramp_at(ramp, 3.0); img[:, w - 1] = ramp_at(ramp, 3.0)
@@ -259,6 +268,17 @@ def _decal(img, kind, args, pal, w, h):
                 if h > 6: put(cx + dx, y + 1, r[4])
         # brow
         d = pal["dark"] if "dark" in pal else pal[slot]
+    elif kind == "face":     # ("face", slot, y): eyes with pupils, brows, nose shadow, mouth
+        slot = args[0] if args else "glow"; y = args[1] if len(args) > 1 else h // 2
+        glow = slot in ("glow", "ember", "accent")
+        gap = max(1, w // 4)
+        for cx in (w // 2 - gap - 1, w // 2 + gap - 1 + 1):
+            put(cx, y, (240, 236, 224, 255) if not glow else pal[slot][5]); put(cx + 1, y, pal["dark"][0] if not glow else pal[slot][5])
+            put(cx, y - 1, pal["dark"][1]); put(cx + 1, y - 1, pal["dark"][1])          # brow
+            put(cx + (0 if cx < w // 2 else 1), y - 2, pal["dark"][1]) if h > 6 else None
+        put(w // 2 - 1, y + 1, pal["dark"][1]); put(w // 2, y + 1, pal["dark"][1])         # nose
+        if h > 6:
+            for xx in range(w // 2 - 2, w // 2 + 2): put(xx, min(h - 2, y + 3), pal["dark"][0])
     elif kind == "visor":   # ("visor", y, height, slot)
         y = args[0]; hh = args[1] if len(args) > 1 else 1; slot = args[2] if len(args) > 2 else "dark"
         for yy in range(y, y + hh):

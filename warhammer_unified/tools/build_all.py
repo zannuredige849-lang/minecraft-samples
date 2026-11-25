@@ -1,7 +1,7 @@
 """Full pipeline: python3 build_all.py <original-extracted-dir> <out-dir> [--zip path.mcaddon]"""
 import sys, os, shutil, argparse
 sys.path.insert(0, os.path.dirname(__file__))
-import build_models, restyle, items_style, patch_bp, package, strip_strays, remove_orc_gear
+import build_models, restyle, items_style, patch_bp, package, strip_strays, remove_orc_gear, banners
 from forge.registry import REG
 from forge.common import ENT
 
@@ -17,6 +17,7 @@ def main():
     print("models regenerated:", len(st), "cubes total", sum(s[1] for s in st))
     skip = set(t for e in REG for t in ENT[e]["textures"].values())
     print("floating cubes removed:", strip_strays.run(a.out))
+    print("vanilla banners on orc leaders (textures):", banners.run(a.out))
     print("orc gear files removed:", remove_orc_gear.run(a.out))
     print("textures restyled:", restyle.run(a.out, skip))
     print("items/eggs:", items_style.run(a.out))

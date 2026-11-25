@@ -30,7 +30,7 @@
     "controller.render.lightning_golem"
    ],
    "spawn_egg": {
-    "base_color": "#546576",
+    "base_color": "#4d5867",
     "overlay_color": "#ffb040"
    }
   }

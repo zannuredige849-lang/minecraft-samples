@@ -30,7 +30,7 @@
     "controller.render.void_knight"
    ],
    "spawn_egg": {
-    "base_color": "#372b62",
+    "base_color": "#3a305c",
     "overlay_color": "#a98a4a"
    }
   }

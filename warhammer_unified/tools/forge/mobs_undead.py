@@ -88,7 +88,7 @@ def nazgul():
     m.head_helm("hood", metal="cloth", eyes="glow"); m.pauldrons("round", slot="armor", trim="trim", spikes=2)
     m.skirt("cloth", length=m.lh + 4, widen=6, trim=None); m.cape("cloth", trim=None, length=26)
     m.wings("bat", slot="cloth", trim="trim", span=16, rot=24)
-    m.weapon("greatsword", glow="glow", slot="metal", trim="trim")
+    m.weapon("scythe", slot="metal", trim="trim")
     return Spec(m, floaty=True, heavy=1.1)
 
 
@@ -101,7 +101,7 @@ def pirate_ghost():
     m.box(m.head, (-hs / 2 + 0.5, m.sh + hs + 1, -hs / 2 + 0.5), (hs - 1, 3, hs - 1), M("hat", "cloth", 2.6))
     m.box(m.head, (-hs / 2 - 2, m.sh + hs, -hs / 2 - 3), (hs + 4, 2, 1), M("trim", "plate", 3.4))
     m.skirt("cloth", length=m.lh + 4, widen=3, trim=None); m.belt("leather", "trim"); m.cape("hat", trim=None, length=14)
-    m.weapon("sword", slot="metal", glow="glow", length=22)
+    m.weapon("scimitar", slot="metal")
     return Spec(m, floaty=True)
 
 

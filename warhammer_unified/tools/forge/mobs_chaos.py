@@ -14,7 +14,7 @@ def chaos_knight():
     r.head_helm("great", horns="trim", eyes="glow")
     r.pauldrons("round", spikes=3, trim="trim", size=1.25)
     r.tabard("cloth", "trim", "rune", length=6); r.cape("cloth", trim="trim", length=17)
-    r.weapon("spear", glow="glow"); r.shield("round", emblem="rune", slot="armor")
+    r.weapon("halberd", glow="glow"); r.shield("round", emblem="rune", slot="armor")
     _riding_legs(q)
     attach(q, r)
     return Spec(q, rig="rider", heavy=1.35)
@@ -26,7 +26,7 @@ def void_knight():
     m.base(armor="armor", cloth="cloth", trim="trim")
     m.head_helm("great", horns="glow", eyes="glow", trim="trim"); m.pauldrons("round", spikes=3, trim="glow", size=1.4)
     m.belt("leather", "glow"); m.tabard("cloth", "glow", "gem", length=10); m.cape("cloth", trim="glow", length=24)
-    m.weapon("spear", glow="glow", slot="metal", trim="glow"); m.floaters("glow", n=4, r=14)
+    m.weapon("glaive", glow="glow", slot="metal", trim="glow"); m.floaters("glow", n=4, r=14)
     m.box(m.body, (-2, m.sh - 7, -m.td / 2 - 1), (4, 4, 1), M("glow", "glow", 4.0))
     return Spec(m, heavy=1.1)
 

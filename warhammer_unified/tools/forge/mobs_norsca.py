@@ -14,7 +14,7 @@ def bandit_raider():
     m.box(m.head, (-hs / 2 - 0.5, m.sh - 1, -hs / 2 - 1), (hs + 1, 4, 1), M("cloth", "cloth", 2.0))   # face wrap
     m.fur_collar("fur"); m.pauldrons("round", slot="leather", trim="metal", spikes=2)
     m.belt("leather", "trim"); m.backpack("leather", (8, 8, 4))
-    m.weapon("greataxe", slot="metal", grip="leather")
+    m.weapon("scimitar", slot="metal", grip="leather")
     return Spec(m, heavy=1.15)
 
 
@@ -37,7 +37,7 @@ def chaos_warrior():
     m.base(armor="armor", cloth="cloth", trim="trim")
     m.head_helm("great", trim="trim", horns="trim", eyes="glow"); m.pauldrons("round", trim="trim", spikes=3, size=1.2)
     m.belt("leather", "trim", skull=True); m.tabard("cloth", "trim", "rune", length=8); m.cape("cloth", trim="trim", length=14)
-    m.weapon("sword", glow="glow", length=20); m.shield("round", emblem="rune", slot="armor")
+    m.weapon("war_pick", slot="metal"); m.shield("round", emblem="rune", slot="armor")
     return Spec(m, heavy=1.1)
 
 
@@ -81,7 +81,7 @@ def skaal_villager():
     m = Humanoid("geometry.skaal_villager", p, H=target_h("warcraft:skaal_villager") * 0.95, w=0.95)
     m.base(armor="armor", cloth="cloth", trim="leather", torso_style="leather", gauntlets=False)
     m.head_bare("skin", hair="hair", eyes="dark", beard="beard", eye_y=4)
-    m.fur_collar("fur"); m.belt("leather", "trim"); m.weapon("axe", slot="metal", length=14)
+    m.fur_collar("fur"); m.belt("leather", "trim"); m.weapon("trident", slot="metal", length=None)
     return Spec(m)
 
 

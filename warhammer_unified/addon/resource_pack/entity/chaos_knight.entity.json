@@ -30,7 +30,7 @@
     "controller.render.chaos_knight"
    ],
    "spawn_egg": {
-    "base_color": "#2e2a3a",
+    "base_color": "#312d3a",
     "overlay_color": "#a98a4a"
    }
   }
