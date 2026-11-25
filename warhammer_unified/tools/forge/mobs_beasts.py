@@ -3,6 +3,12 @@ from .common import *
 
 
 def grizzly_bear():
+    from .vanilla_mobs import grizzly
+    p = pal(skin="#6a4a2e", fur="#6a4a2e", dark="#1c140e", belly="#8a6a44", bone="#e6dcc0", glow="#ffb050", claw="#d8d0b8")
+    return Spec(grizzly("geometry.grizzly_bear", p), rig="quad", heavy=1.4)
+
+
+def grizzly_bear_old():
     p = pal(skin="#6a4a2e", fur="#6a4a2e", dark="#1c140e", belly="#8a6a44", bone="#e6dcc0", glow="#ffb050", claw="#d8d0b8")
     q = Quad("geometry.grizzly_bear", p, L=30, W=16, Hb=15, leg=13, lt=7, hl=11, hw=10, hh=9)
     q.base(body="fur", bstyle="fur", paws="dark", belly="belly", legs="fur")
@@ -85,6 +91,12 @@ def big_ent(variant="oak"):
 
 
 def skeleton_bear():
+    from .vanilla_mobs import skeleton_bear as _sk
+    p = pal(skin="#d8d0b8", fur="#4a3a2e", bone="#d8d0b8", dark="#14100c", glow="#ff4030", claw="#e8e0c8")
+    return Spec(_sk("geometry.skeleton_bear", p), rig="quad", heavy=1.3)
+
+
+def skeleton_bear_old():
     p = pal(skin="#d8d0b8", fur="#4a3a2e", bone="#d8d0b8", dark="#14100c", glow="#ff4030", claw="#e8e0c8")
     q = Quad("geometry.skeleton_bear", p, L=28, W=14, Hb=14, leg=13, lt=6, hl=11, hw=9, hh=9)
     q.base(body="bone", bstyle="bone", paws="dark", legs="bone", lstyle="bone")

@@ -74,6 +74,9 @@ def _hash(*a):
 
 def paint_face(mat, face, w, h, pal, seed=0):
     """Return (h,w,4) uint8 array for one face. mat = dict(slot, style, tone, decals=[...])."""
+    if mat.get("style") == "vbox":            # pixels straight from a vanilla entity texture (tools/forge/vanilla_mobs.py)
+        from .vanilla_mobs import vbox_pixels
+        return vbox_pixels(mat, face, w, h)
     if mat.get("pskin"):                      # a body part of a player-model human: pixels straight from its 64x64 skin
         from .player import face_pixels
         return face_pixels(mat["pskin"], mat["part"], face, w, h, mat.get("rows"))
