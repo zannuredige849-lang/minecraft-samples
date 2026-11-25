@@ -88,6 +88,19 @@ def voxel_relief(img, wrap_x=False, wrap_y=False):
     return Image.fromarray(out, "RGBA"), Image.fromarray(height, "L"), alpha
 
 
+def save_lossless_small(img, path):
+    """Save as palette PNG when <=256 distinct colors (lossless), else plain optimized PNG."""
+    a = np.asarray(img)
+    flat = a.reshape(-1, a.shape[-1])
+    colors, idx = np.unique(flat, axis=0, return_inverse=True)
+    if len(colors) > 256:
+        img.save(path, optimize=True)
+        return
+    pal = Image.fromarray(idx.reshape(a.shape[:2]).astype(np.uint8), "P")
+    pal.putpalette(colors.astype(np.uint8).flatten().tolist(), rawmode="RGBA" if a.shape[-1] == 4 else "RGB")
+    pal.save(path, optimize=True)
+
+
 def scale2x(img):
     """Scale2x/EPX pixel-art upscale (keeps hard edges, smooths staircases)."""
     p = np.asarray(img.convert("RGBA"), dtype=np.uint8)
@@ -145,15 +158,19 @@ def build_textures(src, dst):
                         if mp is not None:
                             m = Image.open(mp)
                             m = m.convert("RGBA" if m.mode == "RGBA" else "RGB")
-                            m = m.resize(color.size, Image.NEAREST)  # match color map size
-                            m.save(out.with_name(v + ".png"), optimize=True)
-                            ts[key] = v
+                            arr = np.asarray(m).reshape(-1, len(m.getbands()))
+                            if (arr == arr[0]).all():
+                                ts[key] = [int(c) for c in arr[0]]  # uniform map -> inline value
+                            else:
+                                m = m.resize(color.size, Image.NEAREST)  # match color map size
+                                save_lossless_small(m, out.with_name(v + ".png"))
+                                ts[key] = v
                     elif v is not None:
                         ts[key] = v
             want_height = False
             if make_sets and not strip and "normal" not in ts:
                 partial = ((alpha > 0) & (alpha < 255)).mean()
-                want_height = partial < 0.02  # opaque or hard cut-out only
+                want_height = partial < 0.02 and int(height.getextrema()[0]) != int(height.getextrema()[1])  # skip flat maps
             if want_height:
                 height.save(out.with_name(out.stem + "_height.png"), optimize=True)
                 ts["heightmap"] = out.stem + "_height"
@@ -161,7 +178,7 @@ def build_textures(src, dst):
                 if not any(k.startswith("metalness") for k in ts):
                     ts["metalness_emissive_roughness"] = [0, 0, 190]
                 write_json(out.with_name(out.stem + ".texture_set.json"),
-                           {"format_version": "1.21.30", "minecraft:texture_set": ts})
+                           {"format_version": "1.21.30", "minecraft:texture_set": ts}, compact=True)
                 stats["texture_sets"] += 1
 
     process("blocks", "blocks", True, True)
