@@ -1,0 +1,743 @@
+{
+  "held_items": [
+    "acacia_door",
+    "acacia_hanging_sign",
+    "amethyst_shard",
+    "angler_pottery_sherd",
+    "apple",
+    "archer_pottery_sherd",
+    "armadillo_scute",
+    "armor_stand",
+    "arms_up_pottery_sherd",
+    "arrow",
+    "bamboo_door",
+    "bamboo_hanging_sign",
+    "bamboo_sign",
+    "beef",
+    "beetroot",
+    "beetroot_soup",
+    "birch_door",
+    "birch_hanging_sign",
+    "blade_pottery_sherd",
+    "blaze_powder",
+    "blaze_rod",
+    "blue_egg",
+    "bolt_armor_trim_smithing_template",
+    "bone",
+    "bordure_indented_banner_pattern",
+    "bowl",
+    "bread",
+    "breeze_rod",
+    "brewer_pottery_sherd",
+    "brewing_stand",
+    "brick",
+    "brown_egg",
+    "burn_pottery_sherd",
+    "cake",
+    "carrot",
+    "cauldron",
+    "charcoal",
+    "cherry_door",
+    "cherry_hanging_sign",
+    "cherry_sign",
+    "chicken",
+    "chorus_fruit",
+    "chorus_fruit_popped",
+    "clay_ball",
+    "clownfish",
+    "coal",
+    "coast_armor_trim_smithing_template",
+    "comparator",
+    "cooked_beef",
+    "cooked_chicken",
+    "cooked_fish",
+    "cooked_porkchop",
+    "cooked_rabbit",
+    "cooked_salmon",
+    "cookie",
+    "copper_axe",
+    "copper_door",
+    "copper_hoe",
+    "copper_ingot",
+    "copper_nautilus_armor",
+    "copper_nugget",
+    "copper_pickaxe",
+    "copper_shovel",
+    "copper_spear",
+    "copper_sword",
+    "creeper_banner_pattern",
+    "crimson_door",
+    "crimson_hanging_sign",
+    "danger_pottery_sherd",
+    "dark_oak_door",
+    "dark_oak_hanging_sign",
+    "diamond",
+    "diamond_axe",
+    "diamond_hoe",
+    "diamond_nautilus_armor",
+    "diamond_pickaxe",
+    "diamond_shovel",
+    "diamond_spear",
+    "diamond_sword",
+    "dragon_breath",
+    "dried_kelp",
+    "dune_armor_trim_smithing_template",
+    "echo_shard",
+    "egg",
+    "emerald",
+    "end_crystal",
+    "ender_eye",
+    "ender_pearl",
+    "experience_bottle",
+    "explorer_pottery_sherd",
+    "exposed_copper_door",
+    "eye_armor_trim_smithing_template",
+    "feather",
+    "field_masoned_banner_pattern",
+    "fireball",
+    "fireworks",
+    "fish",
+    "flint",
+    "flint_and_steel",
+    "flow_armor_trim_smithing_template",
+    "flow_banner_pattern",
+    "flow_pottery_sherd",
+    "flower_banner_pattern",
+    "flower_pot",
+    "friend_pottery_sherd",
+    "ghast_tear",
+    "globe_banner_pattern",
+    "glow_berries",
+    "glowstone_dust",
+    "gold_ingot",
+    "gold_nugget",
+    "golden_apple",
+    "golden_axe",
+    "golden_carrot",
+    "golden_hoe",
+    "golden_pickaxe",
+    "golden_shovel",
+    "golden_sword",
+    "gunpowder",
+    "guster_banner_pattern",
+    "guster_pottery_sherd",
+    "heart_of_the_sea",
+    "heart_pottery_sherd",
+    "heartbreak_pottery_sherd",
+    "honey_bottle",
+    "honeycomb",
+    "host_armor_trim_smithing_template",
+    "howl_pottery_sherd",
+    "iron_axe",
+    "iron_door",
+    "iron_hoe",
+    "iron_ingot",
+    "iron_nautilus_armor",
+    "iron_nugget",
+    "iron_pickaxe",
+    "iron_shovel",
+    "iron_spear",
+    "iron_sword",
+    "jungle_door",
+    "jungle_hanging_sign",
+    "kelp",
+    "leather",
+    "magma_cream",
+    "mangrove_door",
+    "mangrove_hanging_sign",
+    "mangrove_sign",
+    "melon",
+    "miner_pottery_sherd",
+    "mojang_banner_pattern",
+    "mourner_pottery_sherd",
+    "mushroom_stew",
+    "name_tag",
+    "nautilus_shell",
+    "nether_wart",
+    "netherbrick",
+    "netherite_axe",
+    "netherite_hoe",
+    "netherite_ingot",
+    "netherite_nautilus_armor",
+    "netherite_pickaxe",
+    "netherite_scrap",
+    "netherite_shovel",
+    "netherite_spear",
+    "netherite_sword",
+    "netherite_upgrade_smithing_template",
+    "oak_hanging_sign",
+    "ominous_bottle",
+    "ominous_trial_key",
+    "oxidized_copper_door",
+    "painting",
+    "pale_oak_door",
+    "pale_oak_hanging_sign",
+    "pale_oak_sign",
+    "paper",
+    "phantom_membrane",
+    "piglin_banner_pattern",
+    "pitcher_pod",
+    "plenty_pottery_sherd",
+    "poplar_door",
+    "poplar_hanging_sign",
+    "poplar_sign",
+    "porkchop",
+    "porkchop_cooked",
+    "potato",
+    "prismarine_crystals",
+    "prismarine_shard",
+    "prize_pottery_sherd",
+    "pufferfish",
+    "pumpkin_pie",
+    "quartz",
+    "rabbit",
+    "rabbit_foot",
+    "rabbit_hide",
+    "rabbit_stew",
+    "raiser_armor_trim_smithing_template",
+    "raw_copper",
+    "raw_gold",
+    "raw_iron",
+    "reeds",
+    "repeater",
+    "resin_brick",
+    "rib_armor_trim_smithing_template",
+    "rotten_flesh",
+    "ruby",
+    "saddle",
+    "salmon",
+    "scrape_pottery_sherd",
+    "sentry_armor_trim_smithing_template",
+    "shaper_armor_trim_smithing_template",
+    "sheaf_pottery_sherd",
+    "shears",
+    "shelter_pottery_sherd",
+    "shulker_shell",
+    "sign",
+    "silence_armor_trim_smithing_template",
+    "skull_banner_pattern",
+    "skull_pottery_sherd",
+    "slime_ball",
+    "snort_pottery_sherd",
+    "snout_armor_trim_smithing_template",
+    "snowball",
+    "spider_eye",
+    "spire_armor_trim_smithing_template",
+    "spruce_door",
+    "spruce_hanging_sign",
+    "stick",
+    "stone_axe",
+    "stone_hoe",
+    "stone_pickaxe",
+    "stone_shovel",
+    "stone_spear",
+    "stone_sword",
+    "straw_bed",
+    "string",
+    "sugar",
+    "suspicious_stew",
+    "sweet_berries",
+    "tide_armor_trim_smithing_template",
+    "torchflower_seeds",
+    "totem",
+    "trial_key",
+    "turtle_shell_piece",
+    "vex_armor_trim_smithing_template",
+    "ward_armor_trim_smithing_template",
+    "warped_door",
+    "warped_hanging_sign",
+    "wayfinder_armor_trim_smithing_template",
+    "weathered_copper_door",
+    "wheat",
+    "wild_armor_trim_smithing_template",
+    "wind_charge",
+    "wolf_armor",
+    "wooden_axe",
+    "wooden_door",
+    "wooden_hoe",
+    "wooden_pickaxe",
+    "wooden_shovel",
+    "wooden_sword"
+  ],
+  "skipped": [
+    [
+      "acacia_sign",
+      "no icon"
+    ],
+    [
+      "air",
+      "no icon"
+    ],
+    [
+      "baked_potato",
+      "no icon"
+    ],
+    [
+      "banner_pattern",
+      "special"
+    ],
+    [
+      "beetroot_seeds",
+      "no icon"
+    ],
+    [
+      "bell",
+      "no icon"
+    ],
+    [
+      "birch_sign",
+      "no icon"
+    ],
+    [
+      "black_harness",
+      "no icon"
+    ],
+    [
+      "blue_harness",
+      "no icon"
+    ],
+    [
+      "book",
+      "no icon"
+    ],
+    [
+      "bow",
+      "special"
+    ],
+    [
+      "brown_harness",
+      "no icon"
+    ],
+    [
+      "brush",
+      "special"
+    ],
+    [
+      "bucket",
+      "no icon"
+    ],
+    [
+      "camera",
+      "no icon"
+    ],
+    [
+      "chainmail_boots",
+      "special"
+    ],
+    [
+      "chainmail_chestplate",
+      "special"
+    ],
+    [
+      "chainmail_helmet",
+      "special"
+    ],
+    [
+      "chainmail_leggings",
+      "special"
+    ],
+    [
+      "chest_minecart",
+      "no icon"
+    ],
+    [
+      "clock",
+      "special"
+    ],
+    [
+      "command_block_minecart",
+      "no icon"
+    ],
+    [
+      "compass",
+      "special"
+    ],
+    [
+      "copper_boots",
+      "special"
+    ],
+    [
+      "copper_chestplate",
+      "special"
+    ],
+    [
+      "copper_helmet",
+      "special"
+    ],
+    [
+      "copper_horse_armor",
+      "special"
+    ],
+    [
+      "copper_leggings",
+      "special"
+    ],
+    [
+      "crimson_sign",
+      "no icon"
+    ],
+    [
+      "crossbow",
+      "special"
+    ],
+    [
+      "cyan_harness",
+      "no icon"
+    ],
+    [
+      "darkoak_sign",
+      "no icon"
+    ],
+    [
+      "diamond_boots",
+      "special"
+    ],
+    [
+      "diamond_chestplate",
+      "special"
+    ],
+    [
+      "diamond_helmet",
+      "special"
+    ],
+    [
+      "diamond_leggings",
+      "special"
+    ],
+    [
+      "disc_fragment",
+      "no icon"
+    ],
+    [
+      "elytra",
+      "special"
+    ],
+    [
+      "enchanted_book",
+      "special"
+    ],
+    [
+      "fermented_spider_eye",
+      "no icon"
+    ],
+    [
+      "fishing_rod",
+      "special"
+    ],
+    [
+      "frame",
+      "no icon"
+    ],
+    [
+      "glass_bottle",
+      "no icon"
+    ],
+    [
+      "glow_frame",
+      "no icon"
+    ],
+    [
+      "glow_ink_sac",
+      "no icon"
+    ],
+    [
+      "goat_horn",
+      "special"
+    ],
+    [
+      "golden_boots",
+      "special"
+    ],
+    [
+      "golden_chestplate",
+      "special"
+    ],
+    [
+      "golden_helmet",
+      "special"
+    ],
+    [
+      "golden_leggings",
+      "special"
+    ],
+    [
+      "golden_nautilus_armor",
+      "no icon"
+    ],
+    [
+      "golden_spear",
+      "no icon"
+    ],
+    [
+      "gray_harness",
+      "no icon"
+    ],
+    [
+      "green_harness",
+      "no icon"
+    ],
+    [
+      "hopper_minecart",
+      "no icon"
+    ],
+    [
+      "horsearmordiamond",
+      "no icon"
+    ],
+    [
+      "horsearmorgold",
+      "no icon"
+    ],
+    [
+      "horsearmoriron",
+      "no icon"
+    ],
+    [
+      "horsearmorleather",
+      "no icon"
+    ],
+    [
+      "iron_boots",
+      "special"
+    ],
+    [
+      "iron_chestplate",
+      "special"
+    ],
+    [
+      "iron_helmet",
+      "special"
+    ],
+    [
+      "iron_leggings",
+      "special"
+    ],
+    [
+      "jungle_sign",
+      "no icon"
+    ],
+    [
+      "lead",
+      "special"
+    ],
+    [
+      "leather_boots",
+      "special"
+    ],
+    [
+      "leather_chestplate",
+      "special"
+    ],
+    [
+      "leather_helmet",
+      "special"
+    ],
+    [
+      "leather_leggings",
+      "special"
+    ],
+    [
+      "leaves",
+      "no icon"
+    ],
+    [
+      "light_blue_harness",
+      "no icon"
+    ],
+    [
+      "light_gray_harness",
+      "no icon"
+    ],
+    [
+      "lime_harness",
+      "no icon"
+    ],
+    [
+      "lodestonecompass",
+      "no icon"
+    ],
+    [
+      "mace",
+      "special"
+    ],
+    [
+      "magenta_harness",
+      "no icon"
+    ],
+    [
+      "map",
+      "special"
+    ],
+    [
+      "melon_seeds",
+      "no icon"
+    ],
+    [
+      "milk",
+      "no icon"
+    ],
+    [
+      "minecart",
+      "no icon"
+    ],
+    [
+      "netherite_boots",
+      "special"
+    ],
+    [
+      "netherite_chestplate",
+      "special"
+    ],
+    [
+      "netherite_helmet",
+      "special"
+    ],
+    [
+      "netherite_horse_armor",
+      "special"
+    ],
+    [
+      "netherite_leggings",
+      "special"
+    ],
+    [
+      "orange_harness",
+      "no icon"
+    ],
+    [
+      "photo",
+      "no icon"
+    ],
+    [
+      "pink_harness",
+      "no icon"
+    ],
+    [
+      "poisonous_potato",
+      "no icon"
+    ],
+    [
+      "portfolio",
+      "no icon"
+    ],
+    [
+      "pumpkin_seeds",
+      "no icon"
+    ],
+    [
+      "purple_harness",
+      "no icon"
+    ],
+    [
+      "record",
+      "no icon"
+    ],
+    [
+      "recovery_compass",
+      "special"
+    ],
+    [
+      "red_harness",
+      "no icon"
+    ],
+    [
+      "redstone",
+      "no icon"
+    ],
+    [
+      "shield",
+      "special"
+    ],
+    [
+      "smithing_template",
+      "no icon"
+    ],
+    [
+      "speckled_melon",
+      "no icon"
+    ],
+    [
+      "spruce_sign",
+      "no icon"
+    ],
+    [
+      "spyglass",
+      "special"
+    ],
+    [
+      "steak",
+      "no icon"
+    ],
+    [
+      "tipped_arrow",
+      "special"
+    ],
+    [
+      "tnt_minecart",
+      "no icon"
+    ],
+    [
+      "trident",
+      "special"
+    ],
+    [
+      "turtle_helmet",
+      "special"
+    ],
+    [
+      "warped_fungus_on_a_stick",
+      "special"
+    ],
+    [
+      "warped_sign",
+      "no icon"
+    ],
+    [
+      "waxed_copper_door",
+      "no icon"
+    ],
+    [
+      "waxed_exposed_copper_door",
+      "no icon"
+    ],
+    [
+      "waxed_oxidized_copper_door",
+      "no icon"
+    ],
+    [
+      "waxed_weathered_copper_door",
+      "no icon"
+    ],
+    [
+      "wheat_seeds",
+      "no icon"
+    ],
+    [
+      "white_harness",
+      "no icon"
+    ],
+    [
+      "wooden_spear",
+      "no icon"
+    ],
+    [
+      "writable_book",
+      "special"
+    ],
+    [
+      "written_book",
+      "special"
+    ],
+    [
+      "yellow_harness",
+      "no icon"
+    ]
+  ],
+  "stats": {
+    "blocks": 1248,
+    "items": 910,
+    "entity": 716,
+    "armor": 23,
+    "texture_sets": 2831
+  }
+}
