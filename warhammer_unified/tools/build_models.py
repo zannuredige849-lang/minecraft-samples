@@ -6,6 +6,7 @@ from forge.registry import REG
 from forge.common import ENT
 from forge.mobs_beasts import big_ent, ENT_VARIANTS
 from forge.anim import anims_for
+from forge.signature import SIG
 
 
 def write_json(path, d):
@@ -30,6 +31,9 @@ def run(out, only=None, report=None):
         info = ENT[ent]
         spec = fn()
         m = spec.model
+        key = ent.split(":")[1] if ent.startswith("warcraft:") else ent.replace(":", "_")
+        if key == "inferno_golem" and ent.startswith("warcraft:"): key = "inferno_golem"
+        if key in SIG: SIG[key](m)
         geo_id = info["geometry"]["default"]
         assert m.ident == geo_id, f"{ent}: model ident {m.ident} != client geometry {geo_id}"
         m.finalize()
@@ -44,6 +48,7 @@ def run(out, only=None, report=None):
         if ent == "warcraft:big_ent":
             for key, path in tex_map.items():
                 mv = big_ent(key).model
+                SIG["big_ent"](mv)
                 mv.finalize()
                 p = os.path.join(rp, path + ".png")
                 os.makedirs(os.path.dirname(p), exist_ok=True)

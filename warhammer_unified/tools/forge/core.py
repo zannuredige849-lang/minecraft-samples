@@ -206,6 +206,21 @@ def paint_face(mat, face, w, h, pal, seed=0):
             if (y // 2) % 2 == 1: img[y, :] = ramp_at(ramp, tone + 0.8)
     # "flat" -> nothing
 
+    # ---- painterly depth: smooth colour patches + crease shading (no pixel noise)
+    if style not in ("glow", "flame", "woven") and w >= 6 and h >= 6:
+        cs = 5
+        gw, gh = w // cs + 2, h // cs + 2
+        grid = np.array([[(_hash(seed, gx, gy, "p") % 100) / 50.0 - 1.0 for gx in range(gw)] for gy in range(gh)])
+        ys_, xs_ = np.mgrid[0:h, 0:w]
+        fx_, fy_ = xs_ / cs, ys_ / cs
+        x0_, y0_ = fx_.astype(int), fy_.astype(int)
+        tx_, ty_ = fx_ - x0_, fy_ - y0_
+        v = (grid[y0_, x0_] * (1 - tx_) * (1 - ty_) + grid[y0_, x0_ + 1] * tx_ * (1 - ty_) +
+             grid[y0_ + 1, x0_] * (1 - tx_) * ty_ + grid[y0_ + 1, x0_ + 1] * tx_ * ty_)
+        grad = (ys_ / max(h - 1, 1)) * -0.10 + 0.05
+        f = (1.0 + v * 0.07 + grad)[..., None]
+        img[..., :3] = np.clip(img[..., :3].astype(float) * f, 0, 255).astype(np.uint8)
+
     # ---- bevel (skipped for glow/flame so they stay bright)
     if style not in ("glow", "flame") and w >= 3 and h >= 3 and not mat.get("nobevel"):
         img[0, :] = light
@@ -310,11 +325,64 @@ def _decal(img, kind, args, pal, w, h):
         for y in range(h):
             for x in range(w):
                 if (x // 2 + y // 2) % 2 == 0: img[y, x] = pal[slot][int(args[1])]
+    elif kind in ("emblem", "emblem_big"):     # ("emblem", name, slot)
+        bm = EMBLEMS.get(args[0])
+        if bm is None or w < 7 or h < 7: return
+        slot = args[1] if len(args) > 1 else "trim"
+        ox0, oy0 = (w - 7) // 2, (h - 7) // 2
+        for yy in range(7):
+            for xx in range(7):
+                if bm[yy][xx] == "#":
+                    put(ox0 + xx + 1, oy0 + yy + 1, pal["dark"][1] if "dark" in pal else pal[slot][0])
+        for yy in range(7):
+            for xx in range(7):
+                if bm[yy][xx] == "#":
+                    put(ox0 + xx, oy0 + yy, pal[slot][5] if (xx + yy) % 3 else pal[slot][4])
+    elif kind == "scar":      # ("scar", x, y)
+        x, y = args[0], args[1]
+        for k in range(4):
+            put(x + k, y + k, pal["dark"][1] if "dark" in pal else (40, 20, 20, 255))
+        put(x + 1, y, (225, 190, 170, 255)); put(x + 2, y + 1, (225, 190, 170, 255))
+    elif kind == "tattoo":    # ("tattoo", slot) tribal zig-zags
+        slot = args[0]
+        for yy in range(1, h - 1, 3):
+            for xx in range(1, w - 1):
+                put(xx, yy + (1 if (xx // 2) % 2 else 0), pal[slot][2])
+    elif kind == "stitches":  # ("stitches", y)
+        yy = args[0]
+        for xx in range(1, w - 1, 2):
+            put(xx, yy, pal["dark"][0]); put(xx, yy - 1, pal["dark"][1]); put(xx, yy + 1, pal["dark"][1])
     elif kind == "gem":
         slot = args[0]; cx, cy = w // 2, h // 2
         for (dx, dy) in ((0, 0), (-1, 0), (0, -1), (-1, -1)):
             put(cx + dx, cy + dy, pal[slot][5])
         put(cx, cy, pal[slot][4]); put(cx - 1, cy - 1, (255, 255, 255, 255))
+
+
+# 7x7 heraldic emblems (Warhammer / Warcraft symbols)
+EMBLEMS = {
+    "chaos_star": ["#..#..#", ".#.#.#.", "..###..", "#######", "..###..", ".#.#.#.", "#..#..#"],
+    "nurgle": [".##.##.", "#..#..#", ".##.##.", "..###..", ".#...#.", "#.....#", ".#...#."],
+    "tzeentch": [".#####.", "#.....#", "#.###.#", "#.#.#.#", "#.###.#", "#.....#", ".#####."],
+    "eye_rune": [".......", "..###..", ".#...#.", "#..#..#", ".#...#.", "..###..", "......."],
+    "skull": [".#####.", "#######", "#.###.#", "#######", ".#####.", ".#.#.#.", ".#.#.#."],
+    "sun": ["..#.#..", ".#####.", "#######", "#######", "#######", ".#####.", "..#.#.."],
+    "hammer": ["#######", "#######", "..###..", "..###..", "..###..", "..###..", "..###.."],
+    "griffon": ["#.....#", "##...##", "###.###", ".#####.", "..###..", "..#.#..", "..#.#.."],
+    "lion": [".#.#.#.", "#######", "#.###.#", "#######", ".#####.", ".#...#.", "#.....#"],
+    "fleur": ["...#...", "..###..", ".#.#.#.", "#..#..#", "..###..", "..###..", ".#####."],
+    "wolf": ["#.....#", "##...##", "#######", "#.###.#", "#######", ".#####.", "..###.."],
+    "rune_knot": ["#.#.#.#", "#######", ".#.#.#.", "#######", ".#.#.#.", "#######", "#.#.#.#"],
+    "tree": ["..###..", ".#####.", "#######", ".#####.", "...#...", "...#...", "..###.."],
+    "flame": ["...#...", "..##...", ".###.#.", ".#####.", "#######", "#######", ".#####."],
+    "snow": ["#..#..#", ".#.#.#.", "..###..", "#######", "..###..", ".#.#.#.", "#..#..#"],
+    "bolt": ["..###..", ".###...", "###....", "#####..", "..###..", "..##...", ".#....."],
+    "gear": ["#.###.#", "#######", ".##.##.", "###.###", ".##.##.", "#######", "#.###.#"],
+    "anvil": [".#####.", "#######", "..###..", "..###..", ".#####.", "#######", "......."],
+    "crown": ["#.#.#.#", "#######", "#######", ".#####.", ".......", "#######", "......."],
+    "cross": ["..###..", "..###..", "#######", "#######", "..###..", "..###..", "..###.."],
+    "crossbones": ["#.....#", ".#.#.#.", "..###..", "..#.#..", "..###..", ".#.#.#.", "#.....#"],
+}
 
 
 # ------------------------------------------------------------------ model

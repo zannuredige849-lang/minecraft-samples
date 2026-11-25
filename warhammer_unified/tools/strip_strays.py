@@ -3,7 +3,8 @@ import sys, os, glob, json
 sys.path.insert(0, os.path.dirname(__file__))
 from mcgeo import load_json
 STRIP = {"geometry.cb_death_knight": ["auraBone"], "geometry.cb_ice_spirit": ["auraBone"], "geometry.cb_lich_statue": ["auraBone"],
-         "geometry.cb_fel_minion": ["essences"], "geometry.cb_troll_totem": ["floatingSkull"]}
+         "geometry.cb_fel_minion": ["essences"], "geometry.cb_troll_totem": ["floatingSkull"],
+         "geometry.cb_orc": ["banner"], "geometry.cb_green_orc": ["banner"], "geometry.cb_hell_orc": ["banner"]}
 
 def run(out):
     n = 0

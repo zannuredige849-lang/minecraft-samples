@@ -21,13 +21,6 @@ world.afterEvents.entityHitEntity.subscribe((ev) => {
       case "cb:laestrygonian_sword":
         for (const f of v.dimension.getEntities({ location: v.location, maxDistance: 3 })) if (f.id !== p.id && f.id !== v.id && f.typeId !== "minecraft:player") { try { f.applyDamage(4, { cause: EntityDamageCause.entityAttack, damagingEntity: p }); knock(p, f, 1.0, 0.35); } catch {} }
         fx(v.dimension, "minecraft:sweep_particle", v.location); break;
-      case "cb:orc_cleaver":
-        addFx(v, "wither", 3, 0); if (Math.random() < 0.25) addFx(v, "slowness", 3, 1); break;
-      case "cb:orc_war_axe": {
-        addFx(v, "weakness", 4, 0); knock(p, v, 1.6, 0.45);
-        try { const eq = v.getComponent("minecraft:equippable"); if (eq && (eq.getEquipment("Chest") || eq.getEquipment("Head"))) v.applyDamage(3, { cause: EntityDamageCause.entityAttack, damagingEntity: p }); } catch {}
-        break;
-      }
     }
   } catch {}
 });

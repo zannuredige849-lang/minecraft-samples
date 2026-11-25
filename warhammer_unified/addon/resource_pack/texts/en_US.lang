@@ -354,10 +354,6 @@ cb.msg.isle.athena.rise=§9§lThe Acropolis of Athena§r shines upon the sea (%1
 cb.msg.isle.hephaestus=Divine Forge of Hephaestus
 cb.msg.isle.hephaestus.rise=§6§lThe Divine Forge of Hephaestus§r roars with flame (%1, %2)!
 
-item.cb:orc_cleaver.name=Orc Cleaver
-item.cb:orc_cleaver=Orc Cleaver
-item.cb:orc_war_axe.name=Orc War Axe
-item.cb:orc_war_axe=Orc War Axe
 item.cb:hell_scimitar.name=Hell Scimitar
 item.cb:hell_scimitar=Hell Scimitar
 

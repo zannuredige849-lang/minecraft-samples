@@ -103,8 +103,6 @@ const WEAPON_BASE_DMG = {
   "minecraft:diamond_spear": 8,
   "minecraft:netherite_spear": 9,
   "cb:laestrygonian_sword": 8,
-  "cb:orc_cleaver": 6,
-  "cb:orc_war_axe": 7,
   "cb:hell_scimitar": 7
 };
 
@@ -801,7 +799,7 @@ export function classifyVanillaWeapon(itemId) {
   if (s === "minecraft:trident" || s.includes("_spear")) return WTYPE_SPEAR;
   if (s === "minecraft:mace") return WTYPE_MACE;
   if (s.includes("_axe")) return WTYPE_AXE;
-  if (s.includes("_sword") || s === "cb:hell_scimitar" || s === "cb:orc_cleaver") return WTYPE_SWORD;
+  if (s.includes("_sword") || s === "cb:hell_scimitar") return WTYPE_SWORD;
   return WTYPE_NONE;
 }
 

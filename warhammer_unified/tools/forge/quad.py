@@ -108,4 +108,5 @@ def attach(mount, rider, parent_bone="body"):
     for name, b in rider.bones.items():
         mount.bones[name] = b
     mount.roles_rider = rider.pre
+    mount.rider = rider
     return mount

@@ -68,12 +68,6 @@
     "cb_sheepskin_black": {
       "textures": "textures/items/cb_sheepskin_black"
     },
-    "cb_orc_cleaver": {
-      "textures": "textures/items/cb_orc_cleaver"
-    },
-    "cb_orc_war_axe": {
-      "textures": "textures/items/cb_orc_war_axe"
-    },
     "cb_hell_scimitar": {
       "textures": "textures/items/cb_hell_scimitar"
     },

@@ -354,10 +354,6 @@ cb.msg.isle.athena.rise=§9§lАкрополь Афины§r явился в с�
 cb.msg.isle.hephaestus=Божественная Кузница Гефеста
 cb.msg.isle.hephaestus.rise=§6§lБожественная Кузница Гефеста§r запылала горнами (%1, %2)!
 
-item.cb:orc_cleaver.name=Тесак орка
-item.cb:orc_cleaver=Тесак орка
-item.cb:orc_war_axe.name=Боевой топор орка
-item.cb:orc_war_axe=Боевой топор орка
 item.cb:hell_scimitar.name=Адский скимитар
 item.cb:hell_scimitar=Адский скимитар
 

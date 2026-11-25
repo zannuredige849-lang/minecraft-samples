@@ -123,7 +123,7 @@ ICON_SRC = {
     "cb_map_circe": ("map_filled", "#8a4ac0"), "cb_map_cyclops": ("map_filled", "#c0703a"), "cb_map_hydra": ("map_filled", "#2a9a8a"),
     "cb_map_laestry": ("map_filled", "#c0402a"), "cb_map_list": ("map_filled", "#d8c070"),
 }
-WEAPONS = ("cb_hell_scimitar", "cb_laestrygonian_sword", "cb_orc_cleaver", "cb_orc_war_axe")
+WEAPONS = ("cb_hell_scimitar", "cb_laestrygonian_sword")
 
 
 def _drop_siblings(rp, path):
