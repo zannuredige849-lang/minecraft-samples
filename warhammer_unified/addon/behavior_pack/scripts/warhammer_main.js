@@ -1012,8 +1012,8 @@ function triggerEntRootSlam(ent, st) {
   playAnim(ent, 1, 26);
   const dim = ent.dimension, loc = ent.location;
   const vId = getEntVariant(ent);
-  // 0=Oak, 1=Birch, 2=Spruce, 3=Cherry, 4=Crimson(Nether), 5=Warped(Nether)
-  safeSound(dim, vId >= 4 ? "mob.blaze.shoot" : "dig.wood", loc);
+  // 0=oak, 1=birch, 2=spruce, 3=cherry, 4=crimson, 5=warped, 6=jungle, 7=acacia, 8=dark_oak, 9=mangrove, 10=pale_oak, 11=azalea, 12=poplar (4, 5 = Nether stems)
+  safeSound(dim, (vId === 4 || vId === 5) ? "mob.blaze.shoot" : "dig.wood", loc);
   safeSound(dim, "mob.ravager.roar", loc);
   const pMain = vId === 4 ? "minecraft:basic_flame_particle"
               : vId === 5 ? "minecraft:blue_flame_particle"
@@ -1057,6 +1057,26 @@ function triggerEntRootSlam(ent, st) {
       } else if (vId === 5) {
         v.addEffect("levitation", 40, { amplifier: 0, showParticles: true });
         v.addEffect("wither", 70, { amplifier: 0, showParticles: true });
+      } else if (vId === 6) {  // jungle
+        v.addEffect("poison", 100, { amplifier: 1, showParticles: true });
+        v.addEffect("slowness", 50, { amplifier: 1, showParticles: true });
+      } else if (vId === 7) {  // acacia
+        v.addEffect("hunger", 120, { amplifier: 1, showParticles: true });
+        v.addEffect("slowness", 50, { amplifier: 1, showParticles: true });
+      } else if (vId === 8) {  // dark_oak
+        v.addEffect("blindness", 60, { amplifier: 0, showParticles: true });
+        v.addEffect("slowness", 90, { amplifier: 3, showParticles: true });
+      } else if (vId === 9) {  // mangrove
+        v.addEffect("slowness", 100, { amplifier: 4, showParticles: true });
+      } else if (vId === 10) {  // pale_oak
+        v.addEffect("darkness", 80, { amplifier: 0, showParticles: true });
+        v.addEffect("weakness", 80, { amplifier: 1, showParticles: true });
+      } else if (vId === 11) {  // azalea
+        v.addEffect("nausea", 80, { amplifier: 0, showParticles: true });
+        v.addEffect("slowness", 40, { amplifier: 1, showParticles: true });
+      } else if (vId === 12) {  // poplar
+        v.addEffect("levitation", 20, { amplifier: 0, showParticles: true });
+        v.addEffect("slowness", 60, { amplifier: 2, showParticles: true });
       }
     } catch {}
   }
@@ -1067,7 +1087,7 @@ function triggerEntEatTreeHeal(ent, st) {
   const dim = ent.dimension, loc = ent.location;
   const vId = getEntVariant(ent);
   safeSound(dim, "random.eat", loc);
-  safeSound(dim, vId >= 4 ? "mob.blaze.ambient" : "dig.wood", loc);
+  safeSound(dim, (vId === 4 || vId === 5) ? "mob.blaze.ambient" : "dig.wood", loc);
   const healAmt = vId === 3 ? 30 : 22;
   try {
     const hp = ent.getComponent("minecraft:health");
@@ -1199,7 +1219,7 @@ system.runInterval(() => {
       }
     } catch {}
 
-    // Ancient Treant (Big Ent — 6 vanilla tree variants + WC3 Peace-Only Rooting & Vulnerable Transitions!)
+    // Ancient Treant (Big Ent — 13 vanilla tree variants + WC3 Peace-Only Rooting & Vulnerable Transitions!)
     try {
       for (const ent of dim.getEntities({ type: BIG_ENT_ID })) {
         const st = getSt(ent, { rootCd: 70, healCd: 120, rootState: "mobile", morphEnd: 0, lastCombatTick: now });

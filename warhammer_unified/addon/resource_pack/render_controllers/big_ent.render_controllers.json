@@ -10,7 +10,14 @@
             "Texture.spruce",
             "Texture.cherry",
             "Texture.crimson",
-            "Texture.warped"
+            "Texture.warped",
+            "Texture.jungle",
+            "Texture.acacia",
+            "Texture.dark_oak",
+            "Texture.mangrove",
+            "Texture.pale_oak",
+            "Texture.azalea",
+            "Texture.poplar"
           ]
         }
       },

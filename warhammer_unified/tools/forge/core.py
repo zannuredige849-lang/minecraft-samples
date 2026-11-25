@@ -90,6 +90,20 @@ def paint_face(mat, face, w, h, pal, seed=0):
         for y in range(h):
             for x in range(w):
                 img[y, x] = ramp_at(ramp, tone + amp * gmap[(y + oy) % 16, (x + ox) % 16])
+    # real vanilla block pixels (true colours, optional foliage tint): used e.g. for the ents' bark and leaves
+    if mat.get("vtex"):
+        from .vanilla import vtile
+        nm = mat["vtop"] if (face in ("up", "down") and mat.get("vtop")) else mat["vtex"]
+        names = list(nm) if isinstance(nm, (list, tuple)) else [nm]
+        t = vtile(names[_hash(seed, "vn") % len(names)])
+        ox, oy = _hash(seed, "vx") % 16, _hash(seed, "vy") % 16
+        rgb = t[(np.arange(h)[:, None] + oy) % 16, (np.arange(w)[None, :] + ox) % 16][..., :3]
+        if mat.get("vtint"):
+            rgb = rgb * np.array(hex2rgb(mat["vtint"]), float) / 255.0
+        br = (1.0 + 0.10 * (mat.get("tone", 3.0) - 3.0)) * {"up": 1.06, "north": 1.0, "south": 0.86, "east": 0.93, "west": 0.93, "down": 0.66}[face]
+        img[..., :3] = np.clip(rgb * br, 0, 255).astype(np.uint8)
+        img[..., 3] = 255
+        style = "vtex"
     light = ramp_at(ramp, tone + 1.0)
     dark = ramp_at(ramp, tone - 1.0)
     dark2 = ramp_at(ramp, tone - 2.0)
@@ -214,7 +228,7 @@ def paint_face(mat, face, w, h, pal, seed=0):
     # "flat" -> nothing
 
     # ---- painterly depth: smooth colour patches + crease shading (no pixel noise)
-    if style not in ("glow", "flame", "woven") and w >= 6 and h >= 6:
+    if style not in ("glow", "flame", "woven", "vtex") and w >= 6 and h >= 6:
         cs = 5
         gw, gh = w // cs + 2, h // cs + 2
         grid = np.array([[(_hash(seed, gx, gy, "p") % 100) / 50.0 - 1.0 for gx in range(gw)] for gy in range(gh)])

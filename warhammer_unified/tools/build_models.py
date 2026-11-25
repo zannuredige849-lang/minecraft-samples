@@ -4,7 +4,7 @@ sys.path.insert(0, os.path.dirname(__file__))
 from mcgeo import load_json
 from forge.registry import REG
 from forge.common import ENT
-from forge.mobs_beasts import big_ent, ENT_VARIANTS
+from forge.mobs_beasts import big_ent, ENT_VARIANTS, vanillaize_ent
 from forge.anim import anims_for
 from forge.signature import SIG
 
@@ -34,6 +34,7 @@ def run(out, only=None, report=None):
         key = ent.split(":")[1] if ent.startswith("warcraft:") else ent.replace(":", "_")
         if key == "inferno_golem" and ent.startswith("warcraft:"): key = "inferno_golem"
         if key in SIG: SIG[key](m)
+        if ent == "warcraft:big_ent": vanillaize_ent(m, "oak")
         geo_id = info["geometry"]["default"]
         assert m.ident == geo_id, f"{ent}: model ident {m.ident} != client geometry {geo_id}"
         m.finalize()
@@ -46,10 +47,13 @@ def run(out, only=None, report=None):
         # textures (variants for the ent)
         tex_map = info["textures"]
         if ent == "warcraft:big_ent":
-            for key, path in tex_map.items():
+            for key in ENT_VARIANTS:                        # every vanilla tree, written as textures/entity/big_ent_<tree>
+                path = f"textures/entity/big_ent_{key}"
                 mv = big_ent(key).model
                 SIG["big_ent"](mv)
+                vanillaize_ent(mv, key)
                 mv.finalize()
+                assert mv.tw == m.tw, "ent variants must share one atlas size"
                 p = os.path.join(rp, path + ".png")
                 os.makedirs(os.path.dirname(p), exist_ok=True)
                 mv.texture.save(p)

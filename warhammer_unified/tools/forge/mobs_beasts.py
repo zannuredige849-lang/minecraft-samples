@@ -20,14 +20,38 @@ def _ent_pal(trunk, leaf, glow="#c8ff60", leaf2=None):
     return pal(armor=trunk, skin=trunk, wood=trunk, leaf=leaf, leaf2=leaf2 or leaf, glow=glow, dark="#140c06", bone="#e6dcc0", cloth=trunk, trim=leaf)
 
 
+# Every vanilla tree. Index = minecraft:variant value (0-5 are the original six, keep their order).
+# bark/top/inner/leaves are real vanilla block textures (tools/data/vanilla/blocks); tint = vanilla default foliage colour
+# for the grey leaf textures (oak/birch/spruce/jungle/acacia/dark oak/mangrove), None for leaves that carry their own colour.
 ENT_VARIANTS = {
-    "oak": dict(trunk="#6a4a2a", leaf="#4aa83a", glow="#c8ff60"),
-    "birch": dict(trunk="#d8d4c4", leaf="#8ac848", glow="#e8ffa0"),
-    "spruce": dict(trunk="#3e2a18", leaf="#2a6a3a", glow="#a0ffc0"),
-    "cherry": dict(trunk="#5a3a30", leaf="#f0a0c8", glow="#ffd0e8"),
-    "crimson": dict(trunk="#5a2030", leaf="#b02840", glow="#ff8080"),
-    "warped": dict(trunk="#1c5a5a", leaf="#20b0a0", glow="#80fff0"),
+    "oak": dict(trunk="#6a4a2a", leaf="#4aa83a", glow="#c8ff60", bark="log_oak", top="log_oak_top", inner="stripped_oak_log", leaves="leaves_oak_opaque", tint="#77ab2f"),
+    "birch": dict(trunk="#d8d4c4", leaf="#8ac848", glow="#e8ffa0", bark="log_birch", top="log_birch_top", inner="stripped_birch_log", leaves="leaves_birch_opaque", tint="#80a755"),
+    "spruce": dict(trunk="#3e2a18", leaf="#2a6a3a", glow="#a0ffc0", bark="log_spruce", top="log_spruce_top", inner="stripped_spruce_log", leaves="leaves_spruce_opaque", tint="#619961"),
+    "cherry": dict(trunk="#5a3a30", leaf="#f0a0c8", glow="#ffd0e8", bark="cherry_log_side", top="cherry_log_top", inner="stripped_cherry_log_side", leaves="cherry_leaves_opaque", tint=None),
+    "crimson": dict(trunk="#5a2030", leaf="#b02840", glow="#ff8080", bark="crimson_log_side", top="crimson_log_top", inner="stripped_crimson_stem_side", leaves="nether_wart_block", tint=None),
+    "warped": dict(trunk="#1c5a5a", leaf="#20b0a0", glow="#80fff0", bark="warped_stem_side", top="warped_stem_top", inner="stripped_warped_stem_side", leaves="warped_wart_block", tint=None),
+    "jungle": dict(trunk="#5a4220", leaf="#30a020", glow="#d0ff70", bark="log_jungle", top="log_jungle_top", inner="stripped_jungle_log", leaves="leaves_jungle_opaque", tint="#30bb0b"),
+    "acacia": dict(trunk="#5a5450", leaf="#9a9a30", glow="#ffe080", bark="log_acacia", top="log_acacia_top", inner="stripped_acacia_log", leaves="leaves_acacia_opaque", tint="#aea42a"),
+    "dark_oak": dict(trunk="#3a2a18", leaf="#3a8a28", glow="#b0ff60", bark="log_big_oak", top="log_big_oak_top", inner="stripped_dark_oak_log", leaves="leaves_big_oak_opaque", tint="#59ae30"),
+    "mangrove": dict(trunk="#4a3a2a", leaf="#7ab030", glow="#e0ff80", bark="mangrove_log_side", top="mangrove_log_top", inner="stripped_mangrove_log_side", leaves="mangrove_leaves_opaque", tint="#8db127"),
+    "pale_oak": dict(trunk="#4a4440", leaf="#8a9088", glow="#ff9a40", bark="pale_oak_log_side", top="pale_oak_log_top", inner="stripped_pale_oak_log_side", leaves="pale_oak_leaves_opaque", tint=None),
+    "azalea": dict(trunk="#6a4a2a", leaf="#6a8a30", glow="#ff9ad8", bark="log_oak", top="log_oak_top", inner="stripped_oak_log", leaves=("azalea_leaves_opaque", "azalea_leaves_flowers_opaque"), tint=None),
+    "poplar": dict(trunk="#8a8478", leaf="#e09030", glow="#ffd060", bark="poplar_log_side", top="poplar_log_top", inner="stripped_poplar_log_side", leaves=("yellow_poplar_leaves_opaque", "orange_poplar_leaves_opaque", "red_poplar_leaves_opaque"), tint=None),
 }
+
+
+def vanillaize_ent(m, variant):
+    """Swap the generated wood/leaf materials for the real vanilla textures of this tree (same equality pattern for
+    every variant, so all variants share one UV layout / geometry)."""
+    v = ENT_VARIANTS[variant]
+    for bn, b in m.bones.items():
+        for c in b["cubes"]:
+            st = c.mat.get("style")
+            if st == "wood":
+                face = "head" in bn and c.mat.get("decals")          # the carved face: stripped (inner) wood
+                c.mat = dict(c.mat, vtex=v["inner"] if face else v["bark"], vtop=v["inner"] if face else v["top"])
+            elif st == "leaf":
+                c.mat = dict(c.mat, vtex=v["leaves"], vtint=v["tint"])
 
 
 def big_ent(variant="oak"):

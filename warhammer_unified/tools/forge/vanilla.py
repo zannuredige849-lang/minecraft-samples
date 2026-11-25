@@ -27,6 +27,13 @@ def _tile(kind, name):
     return np.clip((lum - lum.mean()) / (2.2 * sd), -1, 1)
 
 
+@functools.lru_cache(maxsize=None)
+def vtile(name):
+    """A real vanilla block tile (16x16 RGBA float, true colours; animated flipbooks give their first frame)."""
+    im = Image.open(os.path.join(DIR, "blocks", name + ".png")).convert("RGBA").crop((0, 0, 16, 16))
+    return np.asarray(im).astype(float)
+
+
 def grain(style, slot, seed):
     """Return (16x16 grain map in [-1,1], amplitude) or None."""
     if style not in STYLE_TILE: return None

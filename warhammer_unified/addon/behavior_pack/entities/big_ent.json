@@ -383,6 +383,132 @@
           "value": 0.85
         },
         "minecraft:fire_immune": {}
+      },
+      "ent_jungle": {
+        "minecraft:variant": {
+          "value": 6
+        },
+        "minecraft:health": {
+          "value": 150,
+          "max": 150
+        },
+        "minecraft:attack": {
+          "damage": 8
+        },
+        "minecraft:movement": {
+          "value": 0.29
+        },
+        "minecraft:knockback_resistance": {
+          "value": 0.7
+        }
+      },
+      "ent_acacia": {
+        "minecraft:variant": {
+          "value": 7
+        },
+        "minecraft:health": {
+          "value": 140,
+          "max": 140
+        },
+        "minecraft:attack": {
+          "damage": 8
+        },
+        "minecraft:movement": {
+          "value": 0.31
+        },
+        "minecraft:knockback_resistance": {
+          "value": 0.6
+        }
+      },
+      "ent_dark_oak": {
+        "minecraft:variant": {
+          "value": 8
+        },
+        "minecraft:health": {
+          "value": 200,
+          "max": 200
+        },
+        "minecraft:attack": {
+          "damage": 10
+        },
+        "minecraft:movement": {
+          "value": 0.21
+        },
+        "minecraft:knockback_resistance": {
+          "value": 0.95
+        }
+      },
+      "ent_mangrove": {
+        "minecraft:variant": {
+          "value": 9
+        },
+        "minecraft:health": {
+          "value": 170,
+          "max": 170
+        },
+        "minecraft:attack": {
+          "damage": 8
+        },
+        "minecraft:movement": {
+          "value": 0.25
+        },
+        "minecraft:knockback_resistance": {
+          "value": 0.85
+        }
+      },
+      "ent_pale_oak": {
+        "minecraft:variant": {
+          "value": 10
+        },
+        "minecraft:health": {
+          "value": 165,
+          "max": 165
+        },
+        "minecraft:attack": {
+          "damage": 9
+        },
+        "minecraft:movement": {
+          "value": 0.24
+        },
+        "minecraft:knockback_resistance": {
+          "value": 0.8
+        }
+      },
+      "ent_azalea": {
+        "minecraft:variant": {
+          "value": 11
+        },
+        "minecraft:health": {
+          "value": 130,
+          "max": 130
+        },
+        "minecraft:attack": {
+          "damage": 6
+        },
+        "minecraft:movement": {
+          "value": 0.28
+        },
+        "minecraft:knockback_resistance": {
+          "value": 0.6
+        }
+      },
+      "ent_poplar": {
+        "minecraft:variant": {
+          "value": 12
+        },
+        "minecraft:health": {
+          "value": 145,
+          "max": 145
+        },
+        "minecraft:attack": {
+          "damage": 7
+        },
+        "minecraft:movement": {
+          "value": 0.28
+        },
+        "minecraft:knockback_resistance": {
+          "value": 0.7
+        }
       }
     },
     "events": {
@@ -433,6 +559,62 @@
             "add": {
               "component_groups": [
                 "ent_warped"
+              ]
+            }
+          },
+          {
+            "weight": 14,
+            "add": {
+              "component_groups": [
+                "ent_jungle"
+              ]
+            }
+          },
+          {
+            "weight": 12,
+            "add": {
+              "component_groups": [
+                "ent_acacia"
+              ]
+            }
+          },
+          {
+            "weight": 12,
+            "add": {
+              "component_groups": [
+                "ent_dark_oak"
+              ]
+            }
+          },
+          {
+            "weight": 12,
+            "add": {
+              "component_groups": [
+                "ent_mangrove"
+              ]
+            }
+          },
+          {
+            "weight": 10,
+            "add": {
+              "component_groups": [
+                "ent_pale_oak"
+              ]
+            }
+          },
+          {
+            "weight": 12,
+            "add": {
+              "component_groups": [
+                "ent_azalea"
+              ]
+            }
+          },
+          {
+            "weight": 12,
+            "add": {
+              "component_groups": [
+                "ent_poplar"
               ]
             }
           }

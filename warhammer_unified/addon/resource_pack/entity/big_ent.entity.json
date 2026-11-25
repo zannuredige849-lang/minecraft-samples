@@ -12,7 +12,14 @@
     "spruce": "textures/entity/big_ent_spruce",
     "cherry": "textures/entity/big_ent_cherry",
     "crimson": "textures/entity/big_ent_crimson",
-    "warped": "textures/entity/big_ent_warped"
+    "warped": "textures/entity/big_ent_warped",
+    "jungle": "textures/entity/big_ent_jungle",
+    "acacia": "textures/entity/big_ent_acacia",
+    "dark_oak": "textures/entity/big_ent_dark_oak",
+    "mangrove": "textures/entity/big_ent_mangrove",
+    "pale_oak": "textures/entity/big_ent_pale_oak",
+    "azalea": "textures/entity/big_ent_azalea",
+    "poplar": "textures/entity/big_ent_poplar"
    },
    "geometry": {
     "default": "geometry.big_ent"
@@ -38,7 +45,7 @@
     "controller.render.big_ent"
    ],
    "spawn_egg": {
-    "base_color": "#378032",
+    "base_color": "#333a15",
     "overlay_color": "#6a4a2a"
    }
   }

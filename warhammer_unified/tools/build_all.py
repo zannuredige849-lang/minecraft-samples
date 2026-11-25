@@ -1,7 +1,7 @@
 """Full pipeline: python3 build_all.py <original-extracted-dir> <out-dir> [--zip path.mcaddon]"""
 import sys, os, shutil, argparse
 sys.path.insert(0, os.path.dirname(__file__))
-import build_models, restyle, items_style, patch_bp, package, strip_strays, remove_orc_gear, banners
+import build_models, ent_variants, restyle, items_style, patch_bp, package, strip_strays, remove_orc_gear, banners
 from forge.registry import REG
 from forge.common import ENT
 
@@ -15,7 +15,9 @@ def main():
         shutil.copytree(os.path.join(a.src, part), os.path.join(a.out, part))
     st = build_models.run(a.out)
     print("models regenerated:", len(st), "cubes total", sum(s[1] for s in st))
+    print("big ent tree variants:", ent_variants.run(a.out))
     skip = set(t for e in REG for t in ENT[e]["textures"].values())
+    skip |= {f"textures/entity/big_ent_{k}" for k in ent_variants.ENT_VARIANTS}      # generated vanilla-wood ents
     print("floating cubes removed:", strip_strays.run(a.out))
     print("vanilla banners on orc leaders (textures):", banners.run(a.out))
     print("orc gear files removed:", remove_orc_gear.run(a.out))
