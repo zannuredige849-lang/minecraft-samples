@@ -1,0 +1,66 @@
+{
+  "format_version": "1.21.0",
+  "minecraft:entity": {
+    "description": {
+      "identifier": "cb:troll_totem",
+      "is_spawnable": false,
+      "is_summonable": true,
+      "is_experimental": false
+    },
+    "components": {
+      "minecraft:type_family": {
+        "family": [
+          "troll_totem",
+          "troll_tribe",
+          "brown_orc",
+          "brown_orc_faction",
+          "inanimate",
+          "f_tribes",
+          "summon_safe"
+        ]
+      },
+      "minecraft:collision_box": {
+        "width": 0.6,
+        "height": 1.8
+      },
+      "minecraft:health": {
+        "value": 20,
+        "max": 20
+      },
+      "minecraft:knockback_resistance": {
+        "value": 1.0
+      },
+      "minecraft:physics": {
+        "has_gravity": true,
+        "has_collision": true
+      },
+      "minecraft:pushable": {
+        "is_pushable": false,
+        "is_pushable_by_piston": false
+      },
+      "minecraft:damage_sensor": {
+        "triggers": [
+          {
+            "on_damage": {
+              "filters": {
+                "any_of": [
+                  {
+                    "test": "is_family",
+                    "subject": "other",
+                    "value": "brown_orc"
+                  },
+                  {
+                    "test": "is_family",
+                    "subject": "other",
+                    "value": "troll_tribe"
+                  }
+                ]
+              }
+            },
+            "deals_damage": false
+          }
+        ]
+      }
+    }
+  }
+}

@@ -1,0 +1,51 @@
+{
+  "format_version": "1.10.0",
+  "minecraft:client_entity": {
+    "description": {
+      "identifier": "cb:inferno_golem",
+      "materials": {
+        "default": "entity_emissive_alpha"
+      },
+      "textures": {
+        "default": "textures/entity/inferno_golem"
+      },
+      "geometry": {
+        "default": "geometry.cb_inferno_golem"
+      },
+      "animations": {
+        "idle": "animation.inferno_golem.idle",
+        "walk": "animation.inferno_golem.walk",
+        "attack": "animation.inferno_golem.attack",
+        "spawn_rise": "animation.inferno_golem.spawn_rise",
+        "dance": "animation.inferno_golem.dance",
+        "look_at_target": "animation.common.look_at_target",
+        "green_fire": "animation.inferno_golem.green_fire"
+      },
+      "scripts": {
+        "animate": [
+          "idle",
+          "green_fire",
+          {
+            "walk": "q.modified_move_speed > 0.01"
+          },
+          {
+            "attack": "variable.attack_time > 0"
+          },
+          {
+            "spawn_rise": "q.property('cb:spawning')"
+          },
+          "look_at_target",
+          {
+            "dance": "q.property('cb:dancing')"
+          }
+        ]
+      },
+      "render_controllers": [
+        "controller.render.cb_inferno_golem"
+      ],
+      "spawn_egg": {
+        "texture": "cb_egg_inferno_golem"
+      }
+    }
+  }
+}

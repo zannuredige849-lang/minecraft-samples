@@ -1,0 +1,313 @@
+{
+  "format_version": "1.8.0",
+  "animations": {
+    "animation.cb_laestrygonian_sword.lunge": {
+      "loop": false,
+      "animation_length": 0.9,
+      "bones": {
+        "rightArm": {
+          "rotation": {
+            "0.00": {
+              "post": [
+                0,
+                0,
+                0
+              ],
+              "lerp_mode": "catmullrom"
+            },
+            "0.14": {
+              "post": [
+                22,
+                0,
+                6
+              ],
+              "lerp_mode": "catmullrom"
+            },
+            "0.30": {
+              "post": [
+                -90,
+                6,
+                0
+              ],
+              "lerp_mode": "catmullrom"
+            },
+            "0.60": {
+              "post": [
+                -88,
+                6,
+                0
+              ],
+              "lerp_mode": "catmullrom"
+            },
+            "0.90": {
+              "post": [
+                0,
+                0,
+                0
+              ],
+              "lerp_mode": "catmullrom"
+            }
+          }
+        },
+        "rightItem": {
+          "rotation": {
+            "0.00": {
+              "post": [
+                0,
+                0,
+                0
+              ],
+              "lerp_mode": "catmullrom"
+            },
+            "0.14": {
+              "post": [
+                0,
+                0,
+                0
+              ],
+              "lerp_mode": "catmullrom"
+            },
+            "0.30": {
+              "post": [
+                78,
+                0,
+                0
+              ],
+              "lerp_mode": "catmullrom"
+            },
+            "0.60": {
+              "post": [
+                78,
+                0,
+                0
+              ],
+              "lerp_mode": "catmullrom"
+            },
+            "0.90": {
+              "post": [
+                0,
+                0,
+                0
+              ],
+              "lerp_mode": "catmullrom"
+            }
+          }
+        },
+        "leftArm": {
+          "rotation": {
+            "0.00": {
+              "post": [
+                0,
+                0,
+                0
+              ],
+              "lerp_mode": "catmullrom"
+            },
+            "0.14": {
+              "post": [
+                -25,
+                0,
+                -8
+              ],
+              "lerp_mode": "catmullrom"
+            },
+            "0.30": {
+              "post": [
+                28,
+                0,
+                -12
+              ],
+              "lerp_mode": "catmullrom"
+            },
+            "0.90": {
+              "post": [
+                0,
+                0,
+                0
+              ],
+              "lerp_mode": "catmullrom"
+            }
+          }
+        },
+        "body": {
+          "rotation": {
+            "0.00": {
+              "post": [
+                0,
+                0,
+                0
+              ],
+              "lerp_mode": "catmullrom"
+            },
+            "0.14": {
+              "post": [
+                0,
+                14,
+                0
+              ],
+              "lerp_mode": "catmullrom"
+            },
+            "0.30": {
+              "post": [
+                6,
+                -20,
+                0
+              ],
+              "lerp_mode": "catmullrom"
+            },
+            "0.60": {
+              "post": [
+                5,
+                -18,
+                0
+              ],
+              "lerp_mode": "catmullrom"
+            },
+            "0.90": {
+              "post": [
+                0,
+                0,
+                0
+              ],
+              "lerp_mode": "catmullrom"
+            }
+          }
+        },
+        "rightLeg": {
+          "rotation": {
+            "0.00": {
+              "post": [
+                0,
+                0,
+                0
+              ],
+              "lerp_mode": "catmullrom"
+            },
+            "0.30": {
+              "post": [
+                -26,
+                0,
+                0
+              ],
+              "lerp_mode": "catmullrom"
+            },
+            "0.60": {
+              "post": [
+                -24,
+                0,
+                0
+              ],
+              "lerp_mode": "catmullrom"
+            },
+            "0.90": {
+              "post": [
+                0,
+                0,
+                0
+              ],
+              "lerp_mode": "catmullrom"
+            }
+          }
+        },
+        "leftLeg": {
+          "rotation": {
+            "0.00": {
+              "post": [
+                0,
+                0,
+                0
+              ],
+              "lerp_mode": "catmullrom"
+            },
+            "0.30": {
+              "post": [
+                16,
+                0,
+                0
+              ],
+              "lerp_mode": "catmullrom"
+            },
+            "0.60": {
+              "post": [
+                14,
+                0,
+                0
+              ],
+              "lerp_mode": "catmullrom"
+            },
+            "0.90": {
+              "post": [
+                0,
+                0,
+                0
+              ],
+              "lerp_mode": "catmullrom"
+            }
+          }
+        },
+        "head": {
+          "rotation": {
+            "0.00": {
+              "post": [
+                0,
+                0,
+                0
+              ],
+              "lerp_mode": "catmullrom"
+            },
+            "0.30": {
+              "post": [
+                -4,
+                16,
+                0
+              ],
+              "lerp_mode": "catmullrom"
+            },
+            "0.90": {
+              "post": [
+                0,
+                0,
+                0
+              ],
+              "lerp_mode": "catmullrom"
+            }
+          }
+        }
+      }
+    },
+    "animation.cb_w_laestrygonian_sword.first_person": {
+      "loop": true,
+      "bones": {
+        "root_item": {
+          "rotation": [
+            61,
+            52,
+            -78
+          ],
+          "position": [
+            4,
+            26,
+            4
+          ]
+        }
+      }
+    },
+    "animation.cb_w_laestrygonian_sword.third_person": {
+      "loop": true,
+      "bones": {
+        "root_item": {
+          "rotation": [
+            90,
+            0,
+            0
+          ],
+          "position": [
+            0,
+            21.5,
+            3.5
+          ]
+        }
+      }
+    }
+  }
+}

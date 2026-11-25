@@ -1,0 +1,425 @@
+{
+  "format_version": "1.21.0",
+  "minecraft:entity": {
+    "description": {
+      "identifier": "cb:ares_berserker",
+      "is_spawnable": true,
+      "is_summonable": true,
+      "is_experimental": false,
+      "properties": {
+        "cb:charging": {
+          "type": "bool",
+          "default": false,
+          "client_sync": true
+        },
+        "cb:dancing": {
+          "type": "bool",
+          "default": false,
+          "client_sync": true
+        }
+      }
+    },
+    "components": {
+      "minecraft:type_family": {
+        "family": [
+          "ares_berserker",
+          "ares_faction",
+          "olympian_summon",
+          "mob",
+          "monster",
+          "f_olympus",
+          "summon_safe"
+        ]
+      },
+      "minecraft:health": {
+        "value": 65,
+        "max": 65
+      },
+      "minecraft:collision_box": {
+        "width": 1.1,
+        "height": 2.6
+      },
+      "minecraft:movement": {
+        "value": 0.31
+      },
+      "minecraft:movement.basic": {},
+      "minecraft:navigation.walk": {
+        "can_path_over_water": true
+      },
+      "minecraft:breathable": {
+        "total_supply": 300,
+        "suffocate_time": 0,
+        "breathes_water": true,
+        "breathes_air": true
+      },
+      "minecraft:jump.static": {},
+      "minecraft:physics": {},
+      "minecraft:pushable": {
+        "is_pushable": false,
+        "is_pushable_by_piston": true
+      },
+      "minecraft:knockback_resistance": {
+        "value": 0.5
+      },
+      "minecraft:attack": {
+        "damage": 10
+      },
+      "minecraft:damage_sensor": {
+        "triggers": [
+          {
+            "on_damage": {
+              "filters": {
+                "any_of": [
+                  {
+                    "test": "is_family",
+                    "subject": "other",
+                    "value": "ares_faction"
+                  },
+                  {
+                    "test": "is_family",
+                    "subject": "other",
+                    "value": "ares"
+                  },
+                  {
+                    "test": "is_family",
+                    "subject": "other",
+                    "value": "ares_berserker"
+                  }
+                ]
+              }
+            },
+            "deals_damage": false
+          },
+          {
+            "cause": "fall",
+            "deals_damage": false
+          },
+          {
+            "cause": "drowning",
+            "deals_damage": false
+          }
+        ]
+      },
+      "minecraft:behavior.float": {
+        "priority": 0
+      },
+      "minecraft:behavior.hurt_by_target": {
+        "priority": 1,
+        "entity_types": [
+          {
+            "filters": {
+              "all_of": [
+                {
+                  "test": "is_family",
+                  "subject": "other",
+                  "operator": "!=",
+                  "value": "f_olympus"
+                },
+                {
+                  "test": "is_family",
+                  "subject": "other",
+                  "operator": "!=",
+                  "value": "ares_faction"
+                },
+                {
+                  "test": "is_family",
+                  "subject": "other",
+                  "operator": "!=",
+                  "value": "ares"
+                },
+                {
+                  "test": "is_family",
+                  "subject": "other",
+                  "operator": "!=",
+                  "value": "ares_berserker"
+                }
+              ]
+            }
+          }
+        ]
+      },
+      "minecraft:behavior.melee_attack": {
+        "priority": 2,
+        "speed_multiplier": 1.2,
+        "track_target": true
+      },
+      "minecraft:behavior.random_stroll": {
+        "priority": 5,
+        "speed_multiplier": 0.8
+      },
+      "minecraft:behavior.nearest_attackable_target": {
+        "priority": 2,
+        "must_see": false,
+        "reevaluate_description": true,
+        "within_radius": 24.0,
+        "entity_types": [
+          {
+            "filters": {
+              "all_of": [
+                {
+                  "test": "is_family",
+                  "subject": "other",
+                  "operator": "!=",
+                  "value": "f_olympus"
+                },
+                {
+                  "test": "is_family",
+                  "subject": "other",
+                  "value": "warden"
+                }
+              ]
+            },
+            "max_dist": 40,
+            "must_see": false
+          },
+          {
+            "filters": {
+              "all_of": [
+                {
+                  "test": "is_family",
+                  "subject": "other",
+                  "operator": "!=",
+                  "value": "f_olympus"
+                },
+                {
+                  "none_of": [
+                    {
+                      "test": "is_family",
+                      "subject": "other",
+                      "value": "ares"
+                    },
+                    {
+                      "test": "is_family",
+                      "subject": "other",
+                      "value": "ares_berserker"
+                    },
+                    {
+                      "test": "is_family",
+                      "subject": "other",
+                      "value": "ares_faction"
+                    }
+                  ]
+                },
+                {
+                  "any_of": [
+                    {
+                      "test": "is_family",
+                      "subject": "other",
+                      "value": "boss"
+                    },
+                    {
+                      "test": "is_family",
+                      "subject": "other",
+                      "value": "cyclops"
+                    },
+                    {
+                      "test": "is_family",
+                      "subject": "other",
+                      "value": "hydra"
+                    },
+                    {
+                      "test": "is_family",
+                      "subject": "other",
+                      "value": "hydra_head"
+                    },
+                    {
+                      "test": "is_family",
+                      "subject": "other",
+                      "value": "circe"
+                    },
+                    {
+                      "test": "is_family",
+                      "subject": "other",
+                      "value": "guldan_boss"
+                    },
+                    {
+                      "test": "is_family",
+                      "subject": "other",
+                      "value": "laestrygonian"
+                    },
+                    {
+                      "test": "is_family",
+                      "subject": "other",
+                      "value": "brown_orc"
+                    },
+                    {
+                      "test": "is_family",
+                      "subject": "other",
+                      "value": "green_orc"
+                    },
+                    {
+                      "test": "is_family",
+                      "subject": "other",
+                      "value": "hell_orc"
+                    },
+                    {
+                      "test": "is_family",
+                      "subject": "other",
+                      "value": "fel_orc"
+                    },
+                    {
+                      "test": "is_family",
+                      "subject": "other",
+                      "value": "fel_demon"
+                    },
+                    {
+                      "test": "is_family",
+                      "subject": "other",
+                      "value": "minotaur"
+                    },
+                    {
+                      "test": "is_family",
+                      "subject": "other",
+                      "value": "fel_lord"
+                    },
+                    {
+                      "test": "is_family",
+                      "subject": "other",
+                      "value": "lich_king"
+                    },
+                    {
+                      "test": "is_family",
+                      "subject": "other",
+                      "value": "dreadlord"
+                    },
+                    {
+                      "test": "is_family",
+                      "subject": "other",
+                      "value": "olympian_god"
+                    },
+                    {
+                      "test": "is_family",
+                      "subject": "other",
+                      "value": "zeus"
+                    },
+                    {
+                      "test": "is_family",
+                      "subject": "other",
+                      "value": "poseidon"
+                    },
+                    {
+                      "test": "is_family",
+                      "subject": "other",
+                      "value": "hades"
+                    },
+                    {
+                      "test": "is_family",
+                      "subject": "other",
+                      "value": "ares"
+                    },
+                    {
+                      "test": "is_family",
+                      "subject": "other",
+                      "value": "hephaestus"
+                    },
+                    {
+                      "test": "is_family",
+                      "subject": "other",
+                      "value": "undead"
+                    },
+                    {
+                      "test": "is_family",
+                      "subject": "other",
+                      "value": "monster"
+                    },
+                    {
+                      "test": "is_family",
+                      "subject": "other",
+                      "value": "illager"
+                    },
+                    {
+                      "test": "is_family",
+                      "subject": "other",
+                      "value": "pillager"
+                    },
+                    {
+                      "test": "is_family",
+                      "subject": "other",
+                      "value": "ravager"
+                    },
+                    {
+                      "test": "is_family",
+                      "subject": "other",
+                      "value": "olympian_summon"
+                    },
+                    {
+                      "test": "is_family",
+                      "subject": "other",
+                      "value": "athena"
+                    },
+                    {
+                      "test": "is_family",
+                      "subject": "other",
+                      "value": "nurgle"
+                    },
+                    {
+                      "test": "is_family",
+                      "subject": "other",
+                      "value": "tzeentch"
+                    },
+                    {
+                      "test": "is_family",
+                      "subject": "other",
+                      "value": "faceless"
+                    },
+                    {
+                      "test": "is_family",
+                      "subject": "other",
+                      "value": "norsca_bandits"
+                    },
+                    {
+                      "test": "is_family",
+                      "subject": "other",
+                      "value": "kingdom_order"
+                    },
+                    {
+                      "test": "is_family",
+                      "subject": "other",
+                      "value": "undead_scourge"
+                    },
+                    {
+                      "test": "is_family",
+                      "subject": "other",
+                      "value": "ember_colossus"
+                    },
+                    {
+                      "test": "is_family",
+                      "subject": "other",
+                      "value": "black_blocker"
+                    },
+                    {
+                      "test": "is_family",
+                      "subject": "other",
+                      "value": "nature_ent"
+                    },
+                    {
+                      "test": "is_family",
+                      "subject": "other",
+                      "value": "horned_demon"
+                    },
+                    {
+                      "test": "is_family",
+                      "subject": "other",
+                      "value": "void_knight"
+                    },
+                    {
+                      "test": "is_family",
+                      "subject": "other",
+                      "value": "chaos_knight"
+                    },
+                    {
+                      "test": "is_family",
+                      "subject": "other",
+                      "value": "blood_angel"
+                    }
+                  ]
+                }
+              ]
+            },
+            "max_dist": 24
+          }
+        ]
+      }
+    }
+  }
+}

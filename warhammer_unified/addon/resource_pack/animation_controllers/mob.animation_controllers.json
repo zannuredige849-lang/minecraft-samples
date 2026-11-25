@@ -1,0 +1,33 @@
+{
+  "format_version": "1.10.0",
+  "animation_controllers": {
+    "controller.animation.cb_mob.move": {
+      "initial_state": "default",
+      "states": {
+        "default": {
+          "animations": [
+            "idle",
+            {
+              "walk": "query.modified_move_speed > 0.015"
+            }
+          ],
+          "transitions": [
+            {
+              "dancing": "query.property('cb:dancing')"
+            }
+          ]
+        },
+        "dancing": {
+          "animations": [
+            "dance"
+          ],
+          "transitions": [
+            {
+              "default": "!query.property('cb:dancing')"
+            }
+          ]
+        }
+      }
+    }
+  }
+}

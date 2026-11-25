@@ -1,0 +1,60 @@
+{
+  "format_version": "1.10.0",
+  "minecraft:client_entity": {
+    "description": {
+      "identifier": "cb:lich_king",
+      "materials": {
+        "default": "entity_emissive_alpha"
+      },
+      "textures": {
+        "default": "textures/entity/lich_king"
+      },
+      "geometry": {
+        "default": "geometry.cb_lich_king"
+      },
+      "animations": {
+        "idle": "animation.lich_king.idle",
+        "walk": "animation.lich_king.walk",
+        "attack": "animation.lich_king.attack",
+        "special_attack": "animation.lich_king.special_attack",
+        "hurt": "animation.lich_king.hurt",
+        "death": "animation.lich_king.death",
+        "charge": "animation.lich_king.ice_spikes",
+        "special1": "animation.lich_king.ice_spikes",
+        "special2": "animation.lich_king.raise_dead",
+        "special3": "animation.lich_king.spirit_transform",
+        "stun": "animation.lich_king.stun",
+        "rage": "animation.lich_king.rage",
+        "dance": "animation.lich_king.dance",
+        "ctrl": "controller.animation.cb_lich_king",
+        "look_at_target": "animation.common.look_at_target"
+      },
+      "scripts": {
+        "animate": [
+          {
+            "idle": "!q.property('cb:dancing')"
+          },
+          {
+            "walk": "q.modified_move_speed > 0.015 && !q.property('cb:dancing') && !q.property('cb:charging')"
+          },
+          {
+            "rage": "q.property('cb:enraged') && !q.property('cb:dancing')"
+          },
+          {
+            "hurt": "q.hurt_time > 0 && !q.property('cb:dancing')"
+          },
+          "ctrl",
+          {
+            "look_at_target": "!q.property('cb:dancing') && q.property('cb:cast_state') == 0"
+          }
+        ]
+      },
+      "render_controllers": [
+        "controller.render.cb_lich_king"
+      ],
+      "spawn_egg": {
+        "texture": "cb_egg_lich_king"
+      }
+    }
+  }
+}

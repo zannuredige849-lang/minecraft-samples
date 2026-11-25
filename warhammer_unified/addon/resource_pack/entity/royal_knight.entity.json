@@ -1,0 +1,39 @@
+{
+  "format_version": "1.10.0",
+  "minecraft:client_entity": {
+    "description": {
+      "identifier": "warcraft:royal_knight",
+      "materials": {
+        "default": "entity_alphatest"
+      },
+      "textures": {
+        "default": "textures/entity/royal_knight_voxel"
+      },
+      "geometry": {
+        "default": "geometry.royal_knight"
+      },
+      "animations": {
+        "idle_a": "animation.royal_knight.idle_a",
+        "idle_b": "animation.royal_knight.idle_b",
+        "walk": "animation.royal_knight.walk",
+        "attack_a": "animation.royal_knight.attack_a",
+        "attack_b": "animation.royal_knight.attack_b",
+        "ability": "animation.royal_knight.ability",
+        "death": "animation.royal_knight.death",
+        "move_ctrl": "controller.animation.royal_knight"
+      },
+      "scripts": {
+        "animate": [
+          "move_ctrl"
+        ]
+      },
+      "render_controllers": [
+        "controller.render.default"
+      ],
+      "spawn_egg": {
+        "texture": "egg_warcraft_royal_knight",
+        "texture_index": 0
+      }
+    }
+  }
+}

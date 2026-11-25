@@ -1,0 +1,45 @@
+{
+  "format_version": "1.10.0",
+  "minecraft:client_entity": {
+    "description": {
+      "identifier": "cb:death_knight",
+      "materials": {
+        "default": "entity_emissive_alpha"
+      },
+      "textures": {
+        "default": "textures/entity/death_knight"
+      },
+      "geometry": {
+        "default": "geometry.cb_death_knight"
+      },
+      "animations": {
+        "idle": "animation.lich_king.idle",
+        "walk": "animation.lich_king.walk",
+        "attack": "animation.lich_king.attack",
+        "special_attack": "animation.lich_king.special_attack",
+        "hurt": "animation.lich_king.hurt",
+        "rage": "animation.lich_king.rage",
+        "dance": "animation.lich_king.dance",
+        "look_at_target": "animation.common.look_at_target"
+      },
+      "scripts": {
+        "animate": [
+          "idle",
+          {
+            "walk": "q.modified_move_speed > 0.02"
+          },
+          {
+            "attack": "variable.attack_time > 0"
+          },
+          {
+            "hurt": "q.hurt_time > 0"
+          },
+          "look_at_target"
+        ]
+      },
+      "render_controllers": [
+        "controller.render.cb_death_knight"
+      ]
+    }
+  }
+}

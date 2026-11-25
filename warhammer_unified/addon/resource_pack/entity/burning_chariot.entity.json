@@ -1,0 +1,39 @@
+{
+  "format_version": "1.10.0",
+  "minecraft:client_entity": {
+    "description": {
+      "identifier": "warcraft:burning_chariot",
+      "materials": {
+        "default": "entity_alphatest"
+      },
+      "textures": {
+        "default": "textures/entity/burning_chariot_voxel"
+      },
+      "geometry": {
+        "default": "geometry.burning_chariot"
+      },
+      "animations": {
+        "idle_a": "animation.burning_chariot.idle_a",
+        "idle_b": "animation.burning_chariot.idle_b",
+        "walk": "animation.burning_chariot.walk",
+        "attack_a": "animation.burning_chariot.attack_a",
+        "attack_b": "animation.burning_chariot.attack_b",
+        "ability": "animation.burning_chariot.ability",
+        "death": "animation.burning_chariot.death",
+        "move_ctrl": "controller.animation.burning_chariot"
+      },
+      "scripts": {
+        "animate": [
+          "move_ctrl"
+        ]
+      },
+      "render_controllers": [
+        "controller.render.default"
+      ],
+      "spawn_egg": {
+        "texture": "egg_warcraft_burning_chariot",
+        "texture_index": 0
+      }
+    }
+  }
+}

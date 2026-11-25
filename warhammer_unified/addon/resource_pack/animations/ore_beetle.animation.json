@@ -1,0 +1,211 @@
+{
+  "format_version": "1.8.0",
+  "animations": {
+    "animation.ore_beetle.walk": {
+      "loop": true,
+      "bones": {
+        "leg_r0": {
+          "rotation": [
+            0,
+            "-math.cos(q.modified_distance_moved * 70) * 24 * math.min(1.0, q.modified_move_speed * 6.0)",
+            "math.max(0, -math.sin(q.modified_distance_moved * 70)) * 16 * math.min(1.0, q.modified_move_speed * 6.0)"
+          ]
+        },
+        "leg_r1": {
+          "rotation": [
+            0,
+            "math.cos(q.modified_distance_moved * 70) * 24 * math.min(1.0, q.modified_move_speed * 6.0)",
+            "math.max(0, math.sin(q.modified_distance_moved * 70)) * 16 * math.min(1.0, q.modified_move_speed * 6.0)"
+          ]
+        },
+        "leg_r2": {
+          "rotation": [
+            0,
+            "-math.cos(q.modified_distance_moved * 70) * 24 * math.min(1.0, q.modified_move_speed * 6.0)",
+            "math.max(0, -math.sin(q.modified_distance_moved * 70)) * 16 * math.min(1.0, q.modified_move_speed * 6.0)"
+          ]
+        },
+        "leg_l0": {
+          "rotation": [
+            0,
+            "math.cos(q.modified_distance_moved * 70) * 24 * math.min(1.0, q.modified_move_speed * 6.0)",
+            "-math.max(0, math.sin(q.modified_distance_moved * 70)) * 16 * math.min(1.0, q.modified_move_speed * 6.0)"
+          ]
+        },
+        "leg_l1": {
+          "rotation": [
+            0,
+            "-math.cos(q.modified_distance_moved * 70) * 24 * math.min(1.0, q.modified_move_speed * 6.0)",
+            "-math.max(0, -math.sin(q.modified_distance_moved * 70)) * 16 * math.min(1.0, q.modified_move_speed * 6.0)"
+          ]
+        },
+        "leg_l2": {
+          "rotation": [
+            0,
+            "math.cos(q.modified_distance_moved * 70) * 24 * math.min(1.0, q.modified_move_speed * 6.0)",
+            "-math.max(0, math.sin(q.modified_distance_moved * 70)) * 16 * math.min(1.0, q.modified_move_speed * 6.0)"
+          ]
+        },
+        "body": {
+          "position": [
+            0,
+            "math.abs(math.sin(q.modified_distance_moved * 70)) * 0.3 * math.min(1.0, q.modified_move_speed * 6.0)",
+            0
+          ],
+          "rotation": [
+            0,
+            0,
+            "math.sin(q.modified_distance_moved * 70) * 3 * math.min(1.0, q.modified_move_speed * 6.0)"
+          ]
+        }
+      }
+    },
+    "animation.ore_beetle.armor": {
+      "loop": true,
+      "bones": {
+        "crystals": {
+          "scale": "q.property('cb:armor') == 0 ? 0 : 0.45 + 0.25 * q.property('cb:armor')"
+        }
+      }
+    },
+    "animation.ore_beetle.eat": {
+      "loop": true,
+      "bones": {
+        "thorax": {
+          "rotation": [
+            "14 + math.sin(q.life_time * 900) * 4",
+            0,
+            0
+          ]
+        },
+        "head": {
+          "rotation": [
+            "20 + math.sin(q.life_time * 1200) * 8",
+            0,
+            0
+          ]
+        },
+        "mandible_l": {
+          "rotation": [
+            0,
+            "-math.abs(math.sin(q.life_time * 1500)) * 30",
+            0
+          ]
+        },
+        "mandible_r": {
+          "rotation": [
+            0,
+            "math.abs(math.sin(q.life_time * 1500)) * 30",
+            0
+          ]
+        }
+      }
+    },
+    "animation.ore_beetle.idle": {
+      "loop": true,
+      "bones": {
+        "antenna_l": {
+          "rotation": [
+            "math.sin(q.life_time * 140) * 8",
+            "math.cos(q.life_time * 90) * 6",
+            0
+          ]
+        },
+        "antenna_r": {
+          "rotation": [
+            "math.sin(q.life_time * 140 + 60) * 8",
+            "-math.cos(q.life_time * 90) * 6",
+            0
+          ]
+        },
+        "mandible_l": {
+          "rotation": [
+            0,
+            "-math.max(0, math.sin(q.life_time * 200)) * 18",
+            0
+          ]
+        },
+        "mandible_r": {
+          "rotation": [
+            0,
+            "math.max(0, math.sin(q.life_time * 200)) * 18",
+            0
+          ]
+        },
+        "elytra_l": {
+          "rotation": [
+            0,
+            0,
+            "-(math.mod(q.life_time, 6.5) < 0.5 ? math.abs(math.sin(q.life_time * 1440)) : 0) * 10"
+          ]
+        },
+        "elytra_r": {
+          "rotation": [
+            0,
+            0,
+            "(math.mod(q.life_time, 6.5) < 0.5 ? math.abs(math.sin(q.life_time * 1440)) : 0) * 10"
+          ]
+        }
+      }
+    },
+    "animation.ore_beetle.dance": {
+      "loop": true,
+      "bones": {
+        "body": {
+          "position": [
+            0,
+            "math.abs(math.sin(q.life_time * 420)) * 2.0",
+            0
+          ],
+          "rotation": [
+            "math.sin(q.life_time * 420) * 10",
+            "math.cos(q.life_time * 210) * 22",
+            "math.sin(q.life_time * 210) * 14"
+          ]
+        },
+        "head": {
+          "rotation": [
+            "math.sin(q.life_time * 420) * 14",
+            "math.cos(q.life_time * 210) * 16",
+            0
+          ]
+        },
+        "crystals": {
+          "rotation": [
+            0,
+            "math.sin(q.life_time * 420) * 15",
+            0
+          ]
+        },
+        "leg_r0": {
+          "rotation": [
+            0,
+            0,
+            "math.sin(q.life_time * 420) * 25"
+          ]
+        },
+        "leg_l0": {
+          "rotation": [
+            0,
+            0,
+            "-math.sin(q.life_time * 420) * 25"
+          ]
+        },
+        "leg_r1": {
+          "rotation": [
+            0,
+            0,
+            "-math.sin(q.life_time * 420) * 25"
+          ]
+        },
+        "leg_l1": {
+          "rotation": [
+            0,
+            0,
+            "math.sin(q.life_time * 420) * 25"
+          ]
+        }
+      }
+    }
+  }
+}

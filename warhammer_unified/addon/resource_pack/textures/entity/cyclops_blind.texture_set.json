@@ -1,0 +1,8 @@
+{
+  "format_version": "1.16.100",
+  "minecraft:texture_set": {
+    "color": "cyclops_blind",
+    "metalness_emissive_roughness": "cyclops_blind_mer",
+    "heightmap": "cyclops_blind_height"
+  }
+}

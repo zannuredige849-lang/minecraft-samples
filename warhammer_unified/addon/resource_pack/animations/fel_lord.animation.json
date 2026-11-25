@@ -1,0 +1,879 @@
+{
+  "format_version": "1.8.0",
+  "animations": {
+    "animation.fel_lord.idle": {
+      "loop": true,
+      "bones": {
+        "lowerBody": {
+          "position": [
+            0,
+            "math.sin(q.life_time * 85) * 0.4",
+            0
+          ]
+        },
+        "torso": {
+          "rotation": [
+            "3 + math.sin(q.life_time * 85) * 2.5",
+            "math.sin(q.life_time * 40) * 2.0",
+            0
+          ]
+        },
+        "head": {
+          "rotation": [
+            "2 + math.cos(q.life_time * 85) * 2.5",
+            "math.sin(q.life_time * 35) * 5.0",
+            0
+          ]
+        },
+        "jaw": {
+          "rotation": [
+            "3 + math.max(0, math.sin(q.life_time * 85)) * 6.0",
+            0,
+            0
+          ]
+        },
+        "rightArm": {
+          "rotation": [
+            "-16 + math.sin(q.life_time * 85) * 3.5",
+            -8,
+            "10 + math.abs(math.cos(q.life_time * 85)) * 3.0"
+          ]
+        },
+        "rightForearm": {
+          "rotation": [
+            -20,
+            0,
+            0
+          ]
+        },
+        "leftArm": {
+          "rotation": [
+            "-12 - math.sin(q.life_time * 85) * 3.5",
+            8,
+            "-10 - math.abs(math.cos(q.life_time * 85)) * 3.0"
+          ]
+        },
+        "leftForearm": {
+          "rotation": [
+            -18,
+            0,
+            0
+          ]
+        },
+        "leftWing": {
+          "rotation": [
+            "math.sin(q.life_time * 85) * 4.0",
+            "-12 + math.cos(q.life_time * 85) * 6.0",
+            0
+          ]
+        },
+        "leftWingOuter": {
+          "rotation": [
+            0,
+            "-10 + math.sin(q.life_time * 85) * 8.0",
+            0
+          ]
+        },
+        "rightWing": {
+          "rotation": [
+            "math.sin(q.life_time * 85) * 4.0",
+            "12 - math.cos(q.life_time * 85) * 6.0",
+            0
+          ]
+        },
+        "rightWingOuter": {
+          "rotation": [
+            0,
+            "10 - math.sin(q.life_time * 85) * 8.0",
+            0
+          ]
+        },
+        "tail": {
+          "rotation": [
+            "-8 + math.sin(q.life_time * 90) * 4.0",
+            "math.cos(q.life_time * 75) * 10.0",
+            0
+          ]
+        },
+        "tailMid": {
+          "rotation": [
+            "math.sin(q.life_time * 90 - 45) * 5.0",
+            "math.cos(q.life_time * 75 - 45) * 14.0",
+            0
+          ]
+        },
+        "tailTip": {
+          "rotation": [
+            "math.sin(q.life_time * 90 - 90) * 6.0",
+            "math.cos(q.life_time * 75 - 90) * 18.0",
+            0
+          ]
+        },
+        "rightHand": {
+          "rotation": [
+            "math.sin(q.life_time * 85) * 4.0",
+            0,
+            0
+          ]
+        },
+        "weapon": {
+          "rotation": [
+            "math.sin(q.life_time * 85) * 3.5",
+            "math.cos(q.life_time * 65) * 2.5",
+            0
+          ]
+        }
+      }
+    },
+    "animation.fel_lord.walk": {
+      "loop": true,
+      "bones": {
+        "rightLeg": {
+          "rotation": [
+            "math.cos(q.modified_distance_moved * 34.0) * 36.0",
+            0,
+            0
+          ]
+        },
+        "leftLeg": {
+          "rotation": [
+            "-math.cos(q.modified_distance_moved * 34.0) * 36.0",
+            0,
+            0
+          ]
+        },
+        "rightShin": {
+          "rotation": [
+            "math.max(0, math.sin(q.modified_distance_moved * 34.0)) * 32.0",
+            0,
+            0
+          ]
+        },
+        "leftShin": {
+          "rotation": [
+            "math.max(0, -math.sin(q.modified_distance_moved * 34.0)) * 32.0",
+            0,
+            0
+          ]
+        },
+        "backRightLeg": {
+          "rotation": [
+            "-math.cos(q.modified_distance_moved * 34.0) * 34.0",
+            0,
+            0
+          ]
+        },
+        "backLeftLeg": {
+          "rotation": [
+            "math.cos(q.modified_distance_moved * 34.0) * 34.0",
+            0,
+            0
+          ]
+        },
+        "backRightShin": {
+          "rotation": [
+            "math.max(0, -math.sin(q.modified_distance_moved * 34.0)) * 30.0",
+            0,
+            0
+          ]
+        },
+        "backLeftShin": {
+          "rotation": [
+            "math.max(0, math.sin(q.modified_distance_moved * 34.0)) * 30.0",
+            0,
+            0
+          ]
+        },
+        "lowerBody": {
+          "position": [
+            0,
+            "-math.abs(math.sin(q.modified_distance_moved * 34.0)) * 1.2",
+            0
+          ],
+          "rotation": [
+            0,
+            "math.sin(q.modified_distance_moved * 34.0) * 4.0",
+            "math.cos(q.modified_distance_moved * 34.0) * 2.5"
+          ]
+        },
+        "torso": {
+          "rotation": [
+            6,
+            "math.sin(q.modified_distance_moved * 34.0) * 5.0",
+            0
+          ]
+        },
+        "rightArm": {
+          "rotation": [
+            "-18 - math.cos(q.modified_distance_moved * 34.0) * 20.0",
+            -8,
+            10
+          ]
+        },
+        "leftArm": {
+          "rotation": [
+            "-12 + math.cos(q.modified_distance_moved * 34.0) * 24.0",
+            8,
+            -10
+          ]
+        },
+        "tail": {
+          "rotation": [
+            -6,
+            "math.cos(q.modified_distance_moved * 34.0) * 14.0",
+            0
+          ]
+        },
+        "tailMid": {
+          "rotation": [
+            0,
+            "math.cos(q.modified_distance_moved * 34.0 - 45) * 18.0",
+            0
+          ]
+        },
+        "tailTip": {
+          "rotation": [
+            0,
+            "math.cos(q.modified_distance_moved * 34.0 - 90) * 22.0",
+            0
+          ]
+        },
+        "rightForearm": {
+          "rotation": [
+            "-18 + math.sin(q.modified_distance_moved * 34.0) * 10.0",
+            0,
+            0
+          ]
+        },
+        "rightHand": {
+          "rotation": [
+            "math.cos(q.modified_distance_moved * 34.0) * 8.0",
+            0,
+            0
+          ]
+        },
+        "weapon": {
+          "rotation": [
+            "math.sin(q.modified_distance_moved * 34.0) * 6.0",
+            0,
+            0
+          ]
+        }
+      }
+    },
+    "animation.fel_lord.charge": {
+      "loop": true,
+      "bones": {
+        "lowerBody": {
+          "position": [
+            0,
+            "-1.4 + math.abs(math.sin(q.life_time * 600)) * 1.8",
+            0
+          ]
+        },
+        "torso": {
+          "rotation": [
+            22,
+            0,
+            0
+          ]
+        },
+        "head": {
+          "rotation": [
+            28,
+            0,
+            0
+          ]
+        },
+        "jaw": {
+          "rotation": [
+            22,
+            0,
+            0
+          ]
+        },
+        "rightLeg": {
+          "rotation": [
+            "math.cos(q.life_time * 640) * 46.0",
+            0,
+            0
+          ]
+        },
+        "leftLeg": {
+          "rotation": [
+            "-math.cos(q.life_time * 640) * 46.0",
+            0,
+            0
+          ]
+        },
+        "backRightLeg": {
+          "rotation": [
+            "-math.cos(q.life_time * 640) * 44.0",
+            0,
+            0
+          ]
+        },
+        "backLeftLeg": {
+          "rotation": [
+            "math.cos(q.life_time * 640) * 44.0",
+            0,
+            0
+          ]
+        },
+        "rightArm": {
+          "rotation": [
+            -52,
+            -12,
+            14
+          ]
+        },
+        "leftArm": {
+          "rotation": [
+            -55,
+            14,
+            -18
+          ]
+        },
+        "leftWing": {
+          "rotation": [
+            12,
+            -28,
+            -10
+          ]
+        },
+        "rightWing": {
+          "rotation": [
+            12,
+            28,
+            10
+          ]
+        },
+        "rightForearm": {
+          "rotation": [
+            -22,
+            0,
+            0
+          ]
+        },
+        "rightHand": {
+          "rotation": [
+            12,
+            0,
+            0
+          ]
+        },
+        "weapon": {
+          "rotation": [
+            "14 + math.sin(q.life_time * 640) * 8.0",
+            0,
+            0
+          ]
+        }
+      }
+    },
+    "animation.fel_lord.attack": {
+      "loop": true,
+      "bones": {
+        "torso": {
+          "rotation": [
+            "-12 + math.max(math.sin(variable.attack_time * 180.0), math.abs(math.sin(q.anim_time * 260.0))) * 28",
+            "20 - math.max(math.sin(variable.attack_time * 180.0), math.abs(math.sin(q.anim_time * 260.0))) * 44",
+            0
+          ]
+        },
+        "head": {
+          "rotation": [
+            "-6 + math.max(math.sin(variable.attack_time * 180.0), math.abs(math.sin(q.anim_time * 260.0))) * 14",
+            0,
+            0
+          ]
+        },
+        "jaw": {
+          "rotation": [
+            "8 + math.max(math.sin(variable.attack_time * 180.0), math.abs(math.sin(q.anim_time * 260.0))) * 24",
+            0,
+            0
+          ]
+        },
+        "rightArm": {
+          "rotation": [
+            "-118 + math.max(math.sin(variable.attack_time * 180.0), math.abs(math.sin(q.anim_time * 260.0))) * 148",
+            "18 - math.max(math.sin(variable.attack_time * 180.0), math.abs(math.sin(q.anim_time * 260.0))) * 42",
+            14
+          ]
+        },
+        "rightForearm": {
+          "rotation": [
+            "-38 + math.max(math.sin(variable.attack_time * 180.0), math.abs(math.sin(q.anim_time * 260.0))) * 32",
+            0,
+            0
+          ]
+        },
+        "rightHand": {
+          "rotation": [
+            "-18 + math.max(math.sin(variable.attack_time * 180.0), math.abs(math.sin(q.anim_time * 260.0))) * 38",
+            0,
+            0
+          ]
+        },
+        "weapon": {
+          "rotation": [
+            "-24 + math.max(math.sin(variable.attack_time * 180.0), math.abs(math.sin(q.anim_time * 260.0))) * 52",
+            "10 - math.max(math.sin(variable.attack_time * 180.0), math.abs(math.sin(q.anim_time * 260.0))) * 22",
+            0
+          ]
+        },
+        "leftArm": {
+          "rotation": [
+            "-28 + math.max(math.sin(variable.attack_time * 180.0), math.abs(math.sin(q.anim_time * 260.0))) * 42",
+            12,
+            -14
+          ]
+        }
+      }
+    },
+    "animation.fel_lord.special_attack": {
+      "loop": true,
+      "bones": {
+        "torso": {
+          "rotation": [
+            "-14 + math.abs(math.sin(q.anim_time * 240.0)) * 32",
+            "16 - math.abs(math.sin(q.anim_time * 240.0)) * 32",
+            0
+          ]
+        },
+        "jaw": {
+          "rotation": [
+            24,
+            0,
+            0
+          ]
+        },
+        "rightArm": {
+          "rotation": [
+            "-130 + math.abs(math.sin(q.anim_time * 240.0)) * 155",
+            -12,
+            14
+          ]
+        },
+        "rightForearm": {
+          "rotation": [
+            "-30 + math.abs(math.sin(q.anim_time * 240.0)) * 25",
+            0,
+            0
+          ]
+        },
+        "rightHand": {
+          "rotation": [
+            "-15 + math.abs(math.sin(q.anim_time * 240.0)) * 30",
+            0,
+            0
+          ]
+        },
+        "weapon": {
+          "rotation": [
+            "-20 + math.abs(math.sin(q.anim_time * 240.0)) * 45",
+            0,
+            0
+          ]
+        },
+        "leftArm": {
+          "rotation": [
+            "-110 + math.abs(math.sin(q.anim_time * 240.0)) * 130",
+            14,
+            -14
+          ]
+        }
+      }
+    },
+    "animation.fel_lord.summon_demons": {
+      "loop": true,
+      "bones": {
+        "torso": {
+          "rotation": [
+            -14,
+            0,
+            0
+          ]
+        },
+        "head": {
+          "rotation": [
+            -18,
+            0,
+            0
+          ]
+        },
+        "jaw": {
+          "rotation": [
+            26,
+            0,
+            0
+          ]
+        },
+        "rightArm": {
+          "rotation": [
+            "-145 + math.sin(q.anim_time * 300.0) * 12",
+            -10,
+            18
+          ]
+        },
+        "rightForearm": {
+          "rotation": [
+            -18,
+            0,
+            0
+          ]
+        },
+        "leftArm": {
+          "rotation": [
+            "-130 - math.sin(q.anim_time * 300.0) * 12",
+            10,
+            -18
+          ]
+        },
+        "leftWing": {
+          "rotation": [
+            -8,
+            -32,
+            -12
+          ]
+        },
+        "rightWing": {
+          "rotation": [
+            -8,
+            32,
+            12
+          ]
+        },
+        "rightHand": {
+          "rotation": [
+            -25,
+            0,
+            0
+          ]
+        },
+        "weapon": {
+          "rotation": [
+            "-45 + math.sin(q.anim_time * 300.0) * 14",
+            0,
+            0
+          ]
+        }
+      }
+    },
+    "animation.fel_lord.green_flame": {
+      "loop": true,
+      "bones": {
+        "torso": {
+          "rotation": [
+            12,
+            -14,
+            0
+          ]
+        },
+        "head": {
+          "rotation": [
+            6,
+            12,
+            0
+          ]
+        },
+        "jaw": {
+          "rotation": [
+            28,
+            0,
+            0
+          ]
+        },
+        "leftArm": {
+          "rotation": [
+            "-98 + math.sin(q.anim_time * 300.0) * 10",
+            16,
+            -10
+          ]
+        },
+        "leftForearm": {
+          "rotation": [
+            -15,
+            0,
+            0
+          ]
+        },
+        "rightArm": {
+          "rotation": [
+            "-55 + math.sin(q.anim_time * 300.0) * 18",
+            -18,
+            16
+          ]
+        },
+        "leftWing": {
+          "rotation": [
+            4,
+            -24,
+            0
+          ]
+        },
+        "rightWing": {
+          "rotation": [
+            4,
+            24,
+            0
+          ]
+        },
+        "rightForearm": {
+          "rotation": [
+            -24,
+            0,
+            0
+          ]
+        },
+        "weapon": {
+          "rotation": [
+            "15 + math.sin(q.anim_time * 300.0) * 20",
+            -12,
+            0
+          ]
+        }
+      }
+    },
+    "animation.fel_lord.phase2_transform": {
+      "loop": true,
+      "bones": {
+        "torso": {
+          "rotation": [
+            "-16 + math.abs(math.sin(q.anim_time * 240.0)) * 28",
+            0,
+            0
+          ]
+        },
+        "head": {
+          "rotation": [
+            -14,
+            0,
+            0
+          ]
+        },
+        "jaw": {
+          "rotation": [
+            30,
+            0,
+            0
+          ]
+        },
+        "rightArm": {
+          "rotation": [
+            -115,
+            -18,
+            24
+          ]
+        },
+        "leftArm": {
+          "rotation": [
+            -115,
+            18,
+            -24
+          ]
+        },
+        "leftWing": {
+          "rotation": [
+            "10 - math.sin(q.anim_time * 300.0) * 18",
+            "-38 + math.sin(q.anim_time * 300.0) * 44",
+            -14
+          ]
+        },
+        "leftWingOuter": {
+          "rotation": [
+            0,
+            "-24 + math.sin(q.anim_time * 300.0) * 32",
+            0
+          ]
+        },
+        "rightWing": {
+          "rotation": [
+            "10 - math.sin(q.anim_time * 300.0) * 18",
+            "38 - math.sin(q.anim_time * 300.0) * 44",
+            14
+          ]
+        },
+        "rightWingOuter": {
+          "rotation": [
+            0,
+            "24 - math.sin(q.anim_time * 300.0) * 32",
+            0
+          ]
+        },
+        "rightForearm": {
+          "rotation": [
+            -28,
+            0,
+            0
+          ]
+        },
+        "rightHand": {
+          "rotation": [
+            "-12 + math.abs(math.sin(q.anim_time * 240.0)) * 28",
+            0,
+            0
+          ]
+        },
+        "weapon": {
+          "rotation": [
+            "-25 + math.abs(math.sin(q.anim_time * 240.0)) * 48",
+            0,
+            0
+          ]
+        }
+      }
+    },
+    "animation.fel_lord.stun": {
+      "loop": true,
+      "bones": {
+        "torso": {
+          "rotation": [
+            18,
+            "math.sin(q.life_time * 260) * 8",
+            0
+          ]
+        },
+        "head": {
+          "rotation": [
+            24,
+            "math.sin(q.life_time * 320) * 12",
+            0
+          ]
+        },
+        "jaw": {
+          "rotation": [
+            18,
+            0,
+            0
+          ]
+        },
+        "rightArm": {
+          "rotation": [
+            10,
+            0,
+            14
+          ]
+        },
+        "leftArm": {
+          "rotation": [
+            10,
+            0,
+            -14
+          ]
+        }
+      }
+    },
+    "animation.fel_lord.rage": {
+      "loop": true,
+      "bones": {
+        "torso": {
+          "rotation": [
+            4,
+            0,
+            0
+          ]
+        },
+        "jaw": {
+          "rotation": [
+            "10 + math.abs(math.sin(q.life_time * 240)) * 12",
+            0,
+            0
+          ]
+        }
+      }
+    },
+    "animation.fel_lord.hurt": {
+      "loop": true,
+      "bones": {
+        "torso": {
+          "rotation": [
+            -8,
+            0,
+            "math.sin(q.life_time * 720) * 5"
+          ]
+        },
+        "head": {
+          "rotation": [
+            -10,
+            0,
+            0
+          ]
+        },
+        "jaw": {
+          "rotation": [
+            20,
+            0,
+            0
+          ]
+        }
+      }
+    },
+    "animation.fel_lord.death": {
+      "loop": "hold_on_last_frame",
+      "animation_length": 1.0,
+      "bones": {
+        "root": {
+          "rotation": {
+            "0.0": [
+              0,
+              0,
+              0
+            ],
+            "1.0": [
+              -85,
+              0,
+              0
+            ]
+          },
+          "position": {
+            "0.0": [
+              0,
+              0,
+              0
+            ],
+            "1.0": [
+              0,
+              -12,
+              10
+            ]
+          }
+        }
+      }
+    },
+    "animation.fel_lord.dance": {
+      "loop": true,
+      "bones": {
+        "lowerBody": {
+          "position": [
+            0,
+            "math.abs(math.sin(q.life_time * 400)) * 2.8",
+            0
+          ]
+        },
+        "torso": {
+          "rotation": [
+            "math.sin(q.life_time * 400) * 10",
+            "math.cos(q.life_time * 200) * 20",
+            0
+          ]
+        },
+        "rightArm": {
+          "rotation": [
+            "-125 + math.sin(q.life_time * 400) * 35",
+            0,
+            24
+          ]
+        },
+        "leftArm": {
+          "rotation": [
+            "-125 - math.sin(q.life_time * 400) * 35",
+            0,
+            -24
+          ]
+        }
+      }
+    }
+  }
+}

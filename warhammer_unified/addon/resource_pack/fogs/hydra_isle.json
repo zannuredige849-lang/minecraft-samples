@@ -1,0 +1,22 @@
+{
+  "format_version": "1.16.100",
+  "minecraft:fog_settings": {
+    "description": {
+      "identifier": "cb:hydra_isle"
+    },
+    "distance": {
+      "air": {
+        "fog_start": 16,
+        "fog_end": 96,
+        "fog_color": "#7d8f6a",
+        "render_distance_type": "fixed"
+      },
+      "weather": {
+        "fog_start": 8,
+        "fog_end": 56,
+        "fog_color": "#56664a",
+        "render_distance_type": "fixed"
+      }
+    }
+  }
+}

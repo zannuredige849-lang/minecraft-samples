@@ -1,0 +1,32 @@
+pack.description=v10.0.0 NEW STYLE: all mobs, golems, items and spawn eggs in one chunky block style with shared palettes/shading; factions & alliances (same faction and all golems never fight each other, summons stay loyal).
+
+entity.cb:zeus_archon.name=Грозовой архонт Зевса
+item.spawn_egg.entity.cb:zeus_archon.name=Яйцо призыва: Грозовой архонт Зевса
+entity.cb:hades_shade.name=Тень Аида
+item.spawn_egg.entity.cb:hades_shade.name=Яйцо призыва: Тень Аида
+entity.cb:ares_berserker.name=Кровавый берсерк Ареса
+item.spawn_egg.entity.cb:ares_berserker.name=Яйцо призыва: Кровавый берсерк Ареса
+cb.msg.isle.olympus=Небесный Храм Зевса
+cb.msg.isle.olympus.rise=§e§lНебесный Храм Зевса§r возвысился над волнами (%1, %2)!
+cb.msg.isle.hades=Цитадель Аида
+cb.msg.isle.hades.rise=§5§lЦитадель Аида§r поднялась из глубин Подземного мира (%1, %2)!
+cb.msg.isle.ares=Кровавая Арена Ареса
+cb.msg.isle.ares.rise=§c§lКровавая Арена Ареса§r выросла среди моря (%1, %2)!
+cb.msg.isle.athena=Акрополь Афины
+cb.msg.isle.athena.rise=§9§lАкрополь Афины§r явился в сиянии мудрости (%1, %2)!
+cb.msg.isle.hephaestus=Божественная Кузница Гефеста
+cb.msg.isle.hephaestus.rise=§6§lБожественная Кузница Гефеста§r запылала горнами (%1, %2)!
+
+item.cb:orc_cleaver.name=Тесак орка
+item.cb:orc_cleaver=Тесак орка
+item.cb:orc_war_axe.name=Боевой топор орка
+item.cb:orc_war_axe=Боевой топор орка
+item.cb:hell_scimitar.name=Адский скимитар
+item.cb:hell_scimitar=Адский скимитар
+
+cb.msg.isle.plain.hades=Цитадель Аида
+cb.msg.isle.plain.ares=Кровавая Арена Ареса
+cb.msg.isle.plain.athena=Акрополь Афины
+cb.msg.isle.plain.hephaestus=Божественная Кузница Гефеста
+cb.msg.beam.blue=синий
+action.interact.cb_human_trade=Торговать / Нанять

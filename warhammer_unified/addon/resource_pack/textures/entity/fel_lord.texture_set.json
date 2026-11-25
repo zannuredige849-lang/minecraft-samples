@@ -1,0 +1,8 @@
+{
+  "format_version": "1.16.100",
+  "minecraft:texture_set": {
+    "color": "fel_lord",
+    "metalness_emissive_roughness": "fel_lord_mer",
+    "heightmap": "fel_lord_height"
+  }
+}

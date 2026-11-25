@@ -1,0 +1,1025 @@
+{
+  "format_version": "1.21.0",
+  "minecraft:entity": {
+    "description": {
+      "identifier": "cb:human_villager",
+      "is_spawnable": true,
+      "is_summonable": true,
+      "is_experimental": false,
+      "properties": {
+        "cb:role": {
+          "type": "int",
+          "range": [
+            0,
+            6
+          ],
+          "default": 0,
+          "client_sync": true
+        },
+        "cb:job": {
+          "type": "int",
+          "range": [
+            0,
+            4
+          ],
+          "default": 0,
+          "client_sync": true
+        },
+        "cb:alarm": {
+          "type": "int",
+          "range": [
+            0,
+            1
+          ],
+          "default": 0,
+          "client_sync": true
+        },
+        "cb:skin": {
+          "type": "int",
+          "range": [
+            0,
+            5
+          ],
+          "default": 0,
+          "client_sync": true
+        },
+        "cb:dancing": {
+          "type": "bool",
+          "default": false,
+          "client_sync": true
+        },
+        "cb:blocking": {
+          "type": "bool",
+          "default": false,
+          "client_sync": true
+        },
+        "cb:hired": {
+          "type": "bool",
+          "default": false,
+          "client_sync": true
+        },
+        "cb:stance": {
+          "type": "int",
+          "range": [
+            0,
+            3
+          ],
+          "default": 0,
+          "client_sync": true
+        },
+        "cb:weapon_type": {
+          "type": "int",
+          "range": [
+            0,
+            6
+          ],
+          "default": 0,
+          "client_sync": true
+        }
+      }
+    },
+    "component_groups": {
+      "cb:role_villager": {
+        "minecraft:type_family": {
+          "family": [
+            "human",
+            "human_faction",
+            "villager",
+            "mob",
+            "f_humans",
+            "summon_safe"
+          ]
+        },
+        "minecraft:health": {
+          "value": 20,
+          "max": 20
+        },
+        "minecraft:attack": {
+          "damage": 1
+        },
+        "minecraft:movement": {
+          "value": 0.27
+        }
+      },
+      "cb:role_militia": {
+        "minecraft:type_family": {
+          "family": [
+            "human",
+            "human_faction",
+            "villager",
+            "militia",
+            "mob",
+            "f_humans",
+            "summon_safe"
+          ]
+        },
+        "minecraft:health": {
+          "value": 22,
+          "max": 22
+        },
+        "minecraft:attack": {
+          "damage": 4
+        },
+        "minecraft:movement": {
+          "value": 0.3
+        }
+      },
+      "cb:role_swordsman": {
+        "minecraft:type_family": {
+          "family": [
+            "human",
+            "human_faction",
+            "villager",
+            "knight",
+            "swordsman",
+            "mob",
+            "f_humans",
+            "summon_safe"
+          ]
+        },
+        "minecraft:health": {
+          "value": 26,
+          "max": 26
+        },
+        "minecraft:attack": {
+          "damage": 6
+        },
+        "minecraft:movement": {
+          "value": 0.3
+        }
+      },
+      "cb:role_archer": {
+        "minecraft:type_family": {
+          "family": [
+            "human",
+            "human_faction",
+            "villager",
+            "knight",
+            "archer",
+            "mob",
+            "f_humans",
+            "summon_safe"
+          ]
+        },
+        "minecraft:health": {
+          "value": 24,
+          "max": 24
+        },
+        "minecraft:attack": {
+          "damage": 4
+        },
+        "minecraft:movement": {
+          "value": 0.3
+        }
+      },
+      "cb:role_crossbowman": {
+        "minecraft:type_family": {
+          "family": [
+            "human",
+            "human_faction",
+            "villager",
+            "knight",
+            "crossbowman",
+            "mob",
+            "f_humans",
+            "summon_safe"
+          ]
+        },
+        "minecraft:health": {
+          "value": 25,
+          "max": 25
+        },
+        "minecraft:attack": {
+          "damage": 5
+        },
+        "minecraft:movement": {
+          "value": 0.29
+        }
+      },
+      "cb:role_spearman": {
+        "minecraft:type_family": {
+          "family": [
+            "human",
+            "human_faction",
+            "villager",
+            "knight",
+            "spearman",
+            "mob",
+            "f_humans",
+            "summon_safe"
+          ]
+        },
+        "minecraft:health": {
+          "value": 26,
+          "max": 26
+        },
+        "minecraft:attack": {
+          "damage": 6
+        },
+        "minecraft:movement": {
+          "value": 0.3
+        }
+      },
+      "cb:role_captain": {
+        "minecraft:type_family": {
+          "family": [
+            "human",
+            "human_faction",
+            "villager",
+            "knight",
+            "captain",
+            "mob",
+            "f_humans",
+            "summon_safe"
+          ]
+        },
+        "minecraft:health": {
+          "value": 28,
+          "max": 28
+        },
+        "minecraft:attack": {
+          "damage": 7
+        },
+        "minecraft:movement": {
+          "value": 0.31
+        }
+      },
+      "cb:hired_group": {
+        "minecraft:persistent": {}
+      }
+    },
+    "components": {
+      "minecraft:type_family": {
+        "family": [
+          "human",
+          "human_faction",
+          "villager",
+          "mob",
+          "f_humans",
+          "summon_safe"
+        ]
+      },
+      "minecraft:breathable": {
+        "total_supply": 15,
+        "suffocate_time": 0
+      },
+      "minecraft:collision_box": {
+        "width": 0.6,
+        "height": 1.9
+      },
+      "minecraft:health": {
+        "value": 20,
+        "max": 20
+      },
+      "minecraft:attack": {
+        "damage": 1
+      },
+      "minecraft:movement": {
+        "value": 0.27
+      },
+      "minecraft:navigation.walk": {
+        "can_path_over_water": true,
+        "can_pass_doors": true,
+        "can_open_doors": true,
+        "avoid_water": true
+      },
+      "minecraft:annotation.open_door": {},
+      "minecraft:movement.basic": {},
+      "minecraft:jump.static": {},
+      "minecraft:can_climb": {},
+      "minecraft:equipment": {},
+      "minecraft:inventory": {
+        "inventory_size": 8,
+        "private": false
+      },
+      "minecraft:shareables": {
+        "all_items": false,
+        "items": [
+          {
+            "item": "minecraft:bread",
+            "want_amount": 8,
+            "surplus_amount": 16
+          },
+          {
+            "item": "minecraft:wheat",
+            "want_amount": 16,
+            "surplus_amount": 32
+          },
+          {
+            "item": "minecraft:apple",
+            "want_amount": 8,
+            "surplus_amount": 16
+          },
+          {
+            "item": "minecraft:carrot",
+            "want_amount": 12,
+            "surplus_amount": 24
+          },
+          {
+            "item": "minecraft:potato",
+            "want_amount": 12,
+            "surplus_amount": 24
+          },
+          {
+            "item": "minecraft:oak_log",
+            "want_amount": 16,
+            "surplus_amount": 32
+          },
+          {
+            "item": "minecraft:cobblestone",
+            "want_amount": 16,
+            "surplus_amount": 32
+          },
+          {
+            "item": "minecraft:iron_ingot",
+            "want_amount": 8,
+            "surplus_amount": 16
+          },
+          {
+            "item": "minecraft:netherite_sword",
+            "want_amount": 1,
+            "surplus_amount": 2,
+            "priority": 1
+          },
+          {
+            "item": "minecraft:diamond_sword",
+            "want_amount": 1,
+            "surplus_amount": 2,
+            "priority": 2
+          },
+          {
+            "item": "minecraft:iron_sword",
+            "want_amount": 1,
+            "surplus_amount": 2,
+            "priority": 3
+          },
+          {
+            "item": "minecraft:golden_sword",
+            "want_amount": 1,
+            "surplus_amount": 2,
+            "priority": 4
+          },
+          {
+            "item": "minecraft:stone_sword",
+            "want_amount": 1,
+            "surplus_amount": 2,
+            "priority": 5
+          },
+          {
+            "item": "minecraft:wooden_sword",
+            "want_amount": 1,
+            "surplus_amount": 2,
+            "priority": 6
+          },
+          {
+            "item": "minecraft:netherite_axe",
+            "want_amount": 1,
+            "surplus_amount": 2,
+            "priority": 1
+          },
+          {
+            "item": "minecraft:diamond_axe",
+            "want_amount": 1,
+            "surplus_amount": 2,
+            "priority": 2
+          },
+          {
+            "item": "minecraft:iron_axe",
+            "want_amount": 1,
+            "surplus_amount": 2,
+            "priority": 3
+          },
+          {
+            "item": "minecraft:golden_axe",
+            "want_amount": 1,
+            "surplus_amount": 2,
+            "priority": 4
+          },
+          {
+            "item": "minecraft:stone_axe",
+            "want_amount": 1,
+            "surplus_amount": 2,
+            "priority": 5
+          },
+          {
+            "item": "minecraft:wooden_axe",
+            "want_amount": 1,
+            "surplus_amount": 2,
+            "priority": 6
+          },
+          {
+            "item": "minecraft:trident",
+            "want_amount": 1,
+            "surplus_amount": 2,
+            "priority": 1
+          },
+          {
+            "item": "minecraft:mace",
+            "want_amount": 1,
+            "surplus_amount": 2,
+            "priority": 1
+          },
+          {
+            "item": "minecraft:netherite_spear",
+            "want_amount": 1,
+            "surplus_amount": 2,
+            "priority": 1
+          },
+          {
+            "item": "minecraft:diamond_spear",
+            "want_amount": 1,
+            "surplus_amount": 2,
+            "priority": 2
+          },
+          {
+            "item": "minecraft:iron_spear",
+            "want_amount": 1,
+            "surplus_amount": 2,
+            "priority": 3
+          },
+          {
+            "item": "minecraft:golden_spear",
+            "want_amount": 1,
+            "surplus_amount": 2,
+            "priority": 4
+          },
+          {
+            "item": "minecraft:stone_spear",
+            "want_amount": 1,
+            "surplus_amount": 2,
+            "priority": 5
+          },
+          {
+            "item": "minecraft:wooden_spear",
+            "want_amount": 1,
+            "surplus_amount": 2,
+            "priority": 6
+          },
+          {
+            "item": "minecraft:bow",
+            "want_amount": 1,
+            "surplus_amount": 2,
+            "priority": 2
+          },
+          {
+            "item": "minecraft:crossbow",
+            "want_amount": 1,
+            "surplus_amount": 2,
+            "priority": 2
+          },
+          {
+            "item": "minecraft:shield",
+            "want_amount": 1,
+            "surplus_amount": 2,
+            "priority": 1
+          },
+          {
+            "item": "minecraft:netherite_helmet",
+            "want_amount": 1,
+            "surplus_amount": 1,
+            "priority": 1
+          },
+          {
+            "item": "minecraft:netherite_chestplate",
+            "want_amount": 1,
+            "surplus_amount": 1,
+            "priority": 1
+          },
+          {
+            "item": "minecraft:netherite_leggings",
+            "want_amount": 1,
+            "surplus_amount": 1,
+            "priority": 1
+          },
+          {
+            "item": "minecraft:netherite_boots",
+            "want_amount": 1,
+            "surplus_amount": 1,
+            "priority": 1
+          },
+          {
+            "item": "minecraft:diamond_helmet",
+            "want_amount": 1,
+            "surplus_amount": 1,
+            "priority": 2
+          },
+          {
+            "item": "minecraft:diamond_chestplate",
+            "want_amount": 1,
+            "surplus_amount": 1,
+            "priority": 2
+          },
+          {
+            "item": "minecraft:diamond_leggings",
+            "want_amount": 1,
+            "surplus_amount": 1,
+            "priority": 2
+          },
+          {
+            "item": "minecraft:diamond_boots",
+            "want_amount": 1,
+            "surplus_amount": 1,
+            "priority": 2
+          },
+          {
+            "item": "minecraft:iron_helmet",
+            "want_amount": 1,
+            "surplus_amount": 1,
+            "priority": 3
+          },
+          {
+            "item": "minecraft:iron_chestplate",
+            "want_amount": 1,
+            "surplus_amount": 1,
+            "priority": 3
+          },
+          {
+            "item": "minecraft:iron_leggings",
+            "want_amount": 1,
+            "surplus_amount": 1,
+            "priority": 3
+          },
+          {
+            "item": "minecraft:iron_boots",
+            "want_amount": 1,
+            "surplus_amount": 1,
+            "priority": 3
+          },
+          {
+            "item": "minecraft:chainmail_helmet",
+            "want_amount": 1,
+            "surplus_amount": 1,
+            "priority": 4
+          },
+          {
+            "item": "minecraft:chainmail_chestplate",
+            "want_amount": 1,
+            "surplus_amount": 1,
+            "priority": 4
+          },
+          {
+            "item": "minecraft:chainmail_leggings",
+            "want_amount": 1,
+            "surplus_amount": 1,
+            "priority": 4
+          },
+          {
+            "item": "minecraft:chainmail_boots",
+            "want_amount": 1,
+            "surplus_amount": 1,
+            "priority": 4
+          }
+        ]
+      },
+      "minecraft:damage_sensor": {
+        "triggers": [
+          {
+            "on_damage": {
+              "filters": {
+                "any_of": [
+                  {
+                    "test": "is_family",
+                    "subject": "other",
+                    "value": "human_faction"
+                  },
+                  {
+                    "test": "is_family",
+                    "subject": "other",
+                    "value": "human"
+                  },
+                  {
+                    "test": "is_family",
+                    "subject": "other",
+                    "value": "villager"
+                  }
+                ]
+              }
+            },
+            "deals_damage": false
+          }
+        ]
+      },
+      "minecraft:behavior.float": {
+        "priority": 0
+      },
+      "minecraft:behavior.pickup_items": {
+        "priority": 2,
+        "max_dist": 6.0,
+        "goal_radius": 1.6,
+        "speed_multiplier": 1.05
+      },
+      "minecraft:behavior.melee_attack": {
+        "priority": 3,
+        "speed_multiplier": 1.18,
+        "track_target": true
+      },
+      "minecraft:behavior.hurt_by_target": {
+        "priority": 1,
+        "alert_same_type": true,
+        "entity_types": [
+          {
+            "filters": {
+              "all_of": [
+                {
+                  "test": "is_family",
+                  "subject": "other",
+                  "operator": "!=",
+                  "value": "f_humans"
+                },
+                {
+                  "test": "is_family",
+                  "subject": "other",
+                  "operator": "!=",
+                  "value": "human_faction"
+                },
+                {
+                  "test": "is_family",
+                  "subject": "other",
+                  "operator": "!=",
+                  "value": "player"
+                }
+              ]
+            }
+          }
+        ]
+      },
+      "minecraft:behavior.nearest_attackable_target": {
+        "priority": 2,
+        "must_see": true,
+        "reselect_targets": true,
+        "within_radius": 22.0,
+        "entity_types": [
+          {
+            "filters": {
+              "all_of": [
+                {
+                  "test": "is_family",
+                  "subject": "other",
+                  "operator": "!=",
+                  "value": "f_humans"
+                },
+                {
+                  "any_of": [
+                    {
+                      "test": "is_family",
+                      "subject": "other",
+                      "value": "monster"
+                    },
+                    {
+                      "test": "is_family",
+                      "subject": "other",
+                      "value": "undead"
+                    },
+                    {
+                      "test": "is_family",
+                      "subject": "other",
+                      "value": "zombie"
+                    },
+                    {
+                      "test": "is_family",
+                      "subject": "other",
+                      "value": "skeleton"
+                    },
+                    {
+                      "test": "is_family",
+                      "subject": "other",
+                      "value": "illager"
+                    },
+                    {
+                      "test": "is_family",
+                      "subject": "other",
+                      "value": "orc"
+                    },
+                    {
+                      "test": "is_family",
+                      "subject": "other",
+                      "value": "orc_faction"
+                    },
+                    {
+                      "test": "is_family",
+                      "subject": "other",
+                      "value": "green_orc"
+                    },
+                    {
+                      "test": "is_family",
+                      "subject": "other",
+                      "value": "hell_orc"
+                    },
+                    {
+                      "test": "is_family",
+                      "subject": "other",
+                      "value": "goblin"
+                    },
+                    {
+                      "test": "is_family",
+                      "subject": "other",
+                      "value": "fel"
+                    },
+                    {
+                      "test": "is_family",
+                      "subject": "other",
+                      "value": "fel_faction"
+                    },
+                    {
+                      "test": "is_family",
+                      "subject": "other",
+                      "value": "scourge"
+                    },
+                    {
+                      "test": "is_family",
+                      "subject": "other",
+                      "value": "dread"
+                    },
+                    {
+                      "test": "is_family",
+                      "subject": "other",
+                      "value": "cyclops"
+                    },
+                    {
+                      "test": "is_family",
+                      "subject": "other",
+                      "value": "minotaur"
+                    },
+                    {
+                      "test": "is_family",
+                      "subject": "other",
+                      "value": "hydra"
+                    },
+                    {
+                      "test": "is_family",
+                      "subject": "other",
+                      "value": "laestrygonian"
+                    },
+                    {
+                      "test": "is_family",
+                      "subject": "other",
+                      "value": "siren"
+                    },
+                    {
+                      "test": "is_family",
+                      "subject": "other",
+                      "value": "dragon"
+                    },
+                    {
+                      "test": "is_family",
+                      "subject": "other",
+                      "value": "nurgle"
+                    },
+                    {
+                      "test": "is_family",
+                      "subject": "other",
+                      "value": "tzeentch"
+                    },
+                    {
+                      "test": "is_family",
+                      "subject": "other",
+                      "value": "faceless"
+                    },
+                    {
+                      "test": "is_family",
+                      "subject": "other",
+                      "value": "norsca_bandits"
+                    },
+                    {
+                      "test": "is_family",
+                      "subject": "other",
+                      "value": "kingdom_order"
+                    },
+                    {
+                      "test": "is_family",
+                      "subject": "other",
+                      "value": "undead_scourge"
+                    },
+                    {
+                      "test": "is_family",
+                      "subject": "other",
+                      "value": "ember_colossus"
+                    },
+                    {
+                      "test": "is_family",
+                      "subject": "other",
+                      "value": "black_blocker"
+                    },
+                    {
+                      "test": "is_family",
+                      "subject": "other",
+                      "value": "nature_ent"
+                    },
+                    {
+                      "test": "is_family",
+                      "subject": "other",
+                      "value": "horned_demon"
+                    },
+                    {
+                      "test": "is_family",
+                      "subject": "other",
+                      "value": "void_knight"
+                    },
+                    {
+                      "test": "is_family",
+                      "subject": "other",
+                      "value": "chaos_knight"
+                    },
+                    {
+                      "test": "is_family",
+                      "subject": "other",
+                      "value": "blood_angel"
+                    }
+                  ]
+                }
+              ]
+            },
+            "max_dist": 22
+          }
+        ]
+      },
+      "minecraft:behavior.random_stroll": {
+        "priority": 6,
+        "speed_multiplier": 0.85
+      },
+      "minecraft:behavior.look_at_player": {
+        "priority": 7,
+        "look_distance": 8.0
+      },
+      "minecraft:behavior.random_look_around": {
+        "priority": 8
+      },
+      "minecraft:physics": {},
+      "minecraft:pushable": {
+        "is_pushable": true,
+        "is_pushable_by_piston": true
+      },
+      "minecraft:equippable": {},
+      "minecraft:equip_item": {},
+      "minecraft:nameable": {},
+      "minecraft:behavior.equip_item": {
+        "priority": 2
+      }
+    },
+    "events": {
+      "minecraft:entity_spawned": {
+        "add": {
+          "component_groups": [
+            "cb:role_villager"
+          ]
+        },
+        "set_property": {
+          "cb:role": 0,
+          "cb:job": 0,
+          "cb:alarm": 0,
+          "cb:skin": "math.random_integer(0, 5)"
+        }
+      },
+      "cb:become_villager": {
+        "remove": {
+          "component_groups": [
+            "cb:role_militia",
+            "cb:role_swordsman",
+            "cb:role_archer",
+            "cb:role_crossbowman",
+            "cb:role_spearman",
+            "cb:role_captain"
+          ]
+        },
+        "add": {
+          "component_groups": [
+            "cb:role_villager"
+          ]
+        },
+        "set_property": {
+          "cb:role": 0
+        }
+      },
+      "cb:become_militia": {
+        "remove": {
+          "component_groups": [
+            "cb:role_villager",
+            "cb:role_swordsman",
+            "cb:role_archer",
+            "cb:role_crossbowman",
+            "cb:role_spearman",
+            "cb:role_captain"
+          ]
+        },
+        "add": {
+          "component_groups": [
+            "cb:role_militia"
+          ]
+        },
+        "set_property": {
+          "cb:role": 1
+        }
+      },
+      "cb:become_swordsman": {
+        "remove": {
+          "component_groups": [
+            "cb:role_villager",
+            "cb:role_militia",
+            "cb:role_archer",
+            "cb:role_crossbowman",
+            "cb:role_spearman",
+            "cb:role_captain"
+          ]
+        },
+        "add": {
+          "component_groups": [
+            "cb:role_swordsman"
+          ]
+        },
+        "set_property": {
+          "cb:role": 2
+        }
+      },
+      "cb:become_archer": {
+        "remove": {
+          "component_groups": [
+            "cb:role_villager",
+            "cb:role_militia",
+            "cb:role_swordsman",
+            "cb:role_crossbowman",
+            "cb:role_spearman",
+            "cb:role_captain"
+          ]
+        },
+        "add": {
+          "component_groups": [
+            "cb:role_archer"
+          ]
+        },
+        "set_property": {
+          "cb:role": 3
+        }
+      },
+      "cb:become_crossbowman": {
+        "remove": {
+          "component_groups": [
+            "cb:role_villager",
+            "cb:role_militia",
+            "cb:role_swordsman",
+            "cb:role_archer",
+            "cb:role_spearman",
+            "cb:role_captain"
+          ]
+        },
+        "add": {
+          "component_groups": [
+            "cb:role_crossbowman"
+          ]
+        },
+        "set_property": {
+          "cb:role": 4
+        }
+      },
+      "cb:become_spearman": {
+        "remove": {
+          "component_groups": [
+            "cb:role_villager",
+            "cb:role_militia",
+            "cb:role_swordsman",
+            "cb:role_archer",
+            "cb:role_crossbowman",
+            "cb:role_captain"
+          ]
+        },
+        "add": {
+          "component_groups": [
+            "cb:role_spearman"
+          ]
+        },
+        "set_property": {
+          "cb:role": 5
+        }
+      },
+      "cb:become_captain": {
+        "remove": {
+          "component_groups": [
+            "cb:role_villager",
+            "cb:role_militia",
+            "cb:role_swordsman",
+            "cb:role_archer",
+            "cb:role_crossbowman",
+            "cb:role_spearman"
+          ]
+        },
+        "add": {
+          "component_groups": [
+            "cb:role_captain"
+          ]
+        },
+        "set_property": {
+          "cb:role": 6
+        }
+      },
+      "cb:on_hired": {
+        "add": {
+          "component_groups": [
+            "cb:hired_group"
+          ]
+        },
+        "set_property": {
+          "cb:hired": true
+        }
+      }
+    }
+  }
+}

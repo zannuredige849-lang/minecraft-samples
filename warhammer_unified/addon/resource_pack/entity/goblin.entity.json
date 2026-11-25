@@ -1,0 +1,54 @@
+{
+  "format_version": "1.10.0",
+  "minecraft:client_entity": {
+    "description": {
+      "identifier": "cb:goblin",
+      "materials": {
+        "default": "entity_alphatest"
+      },
+      "textures": {
+        "default": "textures/entity/goblin"
+      },
+      "geometry": {
+        "default": "geometry.cb_goblin"
+      },
+      "animations": {
+        "idle": "animation.cb_goblin.idle",
+        "walk": "animation.cb_goblin.walk",
+        "attack": "animation.cb_goblin.attack",
+        "look_at_target": "animation.cb_goblin.look_at_target",
+        "dance": "animation.cb_goblin.dance",
+        "hurt": "animation.cb_goblin.hurt"
+      },
+      "scripts": {
+        "animate": [
+          {
+            "idle": "q.modified_move_speed <= 0.015 && v.attack_time <= 0 && !q.property('cb:dancing')"
+          },
+          {
+            "walk": "q.modified_move_speed > 0.015 && !q.property('cb:dancing')"
+          },
+          {
+            "attack": "v.attack_time > 0 && !q.property('cb:dancing')"
+          },
+          {
+            "look_at_target": "!q.property('cb:dancing')"
+          },
+          {
+            "dance": "q.property('cb:dancing')"
+          },
+          {
+            "hurt": "query.hurt_time > 0"
+          }
+        ]
+      },
+      "render_controllers": [
+        "controller.render.default"
+      ],
+      "spawn_egg": {
+        "texture": "cb_egg_goblin"
+      },
+      "enable_attachables": true
+    }
+  }
+}

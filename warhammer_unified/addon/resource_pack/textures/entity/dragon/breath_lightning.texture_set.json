@@ -1,0 +1,8 @@
+{
+  "format_version": "1.16.100",
+  "minecraft:texture_set": {
+    "color": "breath_lightning",
+    "metalness_emissive_roughness": "breath_lightning_mer",
+    "heightmap": "breath_lightning_height"
+  }
+}

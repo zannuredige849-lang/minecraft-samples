@@ -1,0 +1,16 @@
+{
+  "format_version": "1.16.100",
+  "minecraft:fog_settings": {
+    "description": {
+      "identifier": "cb:guldan_isle"
+    },
+    "distance": {
+      "air": {
+        "fog_start": 16,
+        "fog_end": 72,
+        "fog_color": "#1c3b1e",
+        "render_distance_type": "fixed"
+      }
+    }
+  }
+}

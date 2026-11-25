@@ -1,0 +1,13 @@
+{
+  "format_version": "1.8.0",
+  "render_controllers": {
+    "controller.render.cyclops": {
+      "arrays": {
+        "textures": { "Array.skins": [ "Texture.default", "Texture.blind" ] }
+      },
+      "geometry": "Geometry.default",
+      "materials": [ { "*": "Material.default" } ],
+      "textures": [ "Array.skins[q.property('cb:blind') ? 1 : 0]" ]
+    }
+  }
+}

@@ -1,0 +1,27 @@
+{
+  "format_version": "1.21.0",
+  "minecraft:item": {
+    "description": {
+      "identifier": "cb:sargeras_shard",
+      "menu_category": {
+        "category": "equipment"
+      }
+    },
+    "components": {
+      "minecraft:icon": {
+        "textures": {
+          "default": "cb_sargeras_shard"
+        }
+      },
+      "minecraft:display_name": {
+        "value": "item.cb:sargeras_shard.name"
+      },
+      "minecraft:max_stack_size": 1,
+      "minecraft:hand_equipped": true,
+      "minecraft:glint": true,
+      "minecraft:durability": {
+        "max_durability": 5
+      }
+    }
+  }
+}

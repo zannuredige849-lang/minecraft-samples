@@ -1,0 +1,28 @@
+{
+  "format_version": "1.8.0",
+  "render_controllers": {
+    "controller.render.big_ent": {
+      "arrays": {
+        "textures": {
+          "Array.skins": [
+            "Texture.oak",
+            "Texture.birch",
+            "Texture.spruce",
+            "Texture.cherry",
+            "Texture.crimson",
+            "Texture.warped"
+          ]
+        }
+      },
+      "geometry": "Geometry.default",
+      "materials": [
+        {
+          "*": "Material.default"
+        }
+      ],
+      "textures": [
+        "Array.skins[query.variant]"
+      ]
+    }
+  }
+}

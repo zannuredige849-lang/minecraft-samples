@@ -1,0 +1,173 @@
+{
+  "format_version": "1.21.0",
+  "minecraft:entity": {
+    "description": {
+      "identifier": "cb:mermaid",
+      "is_spawnable": true,
+      "is_summonable": true,
+      "is_experimental": false,
+      "properties": {
+        "cb:variant": {
+          "type": "int",
+          "range": [
+            0,
+            5
+          ],
+          "default": 0,
+          "client_sync": true
+        },
+        "cb:sing": {
+          "type": "bool",
+          "default": false,
+          "client_sync": true
+        },
+        "cb:dancing": {
+          "type": "bool",
+          "default": false,
+          "client_sync": true
+        }
+      }
+    },
+    "component_groups": {
+      "cb:calm": {
+        "minecraft:behavior.random_swim": {
+          "priority": 5,
+          "interval": 40,
+          "xz_dist": 12,
+          "avoid_surface": false
+        },
+        "minecraft:behavior.look_at_player": {
+          "priority": 7,
+          "look_distance": 16,
+          "probability": 0.08
+        },
+        "minecraft:behavior.swim_with_entity": {
+          "priority": 4,
+          "success_rate": 0.1,
+          "chance_to_stop": 0.03,
+          "state_check_interval": 0.5,
+          "catch_up_threshold": 12.0,
+          "match_direction_threshold": 2.0,
+          "catch_up_multiplier": 2.0,
+          "speed_multiplier": 1.4,
+          "search_range": 20.0,
+          "stop_distance": 4.0,
+          "entity_types": [
+            {
+              "filters": {
+                "test": "is_family",
+                "subject": "other",
+                "value": "player"
+              }
+            }
+          ]
+        },
+        "minecraft:behavior.move_to_water": {
+          "priority": 1,
+          "search_range": 15,
+          "search_height": 5
+        }
+      }
+    },
+    "components": {
+      "minecraft:type_family": {
+        "family": [
+          "mermaid",
+          "merfolk",
+          "aquatic",
+          "mob",
+          "f_sea",
+          "summon_safe"
+        ]
+      },
+      "minecraft:health": {
+        "value": 17,
+        "max": 17
+      },
+      "minecraft:collision_box": {
+        "width": 0.8,
+        "height": 1.8
+      },
+      "minecraft:breathable": {
+        "breathes_water": true,
+        "breathes_air": true,
+        "total_supply": 15,
+        "suffocate_time": 0,
+        "generates_bubbles": false
+      },
+      "minecraft:movement": {
+        "value": 0.138
+      },
+      "minecraft:underwater_movement": {
+        "value": 0.184
+      },
+      "minecraft:movement.basic": {},
+      "minecraft:navigation.generic": {
+        "is_amphibious": true,
+        "can_path_over_water": false,
+        "can_swim": true,
+        "can_walk": false,
+        "can_breach": true,
+        "can_sink": false
+      },
+      "minecraft:jump.static": {},
+      "minecraft:physics": {},
+      "minecraft:pushable": {
+        "is_pushable": true,
+        "is_pushable_by_piston": true
+      },
+      "minecraft:nameable": {},
+      "minecraft:persistent": {},
+      "minecraft:behavior.random_look_around": {
+        "priority": 9
+      },
+      "minecraft:damage_sensor": {
+        "triggers": [
+          {
+            "cause": "fall",
+            "deals_damage": false
+          }
+        ]
+      },
+      "minecraft:ambient_sound_interval": {
+        "value": 14,
+        "range": 14,
+        "event_name": "ambient"
+      },
+      "minecraft:experience_reward": {
+        "on_death": "query.last_hit_by_player ? 3 : 0"
+      },
+      "minecraft:environment_sensor": {
+        "triggers": [
+          {
+            "filters": {
+              "test": "is_riding",
+              "subject": "self",
+              "value": true
+            },
+            "event": "cb:leave_boat"
+          }
+        ]
+      }
+    },
+    "events": {
+      "minecraft:entity_spawned": {
+        "set_property": {
+          "cb:variant": "math.random_integer(0, 5)"
+        },
+        "add": {
+          "component_groups": [
+            "cb:calm"
+          ]
+        }
+      },
+      "cb:leave_boat": {
+        "queue_command": {
+          "command": [
+            "ride @s stop_riding"
+          ]
+        }
+      }
+    }
+  }
+}

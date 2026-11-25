@@ -1,0 +1,49 @@
+{
+  "format_version": "1.10.0",
+  "minecraft:client_entity": {
+    "description": {
+      "identifier": "cb:hades_shade",
+      "materials": {
+        "default": "entity_emissive_alpha"
+      },
+      "textures": {
+        "default": "textures/entity/hades_shade"
+      },
+      "geometry": {
+        "default": "geometry.cb_hades_shade"
+      },
+      "animations": {
+        "idle": "animation.hades.idle",
+        "walk": "animation.hades.walk",
+        "attack": "animation.hades.attack",
+        "special_attack": "animation.hades.special_attack",
+        "hurt": "animation.hades.hurt",
+        "rage": "animation.hades.rage",
+        "dance": "animation.hades.dance",
+        "look_at_target": "animation.common.look_at_target"
+      },
+      "scripts": {
+        "animate": [
+          "idle",
+          {
+            "walk": "q.modified_move_speed > 0.02"
+          },
+          {
+            "attack": "variable.attack_time > 0"
+          },
+          {
+            "hurt": "q.hurt_time > 0"
+          },
+          "look_at_target"
+        ]
+      },
+      "render_controllers": [
+        "controller.render.cb_hades"
+      ],
+      "spawn_egg": {
+        "texture": "egg_cb_hades_shade",
+        "texture_index": 0
+      }
+    }
+  }
+}

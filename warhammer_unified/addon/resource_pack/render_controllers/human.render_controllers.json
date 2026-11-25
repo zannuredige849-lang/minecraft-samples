@@ -1,0 +1,124 @@
+{
+  "format_version": "1.8.0",
+  "render_controllers": {
+    "controller.render.cb_human_villager": {
+      "arrays": {
+        "textures": {
+          "Array.skins": [
+            "Texture.villager_0",
+            "Texture.villager_1",
+            "Texture.villager_2",
+            "Texture.villager_3",
+            "Texture.villager_4",
+            "Texture.villager_5",
+            "Texture.militia_0",
+            "Texture.militia_1",
+            "Texture.militia_2",
+            "Texture.militia_0",
+            "Texture.militia_1",
+            "Texture.militia_2",
+            "Texture.swordsman_0",
+            "Texture.swordsman_1",
+            "Texture.swordsman_2",
+            "Texture.swordsman_0",
+            "Texture.swordsman_1",
+            "Texture.swordsman_2",
+            "Texture.archer_0",
+            "Texture.archer_1",
+            "Texture.archer_2",
+            "Texture.archer_0",
+            "Texture.archer_1",
+            "Texture.archer_2",
+            "Texture.crossbowman_0",
+            "Texture.crossbowman_1",
+            "Texture.crossbowman_2",
+            "Texture.crossbowman_0",
+            "Texture.crossbowman_1",
+            "Texture.crossbowman_2",
+            "Texture.spearman_0",
+            "Texture.spearman_1",
+            "Texture.spearman_2",
+            "Texture.spearman_0",
+            "Texture.spearman_1",
+            "Texture.spearman_2",
+            "Texture.captain_0",
+            "Texture.captain_1",
+            "Texture.captain_2",
+            "Texture.captain_0",
+            "Texture.captain_1",
+            "Texture.captain_2"
+          ]
+        }
+      },
+      "geometry": "Geometry.default",
+      "materials": [
+        {
+          "*": "Material.default"
+        }
+      ],
+      "textures": [
+        "Array.skins[q.property('cb:role') * 6 + q.property('cb:skin')]"
+      ],
+      "part_visibility": [
+        {
+          "*": true
+        },
+        {
+          "toolBelt": "q.property('cb:role') == 0"
+        },
+        {
+          "knightArmor": "q.property('cb:role') >= 2"
+        },
+        {
+          "backQuiver": "q.property('cb:role') == 3 || q.property('cb:role') == 4"
+        },
+        {
+          "crest": "q.property('cb:role') == 6"
+        },
+        {
+          "captainCape": "q.property('cb:role') == 6"
+        },
+        {
+          "shieldBone": "q.property('cb:blocking') || q.property('cb:role') == 2 || q.property('cb:role') == 5 || q.property('cb:role') == 6"
+        }
+      ]
+    },
+    "controller.render.cb_human_civilian": {
+      "arrays": {
+        "textures": {
+          "Array.skins": [
+            "Texture.woman_0",
+            "Texture.woman_1",
+            "Texture.woman_2",
+            "Texture.woman_3",
+            "Texture.woman_4",
+            "Texture.woman_5",
+            "Texture.child_0",
+            "Texture.child_1",
+            "Texture.child_2",
+            "Texture.child_3",
+            "Texture.child_4",
+            "Texture.child_5"
+          ]
+        }
+      },
+      "geometry": "Geometry.default",
+      "materials": [
+        {
+          "*": "Material.default"
+        }
+      ],
+      "textures": [
+        "Array.skins[q.property('cb:civ_type') * 6 + q.property('cb:skin')]"
+      ],
+      "part_visibility": [
+        {
+          "*": true
+        },
+        {
+          "dressSkirt": "q.property('cb:civ_type') == 0"
+        }
+      ]
+    }
+  }
+}

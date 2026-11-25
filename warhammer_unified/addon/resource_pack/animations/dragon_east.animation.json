@@ -1,0 +1,219 @@
+{
+  "format_version": "1.8.0",
+  "animations": {
+    "animation.cb_dragon_east.fly": {
+      "loop": true,
+      "bones": {
+        "seg0": {
+          "rotation": [
+            "math.sin(q.life_time * 120 - 0) * 6",
+            "math.sin(q.life_time * 160 - 0) * 11",
+            0
+          ]
+        },
+        "seg1": {
+          "rotation": [
+            "math.sin(q.life_time * 120 - 32) * 6",
+            "math.sin(q.life_time * 160 - 38) * 11",
+            0
+          ]
+        },
+        "seg2": {
+          "rotation": [
+            "math.sin(q.life_time * 120 - 64) * 6",
+            "math.sin(q.life_time * 160 - 76) * 11",
+            0
+          ]
+        },
+        "seg3": {
+          "rotation": [
+            "math.sin(q.life_time * 120 - 96) * 6",
+            "math.sin(q.life_time * 160 - 114) * 11",
+            0
+          ]
+        },
+        "seg4": {
+          "rotation": [
+            "math.sin(q.life_time * 120 - 128) * 6",
+            "math.sin(q.life_time * 160 - 152) * 11",
+            0
+          ]
+        },
+        "seg5": {
+          "rotation": [
+            "math.sin(q.life_time * 120 - 160) * 6",
+            "math.sin(q.life_time * 160 - 190) * 11",
+            0
+          ]
+        },
+        "seg6": {
+          "rotation": [
+            "math.sin(q.life_time * 120 - 192) * 6",
+            "math.sin(q.life_time * 160 - 228) * 11",
+            0
+          ]
+        },
+        "seg7": {
+          "rotation": [
+            "math.sin(q.life_time * 120 - 224) * 6",
+            "math.sin(q.life_time * 160 - 266) * 11",
+            0
+          ]
+        },
+        "seg8": {
+          "rotation": [
+            "math.sin(q.life_time * 120 - 256) * 6",
+            "math.sin(q.life_time * 160 - 304) * 11",
+            0
+          ]
+        },
+        "seg9": {
+          "rotation": [
+            "math.sin(q.life_time * 120 - 288) * 6",
+            "math.sin(q.life_time * 160 - 342) * 11",
+            0
+          ]
+        },
+        "seg10": {
+          "rotation": [
+            "math.sin(q.life_time * 120 - 320) * 6",
+            "math.sin(q.life_time * 160 - 380) * 11",
+            0
+          ]
+        },
+        "seg11": {
+          "rotation": [
+            "math.sin(q.life_time * 120 - 352) * 6",
+            "math.sin(q.life_time * 160 - 418) * 11",
+            0
+          ]
+        },
+        "leg1_r": {
+          "rotation": [
+            "math.sin(q.life_time * 260 + 30) * 25",
+            0,
+            0
+          ]
+        },
+        "leg1_l": {
+          "rotation": [
+            "math.sin(q.life_time * 260 + 210) * 25",
+            0,
+            0
+          ]
+        },
+        "leg7_r": {
+          "rotation": [
+            "math.sin(q.life_time * 260 + 210) * 25",
+            0,
+            0
+          ]
+        },
+        "leg7_l": {
+          "rotation": [
+            "math.sin(q.life_time * 260 + 390) * 25",
+            0,
+            0
+          ]
+        },
+        "head": {
+          "rotation": [
+            "math.sin(q.life_time * 120 + 30) * 4",
+            "-math.sin(q.life_time * 160 + 38) * 8",
+            0
+          ]
+        },
+        "whisker_r": {
+          "rotation": [
+            "math.sin(q.life_time * 200) * 12",
+            "math.sin(q.life_time * 170) * 10",
+            0
+          ]
+        },
+        "whisker_l": {
+          "rotation": [
+            "math.sin(q.life_time * 200 + 90) * 12",
+            "math.sin(q.life_time * 170 + 90) * 10",
+            0
+          ]
+        }
+      }
+    },
+    "animation.cb_dragon_east.bite": {
+      "loop": true,
+      "bones": {
+        "head": {
+          "rotation": [
+            "math.sin(variable.attack_time * 180) * 18",
+            0,
+            0
+          ]
+        },
+        "jaw": {
+          "rotation": [
+            "math.sin(variable.attack_time * 180) * 40",
+            0,
+            0
+          ]
+        }
+      }
+    },
+    "animation.cb_dragon_east.breath": {
+      "loop": true,
+      "bones": {
+        "head": {
+          "rotation": [
+            "-16 + math.sin(q.life_time * 1600) * 1.5",
+            0,
+            0
+          ]
+        },
+        "jaw": {
+          "rotation": [
+            45,
+            0,
+            0
+          ]
+        }
+      }
+    },
+    "animation.cb_dragon_east.dance": {
+      "loop": true,
+      "bones": {
+        "seg0": {
+          "position": [
+            0,
+            "math.abs(math.sin(q.life_time * 360)) * 3.0",
+            0
+          ],
+          "rotation": [
+            "math.sin(q.life_time * 360) * 14",
+            "math.cos(q.life_time * 180) * 24",
+            0
+          ]
+        },
+        "seg1": {
+          "rotation": [
+            "math.sin(q.life_time * 360 - 30) * 14",
+            "math.cos(q.life_time * 180 - 30) * 24",
+            0
+          ]
+        },
+        "seg2": {
+          "rotation": [
+            "math.sin(q.life_time * 360 - 60) * 14",
+            "math.cos(q.life_time * 180 - 60) * 24",
+            0
+          ]
+        },
+        "head": {
+          "rotation": [
+            "math.sin(q.life_time * 360) * 18",
+            "math.cos(q.life_time * 180) * 20",
+            "math.sin(q.life_time * 180) * 14"
+          ]
+        }
+      }
+    }
+  }
+}

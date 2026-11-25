@@ -1,0 +1,804 @@
+{
+  "format_version": "1.21.0",
+  "minecraft:entity": {
+    "description": {
+      "identifier": "cb:cyclops",
+      "is_spawnable": true,
+      "is_summonable": true,
+      "is_experimental": false,
+      "properties": {
+        "cb:state": {
+          "type": "int",
+          "range": [
+            0,
+            4
+          ],
+          "default": 0,
+          "client_sync": true
+        },
+        "cb:blind": {
+          "type": "bool",
+          "default": false,
+          "client_sync": true
+        },
+        "cb:attack": {
+          "type": "int",
+          "range": [
+            0,
+            9
+          ],
+          "default": 0,
+          "client_sync": true
+        },
+        "cb:hold": {
+          "type": "int",
+          "range": [
+            0,
+            2
+          ],
+          "default": 0,
+          "client_sync": true
+        },
+        "cb:eat": {
+          "type": "int",
+          "range": [
+            0,
+            2
+          ],
+          "default": 0,
+          "client_sync": true
+        },
+        "cb:swing": {
+          "type": "bool",
+          "default": false,
+          "client_sync": true
+        },
+        "cb:lie": {
+          "type": "bool",
+          "default": false,
+          "client_sync": true
+        },
+        "cb:stack": {
+          "type": "bool",
+          "default": false,
+          "client_sync": true
+        },
+        "cb:dancing": {
+          "type": "bool",
+          "default": false,
+          "client_sync": true
+        }
+      }
+    },
+    "component_groups": {
+      "cb:sighted": {
+        "minecraft:movement": {
+          "value": 0.25
+        },
+        "minecraft:attack": {
+          "damage": 0
+        },
+        "minecraft:behavior.nearest_attackable_target": {
+          "priority": 4,
+          "must_see": true,
+          "reselect_targets": true,
+          "within_radius": 24,
+          "entity_types": [
+            {
+              "filters": {
+                "all_of": [
+                  {
+                    "test": "is_family",
+                    "subject": "other",
+                    "operator": "!=",
+                    "value": "f_giants"
+                  },
+                  {
+                    "any_of": [
+                      {
+                        "test": "is_family",
+                        "subject": "other",
+                        "value": "player"
+                      },
+                      {
+                        "test": "is_family",
+                        "subject": "other",
+                        "value": "mob"
+                      }
+                    ]
+                  },
+                  {
+                    "test": "is_family",
+                    "subject": "other",
+                    "operator": "!=",
+                    "value": "sheep"
+                  },
+                  {
+                    "test": "is_family",
+                    "subject": "other",
+                    "operator": "!=",
+                    "value": "goat"
+                  },
+                  {
+                    "test": "is_family",
+                    "subject": "other",
+                    "operator": "!=",
+                    "value": "cyclops"
+                  },
+                  {
+                    "test": "is_family",
+                    "subject": "other",
+                    "operator": "!=",
+                    "value": "hydra_head"
+                  },
+                  {
+                    "test": "is_family",
+                    "subject": "other",
+                    "operator": "!=",
+                    "value": "inanimate"
+                  },
+                  {
+                    "test": "is_family",
+                    "subject": "other",
+                    "operator": "!=",
+                    "value": "armor_stand"
+                  },
+                  {
+                    "test": "has_tag",
+                    "subject": "other",
+                    "operator": "!=",
+                    "value": "cb_disguised"
+                  },
+                  {
+                    "any_of": [
+                      {
+                        "test": "has_tag",
+                        "subject": "self",
+                        "operator": "!=",
+                        "value": "cb_island"
+                      },
+                      {
+                        "test": "has_tag",
+                        "subject": "other",
+                        "value": "cb_spotted"
+                      }
+                    ]
+                  }
+                ]
+              },
+              "max_dist": 24
+            }
+          ]
+        },
+        "minecraft:behavior.look_at_player": {
+          "priority": 8,
+          "look_distance": 16,
+          "probability": 0.05
+        },
+        "minecraft:knockback_resistance": {
+          "value": 1.0
+        },
+        "minecraft:behavior.delayed_attack": {
+          "priority": 3,
+          "speed_multiplier": 1.25,
+          "track_target": true,
+          "attack_duration": 1.0,
+          "hit_delay_pct": 0.55,
+          "reach_multiplier": 1.2,
+          "require_complete_path": false,
+          "random_stop_interval": 0,
+          "attack_once": false
+        }
+      },
+      "cb:blind_state": {
+        "minecraft:movement": {
+          "value": 0.15
+        },
+        "minecraft:attack": {
+          "damage": 0
+        },
+        "minecraft:behavior.nearest_attackable_target": {
+          "priority": 4,
+          "must_see": false,
+          "reselect_targets": true,
+          "within_radius": 5,
+          "entity_types": [
+            {
+              "filters": {
+                "all_of": [
+                  {
+                    "test": "is_family",
+                    "subject": "other",
+                    "operator": "!=",
+                    "value": "f_giants"
+                  },
+                  {
+                    "any_of": [
+                      {
+                        "test": "is_family",
+                        "subject": "other",
+                        "value": "player"
+                      },
+                      {
+                        "test": "is_family",
+                        "subject": "other",
+                        "value": "mob"
+                      }
+                    ]
+                  },
+                  {
+                    "test": "is_family",
+                    "subject": "other",
+                    "operator": "!=",
+                    "value": "sheep"
+                  },
+                  {
+                    "test": "is_family",
+                    "subject": "other",
+                    "operator": "!=",
+                    "value": "goat"
+                  },
+                  {
+                    "test": "is_family",
+                    "subject": "other",
+                    "operator": "!=",
+                    "value": "cyclops"
+                  },
+                  {
+                    "test": "is_family",
+                    "subject": "other",
+                    "operator": "!=",
+                    "value": "hydra_head"
+                  },
+                  {
+                    "test": "is_family",
+                    "subject": "other",
+                    "operator": "!=",
+                    "value": "inanimate"
+                  },
+                  {
+                    "test": "is_family",
+                    "subject": "other",
+                    "operator": "!=",
+                    "value": "armor_stand"
+                  },
+                  {
+                    "test": "has_tag",
+                    "subject": "other",
+                    "operator": "!=",
+                    "value": "cb_disguised"
+                  }
+                ]
+              },
+              "max_dist": 5
+            }
+          ]
+        },
+        "minecraft:knockback_resistance": {
+          "value": 1.0
+        },
+        "minecraft:behavior.delayed_attack": {
+          "priority": 3,
+          "speed_multiplier": 1.1,
+          "track_target": false,
+          "attack_duration": 1.0,
+          "hit_delay_pct": 0.55,
+          "reach_multiplier": 1.2,
+          "require_complete_path": false,
+          "random_stop_interval": 0,
+          "attack_once": false
+        }
+      },
+      "cb:grabbing": {
+        "minecraft:movement": {
+          "value": 0
+        },
+        "minecraft:knockback_resistance": {
+          "value": 1.0
+        }
+      },
+      "cb:inspecting": {
+        "minecraft:movement": {
+          "value": 0
+        },
+        "minecraft:knockback_resistance": {
+          "value": 1.0
+        }
+      },
+      "cb:forget": {
+        "minecraft:movement": {
+          "value": 0.25
+        },
+        "minecraft:knockback_resistance": {
+          "value": 1.0
+        }
+      },
+      "cb:poisoned": {
+        "minecraft:movement": {
+          "value": 0
+        },
+        "minecraft:knockback_resistance": {
+          "value": 1.0
+        }
+      },
+      "cb:island": {
+        "minecraft:home": {
+          "restriction_radius": 22
+        },
+        "minecraft:behavior.go_home": {
+          "priority": 6,
+          "speed_multiplier": 0.9,
+          "interval": 40,
+          "goal_radius": 16.0
+        }
+      },
+      "cb:sleeping": {
+        "minecraft:movement": {
+          "value": 0
+        },
+        "minecraft:knockback_resistance": {
+          "value": 1.0
+        }
+      },
+      "cb:bedtime": {
+        "minecraft:behavior.move_to_block": {
+          "priority": 5,
+          "speed_multiplier": 0.8,
+          "search_range": 24,
+          "search_height": 6,
+          "tick_interval": 20,
+          "goal_radius": 2.5,
+          "target_blocks": [
+            "minecraft:hay_block"
+          ]
+        }
+      },
+      "cb:stacking": {
+        "minecraft:movement": {
+          "value": 0
+        },
+        "minecraft:knockback_resistance": {
+          "value": 1.0
+        }
+      }
+    },
+    "components": {
+      "minecraft:type_family": {
+        "family": [
+          "cyclops",
+          "giant",
+          "cyclops_faction",
+          "boss",
+          "monster",
+          "mob",
+          "f_giants",
+          "summon_safe"
+        ]
+      },
+      "minecraft:health": {
+        "value": 560,
+        "max": 560
+      },
+      "minecraft:collision_box": {
+        "width": 2.6,
+        "height": 7.0
+      },
+      "minecraft:custom_hit_test": {
+        "hitboxes": [
+          {
+            "width": 4.0,
+            "height": 7.0,
+            "pivot": [
+              0,
+              3.5,
+              0
+            ]
+          }
+        ]
+      },
+      "minecraft:knockback_resistance": {
+        "value": 1.0
+      },
+      "minecraft:variable_max_auto_step": {
+        "base_value": 1.0625,
+        "jump_prevented_value": 1.0625,
+        "controlled_value": 1.0625
+      },
+      "minecraft:movement.basic": {},
+      "minecraft:navigation.walk": {
+        "can_path_over_water": false,
+        "avoid_water": true,
+        "avoid_damage_blocks": true
+      },
+      "minecraft:jump.static": {},
+      "minecraft:physics": {},
+      "minecraft:pushable": {
+        "is_pushable": false,
+        "is_pushable_by_piston": false
+      },
+      "minecraft:breathable": {
+        "total_supply": 15,
+        "suffocate_time": 0
+      },
+      "minecraft:nameable": {
+        "always_show": false,
+        "allow_name_tag_renaming": true
+      },
+      "minecraft:persistent": {},
+      "minecraft:follow_range": {
+        "value": 32,
+        "max": 48
+      },
+      "minecraft:boss": {
+        "should_darken_sky": false,
+        "hud_range": 40,
+        "name": "entity.cb:cyclops.name"
+      },
+      "minecraft:loot": {
+        "table": "loot_tables/entities/cyclops.json"
+      },
+      "minecraft:experience_reward": {
+        "on_death": "query.last_hit_by_player ? 60 : 0"
+      },
+      "minecraft:behavior.float": {
+        "priority": 0
+      },
+      "minecraft:behavior.hurt_by_target": {
+        "priority": 2,
+        "entity_types": [
+          {
+            "filters": {
+              "all_of": [
+                {
+                  "test": "is_family",
+                  "subject": "other",
+                  "operator": "!=",
+                  "value": "f_giants"
+                },
+                {
+                  "test": "is_family",
+                  "subject": "other",
+                  "operator": "!=",
+                  "value": "cyclops_faction"
+                }
+              ]
+            }
+          }
+        ]
+      },
+      "minecraft:behavior.random_stroll": {
+        "priority": 7,
+        "speed_multiplier": 0.8
+      },
+      "minecraft:behavior.random_look_around": {
+        "priority": 9
+      },
+      "minecraft:ambient_sound_interval": {
+        "value": 10,
+        "range": 14,
+        "event_name": "ambient"
+      },
+      "minecraft:environment_sensor": {
+        "triggers": [
+          {
+            "filters": {
+              "test": "is_riding",
+              "subject": "self",
+              "value": true
+            },
+            "event": "cb:leave_boat"
+          }
+        ]
+      },
+      "minecraft:movement": {
+        "value": 0.25
+      }
+    },
+    "events": {
+      "minecraft:entity_spawned": {
+        "add": {
+          "component_groups": [
+            "cb:sighted"
+          ]
+        }
+      },
+      "cb:go_blind": {
+        "set_property": {
+          "cb:blind": true
+        },
+        "remove": {
+          "component_groups": [
+            "cb:sighted"
+          ]
+        },
+        "add": {
+          "component_groups": [
+            "cb:blind_state"
+          ]
+        }
+      },
+      "cb:start_grab": {
+        "set_property": {
+          "cb:state": 1
+        },
+        "remove": {
+          "component_groups": [
+            "cb:sighted",
+            "cb:blind_state",
+            "cb:bedtime"
+          ]
+        },
+        "add": {
+          "component_groups": [
+            "cb:grabbing"
+          ]
+        }
+      },
+      "cb:end_grab_sighted": {
+        "set_property": {
+          "cb:state": 0
+        },
+        "remove": {
+          "component_groups": [
+            "cb:grabbing"
+          ]
+        },
+        "add": {
+          "component_groups": [
+            "cb:sighted"
+          ]
+        }
+      },
+      "cb:end_grab_blind": {
+        "set_property": {
+          "cb:state": 0
+        },
+        "remove": {
+          "component_groups": [
+            "cb:grabbing"
+          ]
+        },
+        "add": {
+          "component_groups": [
+            "cb:blind_state"
+          ]
+        }
+      },
+      "cb:start_inspect": {
+        "set_property": {
+          "cb:state": 2
+        },
+        "remove": {
+          "component_groups": [
+            "cb:sighted",
+            "cb:blind_state",
+            "cb:bedtime"
+          ]
+        },
+        "add": {
+          "component_groups": [
+            "cb:inspecting"
+          ]
+        }
+      },
+      "cb:end_inspect_sighted": {
+        "set_property": {
+          "cb:state": 0
+        },
+        "remove": {
+          "component_groups": [
+            "cb:inspecting"
+          ]
+        },
+        "add": {
+          "component_groups": [
+            "cb:sighted"
+          ]
+        }
+      },
+      "cb:end_inspect_blind": {
+        "set_property": {
+          "cb:state": 0
+        },
+        "remove": {
+          "component_groups": [
+            "cb:inspecting"
+          ]
+        },
+        "add": {
+          "component_groups": [
+            "cb:blind_state"
+          ]
+        }
+      },
+      "cb:forget": {
+        "remove": {
+          "component_groups": [
+            "cb:sighted",
+            "cb:blind_state"
+          ]
+        },
+        "add": {
+          "component_groups": [
+            "cb:forget"
+          ]
+        }
+      },
+      "cb:remember_sighted": {
+        "remove": {
+          "component_groups": [
+            "cb:forget"
+          ]
+        },
+        "add": {
+          "component_groups": [
+            "cb:sighted"
+          ]
+        }
+      },
+      "cb:remember_blind": {
+        "remove": {
+          "component_groups": [
+            "cb:forget"
+          ]
+        },
+        "add": {
+          "component_groups": [
+            "cb:blind_state"
+          ]
+        }
+      },
+      "cb:start_poison": {
+        "set_property": {
+          "cb:state": 3
+        },
+        "remove": {
+          "component_groups": [
+            "cb:sighted",
+            "cb:blind_state",
+            "cb:grabbing",
+            "cb:inspecting",
+            "cb:forget",
+            "cb:bedtime"
+          ]
+        },
+        "add": {
+          "component_groups": [
+            "cb:poisoned"
+          ]
+        }
+      },
+      "cb:end_poison_sighted": {
+        "set_property": {
+          "cb:state": 0
+        },
+        "remove": {
+          "component_groups": [
+            "cb:poisoned"
+          ]
+        },
+        "add": {
+          "component_groups": [
+            "cb:sighted"
+          ]
+        }
+      },
+      "cb:end_poison_blind": {
+        "set_property": {
+          "cb:state": 0
+        },
+        "remove": {
+          "component_groups": [
+            "cb:poisoned"
+          ]
+        },
+        "add": {
+          "component_groups": [
+            "cb:blind_state"
+          ]
+        }
+      },
+      "cb:island_home": {
+        "add": {
+          "component_groups": [
+            "cb:island"
+          ]
+        }
+      },
+      "cb:start_sleep": {
+        "set_property": {
+          "cb:state": 4
+        },
+        "remove": {
+          "component_groups": [
+            "cb:sighted",
+            "cb:blind_state",
+            "cb:forget",
+            "cb:bedtime"
+          ]
+        },
+        "add": {
+          "component_groups": [
+            "cb:sleeping"
+          ]
+        }
+      },
+      "cb:end_sleep_sighted": {
+        "set_property": {
+          "cb:state": 0
+        },
+        "remove": {
+          "component_groups": [
+            "cb:sleeping"
+          ]
+        },
+        "add": {
+          "component_groups": [
+            "cb:sighted"
+          ]
+        }
+      },
+      "cb:end_sleep_blind": {
+        "set_property": {
+          "cb:state": 0
+        },
+        "remove": {
+          "component_groups": [
+            "cb:sleeping"
+          ]
+        },
+        "add": {
+          "component_groups": [
+            "cb:blind_state"
+          ]
+        }
+      },
+      "cb:go_to_bed": {
+        "add": {
+          "component_groups": [
+            "cb:bedtime"
+          ]
+        }
+      },
+      "cb:leave_bed": {
+        "remove": {
+          "component_groups": [
+            "cb:bedtime"
+          ]
+        }
+      },
+      "cb:leave_boat": {
+        "queue_command": {
+          "command": [
+            "ride @s stop_riding"
+          ]
+        }
+      },
+      "cb:start_stack": {
+        "set_property": {
+          "cb:stack": true
+        },
+        "remove": {
+          "component_groups": [
+            "cb:bedtime"
+          ]
+        },
+        "add": {
+          "component_groups": [
+            "cb:stacking"
+          ]
+        }
+      },
+      "cb:end_stack": {
+        "set_property": {
+          "cb:stack": false
+        },
+        "remove": {
+          "component_groups": [
+            "cb:stacking"
+          ]
+        }
+      }
+    }
+  }
+}

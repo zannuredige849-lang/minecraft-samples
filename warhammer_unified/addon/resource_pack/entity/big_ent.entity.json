@@ -1,0 +1,46 @@
+{
+  "format_version": "1.10.0",
+  "minecraft:client_entity": {
+    "description": {
+      "identifier": "warcraft:big_ent",
+      "materials": {
+        "default": "entity_alphatest"
+      },
+      "textures": {
+        "oak": "textures/entity/big_ent_oak",
+        "birch": "textures/entity/big_ent_birch",
+        "spruce": "textures/entity/big_ent_spruce",
+        "cherry": "textures/entity/big_ent_cherry",
+        "crimson": "textures/entity/big_ent_crimson",
+        "warped": "textures/entity/big_ent_warped"
+      },
+      "geometry": {
+        "default": "geometry.big_ent"
+      },
+      "animations": {
+        "walk": "animation.big_ent.walk",
+        "ability": "animation.big_ent.ability",
+        "ability2": "animation.big_ent.ability2",
+        "death": "animation.big_ent.death",
+        "move_ctrl": "controller.animation.big_ent",
+        "idle_a": "animation.big_ent.idle",
+        "attack_a": "animation.big_ent.attack",
+        "morph_root": "animation.big_ent.morph_root",
+        "rooted_idle": "animation.big_ent.rooted_idle",
+        "morph_uproot": "animation.big_ent.morph_uproot"
+      },
+      "scripts": {
+        "animate": [
+          "move_ctrl"
+        ]
+      },
+      "render_controllers": [
+        "controller.render.big_ent"
+      ],
+      "spawn_egg": {
+        "texture": "egg_warcraft_big_ent",
+        "texture_index": 0
+      }
+    }
+  }
+}

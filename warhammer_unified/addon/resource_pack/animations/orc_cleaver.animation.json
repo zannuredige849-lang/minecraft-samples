@@ -1,0 +1,39 @@
+{
+  "format_version": "1.8.0",
+  "animations": {
+    "animation.cb_w_orc_cleaver.first_person": {
+      "loop": true,
+      "bones": {
+        "root_item": {
+          "rotation": [
+            61,
+            52,
+            -78
+          ],
+          "position": [
+            4,
+            26,
+            4
+          ]
+        }
+      }
+    },
+    "animation.cb_w_orc_cleaver.third_person": {
+      "loop": true,
+      "bones": {
+        "root_item": {
+          "rotation": [
+            90,
+            0,
+            0
+          ],
+          "position": [
+            0,
+            21.5,
+            3.5
+          ]
+        }
+      }
+    }
+  }
+}

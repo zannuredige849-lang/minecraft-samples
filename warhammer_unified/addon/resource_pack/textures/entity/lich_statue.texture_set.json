@@ -1,0 +1,8 @@
+{
+  "format_version": "1.16.100",
+  "minecraft:texture_set": {
+    "color": "lich_statue",
+    "metalness_emissive_roughness": "lich_statue_mer",
+    "heightmap": "lich_statue_height"
+  }
+}

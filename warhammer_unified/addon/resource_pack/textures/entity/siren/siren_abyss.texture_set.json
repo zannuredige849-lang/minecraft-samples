@@ -1,0 +1,8 @@
+{
+  "format_version": "1.16.100",
+  "minecraft:texture_set": {
+    "color": "siren_abyss",
+    "metalness_emissive_roughness": "siren_abyss_mer",
+    "heightmap": "siren_abyss_height"
+  }
+}

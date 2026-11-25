@@ -1,0 +1,392 @@
+{
+  "format_version": "1.21.0",
+  "minecraft:entity": {
+    "description": {
+      "identifier": "cb:laestrygonian",
+      "is_spawnable": true,
+      "is_summonable": true,
+      "is_experimental": false,
+      "properties": {
+        "cb:variant": {
+          "type": "int",
+          "range": [
+            0,
+            2
+          ],
+          "default": 0,
+          "client_sync": true
+        },
+        "cb:style": {
+          "type": "int",
+          "range": [
+            0,
+            3
+          ],
+          "default": 0,
+          "client_sync": true
+        },
+        "cb:swipe": {
+          "type": "bool",
+          "default": false,
+          "client_sync": true
+        },
+        "cb:roar": {
+          "type": "bool",
+          "default": false,
+          "client_sync": true
+        },
+        "cb:rage": {
+          "type": "bool",
+          "default": false,
+          "client_sync": true
+        },
+        "cb:dancing": {
+          "type": "bool",
+          "default": false,
+          "client_sync": true
+        },
+        "cb:attacking": {
+          "type": "bool",
+          "default": false,
+          "client_sync": true
+        }
+      }
+    },
+    "components": {
+      "minecraft:type_family": {
+        "family": [
+          "laestrygonian",
+          "giant",
+          "laestry_faction",
+          "monster",
+          "mob",
+          "f_giants",
+          "summon_safe"
+        ]
+      },
+      "minecraft:health": {
+        "value": {
+          "range_min": 37,
+          "range_max": 41
+        },
+        "max": 41
+      },
+      "minecraft:attack": {
+        "damage": [
+          6,
+          7
+        ]
+      },
+      "minecraft:collision_box": {
+        "width": 1.4,
+        "height": 3.9
+      },
+      "minecraft:movement": {
+        "value": 0.26
+      },
+      "minecraft:movement.basic": {},
+      "minecraft:navigation.walk": {
+        "can_path_over_water": false,
+        "avoid_water": true,
+        "avoid_damage_blocks": true,
+        "can_open_doors": false,
+        "can_break_doors": false
+      },
+      "minecraft:jump.static": {},
+      "minecraft:physics": {},
+      "minecraft:pushable": {
+        "is_pushable": true,
+        "is_pushable_by_piston": true
+      },
+      "minecraft:breathable": {
+        "total_supply": 15,
+        "suffocate_time": 0
+      },
+      "minecraft:knockback_resistance": {
+        "value": 0.6
+      },
+      "minecraft:follow_range": {
+        "value": 32,
+        "max": 32
+      },
+      "minecraft:nameable": {},
+      "minecraft:persistent": {},
+      "minecraft:loot": {
+        "table": "loot_tables/entities/laestrygonian.json"
+      },
+      "minecraft:experience_reward": {
+        "on_death": "query.last_hit_by_player ? 15 : 0"
+      },
+      "minecraft:damage_sensor": {
+        "triggers": [
+          {
+            "on_damage": {
+              "filters": {
+                "any_of": [
+                  {
+                    "test": "is_family",
+                    "subject": "other",
+                    "value": "laestry_faction"
+                  }
+                ]
+              }
+            },
+            "deals_damage": false
+          },
+          {
+            "on_damage": {
+              "filters": {
+                "test": "is_family",
+                "subject": "other",
+                "value": "orc"
+              }
+            },
+            "cause": "entity_attack",
+            "damage_multiplier": 0.3
+          },
+          {
+            "cause": "entity_attack",
+            "damage_multiplier": 0.52
+          },
+          {
+            "cause": "projectile",
+            "damage_multiplier": 0.52
+          }
+        ]
+      },
+      "minecraft:ambient_sound_interval": {
+        "value": 10,
+        "range": 10,
+        "event_name": "ambient"
+      },
+      "minecraft:behavior.float": {
+        "priority": 0
+      },
+      "minecraft:behavior.hurt_by_target": {
+        "priority": 1,
+        "alert_same_type": true,
+        "entity_types": [
+          {
+            "filters": {
+              "all_of": [
+                {
+                  "test": "is_family",
+                  "subject": "other",
+                  "operator": "!=",
+                  "value": "f_giants"
+                },
+                {
+                  "test": "is_family",
+                  "subject": "other",
+                  "operator": "!=",
+                  "value": "laestry_faction"
+                }
+              ]
+            }
+          }
+        ]
+      },
+      "minecraft:behavior.nearest_attackable_target": {
+        "priority": 2,
+        "must_see": true,
+        "reselect_targets": false,
+        "within_radius": 24,
+        "entity_types": [
+          {
+            "filters": {
+              "all_of": [
+                {
+                  "test": "is_family",
+                  "subject": "other",
+                  "operator": "!=",
+                  "value": "f_giants"
+                },
+                {
+                  "test": "is_family",
+                  "subject": "other",
+                  "value": "player"
+                }
+              ]
+            },
+            "max_dist": 24
+          },
+          {
+            "filters": {
+              "all_of": [
+                {
+                  "test": "is_family",
+                  "subject": "other",
+                  "operator": "!=",
+                  "value": "f_giants"
+                },
+                {
+                  "any_of": [
+                    {
+                      "test": "is_family",
+                      "subject": "other",
+                      "value": "brown_orc"
+                    },
+                    {
+                      "test": "is_family",
+                      "subject": "other",
+                      "value": "green_orc"
+                    },
+                    {
+                      "test": "is_family",
+                      "subject": "other",
+                      "value": "hell_orc"
+                    },
+                    {
+                      "test": "is_family",
+                      "subject": "other",
+                      "value": "orc_slave"
+                    }
+                  ]
+                }
+              ]
+            },
+            "max_dist": 20
+          }
+        ]
+      },
+      "minecraft:behavior.random_stroll": {
+        "priority": 6,
+        "speed_multiplier": 0.8
+      },
+      "minecraft:behavior.look_at_player": {
+        "priority": 7,
+        "look_distance": 12,
+        "probability": 0.03
+      },
+      "minecraft:behavior.random_look_around": {
+        "priority": 8
+      }
+    },
+    "component_groups": {
+      "cb:alerted": {
+        "minecraft:movement": {
+          "value": 0.278
+        },
+        "minecraft:behavior.nearest_attackable_target": {
+          "priority": 1,
+          "must_see": false,
+          "reselect_targets": false,
+          "within_radius": 40,
+          "entity_types": [
+            {
+              "filters": {
+                "all_of": [
+                  {
+                    "test": "is_family",
+                    "subject": "other",
+                    "operator": "!=",
+                    "value": "f_giants"
+                  },
+                  {
+                    "test": "has_tag",
+                    "subject": "other",
+                    "value": "cb_laes_foe"
+                  }
+                ]
+              },
+              "max_dist": 40
+            },
+            {
+              "filters": {
+                "all_of": [
+                  {
+                    "test": "is_family",
+                    "subject": "other",
+                    "operator": "!=",
+                    "value": "f_giants"
+                  },
+                  {
+                    "test": "is_family",
+                    "subject": "other",
+                    "value": "player"
+                  }
+                ]
+              },
+              "max_dist": 24
+            }
+          ]
+        }
+      },
+      "cb:can_attack": {
+        "minecraft:behavior.melee_attack": {
+          "priority": 3,
+          "speed_multiplier": 0.82,
+          "track_target": true,
+          "require_complete_path": false,
+          "reach_multiplier": 2.5,
+          "attack_duration": 1.8,
+          "hit_delay_pct": 0.5,
+          "cooldown_time": 5.0
+        }
+      },
+      "cb:attack_cooldown": {}
+    },
+    "events": {
+      "minecraft:entity_spawned": {
+        "add": {
+          "component_groups": [
+            "cb:can_attack"
+          ]
+        },
+        "set_property": {
+          "cb:variant": "math.random_integer(0, 2)"
+        }
+      },
+      "cb:alert": {
+        "add": {
+          "component_groups": [
+            "cb:alerted"
+          ]
+        },
+        "set_property": {
+          "cb:rage": true
+        }
+      },
+      "cb:calm": {
+        "remove": {
+          "component_groups": [
+            "cb:alerted"
+          ]
+        },
+        "set_property": {
+          "cb:rage": false
+        }
+      },
+      "cb:start_cooldown": {
+        "remove": {
+          "component_groups": [
+            "cb:can_attack"
+          ]
+        },
+        "add": {
+          "component_groups": [
+            "cb:attack_cooldown"
+          ]
+        },
+        "set_property": {
+          "cb:attacking": true
+        }
+      },
+      "cb:end_cooldown": {
+        "remove": {
+          "component_groups": [
+            "cb:attack_cooldown"
+          ]
+        },
+        "add": {
+          "component_groups": [
+            "cb:can_attack"
+          ]
+        },
+        "set_property": {
+          "cb:attacking": false
+        }
+      }
+    }
+  }
+}

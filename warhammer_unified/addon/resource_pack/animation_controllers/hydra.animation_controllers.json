@@ -1,0 +1,410 @@
+{
+  "format_version": "1.10.0",
+  "animation_controllers": {
+    "controller.animation.hydra.head0": {
+      "initial_state": "idle",
+      "states": {
+        "idle": {
+          "blend_transition": 0.12,
+          "transitions": [
+            {
+              "dead": "q.property('cb:act0') == 3"
+            },
+            {
+              "grow": "q.property('cb:act0') == 4"
+            },
+            {
+              "strike": "q.property('cb:act0') == 1"
+            },
+            {
+              "hurt": "q.property('cb:act0') == 2"
+            }
+          ]
+        },
+        "strike": {
+          "animations": [
+            "strike0"
+          ],
+          "blend_transition": 0.12,
+          "transitions": [
+            {
+              "dead": "q.property('cb:act0') == 3"
+            },
+            {
+              "idle": "q.property('cb:act0') != 1"
+            }
+          ]
+        },
+        "hurt": {
+          "animations": [
+            "hurt0"
+          ],
+          "blend_transition": 0.1,
+          "transitions": [
+            {
+              "dead": "q.property('cb:act0') == 3"
+            },
+            {
+              "strike": "q.property('cb:act0') == 1"
+            },
+            {
+              "idle": "q.property('cb:act0') != 2"
+            }
+          ]
+        },
+        "dead": {
+          "animations": [
+            "dead0"
+          ],
+          "blend_transition": 0.3,
+          "transitions": [
+            {
+              "grow": "q.property('cb:act0') == 4"
+            },
+            {
+              "idle": "q.property('cb:act0') == 0"
+            }
+          ]
+        },
+        "grow": {
+          "animations": [
+            "grow0"
+          ],
+          "blend_transition": 0.1,
+          "transitions": [
+            {
+              "dead": "q.property('cb:act0') == 3"
+            },
+            {
+              "idle": "q.property('cb:act0') != 4"
+            }
+          ]
+        }
+      }
+    },
+    "controller.animation.hydra.head1": {
+      "initial_state": "idle",
+      "states": {
+        "idle": {
+          "blend_transition": 0.12,
+          "transitions": [
+            {
+              "dead": "q.property('cb:act1') == 3"
+            },
+            {
+              "grow": "q.property('cb:act1') == 4"
+            },
+            {
+              "strike": "q.property('cb:act1') == 1"
+            },
+            {
+              "hurt": "q.property('cb:act1') == 2"
+            }
+          ]
+        },
+        "strike": {
+          "animations": [
+            "strike1"
+          ],
+          "blend_transition": 0.12,
+          "transitions": [
+            {
+              "dead": "q.property('cb:act1') == 3"
+            },
+            {
+              "idle": "q.property('cb:act1') != 1"
+            }
+          ]
+        },
+        "hurt": {
+          "animations": [
+            "hurt1"
+          ],
+          "blend_transition": 0.1,
+          "transitions": [
+            {
+              "dead": "q.property('cb:act1') == 3"
+            },
+            {
+              "strike": "q.property('cb:act1') == 1"
+            },
+            {
+              "idle": "q.property('cb:act1') != 2"
+            }
+          ]
+        },
+        "dead": {
+          "animations": [
+            "dead1"
+          ],
+          "blend_transition": 0.3,
+          "transitions": [
+            {
+              "grow": "q.property('cb:act1') == 4"
+            },
+            {
+              "idle": "q.property('cb:act1') == 0"
+            }
+          ]
+        },
+        "grow": {
+          "animations": [
+            "grow1"
+          ],
+          "blend_transition": 0.1,
+          "transitions": [
+            {
+              "dead": "q.property('cb:act1') == 3"
+            },
+            {
+              "idle": "q.property('cb:act1') != 4"
+            }
+          ]
+        }
+      }
+    },
+    "controller.animation.hydra.head2": {
+      "initial_state": "idle",
+      "states": {
+        "idle": {
+          "blend_transition": 0.12,
+          "transitions": [
+            {
+              "dead": "q.property('cb:act2') == 3"
+            },
+            {
+              "grow": "q.property('cb:act2') == 4"
+            },
+            {
+              "strike": "q.property('cb:act2') == 1"
+            },
+            {
+              "hurt": "q.property('cb:act2') == 2"
+            }
+          ]
+        },
+        "strike": {
+          "animations": [
+            "strike2"
+          ],
+          "blend_transition": 0.12,
+          "transitions": [
+            {
+              "dead": "q.property('cb:act2') == 3"
+            },
+            {
+              "idle": "q.property('cb:act2') != 1"
+            }
+          ]
+        },
+        "hurt": {
+          "animations": [
+            "hurt2"
+          ],
+          "blend_transition": 0.1,
+          "transitions": [
+            {
+              "dead": "q.property('cb:act2') == 3"
+            },
+            {
+              "strike": "q.property('cb:act2') == 1"
+            },
+            {
+              "idle": "q.property('cb:act2') != 2"
+            }
+          ]
+        },
+        "dead": {
+          "animations": [
+            "dead2"
+          ],
+          "blend_transition": 0.3,
+          "transitions": [
+            {
+              "grow": "q.property('cb:act2') == 4"
+            },
+            {
+              "idle": "q.property('cb:act2') == 0"
+            }
+          ]
+        },
+        "grow": {
+          "animations": [
+            "grow2"
+          ],
+          "blend_transition": 0.1,
+          "transitions": [
+            {
+              "dead": "q.property('cb:act2') == 3"
+            },
+            {
+              "idle": "q.property('cb:act2') != 4"
+            }
+          ]
+        }
+      }
+    },
+    "controller.animation.hydra.head3": {
+      "initial_state": "idle",
+      "states": {
+        "idle": {
+          "blend_transition": 0.12,
+          "transitions": [
+            {
+              "dead": "q.property('cb:act3') == 3"
+            },
+            {
+              "grow": "q.property('cb:act3') == 4"
+            },
+            {
+              "strike": "q.property('cb:act3') == 1"
+            },
+            {
+              "hurt": "q.property('cb:act3') == 2"
+            }
+          ]
+        },
+        "strike": {
+          "animations": [
+            "strike3"
+          ],
+          "blend_transition": 0.12,
+          "transitions": [
+            {
+              "dead": "q.property('cb:act3') == 3"
+            },
+            {
+              "idle": "q.property('cb:act3') != 1"
+            }
+          ]
+        },
+        "hurt": {
+          "animations": [
+            "hurt3"
+          ],
+          "blend_transition": 0.1,
+          "transitions": [
+            {
+              "dead": "q.property('cb:act3') == 3"
+            },
+            {
+              "strike": "q.property('cb:act3') == 1"
+            },
+            {
+              "idle": "q.property('cb:act3') != 2"
+            }
+          ]
+        },
+        "dead": {
+          "animations": [
+            "dead3"
+          ],
+          "blend_transition": 0.3,
+          "transitions": [
+            {
+              "grow": "q.property('cb:act3') == 4"
+            },
+            {
+              "idle": "q.property('cb:act3') == 0"
+            }
+          ]
+        },
+        "grow": {
+          "animations": [
+            "grow3"
+          ],
+          "blend_transition": 0.1,
+          "transitions": [
+            {
+              "dead": "q.property('cb:act3') == 3"
+            },
+            {
+              "idle": "q.property('cb:act3') != 4"
+            }
+          ]
+        }
+      }
+    },
+    "controller.animation.hydra.head4": {
+      "initial_state": "idle",
+      "states": {
+        "idle": {
+          "blend_transition": 0.12,
+          "transitions": [
+            {
+              "dead": "q.property('cb:act4') == 3"
+            },
+            {
+              "grow": "q.property('cb:act4') == 4"
+            },
+            {
+              "strike": "q.property('cb:act4') == 1"
+            },
+            {
+              "hurt": "q.property('cb:act4') == 2"
+            }
+          ]
+        },
+        "strike": {
+          "animations": [
+            "strike4"
+          ],
+          "blend_transition": 0.12,
+          "transitions": [
+            {
+              "dead": "q.property('cb:act4') == 3"
+            },
+            {
+              "idle": "q.property('cb:act4') != 1"
+            }
+          ]
+        },
+        "hurt": {
+          "animations": [
+            "hurt4"
+          ],
+          "blend_transition": 0.1,
+          "transitions": [
+            {
+              "dead": "q.property('cb:act4') == 3"
+            },
+            {
+              "strike": "q.property('cb:act4') == 1"
+            },
+            {
+              "idle": "q.property('cb:act4') != 2"
+            }
+          ]
+        },
+        "dead": {
+          "animations": [
+            "dead4"
+          ],
+          "blend_transition": 0.3,
+          "transitions": [
+            {
+              "grow": "q.property('cb:act4') == 4"
+            },
+            {
+              "idle": "q.property('cb:act4') == 0"
+            }
+          ]
+        },
+        "grow": {
+          "animations": [
+            "grow4"
+          ],
+          "blend_transition": 0.1,
+          "transitions": [
+            {
+              "dead": "q.property('cb:act4') == 3"
+            },
+            {
+              "idle": "q.property('cb:act4') != 4"
+            }
+          ]
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,39 @@
+{
+  "format_version": "1.10.0",
+  "minecraft:client_entity": {
+    "description": {
+      "identifier": "warcraft:grizzly_bear",
+      "materials": {
+        "default": "entity_alphatest"
+      },
+      "textures": {
+        "default": "textures/entity/grizzly_bear_voxel"
+      },
+      "geometry": {
+        "default": "geometry.grizzly_bear"
+      },
+      "animations": {
+        "idle_a": "animation.grizzly_bear.idle_a",
+        "idle_b": "animation.grizzly_bear.idle_b",
+        "walk": "animation.grizzly_bear.walk",
+        "attack_a": "animation.grizzly_bear.attack_a",
+        "attack_b": "animation.grizzly_bear.attack_b",
+        "ability": "animation.grizzly_bear.ability",
+        "death": "animation.grizzly_bear.death",
+        "move_ctrl": "controller.animation.grizzly_bear"
+      },
+      "scripts": {
+        "animate": [
+          "move_ctrl"
+        ]
+      },
+      "render_controllers": [
+        "controller.render.default"
+      ],
+      "spawn_egg": {
+        "texture": "egg_warcraft_grizzly_bear",
+        "texture_index": 0
+      }
+    }
+  }
+}

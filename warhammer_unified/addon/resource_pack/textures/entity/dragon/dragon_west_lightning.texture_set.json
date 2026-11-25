@@ -1,0 +1,8 @@
+{
+  "format_version": "1.16.100",
+  "minecraft:texture_set": {
+    "color": "dragon_west_lightning",
+    "metalness_emissive_roughness": "dragon_west_lightning_mer",
+    "heightmap": "dragon_west_lightning_height"
+  }
+}

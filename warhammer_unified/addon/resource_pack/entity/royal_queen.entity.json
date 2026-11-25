@@ -1,0 +1,39 @@
+{
+  "format_version": "1.10.0",
+  "minecraft:client_entity": {
+    "description": {
+      "identifier": "warcraft:royal_queen",
+      "materials": {
+        "default": "entity_alphatest"
+      },
+      "textures": {
+        "default": "textures/entity/royal_queen_voxel"
+      },
+      "geometry": {
+        "default": "geometry.royal_queen"
+      },
+      "animations": {
+        "idle_a": "animation.royal_queen.idle_a",
+        "idle_b": "animation.royal_queen.idle_b",
+        "walk": "animation.royal_queen.walk",
+        "attack_a": "animation.royal_queen.attack_a",
+        "attack_b": "animation.royal_queen.attack_b",
+        "ability": "animation.royal_queen.ability",
+        "death": "animation.royal_queen.death",
+        "move_ctrl": "controller.animation.royal_queen"
+      },
+      "scripts": {
+        "animate": [
+          "move_ctrl"
+        ]
+      },
+      "render_controllers": [
+        "controller.render.default"
+      ],
+      "spawn_egg": {
+        "texture": "egg_warcraft_royal_queen",
+        "texture_index": 0
+      }
+    }
+  }
+}

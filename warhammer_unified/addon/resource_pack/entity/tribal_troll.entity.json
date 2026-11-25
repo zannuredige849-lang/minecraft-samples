@@ -1,0 +1,51 @@
+{
+  "format_version": "1.10.0",
+  "minecraft:client_entity": {
+    "description": {
+      "identifier": "cb:tribal_troll",
+      "materials": {
+        "default": "entity_alphatest"
+      },
+      "textures": {
+        "v0": "textures/entity/tribal_troll_0",
+        "v1": "textures/entity/tribal_troll_1",
+        "v2": "textures/entity/tribal_troll_2"
+      },
+      "geometry": {
+        "default": "geometry.cb_tribal_troll"
+      },
+      "enable_attachables": true,
+      "animations": {
+        "idle": "animation.cb_troll.idle",
+        "walk": "animation.cb_troll.walk",
+        "attack": "animation.cb_troll.attack",
+        "throw_spear": "animation.cb_troll.throw_spear",
+        "totem_cast": "animation.cb_troll.totem_cast",
+        "ground_slam": "animation.cb_troll.ground_slam",
+        "roar": "animation.cb_troll.roar",
+        "hurt": "animation.cb_troll.hurt",
+        "look_at_target": "animation.cb_troll.look_at_target",
+        "dance": "animation.cb_troll.dance",
+        "move_ctrl": "controller.animation.cb_mob.move"
+      },
+      "scripts": {
+        "animate": [
+          "look_at_target",
+          "move_ctrl",
+          {
+            "attack": "variable.attack_time > 0"
+          },
+          {
+            "hurt": "query.hurt_time > 0"
+          }
+        ]
+      },
+      "render_controllers": [
+        "controller.render.cb_tribal_troll"
+      ],
+      "spawn_egg": {
+        "texture": "cb_egg_tribal_troll"
+      }
+    }
+  }
+}

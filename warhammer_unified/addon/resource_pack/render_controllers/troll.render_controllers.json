@@ -1,0 +1,116 @@
+{
+  "format_version": "1.8.0",
+  "render_controllers": {
+    "controller.render.cb_wild_troll": {
+      "arrays": {
+        "textures": {
+          "Array.skins": [
+            "Texture.v0",
+            "Texture.v1",
+            "Texture.v2"
+          ]
+        }
+      },
+      "geometry": "Geometry.default",
+      "materials": [
+        {
+          "*": "Material.default"
+        }
+      ],
+      "textures": [
+        "Array.skins[math.clamp(q.property('cb:variant'), 0, 2)]"
+      ]
+    },
+    "controller.render.cb_cannibal_troll": {
+      "arrays": {
+        "textures": {
+          "Array.skins": [
+            "Texture.v0",
+            "Texture.v1",
+            "Texture.v2"
+          ]
+        }
+      },
+      "geometry": "Geometry.default",
+      "materials": [
+        {
+          "*": "Material.default"
+        }
+      ],
+      "textures": [
+        "Array.skins[math.clamp(q.property('cb:variant'), 0, 2)]"
+      ]
+    },
+    "controller.render.cb_ice_troll": {
+      "arrays": {
+        "textures": {
+          "Array.skins": [
+            "Texture.v0",
+            "Texture.v1",
+            "Texture.v2"
+          ]
+        }
+      },
+      "geometry": "Geometry.default",
+      "materials": [
+        {
+          "*": "Material.default"
+        }
+      ],
+      "textures": [
+        "Array.skins[math.clamp(q.property('cb:variant'), 0, 2)]"
+      ]
+    },
+    "controller.render.cb_tribal_troll": {
+      "arrays": {
+        "textures": {
+          "Array.skins": [
+            "Texture.v0",
+            "Texture.v1",
+            "Texture.v2"
+          ]
+        }
+      },
+      "geometry": "Geometry.default",
+      "materials": [
+        {
+          "*": "Material.default"
+        }
+      ],
+      "textures": [
+        "Array.skins[math.clamp(q.property('cb:variant'), 0, 2)]"
+      ]
+    },
+    "controller.render.cb_smart_troll": {
+      "arrays": {
+        "textures": {
+          "Array.skins": [
+            "Texture.v0",
+            "Texture.v1",
+            "Texture.v2"
+          ]
+        }
+      },
+      "geometry": "Geometry.default",
+      "materials": [
+        {
+          "*": "Material.default"
+        }
+      ],
+      "textures": [
+        "Array.skins[math.clamp(q.property('cb:variant'), 0, 2)]"
+      ]
+    },
+    "controller.render.cb_troll_default": {
+      "geometry": "Geometry.default",
+      "materials": [
+        {
+          "*": "Material.default"
+        }
+      ],
+      "textures": [
+        "Texture.default"
+      ]
+    }
+  }
+}

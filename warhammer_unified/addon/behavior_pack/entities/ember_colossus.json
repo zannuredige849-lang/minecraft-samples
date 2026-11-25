@@ -1,0 +1,296 @@
+{
+  "format_version": "1.21.10",
+  "minecraft:entity": {
+    "description": {
+      "identifier": "warcraft:ember_colossus",
+      "is_spawnable": true,
+      "is_summonable": true,
+      "is_experimental": false,
+      "properties": {
+        "warcraft:anim_state": {
+          "type": "int",
+          "default": 0,
+          "range": [
+            0,
+            3
+          ],
+          "client_sync": true
+        }
+      }
+    },
+    "components": {
+      "minecraft:type_family": {
+        "family": [
+          "ember_colossus",
+          "monster",
+          "mob",
+          "f_golems",
+          "golem_kin",
+          "summon_safe"
+        ]
+      },
+      "minecraft:collision_box": {
+        "width": 2.2,
+        "height": 4.4
+      },
+      "minecraft:health": {
+        "value": 220,
+        "max": 220
+      },
+      "minecraft:attack": {
+        "damage": 9
+      },
+      "minecraft:movement": {
+        "value": 0.24
+      },
+      "minecraft:navigation.walk": {
+        "can_path_over_water": true,
+        "avoid_water": false
+      },
+      "minecraft:movement.basic": {},
+      "minecraft:jump.static": {},
+      "minecraft:can_climb": {},
+      "minecraft:knockback_resistance": {
+        "value": 0.9
+      },
+      "minecraft:physics": {},
+      "minecraft:pushable": {
+        "is_pushable": false,
+        "is_pushable_by_piston": true
+      },
+      "minecraft:behavior.float": {
+        "priority": 0
+      },
+      "minecraft:behavior.hurt_by_target": {
+        "priority": 1,
+        "entity_types": {
+          "filters": {
+            "all_of": [
+              {
+                "test": "is_family",
+                "subject": "other",
+                "operator": "!=",
+                "value": "f_golems"
+              },
+              {
+                "test": "is_family",
+                "subject": "other",
+                "operator": "!=",
+                "value": "golem_kin"
+              },
+              {
+                "test": "is_family",
+                "subject": "other",
+                "operator": "!=",
+                "value": "ember_colossus"
+              }
+            ]
+          }
+        }
+      },
+      "minecraft:behavior.nearest_attackable_target": {
+        "priority": 2,
+        "must_see": false,
+        "reselect_targets": true,
+        "within_radius": 26,
+        "entity_types": [
+          {
+            "filters": {
+              "all_of": [
+                {
+                  "test": "is_family",
+                  "subject": "other",
+                  "operator": "!=",
+                  "value": "f_golems"
+                },
+                {
+                  "test": "is_family",
+                  "subject": "other",
+                  "operator": "!=",
+                  "value": "golem_kin"
+                },
+                {
+                  "test": "is_family",
+                  "subject": "other",
+                  "operator": "!=",
+                  "value": "ember_colossus"
+                },
+                {
+                  "any_of": [
+                    {
+                      "test": "is_family",
+                      "subject": "other",
+                      "value": "nurgle"
+                    },
+                    {
+                      "test": "is_family",
+                      "subject": "other",
+                      "value": "faceless"
+                    },
+                    {
+                      "test": "is_family",
+                      "subject": "other",
+                      "value": "horned_demon"
+                    },
+                    {
+                      "test": "is_family",
+                      "subject": "other",
+                      "value": "void_knight"
+                    },
+                    {
+                      "test": "is_family",
+                      "subject": "other",
+                      "value": "chaos_knight"
+                    },
+                    {
+                      "test": "is_family",
+                      "subject": "other",
+                      "value": "blood_angel"
+                    },
+                    {
+                      "test": "is_family",
+                      "subject": "other",
+                      "value": "inferno_elem"
+                    },
+                    {
+                      "test": "is_family",
+                      "subject": "other",
+                      "value": "frost_elem"
+                    },
+                    {
+                      "test": "is_family",
+                      "subject": "other",
+                      "value": "storm_elem"
+                    },
+                    {
+                      "test": "is_family",
+                      "subject": "other",
+                      "value": "tamed_golem"
+                    },
+                    {
+                      "test": "is_family",
+                      "subject": "other",
+                      "value": "tzeentch"
+                    },
+                    {
+                      "test": "is_family",
+                      "subject": "other",
+                      "value": "black_blocker"
+                    },
+                    {
+                      "test": "is_family",
+                      "subject": "other",
+                      "value": "nature_ent"
+                    },
+                    {
+                      "test": "is_family",
+                      "subject": "other",
+                      "value": "monster"
+                    },
+                    {
+                      "test": "is_family",
+                      "subject": "other",
+                      "value": "player"
+                    },
+                    {
+                      "test": "is_family",
+                      "subject": "other",
+                      "value": "norsca_bandits"
+                    },
+                    {
+                      "test": "is_family",
+                      "subject": "other",
+                      "value": "kingdom_order"
+                    },
+                    {
+                      "test": "is_family",
+                      "subject": "other",
+                      "value": "undead_scourge"
+                    },
+                    {
+                      "test": "is_family",
+                      "subject": "other",
+                      "value": "santa_boss"
+                    },
+                    {
+                      "test": "is_family",
+                      "subject": "other",
+                      "value": "orc"
+                    },
+                    {
+                      "test": "is_family",
+                      "subject": "other",
+                      "value": "brown_orc"
+                    },
+                    {
+                      "test": "is_family",
+                      "subject": "other",
+                      "value": "fel_orc"
+                    },
+                    {
+                      "test": "is_family",
+                      "subject": "other",
+                      "value": "fel_faction"
+                    },
+                    {
+                      "test": "is_family",
+                      "subject": "other",
+                      "value": "undead"
+                    },
+                    {
+                      "test": "is_family",
+                      "subject": "other",
+                      "value": "scourge"
+                    },
+                    {
+                      "test": "is_family",
+                      "subject": "other",
+                      "value": "troll"
+                    },
+                    {
+                      "test": "is_family",
+                      "subject": "other",
+                      "value": "olympian"
+                    },
+                    {
+                      "test": "is_family",
+                      "subject": "other",
+                      "value": "hydra"
+                    }
+                  ]
+                }
+              ]
+            },
+            "max_dist": 26
+          }
+        ]
+      },
+      "minecraft:behavior.random_stroll": {
+        "priority": 6,
+        "speed_multiplier": 0.75
+      },
+      "minecraft:behavior.look_at_player": {
+        "priority": 7,
+        "look_distance": 10.0
+      },
+      "minecraft:behavior.random_look_around": {
+        "priority": 8
+      },
+      "minecraft:persistent": {},
+      "minecraft:behavior.melee_attack": {
+        "priority": 3,
+        "speed_multiplier": 1.15,
+        "track_target": true
+      },
+      "minecraft:boss": {
+        "should_darken_sky": false,
+        "hud_range": 45,
+        "name": "Угольный Колосс"
+      },
+      "minecraft:fire_immune": {},
+      "minecraft:scale": {
+        "value": 1.15
+      }
+    }
+  }
+}

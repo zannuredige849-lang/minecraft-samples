@@ -1,0 +1,8 @@
+{
+  "format_version": "1.16.100",
+  "minecraft:texture_set": {
+    "color": "green_orc_1",
+    "metalness_emissive_roughness": "green_orc_1_mer",
+    "heightmap": "green_orc_1_height"
+  }
+}

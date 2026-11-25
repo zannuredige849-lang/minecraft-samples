@@ -1,0 +1,58 @@
+{
+  "format_version": 2,
+  "header": {
+    "name": "ZhekAziz x Warhammer UNIFIED v10 New Style (BP)",
+    "description": "v10.0.0 NEW STYLE: all mobs, golems, items and spawn eggs in one chunky block style with shared palettes/shading; factions & alliances (same faction and all golems never fight each other, summons stay loyal).",
+    "uuid": "dcac7257-450a-45af-9008-367c0c9c2b8c",
+    "version": [
+      10,
+      0,
+      0
+    ],
+    "min_engine_version": [
+      1,
+      21,
+      10
+    ]
+  },
+  "modules": [
+    {
+      "type": "data",
+      "uuid": "23b37ab9-d222-4728-b251-073d76a8520b",
+      "version": [
+        10,
+        0,
+        0
+      ]
+    },
+    {
+      "type": "script",
+      "language": "javascript",
+      "uuid": "c4a5c20a-3633-4e1b-aa4e-ae95a6222735",
+      "version": [
+        10,
+        0,
+        0
+      ],
+      "entry": "scripts/main.js"
+    }
+  ],
+  "dependencies": [
+    {
+      "uuid": "e8bcfd0c-126c-4e15-840d-5251eee0d48b",
+      "version": [
+        10,
+        0,
+        0
+      ]
+    },
+    {
+      "module_name": "@minecraft/server",
+      "version": "1.14.0"
+    },
+    {
+      "module_name": "@minecraft/server-ui",
+      "version": "1.3.0"
+    }
+  ]
+}

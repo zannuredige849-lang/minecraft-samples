@@ -1,0 +1,238 @@
+{
+  "format_version": "1.8.0",
+  "animations": {
+    "animation.cb_goblin.idle": {
+      "loop": true,
+      "bones": {
+        "Body": {
+          "rotation": [
+            "2 + math.sin(q.life_time * 110) * 1.8",
+            0,
+            0
+          ]
+        },
+        "Head": {
+          "rotation": [
+            "math.cos(q.life_time * 110) * 2.0",
+            "math.sin(q.life_time * 45) * 6.0",
+            0
+          ]
+        },
+        "Right_ear": {
+          "rotation": [
+            0,
+            "math.sin(q.life_time * 160) * 5.0",
+            0
+          ]
+        },
+        "Left_ear": {
+          "rotation": [
+            0,
+            "-math.sin(q.life_time * 160) * 5.0",
+            0
+          ]
+        },
+        "Nose": {
+          "rotation": [
+            "math.sin(q.life_time * 140) * 2.0",
+            0,
+            0
+          ]
+        },
+        "Right_arm": {
+          "rotation": [
+            "math.sin(q.life_time * 100) * 4.0",
+            0,
+            "-5 - math.abs(math.cos(q.life_time * 100)) * 2.5"
+          ]
+        },
+        "Left_arm": {
+          "rotation": [
+            "-math.sin(q.life_time * 100) * 4.0",
+            0,
+            "5 + math.abs(math.cos(q.life_time * 100)) * 2.5"
+          ]
+        }
+      }
+    },
+    "animation.cb_goblin.walk": {
+      "loop": true,
+      "bones": {
+        "Right_leg": {
+          "rotation": [
+            "math.cos(q.modified_distance_moved * 38.17) * 40.0",
+            0,
+            0
+          ]
+        },
+        "Left_leg": {
+          "rotation": [
+            "-math.cos(q.modified_distance_moved * 38.17) * 40.0",
+            0,
+            0
+          ]
+        },
+        "Right_arm": {
+          "rotation": [
+            "v.attack_time > 0 ? 0 : -math.cos(q.modified_distance_moved * 38.17) * 32.0",
+            0,
+            -5
+          ]
+        },
+        "Left_arm": {
+          "rotation": [
+            "v.attack_time > 0 ? 0 : math.cos(q.modified_distance_moved * 38.17) * 32.0",
+            0,
+            5
+          ]
+        },
+        "Body": {
+          "position": [
+            0,
+            "-math.abs(math.sin(q.modified_distance_moved * 38.17)) * 0.7",
+            0
+          ],
+          "rotation": [
+            5,
+            "math.sin(q.modified_distance_moved * 38.17) * 5.0",
+            0
+          ]
+        }
+      }
+    },
+    "animation.cb_goblin.attack": {
+      "loop": true,
+      "bones": {
+        "Body": {
+          "rotation": [
+            "math.sin(v.attack_time * 180) * 16",
+            "-math.sin(v.attack_time * 180) * 18",
+            0
+          ]
+        },
+        "Right_arm": {
+          "rotation": [
+            "-105 * math.sin(v.attack_time * 180)",
+            "-15 * math.sin(v.attack_time * 180)",
+            -10
+          ]
+        },
+        "Left_arm": {
+          "rotation": [
+            "-65 * math.sin(v.attack_time * 180)",
+            "15 * math.sin(v.attack_time * 180)",
+            10
+          ]
+        }
+      }
+    },
+    "animation.cb_goblin.look_at_target": {
+      "loop": true,
+      "bones": {
+        "Head": {
+          "rotation": [
+            "math.clamp(q.target_x_rotation, -35, 35)",
+            "math.clamp(q.target_y_rotation, -45, 45)",
+            0
+          ]
+        }
+      }
+    },
+    "animation.cb_goblin.dance": {
+      "loop": true,
+      "bones": {
+        "Body": {
+          "position": [
+            0,
+            "math.abs(math.sin(q.life_time * 420)) * 2.2",
+            0
+          ],
+          "rotation": [
+            "math.sin(q.life_time * 420) * 10",
+            "math.cos(q.life_time * 210) * 22",
+            0
+          ]
+        },
+        "Head": {
+          "rotation": [
+            "math.sin(q.life_time * 420) * 14",
+            "math.cos(q.life_time * 210) * 18",
+            0
+          ]
+        },
+        "Right_arm": {
+          "rotation": [
+            "-120 + math.sin(q.life_time * 420) * 35",
+            0,
+            -18
+          ]
+        },
+        "Left_arm": {
+          "rotation": [
+            "-120 - math.sin(q.life_time * 420) * 35",
+            0,
+            18
+          ]
+        },
+        "Right_leg": {
+          "rotation": [
+            "math.sin(q.life_time * 420) * 26",
+            0,
+            -5
+          ]
+        },
+        "Left_leg": {
+          "rotation": [
+            "-math.sin(q.life_time * 420) * 26",
+            0,
+            5
+          ]
+        }
+      }
+    },
+    "animation.cb_goblin.hurt": {
+      "loop": false,
+      "animation_length": 0.3,
+      "bones": {
+        "Body": {
+          "rotation": {
+            "0.0": [
+              0,
+              0,
+              0
+            ],
+            "0.1": [
+              -14,
+              0,
+              8
+            ],
+            "0.3": [
+              0,
+              0,
+              0
+            ]
+          }
+        },
+        "Head": {
+          "rotation": {
+            "0.0": [
+              0,
+              0,
+              0
+            ],
+            "0.1": [
+              -16,
+              0,
+              -10
+            ],
+            "0.3": [
+              0,
+              0,
+              0
+            ]
+          }
+        }
+      }
+    }
+  }
+}

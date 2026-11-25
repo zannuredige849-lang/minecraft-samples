@@ -1,0 +1,51 @@
+{
+  "format_version": "1.10.0",
+  "minecraft:client_entity": {
+    "description": {
+      "identifier": "cb:warg",
+      "materials": {
+        "default": "entity_emissive_alpha"
+      },
+      "textures": {
+        "dusk": "textures/entity/warg/warg_dusk",
+        "bark": "textures/entity/warg/warg_bark",
+        "ash": "textures/entity/warg/warg_ash"
+      },
+      "geometry": {
+        "default": "geometry.cb_warg"
+      },
+      "animations": {
+        "move": "animation.cb_warg.move",
+        "idle": "animation.cb_warg.idle",
+        "bite": "animation.cb_warg.bite",
+        "look_at_target": "animation.common.look_at_target",
+        "dance": "animation.cb_warg.dance",
+        "hurt": "animation.cb_warg.hurt"
+      },
+      "scripts": {
+        "animate": [
+          "idle",
+          {
+            "move": "q.modified_move_speed > 0.02"
+          },
+          {
+            "bite": "variable.attack_time > 0"
+          },
+          "look_at_target",
+          {
+            "dance": "q.property('cb:dancing')"
+          },
+          {
+            "hurt": "query.hurt_time > 0"
+          }
+        ]
+      },
+      "render_controllers": [
+        "controller.render.cb_warg"
+      ],
+      "spawn_egg": {
+        "texture": "cb_egg_warg"
+      }
+    }
+  }
+}

@@ -1,0 +1,60 @@
+{
+  "format_version": "1.10.0",
+  "minecraft:client_entity": {
+    "description": {
+      "identifier": "cb:dreadlord",
+      "materials": {
+        "default": "entity_emissive_alpha"
+      },
+      "textures": {
+        "default": "textures/entity/dreadlord"
+      },
+      "geometry": {
+        "default": "geometry.cb_dreadlord"
+      },
+      "animations": {
+        "idle": "animation.dreadlord.idle",
+        "walk": "animation.dreadlord.walk",
+        "attack": "animation.dreadlord.attack",
+        "special_attack": "animation.dreadlord.special_attack",
+        "hurt": "animation.dreadlord.hurt",
+        "death": "animation.dreadlord.death",
+        "charge": "animation.dreadlord.wing_flap",
+        "special1": "animation.dreadlord.wing_flap",
+        "special2": "animation.dreadlord.hypnosis",
+        "special3": "animation.dreadlord.mist_form",
+        "stun": "animation.dreadlord.stun",
+        "rage": "animation.dreadlord.rage",
+        "dance": "animation.dreadlord.dance",
+        "ctrl": "controller.animation.cb_dreadlord",
+        "look_at_target": "animation.common.look_at_target"
+      },
+      "scripts": {
+        "animate": [
+          {
+            "idle": "!q.property('cb:dancing')"
+          },
+          {
+            "walk": "q.modified_move_speed > 0.015 && !q.property('cb:dancing') && !q.property('cb:charging')"
+          },
+          {
+            "rage": "q.property('cb:enraged') && !q.property('cb:dancing')"
+          },
+          {
+            "hurt": "q.hurt_time > 0 && !q.property('cb:dancing')"
+          },
+          "ctrl",
+          {
+            "look_at_target": "!q.property('cb:dancing') && q.property('cb:cast_state') == 0"
+          }
+        ]
+      },
+      "render_controllers": [
+        "controller.render.cb_dreadlord"
+      ],
+      "spawn_egg": {
+        "texture": "cb_egg_dreadlord"
+      }
+    }
+  }
+}

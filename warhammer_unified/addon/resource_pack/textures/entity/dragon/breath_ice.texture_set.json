@@ -1,0 +1,8 @@
+{
+  "format_version": "1.16.100",
+  "minecraft:texture_set": {
+    "color": "breath_ice",
+    "metalness_emissive_roughness": "breath_ice_mer",
+    "heightmap": "breath_ice_height"
+  }
+}

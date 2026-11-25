@@ -1,0 +1,28 @@
+{
+  "format_version": "1.10.0",
+  "minecraft:client_entity": {
+    "description": {
+      "identifier": "cb:troll_totem",
+      "materials": {
+        "default": "entity_alphatest"
+      },
+      "textures": {
+        "default": "textures/entity/troll_totem"
+      },
+      "geometry": {
+        "default": "geometry.cb_troll_totem"
+      },
+      "render_controllers": [
+        "controller.render.cb_troll_default"
+      ],
+      "animations": {
+        "idle": "animation.cb_troll_totem.idle"
+      },
+      "scripts": {
+        "animate": [
+          "idle"
+        ]
+      }
+    }
+  }
+}

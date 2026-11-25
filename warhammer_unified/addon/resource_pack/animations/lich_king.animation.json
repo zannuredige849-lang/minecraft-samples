@@ -1,0 +1,574 @@
+{
+  "format_version": "1.8.0",
+  "animations": {
+    "animation.lich_king.idle": {
+      "loop": true,
+      "bones": {
+        "pelvis": {
+          "position": [
+            0,
+            "math.sin(q.life_time * 90) * 0.35",
+            0
+          ]
+        },
+        "torso": {
+          "rotation": [
+            "2 + math.sin(q.life_time * 90) * 2.0",
+            "math.sin(q.life_time * 45) * 2.0",
+            0
+          ]
+        },
+        "head": {
+          "rotation": [
+            "math.cos(q.life_time * 90) * 2.0",
+            "math.sin(q.life_time * 36) * 5.0",
+            0
+          ]
+        },
+        "jaw": {
+          "rotation": [
+            "1 + math.max(0, math.sin(q.life_time * 90)) * 3.5",
+            0,
+            0
+          ]
+        },
+        "rightArm": {
+          "rotation": [
+            "-14 + math.sin(q.life_time * 90) * 3.5",
+            -6,
+            "7 + math.abs(math.cos(q.life_time * 90)) * 2.5"
+          ]
+        },
+        "rightForearm": {
+          "rotation": [
+            "-18 + math.sin(q.life_time * 90 + 30) * 3.0",
+            0,
+            0
+          ]
+        },
+        "leftArm": {
+          "rotation": [
+            "-10 - math.sin(q.life_time * 90) * 3.5",
+            6,
+            "-7 - math.abs(math.cos(q.life_time * 90)) * 2.5"
+          ]
+        },
+        "leftForearm": {
+          "rotation": [
+            "-14 - math.sin(q.life_time * 90 + 30) * 3.0",
+            0,
+            0
+          ]
+        },
+        "auraBone": {
+          "rotation": [
+            0,
+            "q.life_time * 130.0",
+            0
+          ],
+          "position": [
+            0,
+            "math.sin(q.life_time * 150.0) * 1.4",
+            0
+          ]
+        },
+        "cape": {
+          "rotation": [
+            "10 + math.sin(q.life_time * 95) * 4.5",
+            "math.cos(q.life_time * 65) * 3.0",
+            0
+          ]
+        }
+      }
+    },
+    "animation.lich_king.walk": {
+      "loop": true,
+      "bones": {
+        "rightLeg": {
+          "rotation": [
+            "math.cos(q.modified_distance_moved * 38.17) * 38.0",
+            0,
+            0
+          ]
+        },
+        "leftLeg": {
+          "rotation": [
+            "-math.cos(q.modified_distance_moved * 38.17) * 38.0",
+            0,
+            0
+          ]
+        },
+        "rightShin": {
+          "rotation": [
+            "math.max(0, math.sin(q.modified_distance_moved * 38.17)) * 34.0",
+            0,
+            0
+          ]
+        },
+        "leftShin": {
+          "rotation": [
+            "math.max(0, -math.sin(q.modified_distance_moved * 38.17)) * 34.0",
+            0,
+            0
+          ]
+        },
+        "pelvis": {
+          "position": [
+            0,
+            "-math.abs(math.sin(q.modified_distance_moved * 38.17)) * 1.0",
+            0
+          ]
+        },
+        "torso": {
+          "rotation": [
+            5,
+            "math.sin(q.modified_distance_moved * 38.17) * 5.5",
+            "math.cos(q.modified_distance_moved * 38.17) * 3.0"
+          ]
+        },
+        "rightArm": {
+          "rotation": [
+            "-16 - math.cos(q.modified_distance_moved * 38.17) * 24.0",
+            -6,
+            7
+          ]
+        },
+        "leftArm": {
+          "rotation": [
+            "-10 + math.cos(q.modified_distance_moved * 38.17) * 28.0",
+            6,
+            -7
+          ]
+        },
+        "auraBone": {
+          "rotation": [
+            0,
+            "q.life_time * 150.0",
+            0
+          ],
+          "position": [
+            0,
+            "math.sin(q.life_time * 180.0) * 1.5",
+            0
+          ]
+        },
+        "cape": {
+          "rotation": [
+            "22 + math.abs(math.sin(q.modified_distance_moved * 38.17)) * 14.0",
+            "math.sin(q.modified_distance_moved * 38.17) * 6.0",
+            0
+          ]
+        }
+      }
+    },
+    "animation.lich_king.attack": {
+      "loop": true,
+      "bones": {
+        "torso": {
+          "rotation": [
+            "-10 + math.max(math.sin(variable.attack_time * 180.0), math.abs(math.sin(q.anim_time * 260.0))) * 26",
+            "16 - math.max(math.sin(variable.attack_time * 180.0), math.abs(math.sin(q.anim_time * 260.0))) * 38",
+            0
+          ]
+        },
+        "head": {
+          "rotation": [
+            "-6 + math.max(math.sin(variable.attack_time * 180.0), math.abs(math.sin(q.anim_time * 260.0))) * 14",
+            0,
+            0
+          ]
+        },
+        "jaw": {
+          "rotation": [
+            "4 + math.max(math.sin(variable.attack_time * 180.0), math.abs(math.sin(q.anim_time * 260.0))) * 16",
+            0,
+            0
+          ]
+        },
+        "rightArm": {
+          "rotation": [
+            "-125 + math.max(math.sin(variable.attack_time * 180.0), math.abs(math.sin(q.anim_time * 260.0))) * 148",
+            "16 - math.max(math.sin(variable.attack_time * 180.0), math.abs(math.sin(q.anim_time * 260.0))) * 38",
+            12
+          ]
+        },
+        "rightForearm": {
+          "rotation": [
+            "-32 + math.max(math.sin(variable.attack_time * 180.0), math.abs(math.sin(q.anim_time * 260.0))) * 24",
+            0,
+            0
+          ]
+        },
+        "weapon": {
+          "rotation": [
+            "math.max(math.sin(variable.attack_time * 180.0), math.abs(math.sin(q.anim_time * 260.0))) * 26",
+            0,
+            0
+          ]
+        },
+        "leftArm": {
+          "rotation": [
+            "-24 + math.max(math.sin(variable.attack_time * 180.0), math.abs(math.sin(q.anim_time * 260.0))) * 36",
+            12,
+            -12
+          ]
+        }
+      }
+    },
+    "animation.lich_king.special_attack": {
+      "loop": true,
+      "bones": {
+        "torso": {
+          "rotation": [
+            "-16 + math.abs(math.sin(q.anim_time * 240.0)) * 34",
+            0,
+            0
+          ]
+        },
+        "head": {
+          "rotation": [
+            "-10 + math.abs(math.sin(q.anim_time * 240.0)) * 20",
+            0,
+            0
+          ]
+        },
+        "jaw": {
+          "rotation": [
+            18,
+            0,
+            0
+          ]
+        },
+        "rightArm": {
+          "rotation": [
+            "-140 + math.abs(math.sin(q.anim_time * 240.0)) * 155",
+            -10,
+            12
+          ]
+        },
+        "rightForearm": {
+          "rotation": [
+            -24,
+            0,
+            0
+          ]
+        },
+        "leftArm": {
+          "rotation": [
+            "-95 + math.abs(math.sin(q.anim_time * 240.0)) * 75",
+            14,
+            -14
+          ]
+        },
+        "auraBone": {
+          "rotation": [
+            0,
+            "q.life_time * 320.0",
+            0
+          ]
+        }
+      }
+    },
+    "animation.lich_king.ice_spikes": {
+      "loop": true,
+      "bones": {
+        "torso": {
+          "rotation": [
+            "-16 + math.abs(math.sin(q.anim_time * 240.0)) * 34",
+            0,
+            0
+          ]
+        },
+        "head": {
+          "rotation": [
+            "-10 + math.abs(math.sin(q.anim_time * 240.0)) * 20",
+            0,
+            0
+          ]
+        },
+        "jaw": {
+          "rotation": [
+            18,
+            0,
+            0
+          ]
+        },
+        "rightArm": {
+          "rotation": [
+            "-140 + math.abs(math.sin(q.anim_time * 240.0)) * 155",
+            -10,
+            12
+          ]
+        },
+        "rightForearm": {
+          "rotation": [
+            -24,
+            0,
+            0
+          ]
+        },
+        "leftArm": {
+          "rotation": [
+            "-95 + math.abs(math.sin(q.anim_time * 240.0)) * 75",
+            14,
+            -14
+          ]
+        },
+        "auraBone": {
+          "rotation": [
+            0,
+            "q.life_time * 320.0",
+            0
+          ]
+        }
+      }
+    },
+    "animation.lich_king.raise_dead": {
+      "loop": true,
+      "bones": {
+        "torso": {
+          "rotation": [
+            "-10 + math.sin(q.anim_time * 300.0) * 8",
+            "math.sin(q.anim_time * 300.0) * 14",
+            0
+          ]
+        },
+        "head": {
+          "rotation": [
+            -12,
+            0,
+            0
+          ]
+        },
+        "jaw": {
+          "rotation": [
+            20,
+            0,
+            0
+          ]
+        },
+        "rightArm": {
+          "rotation": [
+            "-115 + math.sin(q.anim_time * 300.0) * 20",
+            -16,
+            16
+          ]
+        },
+        "leftArm": {
+          "rotation": [
+            "-115 - math.sin(q.anim_time * 300.0) * 20",
+            16,
+            -16
+          ]
+        },
+        "auraBone": {
+          "rotation": [
+            0,
+            "q.life_time * 380.0",
+            0
+          ],
+          "position": [
+            0,
+            "2.0 + math.sin(q.life_time * 300) * 1.5",
+            0
+          ]
+        }
+      }
+    },
+    "animation.lich_king.spirit_transform": {
+      "loop": true,
+      "bones": {
+        "pelvis": {
+          "position": [
+            0,
+            "1.5 + math.abs(math.sin(q.anim_time * 240.0)) * 2.0",
+            0
+          ]
+        },
+        "torso": {
+          "rotation": [
+            "-14 + math.abs(math.sin(q.anim_time * 240.0)) * 24",
+            0,
+            0
+          ]
+        },
+        "head": {
+          "rotation": [
+            -16,
+            0,
+            0
+          ]
+        },
+        "jaw": {
+          "rotation": [
+            22,
+            0,
+            0
+          ]
+        },
+        "rightArm": {
+          "rotation": [
+            "-135 + math.sin(q.anim_time * 300.0) * 25",
+            -20,
+            24
+          ]
+        },
+        "leftArm": {
+          "rotation": [
+            "-135 - math.sin(q.anim_time * 300.0) * 25",
+            20,
+            -24
+          ]
+        },
+        "auraBone": {
+          "rotation": [
+            0,
+            "q.life_time * 480.0",
+            0
+          ],
+          "scale": [
+            1.15,
+            1.15,
+            1.15
+          ]
+        }
+      }
+    },
+    "animation.lich_king.stun": {
+      "loop": true,
+      "bones": {
+        "torso": {
+          "rotation": [
+            16,
+            "math.sin(q.life_time * 260) * 8",
+            0
+          ]
+        },
+        "head": {
+          "rotation": [
+            24,
+            "math.sin(q.life_time * 320) * 12",
+            0
+          ]
+        },
+        "rightArm": {
+          "rotation": [
+            12,
+            0,
+            12
+          ]
+        },
+        "leftArm": {
+          "rotation": [
+            12,
+            0,
+            -12
+          ]
+        }
+      }
+    },
+    "animation.lich_king.rage": {
+      "loop": true,
+      "bones": {
+        "torso": {
+          "rotation": [
+            4,
+            0,
+            0
+          ]
+        },
+        "jaw": {
+          "rotation": [
+            "6 + math.abs(math.sin(q.life_time * 240)) * 10",
+            0,
+            0
+          ]
+        }
+      }
+    },
+    "animation.lich_king.hurt": {
+      "loop": true,
+      "bones": {
+        "torso": {
+          "rotation": [
+            -8,
+            0,
+            "math.sin(q.life_time * 720) * 5"
+          ]
+        },
+        "head": {
+          "rotation": [
+            -10,
+            0,
+            0
+          ]
+        }
+      }
+    },
+    "animation.lich_king.death": {
+      "loop": "hold_on_last_frame",
+      "animation_length": 1.0,
+      "bones": {
+        "root": {
+          "rotation": {
+            "0.0": [
+              0,
+              0,
+              0
+            ],
+            "1.0": [
+              -85,
+              0,
+              0
+            ]
+          },
+          "position": {
+            "0.0": [
+              0,
+              0,
+              0
+            ],
+            "1.0": [
+              0,
+              -10,
+              8
+            ]
+          }
+        }
+      }
+    },
+    "animation.lich_king.dance": {
+      "loop": true,
+      "bones": {
+        "pelvis": {
+          "position": [
+            0,
+            "math.abs(math.sin(q.life_time * 400)) * 2.5",
+            0
+          ]
+        },
+        "torso": {
+          "rotation": [
+            "math.sin(q.life_time * 400) * 10",
+            "math.cos(q.life_time * 200) * 20",
+            0
+          ]
+        },
+        "rightArm": {
+          "rotation": [
+            "-120 + math.sin(q.life_time * 400) * 35",
+            0,
+            22
+          ]
+        },
+        "leftArm": {
+          "rotation": [
+            "-120 - math.sin(q.life_time * 400) * 35",
+            0,
+            -22
+          ]
+        }
+      }
+    }
+  }
+}

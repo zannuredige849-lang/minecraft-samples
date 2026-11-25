@@ -1,0 +1,60 @@
+{
+  "format_version": "1.10.0",
+  "minecraft:client_entity": {
+    "description": {
+      "identifier": "cb:minotaur",
+      "materials": {
+        "default": "entity_emissive_alpha"
+      },
+      "textures": {
+        "default": "textures/entity/minotaur"
+      },
+      "geometry": {
+        "default": "geometry.cb_minotaur"
+      },
+      "animations": {
+        "idle": "animation.minotaur.idle",
+        "walk": "animation.minotaur.walk",
+        "attack": "animation.minotaur.attack",
+        "special_attack": "animation.minotaur.special_attack",
+        "hurt": "animation.minotaur.hurt",
+        "death": "animation.minotaur.death",
+        "charge": "animation.minotaur.charge",
+        "special1": "animation.minotaur.charge",
+        "special2": "animation.minotaur.wall_break",
+        "special3": "animation.minotaur.axe_slam",
+        "stun": "animation.minotaur.stun",
+        "rage": "animation.minotaur.rage",
+        "dance": "animation.minotaur.dance",
+        "ctrl": "controller.animation.cb_minotaur",
+        "look_at_target": "animation.common.look_at_target"
+      },
+      "scripts": {
+        "animate": [
+          {
+            "idle": "!q.property('cb:dancing')"
+          },
+          {
+            "walk": "q.modified_move_speed > 0.015 && !q.property('cb:dancing') && !q.property('cb:charging')"
+          },
+          {
+            "rage": "q.property('cb:enraged') && !q.property('cb:dancing')"
+          },
+          {
+            "hurt": "q.hurt_time > 0 && !q.property('cb:dancing')"
+          },
+          "ctrl",
+          {
+            "look_at_target": "!q.property('cb:dancing') && q.property('cb:cast_state') == 0"
+          }
+        ]
+      },
+      "render_controllers": [
+        "controller.render.cb_minotaur"
+      ],
+      "spawn_egg": {
+        "texture": "cb_egg_minotaur"
+      }
+    }
+  }
+}

@@ -1,0 +1,38 @@
+{
+  "format_version": "1.10.0",
+  "minecraft:client_entity": {
+    "description": {
+      "identifier": "warcraft:blood_angel",
+      "min_engine_version": "1.16.0",
+      "materials": {
+        "default": "entity_alphatest"
+      },
+      "textures": {
+        "default": "textures/entity/blood_angel"
+      },
+      "geometry": {
+        "default": "geometry.blood_angel"
+      },
+      "animations": {
+        "idle_a": "animation.blood_angel.idle_a",
+        "walk": "animation.blood_angel.walk",
+        "attack_a": "animation.blood_angel.attack_a",
+        "spell": "animation.blood_angel.spell",
+        "death": "animation.blood_angel.death",
+        "controller": "controller.animation.blood_angel"
+      },
+      "scripts": {
+        "animate": [
+          "controller"
+        ]
+      },
+      "render_controllers": [
+        "controller.render.blood_angel"
+      ],
+      "spawn_egg": {
+        "texture": "egg_warcraft_blood_angel",
+        "texture_index": 0
+      }
+    }
+  }
+}

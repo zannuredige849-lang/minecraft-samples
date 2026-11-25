@@ -1,0 +1,22 @@
+{
+  "format_version": "1.16.100",
+  "minecraft:fog_settings": {
+    "description": {
+      "identifier": "cb:cyclops_island"
+    },
+    "distance": {
+      "air": {
+        "fog_start": 20,
+        "fog_end": 110,
+        "fog_color": "#c3ccd1",
+        "render_distance_type": "fixed"
+      },
+      "weather": {
+        "fog_start": 10,
+        "fog_end": 60,
+        "fog_color": "#9aa4aa",
+        "render_distance_type": "fixed"
+      }
+    }
+  }
+}

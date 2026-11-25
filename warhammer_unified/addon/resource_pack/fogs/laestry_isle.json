@@ -1,0 +1,22 @@
+{
+  "format_version": "1.16.100",
+  "minecraft:fog_settings": {
+    "description": {
+      "identifier": "cb:laestry_isle"
+    },
+    "distance": {
+      "air": {
+        "fog_start": 20,
+        "fog_end": 110,
+        "fog_color": "#b8c4a2",
+        "render_distance_type": "fixed"
+      },
+      "weather": {
+        "fog_start": 10,
+        "fog_end": 64,
+        "fog_color": "#8e9a7c",
+        "render_distance_type": "fixed"
+      }
+    }
+  }
+}

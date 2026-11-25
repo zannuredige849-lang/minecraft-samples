@@ -1,0 +1,1467 @@
+{
+  "format_version": "1.14.0",
+  "sound_definitions": {
+    "cb.orc.ambient": {
+      "category": "hostile",
+      "max_distance": 48.0,
+      "sounds": [
+        {
+          "name": "sounds/cb/orc/ambient1",
+          "volume": 1.0
+        },
+        {
+          "name": "sounds/cb/orc/ambient2",
+          "volume": 1.0
+        },
+        {
+          "name": "sounds/cb/orc/ambient3",
+          "volume": 1.0
+        }
+      ]
+    },
+    "cb.orc.hurt": {
+      "category": "hostile",
+      "max_distance": 48.0,
+      "sounds": [
+        {
+          "name": "sounds/cb/orc/hurt1",
+          "volume": 1.0
+        },
+        {
+          "name": "sounds/cb/orc/hurt2",
+          "volume": 1.0
+        },
+        {
+          "name": "sounds/cb/orc/hurt3",
+          "volume": 1.0
+        }
+      ]
+    },
+    "cb.orc.death": {
+      "category": "hostile",
+      "max_distance": 48.0,
+      "sounds": [
+        {
+          "name": "sounds/cb/orc/death1",
+          "volume": 1.0
+        },
+        {
+          "name": "sounds/cb/orc/death2",
+          "volume": 1.0
+        }
+      ]
+    },
+    "cb.orc.warcry": {
+      "category": "hostile",
+      "max_distance": 48.0,
+      "sounds": [
+        {
+          "name": "sounds/cb/orc/warcry1",
+          "volume": 1.6
+        },
+        {
+          "name": "sounds/cb/orc/warcry2",
+          "volume": 1.6
+        }
+      ]
+    },
+    "cb.orc.rage": {
+      "category": "hostile",
+      "max_distance": 48.0,
+      "sounds": [
+        {
+          "name": "sounds/cb/orc/rage1",
+          "volume": 1.2
+        },
+        {
+          "name": "sounds/cb/orc/rage2",
+          "volume": 1.2
+        }
+      ]
+    },
+    "cb.orc.whip": {
+      "category": "hostile",
+      "max_distance": 48.0,
+      "sounds": [
+        {
+          "name": "sounds/cb/orc/whip1",
+          "volume": 1.2
+        },
+        {
+          "name": "sounds/cb/orc/whip2",
+          "volume": 1.2
+        }
+      ]
+    },
+    "cb.warg.ambient": {
+      "category": "hostile",
+      "max_distance": 48.0,
+      "sounds": [
+        {
+          "name": "sounds/cb/warg/ambient1",
+          "volume": 1.0
+        },
+        {
+          "name": "sounds/cb/warg/ambient2",
+          "volume": 1.0
+        },
+        {
+          "name": "sounds/cb/warg/ambient3",
+          "volume": 1.0
+        }
+      ]
+    },
+    "cb.warg.hurt": {
+      "category": "hostile",
+      "max_distance": 48.0,
+      "sounds": [
+        {
+          "name": "sounds/cb/warg/hurt1",
+          "volume": 1.0
+        },
+        {
+          "name": "sounds/cb/warg/hurt2",
+          "volume": 1.0
+        }
+      ]
+    },
+    "cb.warg.death": {
+      "category": "hostile",
+      "max_distance": 48.0,
+      "sounds": [
+        {
+          "name": "sounds/cb/warg/death1",
+          "volume": 1.1
+        }
+      ]
+    },
+    "cb.lizard.ambient": {
+      "category": "neutral",
+      "max_distance": 16.0,
+      "sounds": [
+        {
+          "name": "sounds/cb/lizard/ambient1",
+          "volume": 1.0
+        },
+        {
+          "name": "sounds/cb/lizard/ambient2",
+          "volume": 1.0
+        },
+        {
+          "name": "sounds/cb/lizard/ambient3",
+          "volume": 1.0
+        }
+      ]
+    },
+    "cb.lizard.hurt": {
+      "category": "neutral",
+      "max_distance": 16.0,
+      "sounds": [
+        {
+          "name": "sounds/cb/lizard/hurt1",
+          "volume": 1.0
+        },
+        {
+          "name": "sounds/cb/lizard/hurt2",
+          "volume": 1.0
+        }
+      ]
+    },
+    "cb.lizard.death": {
+      "category": "neutral",
+      "max_distance": 16.0,
+      "sounds": [
+        {
+          "name": "sounds/cb/lizard/death1",
+          "volume": 1.2
+        }
+      ]
+    },
+    "cb.lizard.step": {
+      "category": "neutral",
+      "max_distance": 16.0,
+      "sounds": [
+        {
+          "name": "sounds/cb/lizard/step1",
+          "volume": 0.7
+        },
+        {
+          "name": "sounds/cb/lizard/step2",
+          "volume": 0.7
+        },
+        {
+          "name": "sounds/cb/lizard/step3",
+          "volume": 0.7
+        }
+      ]
+    },
+    "cb.lizard.charge": {
+      "category": "neutral",
+      "max_distance": 16.0,
+      "sounds": [
+        {
+          "name": "sounds/cb/lizard/charge1",
+          "volume": 1.3
+        },
+        {
+          "name": "sounds/cb/lizard/charge2",
+          "volume": 1.3
+        }
+      ]
+    },
+    "cb.lizard.ram": {
+      "category": "neutral",
+      "max_distance": 16.0,
+      "sounds": [
+        {
+          "name": "sounds/cb/lizard/ram1",
+          "volume": 1.2
+        },
+        {
+          "name": "sounds/cb/lizard/ram2",
+          "volume": 1.2
+        }
+      ]
+    },
+    "cb.dragon.ambient": {
+      "category": "hostile",
+      "max_distance": 48.0,
+      "sounds": [
+        {
+          "name": "sounds/cb/dragon/ambient1",
+          "volume": 1.2
+        },
+        {
+          "name": "sounds/cb/dragon/ambient2",
+          "volume": 1.2
+        },
+        {
+          "name": "sounds/cb/dragon/ambient3",
+          "volume": 1.2
+        }
+      ]
+    },
+    "cb.dragon.hurt": {
+      "category": "hostile",
+      "max_distance": 48.0,
+      "sounds": [
+        {
+          "name": "sounds/cb/dragon/hurt1",
+          "volume": 1.0
+        },
+        {
+          "name": "sounds/cb/dragon/hurt2",
+          "volume": 1.0
+        },
+        {
+          "name": "sounds/cb/dragon/hurt3",
+          "volume": 1.0
+        }
+      ]
+    },
+    "cb.dragon.death": {
+      "category": "hostile",
+      "max_distance": 48.0,
+      "sounds": [
+        {
+          "name": "sounds/cb/dragon/death1",
+          "volume": 1.4
+        }
+      ]
+    },
+    "cb.dragon.bite": {
+      "category": "hostile",
+      "max_distance": 48.0,
+      "sounds": [
+        {
+          "name": "sounds/cb/dragon/bite1",
+          "volume": 1.0
+        },
+        {
+          "name": "sounds/cb/dragon/bite2",
+          "volume": 1.0
+        }
+      ]
+    },
+    "cb.dragon.flap": {
+      "category": "hostile",
+      "max_distance": 48.0,
+      "sounds": [
+        {
+          "name": "sounds/cb/dragon/flap1",
+          "volume": 0.7
+        },
+        {
+          "name": "sounds/cb/dragon/flap2",
+          "volume": 0.7
+        },
+        {
+          "name": "sounds/cb/dragon/flap3",
+          "volume": 0.7
+        }
+      ]
+    },
+    "cb.dragon.breath": {
+      "category": "hostile",
+      "max_distance": 48.0,
+      "sounds": [
+        {
+          "name": "sounds/cb/dragon/breath1",
+          "volume": 1.2
+        },
+        {
+          "name": "sounds/cb/dragon/breath2",
+          "volume": 1.2
+        }
+      ]
+    },
+    "cb.dragon.zap": {
+      "category": "hostile",
+      "max_distance": 48.0,
+      "sounds": [
+        {
+          "name": "sounds/cb/dragon/zap1",
+          "volume": 1.0
+        },
+        {
+          "name": "sounds/cb/dragon/zap2",
+          "volume": 1.0
+        }
+      ]
+    },
+    "cb.cyclops.ambient": {
+      "category": "hostile",
+      "max_distance": 48.0,
+      "sounds": [
+        {
+          "name": "sounds/cb/cyclops/ambient1",
+          "volume": 1.0
+        },
+        {
+          "name": "sounds/cb/cyclops/ambient2",
+          "volume": 1.0
+        },
+        {
+          "name": "sounds/cb/cyclops/ambient3",
+          "volume": 1.0
+        }
+      ]
+    },
+    "cb.cyclops.hurt": {
+      "category": "hostile",
+      "max_distance": 48.0,
+      "sounds": [
+        {
+          "name": "sounds/cb/cyclops/hurt1",
+          "volume": 1.0
+        },
+        {
+          "name": "sounds/cb/cyclops/hurt2",
+          "volume": 1.0
+        },
+        {
+          "name": "sounds/cb/cyclops/hurt3",
+          "volume": 1.0
+        }
+      ]
+    },
+    "cb.cyclops.death": {
+      "category": "hostile",
+      "max_distance": 48.0,
+      "sounds": [
+        {
+          "name": "sounds/cb/cyclops/death1",
+          "volume": 1.2
+        },
+        {
+          "name": "sounds/cb/cyclops/death2",
+          "volume": 1.2
+        }
+      ]
+    },
+    "cb.cyclops.step": {
+      "category": "hostile",
+      "max_distance": 48.0,
+      "sounds": [
+        {
+          "name": "sounds/cb/cyclops/step1",
+          "volume": 0.9
+        },
+        {
+          "name": "sounds/cb/cyclops/step2",
+          "volume": 0.9
+        },
+        {
+          "name": "sounds/cb/cyclops/step3",
+          "volume": 0.9
+        }
+      ]
+    },
+    "cb.cyclops.roar": {
+      "category": "hostile",
+      "max_distance": 48.0,
+      "sounds": [
+        {
+          "name": "sounds/cb/cyclops/roar1",
+          "volume": 1.5
+        },
+        {
+          "name": "sounds/cb/cyclops/roar2",
+          "volume": 1.5
+        }
+      ]
+    },
+    "cb.cyclops.eye_hurt": {
+      "category": "hostile",
+      "max_distance": 48.0,
+      "sounds": [
+        {
+          "name": "sounds/cb/cyclops/eye_hurt1",
+          "volume": 1.2
+        },
+        {
+          "name": "sounds/cb/cyclops/eye_hurt2",
+          "volume": 1.2
+        },
+        {
+          "name": "sounds/cb/cyclops/eye_hurt3",
+          "volume": 1.2
+        }
+      ]
+    },
+    "cb.cyclops.grab": {
+      "category": "hostile",
+      "max_distance": 48.0,
+      "sounds": [
+        {
+          "name": "sounds/cb/cyclops/grab1",
+          "volume": 1.2
+        },
+        {
+          "name": "sounds/cb/cyclops/grab2",
+          "volume": 1.2
+        }
+      ]
+    },
+    "cb.cyclops.chomp": {
+      "category": "hostile",
+      "max_distance": 48.0,
+      "sounds": [
+        {
+          "name": "sounds/cb/cyclops/chomp1",
+          "volume": 1.2
+        },
+        {
+          "name": "sounds/cb/cyclops/chomp2",
+          "volume": 1.2
+        }
+      ]
+    },
+    "cb.cyclops.burp": {
+      "category": "hostile",
+      "max_distance": 48.0,
+      "sounds": [
+        {
+          "name": "sounds/cb/cyclops/burp1",
+          "volume": 1.1
+        },
+        {
+          "name": "sounds/cb/cyclops/burp2",
+          "volume": 1.1
+        }
+      ]
+    },
+    "cb.cyclops.count": {
+      "category": "hostile",
+      "max_distance": 48.0,
+      "sounds": [
+        {
+          "name": "sounds/cb/cyclops/count1",
+          "volume": 1.1
+        },
+        {
+          "name": "sounds/cb/cyclops/count2",
+          "volume": 1.1
+        }
+      ]
+    },
+    "cb.cyclops.swing": {
+      "category": "hostile",
+      "max_distance": 48.0,
+      "sounds": [
+        {
+          "name": "sounds/cb/cyclops/swing1",
+          "volume": 0.8
+        },
+        {
+          "name": "sounds/cb/cyclops/swing2",
+          "volume": 0.8
+        },
+        {
+          "name": "sounds/cb/cyclops/swing3",
+          "volume": 0.8
+        }
+      ]
+    },
+    "cb.cyclops.gulp": {
+      "category": "hostile",
+      "max_distance": 48.0,
+      "sounds": [
+        {
+          "name": "sounds/cb/cyclops/gulp1",
+          "volume": 0.7
+        },
+        {
+          "name": "sounds/cb/cyclops/gulp2",
+          "volume": 0.7
+        }
+      ]
+    },
+    "cb.cyclops.slurp": {
+      "category": "hostile",
+      "max_distance": 48.0,
+      "sounds": [
+        {
+          "name": "sounds/cb/cyclops/slurp1",
+          "volume": 1.1
+        },
+        {
+          "name": "sounds/cb/cyclops/slurp2",
+          "volume": 1.1
+        }
+      ]
+    },
+    "cb.cyclops.squeeze": {
+      "category": "hostile",
+      "max_distance": 48.0,
+      "sounds": [
+        {
+          "name": "sounds/cb/cyclops/squeeze1",
+          "volume": 1.1
+        },
+        {
+          "name": "sounds/cb/cyclops/squeeze2",
+          "volume": 1.1
+        },
+        {
+          "name": "sounds/cb/cyclops/squeeze3",
+          "volume": 1.1
+        }
+      ]
+    },
+    "cb.cyclops.retch": {
+      "category": "hostile",
+      "max_distance": 48.0,
+      "sounds": [
+        {
+          "name": "sounds/cb/cyclops/retch1",
+          "volume": 1.2
+        },
+        {
+          "name": "sounds/cb/cyclops/retch2",
+          "volume": 1.2
+        }
+      ]
+    },
+    "cb.cyclops.sit": {
+      "category": "hostile",
+      "max_distance": 48.0,
+      "sounds": [
+        {
+          "name": "sounds/cb/cyclops/sit1",
+          "volume": 1.3
+        }
+      ]
+    },
+    "cb.cyclops.getup": {
+      "category": "hostile",
+      "max_distance": 48.0,
+      "sounds": [
+        {
+          "name": "sounds/cb/cyclops/getup1",
+          "volume": 1.2
+        },
+        {
+          "name": "sounds/cb/cyclops/getup2",
+          "volume": 1.2
+        }
+      ]
+    },
+    "cb.cyclops.snore": {
+      "category": "hostile",
+      "max_distance": 48.0,
+      "sounds": [
+        {
+          "name": "sounds/cb/cyclops/snore1",
+          "volume": 0.9
+        },
+        {
+          "name": "sounds/cb/cyclops/snore2",
+          "volume": 0.9
+        },
+        {
+          "name": "sounds/cb/cyclops/snore3",
+          "volume": 0.9
+        }
+      ]
+    },
+    "cb.cyclops.yawn": {
+      "category": "hostile",
+      "max_distance": 48.0,
+      "sounds": [
+        {
+          "name": "sounds/cb/cyclops/yawn1",
+          "volume": 1.1
+        },
+        {
+          "name": "sounds/cb/cyclops/yawn2",
+          "volume": 1.1
+        }
+      ]
+    },
+    "cb.hydra.ambient": {
+      "category": "hostile",
+      "max_distance": 48.0,
+      "sounds": [
+        {
+          "name": "sounds/cb/hydra/ambient1",
+          "volume": 1.0
+        },
+        {
+          "name": "sounds/cb/hydra/ambient2",
+          "volume": 1.0
+        },
+        {
+          "name": "sounds/cb/hydra/ambient3",
+          "volume": 1.0
+        }
+      ]
+    },
+    "cb.hydra.hiss": {
+      "category": "hostile",
+      "max_distance": 48.0,
+      "sounds": [
+        {
+          "name": "sounds/cb/hydra/hiss1",
+          "volume": 1.0
+        },
+        {
+          "name": "sounds/cb/hydra/hiss2",
+          "volume": 1.0
+        },
+        {
+          "name": "sounds/cb/hydra/hiss3",
+          "volume": 1.0
+        }
+      ]
+    },
+    "cb.hydra.bite": {
+      "category": "hostile",
+      "max_distance": 48.0,
+      "sounds": [
+        {
+          "name": "sounds/cb/hydra/bite1",
+          "volume": 1.0
+        },
+        {
+          "name": "sounds/cb/hydra/bite2",
+          "volume": 1.0
+        },
+        {
+          "name": "sounds/cb/hydra/bite3",
+          "volume": 1.0
+        }
+      ]
+    },
+    "cb.hydra.head_hurt": {
+      "category": "hostile",
+      "max_distance": 48.0,
+      "sounds": [
+        {
+          "name": "sounds/cb/hydra/head_hurt1",
+          "volume": 1.0
+        },
+        {
+          "name": "sounds/cb/hydra/head_hurt2",
+          "volume": 1.0
+        },
+        {
+          "name": "sounds/cb/hydra/head_hurt3",
+          "volume": 1.0
+        }
+      ]
+    },
+    "cb.hydra.head_death": {
+      "category": "hostile",
+      "max_distance": 48.0,
+      "sounds": [
+        {
+          "name": "sounds/cb/hydra/head_death1",
+          "volume": 1.3
+        },
+        {
+          "name": "sounds/cb/hydra/head_death2",
+          "volume": 1.3
+        }
+      ]
+    },
+    "cb.hydra.death_roar": {
+      "category": "hostile",
+      "max_distance": 48.0,
+      "sounds": [
+        {
+          "name": "sounds/cb/hydra/death_roar1",
+          "volume": 1.5
+        }
+      ]
+    },
+    "cb.hydra.death": {
+      "category": "hostile",
+      "max_distance": 48.0,
+      "sounds": [
+        {
+          "name": "sounds/cb/hydra/death1",
+          "volume": 1.2
+        }
+      ]
+    },
+    "cb.hydra.step": {
+      "category": "hostile",
+      "max_distance": 48.0,
+      "sounds": [
+        {
+          "name": "sounds/cb/hydra/step1",
+          "volume": 0.8
+        },
+        {
+          "name": "sounds/cb/hydra/step2",
+          "volume": 0.8
+        },
+        {
+          "name": "sounds/cb/hydra/step3",
+          "volume": 0.8
+        }
+      ]
+    },
+    "cb.hydra.spit": {
+      "category": "hostile",
+      "max_distance": 48.0,
+      "sounds": [
+        {
+          "name": "sounds/cb/hydra/spit1",
+          "volume": 1.0
+        },
+        {
+          "name": "sounds/cb/hydra/spit2",
+          "volume": 1.0
+        },
+        {
+          "name": "sounds/cb/hydra/spit3",
+          "volume": 1.0
+        }
+      ]
+    },
+    "cb.hydra.splat": {
+      "category": "hostile",
+      "max_distance": 48.0,
+      "sounds": [
+        {
+          "name": "sounds/cb/hydra/splat1",
+          "volume": 0.9
+        },
+        {
+          "name": "sounds/cb/hydra/splat2",
+          "volume": 0.9
+        }
+      ]
+    },
+    "cb.hydra.regrow": {
+      "category": "hostile",
+      "max_distance": 48.0,
+      "sounds": [
+        {
+          "name": "sounds/cb/hydra/regrow1",
+          "volume": 1.3
+        },
+        {
+          "name": "sounds/cb/hydra/regrow2",
+          "volume": 1.3
+        }
+      ]
+    },
+    "cb.hydra.sizzle": {
+      "category": "hostile",
+      "max_distance": 48.0,
+      "sounds": [
+        {
+          "name": "sounds/cb/hydra/sizzle1",
+          "volume": 1.2
+        },
+        {
+          "name": "sounds/cb/hydra/sizzle2",
+          "volume": 1.2
+        }
+      ]
+    },
+    "cb.hydra.enrage": {
+      "category": "hostile",
+      "max_distance": 48.0,
+      "sounds": [
+        {
+          "name": "sounds/cb/hydra/enrage1",
+          "volume": 1.5
+        }
+      ]
+    },
+    "cb.hydra.clang": {
+      "category": "hostile",
+      "max_distance": 48.0,
+      "sounds": [
+        {
+          "name": "sounds/cb/hydra/clang1",
+          "volume": 0.8
+        },
+        {
+          "name": "sounds/cb/hydra/clang2",
+          "volume": 0.8
+        }
+      ]
+    },
+    "cb.circe.ambient": {
+      "category": "hostile",
+      "max_distance": 48.0,
+      "sounds": [
+        {
+          "name": "sounds/cb/circe/ambient1",
+          "volume": 0.8
+        },
+        {
+          "name": "sounds/cb/circe/ambient2",
+          "volume": 0.8
+        }
+      ]
+    },
+    "cb.circe.laugh": {
+      "category": "hostile",
+      "max_distance": 48.0,
+      "sounds": [
+        {
+          "name": "sounds/cb/circe/laugh1",
+          "volume": 1.2
+        },
+        {
+          "name": "sounds/cb/circe/laugh2",
+          "volume": 1.2
+        }
+      ]
+    },
+    "cb.circe.cast": {
+      "category": "hostile",
+      "max_distance": 48.0,
+      "sounds": [
+        {
+          "name": "sounds/cb/circe/cast1",
+          "volume": 1.2
+        },
+        {
+          "name": "sounds/cb/circe/cast2",
+          "volume": 1.2
+        }
+      ]
+    },
+    "cb.circe.hurt": {
+      "category": "hostile",
+      "max_distance": 48.0,
+      "sounds": [
+        {
+          "name": "sounds/cb/circe/hurt1",
+          "volume": 1.0
+        },
+        {
+          "name": "sounds/cb/circe/hurt2",
+          "volume": 1.0
+        },
+        {
+          "name": "sounds/cb/circe/hurt3",
+          "volume": 1.0
+        }
+      ]
+    },
+    "cb.circe.death": {
+      "category": "hostile",
+      "max_distance": 48.0,
+      "sounds": [
+        {
+          "name": "sounds/cb/circe/death1",
+          "volume": 1.3
+        }
+      ]
+    },
+    "cb.circe.hex": {
+      "category": "hostile",
+      "max_distance": 48.0,
+      "sounds": [
+        {
+          "name": "sounds/cb/circe/hex1",
+          "volume": 1.2
+        },
+        {
+          "name": "sounds/cb/circe/hex2",
+          "volume": 1.2
+        }
+      ]
+    },
+    "cb.laestrygonian.ambient": {
+      "category": "hostile",
+      "max_distance": 48.0,
+      "sounds": [
+        {
+          "name": "sounds/cb/laestrygonian/ambient1",
+          "volume": 1.0
+        },
+        {
+          "name": "sounds/cb/laestrygonian/ambient2",
+          "volume": 1.0
+        },
+        {
+          "name": "sounds/cb/laestrygonian/ambient3",
+          "volume": 1.0
+        }
+      ]
+    },
+    "cb.laestrygonian.hurt": {
+      "category": "hostile",
+      "max_distance": 48.0,
+      "sounds": [
+        {
+          "name": "sounds/cb/laestrygonian/hurt1",
+          "volume": 1.0
+        },
+        {
+          "name": "sounds/cb/laestrygonian/hurt2",
+          "volume": 1.0
+        },
+        {
+          "name": "sounds/cb/laestrygonian/hurt3",
+          "volume": 1.0
+        }
+      ]
+    },
+    "cb.laestrygonian.death": {
+      "category": "hostile",
+      "max_distance": 48.0,
+      "sounds": [
+        {
+          "name": "sounds/cb/laestrygonian/death1",
+          "volume": 1.2
+        },
+        {
+          "name": "sounds/cb/laestrygonian/death2",
+          "volume": 1.2
+        }
+      ]
+    },
+    "cb.laestrygonian.roar": {
+      "category": "hostile",
+      "max_distance": 48.0,
+      "sounds": [
+        {
+          "name": "sounds/cb/laestrygonian/roar1",
+          "volume": 1.5
+        },
+        {
+          "name": "sounds/cb/laestrygonian/roar2",
+          "volume": 1.5
+        }
+      ]
+    },
+    "cb.laestrygonian.step": {
+      "category": "hostile",
+      "max_distance": 48.0,
+      "sounds": [
+        {
+          "name": "sounds/cb/laestrygonian/step1",
+          "volume": 0.8
+        },
+        {
+          "name": "sounds/cb/laestrygonian/step2",
+          "volume": 0.8
+        },
+        {
+          "name": "sounds/cb/laestrygonian/step3",
+          "volume": 0.8
+        }
+      ]
+    },
+    "cb.laestrygonian.swing": {
+      "category": "hostile",
+      "max_distance": 48.0,
+      "sounds": [
+        {
+          "name": "sounds/cb/laestrygonian/swing1",
+          "volume": 1.0
+        },
+        {
+          "name": "sounds/cb/laestrygonian/swing2",
+          "volume": 1.0
+        },
+        {
+          "name": "sounds/cb/laestrygonian/swing3",
+          "volume": 1.0
+        }
+      ]
+    },
+    "cb.cyclops.boulder": {
+      "category": "hostile",
+      "max_distance": 48.0,
+      "sounds": [
+        {
+          "name": "sounds/cb/cyclops/boulder1",
+          "volume": 1.6
+        }
+      ]
+    },
+    "cb.mermaid.song": {
+      "category": "neutral",
+      "max_distance": 16.0,
+      "sounds": [
+        {
+          "name": "sounds/cb/mermaid/song1",
+          "volume": 1.4
+        },
+        {
+          "name": "sounds/cb/mermaid/song2",
+          "volume": 1.4
+        }
+      ]
+    },
+    "cb.mermaid.ambient": {
+      "category": "neutral",
+      "max_distance": 16.0,
+      "sounds": [
+        {
+          "name": "sounds/cb/mermaid/ambient1",
+          "volume": 0.7
+        },
+        {
+          "name": "sounds/cb/mermaid/ambient2",
+          "volume": 0.7
+        }
+      ]
+    },
+    "cb.mermaid.hurt": {
+      "category": "neutral",
+      "max_distance": 16.0,
+      "sounds": [
+        {
+          "name": "sounds/cb/mermaid/hurt1",
+          "volume": 1.0
+        },
+        {
+          "name": "sounds/cb/mermaid/hurt2",
+          "volume": 1.0
+        }
+      ]
+    },
+    "cb.mermaid.death": {
+      "category": "neutral",
+      "max_distance": 16.0,
+      "sounds": [
+        {
+          "name": "sounds/cb/mermaid/death1",
+          "volume": 1.1
+        }
+      ]
+    },
+    "cb.siren.song": {
+      "category": "hostile",
+      "max_distance": 48.0,
+      "sounds": [
+        {
+          "name": "sounds/cb/siren/song1",
+          "volume": 1.5
+        },
+        {
+          "name": "sounds/cb/siren/song2",
+          "volume": 1.5
+        }
+      ]
+    },
+    "cb.siren.ambient": {
+      "category": "hostile",
+      "max_distance": 48.0,
+      "sounds": [
+        {
+          "name": "sounds/cb/siren/ambient1",
+          "volume": 0.8
+        },
+        {
+          "name": "sounds/cb/siren/ambient2",
+          "volume": 0.8
+        }
+      ]
+    },
+    "cb.siren.hurt": {
+      "category": "hostile",
+      "max_distance": 48.0,
+      "sounds": [
+        {
+          "name": "sounds/cb/siren/hurt1",
+          "volume": 1.0
+        },
+        {
+          "name": "sounds/cb/siren/hurt2",
+          "volume": 1.0
+        }
+      ]
+    },
+    "cb.siren.death": {
+      "category": "hostile",
+      "max_distance": 48.0,
+      "sounds": [
+        {
+          "name": "sounds/cb/siren/death1",
+          "volume": 1.2
+        }
+      ]
+    },
+    "cb.siren.screech": {
+      "category": "hostile",
+      "max_distance": 48.0,
+      "sounds": [
+        {
+          "name": "sounds/cb/siren/screech1",
+          "volume": 1.4
+        },
+        {
+          "name": "sounds/cb/siren/screech2",
+          "volume": 1.4
+        }
+      ]
+    },
+    "cb.beetle.ambient": {
+      "category": "neutral",
+      "max_distance": 16.0,
+      "sounds": [
+        {
+          "name": "sounds/cb/beetle/ambient1",
+          "volume": 0.6
+        },
+        {
+          "name": "sounds/cb/beetle/ambient2",
+          "volume": 0.6
+        },
+        {
+          "name": "sounds/cb/beetle/ambient3",
+          "volume": 0.6
+        }
+      ]
+    },
+    "cb.beetle.step": {
+      "category": "neutral",
+      "max_distance": 16.0,
+      "sounds": [
+        {
+          "name": "sounds/cb/beetle/step1",
+          "volume": 0.35
+        },
+        {
+          "name": "sounds/cb/beetle/step2",
+          "volume": 0.35
+        },
+        {
+          "name": "sounds/cb/beetle/step3",
+          "volume": 0.35
+        }
+      ]
+    },
+    "cb.beetle.death": {
+      "category": "neutral",
+      "max_distance": 16.0,
+      "sounds": [
+        {
+          "name": "sounds/cb/beetle/death1",
+          "volume": 0.8
+        },
+        {
+          "name": "sounds/cb/beetle/death2",
+          "volume": 0.8
+        }
+      ]
+    },
+    "cb.sheepskin.wear": {
+      "category": "player",
+      "max_distance": 16.0,
+      "sounds": [
+        {
+          "name": "sounds/cb/sheepskin/wear1",
+          "volume": 0.8
+        },
+        {
+          "name": "sounds/cb/sheepskin/wear2",
+          "volume": 0.8
+        }
+      ]
+    },
+    "cb.beetle.munch": {
+      "category": "neutral",
+      "max_distance": 16.0,
+      "sounds": [
+        {
+          "name": "sounds/cb/beetle/munch1",
+          "volume": 0.8
+        },
+        {
+          "name": "sounds/cb/beetle/munch2",
+          "volume": 0.8
+        }
+      ]
+    },
+    "cb.beetle.crack": {
+      "category": "neutral",
+      "max_distance": 16.0,
+      "sounds": [
+        {
+          "name": "sounds/cb/beetle/crack1",
+          "volume": 1.0
+        },
+        {
+          "name": "sounds/cb/beetle/crack2",
+          "volume": 1.0
+        },
+        {
+          "name": "sounds/cb/beetle/crack3",
+          "volume": 1.0
+        }
+      ]
+    },
+    "cb.beetle.clink": {
+      "category": "neutral",
+      "max_distance": 16.0,
+      "sounds": [
+        {
+          "name": "sounds/cb/beetle/clink1",
+          "volume": 0.8
+        },
+        {
+          "name": "sounds/cb/beetle/clink2",
+          "volume": 0.8
+        },
+        {
+          "name": "sounds/cb/beetle/clink3",
+          "volume": 0.8
+        }
+      ]
+    },
+    "cb.beetle.coal.hurt": {
+      "category": "neutral",
+      "max_distance": 16.0,
+      "sounds": [
+        {
+          "name": "sounds/cb/beetle/coal/hurt1",
+          "volume": 0.8
+        },
+        {
+          "name": "sounds/cb/beetle/coal/hurt2",
+          "volume": 0.8
+        }
+      ]
+    },
+    "cb.beetle.copper.hurt": {
+      "category": "neutral",
+      "max_distance": 16.0,
+      "sounds": [
+        {
+          "name": "sounds/cb/beetle/copper/hurt1",
+          "volume": 0.8
+        },
+        {
+          "name": "sounds/cb/beetle/copper/hurt2",
+          "volume": 0.8
+        }
+      ]
+    },
+    "cb.beetle.quartz.hurt": {
+      "category": "neutral",
+      "max_distance": 16.0,
+      "sounds": [
+        {
+          "name": "sounds/cb/beetle/quartz/hurt1",
+          "volume": 0.8
+        },
+        {
+          "name": "sounds/cb/beetle/quartz/hurt2",
+          "volume": 0.8
+        }
+      ]
+    },
+    "cb.beetle.redstone.hurt": {
+      "category": "neutral",
+      "max_distance": 16.0,
+      "sounds": [
+        {
+          "name": "sounds/cb/beetle/redstone/hurt1",
+          "volume": 0.8
+        },
+        {
+          "name": "sounds/cb/beetle/redstone/hurt2",
+          "volume": 0.8
+        }
+      ]
+    },
+    "cb.beetle.iron.hurt": {
+      "category": "neutral",
+      "max_distance": 16.0,
+      "sounds": [
+        {
+          "name": "sounds/cb/beetle/iron/hurt1",
+          "volume": 0.8
+        },
+        {
+          "name": "sounds/cb/beetle/iron/hurt2",
+          "volume": 0.8
+        }
+      ]
+    },
+    "cb.beetle.lapis.hurt": {
+      "category": "neutral",
+      "max_distance": 16.0,
+      "sounds": [
+        {
+          "name": "sounds/cb/beetle/lapis/hurt1",
+          "volume": 0.8
+        },
+        {
+          "name": "sounds/cb/beetle/lapis/hurt2",
+          "volume": 0.8
+        }
+      ]
+    },
+    "cb.beetle.gold.hurt": {
+      "category": "neutral",
+      "max_distance": 16.0,
+      "sounds": [
+        {
+          "name": "sounds/cb/beetle/gold/hurt1",
+          "volume": 0.8
+        },
+        {
+          "name": "sounds/cb/beetle/gold/hurt2",
+          "volume": 0.8
+        }
+      ]
+    },
+    "cb.beetle.emerald.hurt": {
+      "category": "neutral",
+      "max_distance": 16.0,
+      "sounds": [
+        {
+          "name": "sounds/cb/beetle/emerald/hurt1",
+          "volume": 0.8
+        },
+        {
+          "name": "sounds/cb/beetle/emerald/hurt2",
+          "volume": 0.8
+        }
+      ]
+    },
+    "cb.beetle.diamond.hurt": {
+      "category": "neutral",
+      "max_distance": 16.0,
+      "sounds": [
+        {
+          "name": "sounds/cb/beetle/diamond/hurt1",
+          "volume": 0.8
+        },
+        {
+          "name": "sounds/cb/beetle/diamond/hurt2",
+          "volume": 0.8
+        }
+      ]
+    },
+    "cb.music.ting_tang": {
+      "category": "record",
+      "max_distance": 64.0,
+      "sounds": [
+        {
+          "name": "sounds/cb/music/ting_tang",
+          "stream": true,
+          "volume": 1.35,
+          "load_on_low_memory": true
+        }
+      ]
+    },
+    "cb.inferno_golem.ambient": {
+      "category": "hostile",
+      "max_distance": 48.0,
+      "sounds": [
+        {
+          "name": "sounds/cb/inferno_golem/ambient1",
+          "volume": 1.1
+        },
+        {
+          "name": "sounds/cb/inferno_golem/ambient2",
+          "volume": 1.1
+        }
+      ]
+    },
+    "cb.inferno_golem.hurt": {
+      "category": "hostile",
+      "max_distance": 48.0,
+      "sounds": [
+        {
+          "name": "sounds/cb/inferno_golem/hurt1",
+          "volume": 1.2
+        },
+        {
+          "name": "sounds/cb/inferno_golem/hurt2",
+          "volume": 1.2
+        }
+      ]
+    },
+    "cb.inferno_golem.death": {
+      "category": "hostile",
+      "max_distance": 56.0,
+      "sounds": [
+        {
+          "name": "sounds/cb/inferno_golem/death",
+          "volume": 1.4
+        }
+      ]
+    },
+    "cb.inferno_golem.step": {
+      "category": "hostile",
+      "max_distance": 36.0,
+      "sounds": [
+        {
+          "name": "sounds/cb/inferno_golem/step1",
+          "volume": 1.0
+        },
+        {
+          "name": "sounds/cb/inferno_golem/step2",
+          "volume": 1.0
+        }
+      ]
+    },
+    "cb.inferno_golem.attack": {
+      "category": "hostile",
+      "max_distance": 48.0,
+      "sounds": [
+        {
+          "name": "sounds/cb/inferno_golem/attack",
+          "volume": 1.3
+        }
+      ]
+    },
+    "cb.inferno_golem.spawn": {
+      "category": "hostile",
+      "max_distance": 64.0,
+      "sounds": [
+        {
+          "name": "sounds/cb/inferno_golem/spawn",
+          "volume": 1.6
+        }
+      ]
+    }
+  }
+}

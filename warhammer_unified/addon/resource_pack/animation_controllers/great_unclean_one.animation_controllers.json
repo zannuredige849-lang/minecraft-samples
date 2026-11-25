@@ -1,0 +1,177 @@
+{
+  "format_version": "1.10.0",
+  "animation_controllers": {
+    "controller.animation.great_unclean_one": {
+      "initial_state": "idle_a",
+      "states": {
+        "idle_a": {
+          "animations": [
+            "idle_a"
+          ],
+          "blend_transition": 0.18,
+          "transitions": [
+            {
+              "death": "!query.is_alive"
+            },
+            {
+              "ability": "query.property('warcraft:anim_state') == 1"
+            },
+            {
+              "ability2": "query.property('warcraft:anim_state') == 2"
+            },
+            {
+              "attack_a": "(query.attack_time > 0 || query.property('warcraft:anim_state') == 3) && math.random(0, 1) < 0.5"
+            },
+            {
+              "attack_b": "query.attack_time > 0 || query.property('warcraft:anim_state') == 3"
+            },
+            {
+              "walk": "query.modified_move_speed > 0.08 || query.ground_speed > 0.1"
+            },
+            {
+              "idle_b": "math.mod(query.life_time, 10.0) > 7.5"
+            }
+          ]
+        },
+        "walk": {
+          "animations": [
+            "walk"
+          ],
+          "blend_transition": 0.16,
+          "transitions": [
+            {
+              "death": "!query.is_alive"
+            },
+            {
+              "ability": "query.property('warcraft:anim_state') == 1"
+            },
+            {
+              "ability2": "query.property('warcraft:anim_state') == 2"
+            },
+            {
+              "attack_a": "(query.attack_time > 0 || query.property('warcraft:anim_state') == 3) && math.random(0, 1) < 0.5"
+            },
+            {
+              "attack_b": "query.attack_time > 0 || query.property('warcraft:anim_state') == 3"
+            },
+            {
+              "idle_a": "query.modified_move_speed <= 0.08 && query.ground_speed <= 0.1"
+            }
+          ]
+        },
+        "attack_a": {
+          "animations": [
+            "attack_a"
+          ],
+          "blend_transition": 0.1,
+          "transitions": [
+            {
+              "death": "!query.is_alive"
+            },
+            {
+              "ability": "query.property('warcraft:anim_state') == 1"
+            },
+            {
+              "walk": "query.all_animations_finished && (query.modified_move_speed > 0.08 || query.ground_speed > 0.1)"
+            },
+            {
+              "idle_a": "query.all_animations_finished"
+            }
+          ]
+        },
+        "ability": {
+          "animations": [
+            "slam"
+          ],
+          "blend_transition": 0.1,
+          "transitions": [
+            {
+              "death": "!query.is_alive"
+            },
+            {
+              "walk": "query.all_animations_finished && query.property('warcraft:anim_state') != 1 && (query.modified_move_speed > 0.08 || query.ground_speed > 0.1)"
+            },
+            {
+              "idle_a": "query.all_animations_finished && query.property('warcraft:anim_state') != 1"
+            }
+          ]
+        },
+        "death": {
+          "animations": [
+            "death"
+          ],
+          "blend_transition": 0.15
+        },
+        "idle_b": {
+          "animations": [
+            "idle_b"
+          ],
+          "blend_transition": 0.2,
+          "transitions": [
+            {
+              "death": "!query.is_alive"
+            },
+            {
+              "ability": "query.property('warcraft:anim_state') == 1"
+            },
+            {
+              "ability2": "query.property('warcraft:anim_state') == 2"
+            },
+            {
+              "attack_a": "(query.attack_time > 0 || query.property('warcraft:anim_state') == 3) && math.random(0, 1) < 0.5"
+            },
+            {
+              "attack_b": "query.attack_time > 0 || query.property('warcraft:anim_state') == 3"
+            },
+            {
+              "walk": "query.modified_move_speed > 0.08 || query.ground_speed > 0.1"
+            },
+            {
+              "idle_a": "query.all_animations_finished"
+            }
+          ]
+        },
+        "attack_b": {
+          "animations": [
+            "attack_b"
+          ],
+          "blend_transition": 0.1,
+          "transitions": [
+            {
+              "death": "!query.is_alive"
+            },
+            {
+              "ability": "query.property('warcraft:anim_state') == 1"
+            },
+            {
+              "walk": "query.all_animations_finished && (query.modified_move_speed > 0.08 || query.ground_speed > 0.1)"
+            },
+            {
+              "idle_a": "query.all_animations_finished"
+            }
+          ]
+        },
+        "ability2": {
+          "animations": [
+            "channel"
+          ],
+          "blend_transition": 0.12,
+          "transitions": [
+            {
+              "death": "!query.is_alive"
+            },
+            {
+              "ability": "query.property('warcraft:anim_state') == 1"
+            },
+            {
+              "walk": "query.property('warcraft:anim_state') != 2 && (query.modified_move_speed > 0.08 || query.ground_speed > 0.1)"
+            },
+            {
+              "idle_a": "query.property('warcraft:anim_state') != 2"
+            }
+          ]
+        }
+      }
+    }
+  }
+}

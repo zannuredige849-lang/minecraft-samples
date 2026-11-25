@@ -1,0 +1,8 @@
+{
+  "format_version": "1.16.100",
+  "minecraft:texture_set": {
+    "color": "human_woman",
+    "metalness_emissive_roughness": "human_woman_mer",
+    "heightmap": "human_woman_height"
+  }
+}

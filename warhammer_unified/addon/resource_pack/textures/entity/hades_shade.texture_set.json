@@ -1,0 +1,8 @@
+{
+  "format_version": "1.16.100",
+  "minecraft:texture_set": {
+    "color": "hades_shade",
+    "metalness_emissive_roughness": "hades_shade_mer",
+    "heightmap": "hades_shade_height"
+  }
+}

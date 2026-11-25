@@ -1,0 +1,39 @@
+{
+  "format_version": "1.10.0",
+  "minecraft:client_entity": {
+    "description": {
+      "identifier": "warcraft:ice_demon",
+      "materials": {
+        "default": "entity_alphatest"
+      },
+      "textures": {
+        "default": "textures/entity/ice_demon_voxel"
+      },
+      "geometry": {
+        "default": "geometry.ice_demon"
+      },
+      "animations": {
+        "idle_a": "animation.ice_demon.idle_a",
+        "idle_b": "animation.ice_demon.idle_b",
+        "walk": "animation.ice_demon.walk",
+        "attack_a": "animation.ice_demon.attack_a",
+        "attack_b": "animation.ice_demon.attack_b",
+        "ability": "animation.ice_demon.ability",
+        "death": "animation.ice_demon.death",
+        "move_ctrl": "controller.animation.ice_demon"
+      },
+      "scripts": {
+        "animate": [
+          "move_ctrl"
+        ]
+      },
+      "render_controllers": [
+        "controller.render.default"
+      ],
+      "spawn_egg": {
+        "texture": "egg_warcraft_ice_demon",
+        "texture_index": 0
+      }
+    }
+  }
+}

@@ -1,0 +1,28 @@
+{
+  "format_version": "1.10.0",
+  "minecraft:client_entity": {
+    "description": {
+      "identifier": "cb:fel_rain",
+      "materials": {
+        "default": "entity_alphatest"
+      },
+      "textures": {
+        "fel_rain": "textures/entity/fel_rain"
+      },
+      "geometry": {
+        "default": "geometry.cb_fel_rain"
+      },
+      "render_controllers": [
+        "controller.render.cb_fel_rain"
+      ],
+      "animations": {
+        "spin": "animation.cb_projectile.spin"
+      },
+      "scripts": {
+        "animate": [
+          "spin"
+        ]
+      }
+    }
+  }
+}

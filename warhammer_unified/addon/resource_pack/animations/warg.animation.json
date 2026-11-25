@@ -1,0 +1,200 @@
+{
+  "format_version": "1.8.0",
+  "animations": {
+    "animation.cb_warg.move": {
+      "loop": true,
+      "bones": {
+        "leg_fr": {
+          "rotation": [
+            "math.cos(q.anim_time * 420) * 32",
+            0,
+            0
+          ]
+        },
+        "leg_bl": {
+          "rotation": [
+            "math.cos(q.anim_time * 420) * 32",
+            0,
+            0
+          ]
+        },
+        "leg_fl": {
+          "rotation": [
+            "-math.cos(q.anim_time * 420) * 32",
+            0,
+            0
+          ]
+        },
+        "leg_br": {
+          "rotation": [
+            "-math.cos(q.anim_time * 420) * 32",
+            0,
+            0
+          ]
+        },
+        "body": {
+          "rotation": [
+            "math.sin(q.anim_time * 420) * 2",
+            0,
+            0
+          ]
+        },
+        "tail": {
+          "rotation": [
+            "math.sin(q.anim_time * 420) * 8",
+            0,
+            0
+          ]
+        }
+      }
+    },
+    "animation.cb_warg.idle": {
+      "loop": true,
+      "bones": {
+        "tail": {
+          "rotation": [
+            0,
+            "math.sin(q.life_time * 120) * 10",
+            0
+          ]
+        },
+        "jaw": {
+          "rotation": [
+            "math.max(0, math.sin(q.life_time * 50)) * 6",
+            0,
+            0
+          ]
+        }
+      }
+    },
+    "animation.cb_warg.bite": {
+      "loop": true,
+      "bones": {
+        "head": {
+          "rotation": [
+            "math.sin(variable.attack_time * 180) * 14",
+            0,
+            0
+          ]
+        },
+        "jaw": {
+          "rotation": [
+            "math.sin(variable.attack_time * 180) * 36",
+            0,
+            0
+          ]
+        }
+      }
+    },
+    "animation.cb_warg.dance": {
+      "loop": true,
+      "bones": {
+        "body": {
+          "position": [
+            0,
+            "math.abs(math.sin(q.life_time * 400)) * 2.4",
+            0
+          ],
+          "rotation": [
+            "math.sin(q.life_time * 400) * 10",
+            "math.cos(q.life_time * 200) * 20",
+            "math.sin(q.life_time * 200) * 12"
+          ]
+        },
+        "head": {
+          "rotation": [
+            "math.sin(q.life_time * 400) * 16",
+            "math.cos(q.life_time * 200) * 18",
+            "math.sin(q.life_time * 200) * 12"
+          ]
+        },
+        "jaw": {
+          "rotation": [
+            "6 + math.abs(math.sin(q.life_time * 400)) * 12",
+            0,
+            0
+          ]
+        },
+        "tail": {
+          "rotation": [
+            0,
+            "math.sin(q.life_time * 400) * 28",
+            0
+          ]
+        },
+        "leg_fr": {
+          "rotation": [
+            "math.sin(q.life_time * 400) * 28",
+            0,
+            0
+          ]
+        },
+        "leg_fl": {
+          "rotation": [
+            "-math.sin(q.life_time * 400) * 28",
+            0,
+            0
+          ]
+        },
+        "leg_br": {
+          "rotation": [
+            "-math.sin(q.life_time * 400) * 28",
+            0,
+            0
+          ]
+        },
+        "leg_bl": {
+          "rotation": [
+            "math.sin(q.life_time * 400) * 28",
+            0,
+            0
+          ]
+        }
+      }
+    },
+    "animation.cb_warg.hurt": {
+      "loop": false,
+      "animation_length": 0.3,
+      "bones": {
+        "body": {
+          "rotation": {
+            "0.0": [
+              0,
+              0,
+              0
+            ],
+            "0.1": [
+              -10,
+              0,
+              8
+            ],
+            "0.3": [
+              0,
+              0,
+              0
+            ]
+          }
+        },
+        "jaw": {
+          "rotation": {
+            "0.0": [
+              0,
+              0,
+              0
+            ],
+            "0.1": [
+              25,
+              0,
+              0
+            ],
+            "0.3": [
+              0,
+              0,
+              0
+            ]
+          }
+        }
+      }
+    }
+  }
+}

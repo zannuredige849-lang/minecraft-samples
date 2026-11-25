@@ -1,0 +1,49 @@
+{
+  "format_version": "1.10.0",
+  "minecraft:client_entity": {
+    "description": {
+      "identifier": "cb:zeus_archon",
+      "materials": {
+        "default": "entity_emissive_alpha"
+      },
+      "textures": {
+        "default": "textures/entity/zeus_archon"
+      },
+      "geometry": {
+        "default": "geometry.cb_zeus_archon"
+      },
+      "animations": {
+        "idle": "animation.zeus.idle",
+        "walk": "animation.zeus.walk",
+        "attack": "animation.zeus.attack",
+        "special_attack": "animation.zeus.special_attack",
+        "hurt": "animation.zeus.hurt",
+        "rage": "animation.zeus.rage",
+        "dance": "animation.zeus.dance",
+        "look_at_target": "animation.common.look_at_target"
+      },
+      "scripts": {
+        "animate": [
+          "idle",
+          {
+            "walk": "q.modified_move_speed > 0.02"
+          },
+          {
+            "attack": "variable.attack_time > 0"
+          },
+          {
+            "hurt": "q.hurt_time > 0"
+          },
+          "look_at_target"
+        ]
+      },
+      "render_controllers": [
+        "controller.render.cb_zeus"
+      ],
+      "spawn_egg": {
+        "texture": "egg_cb_zeus_archon",
+        "texture_index": 0
+      }
+    }
+  }
+}

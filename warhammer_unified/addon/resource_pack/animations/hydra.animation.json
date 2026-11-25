@@ -1,0 +1,2601 @@
+{
+  "format_version": "1.8.0",
+  "animations": {
+    "animation.hydra.walk": {
+      "loop": true,
+      "bones": {
+        "leg_fr": {
+          "rotation": [
+            "math.cos(q.modified_distance_moved * 30) * 24 * math.min(1.0, q.modified_move_speed * 6.0)",
+            0,
+            0
+          ]
+        },
+        "leg_hl": {
+          "rotation": [
+            "math.cos(q.modified_distance_moved * 30) * 24 * math.min(1.0, q.modified_move_speed * 6.0)",
+            0,
+            0
+          ]
+        },
+        "leg_fl": {
+          "rotation": [
+            "-math.cos(q.modified_distance_moved * 30) * 24 * math.min(1.0, q.modified_move_speed * 6.0)",
+            0,
+            0
+          ]
+        },
+        "leg_hr": {
+          "rotation": [
+            "-math.cos(q.modified_distance_moved * 30) * 24 * math.min(1.0, q.modified_move_speed * 6.0)",
+            0,
+            0
+          ]
+        },
+        "shin_fr": {
+          "rotation": [
+            "math.max(0, -math.sin(q.modified_distance_moved * 30)) * 28 * math.min(1.0, q.modified_move_speed * 6.0)",
+            0,
+            0
+          ]
+        },
+        "shin_hl": {
+          "rotation": [
+            "math.max(0, -math.sin(q.modified_distance_moved * 30)) * 28 * math.min(1.0, q.modified_move_speed * 6.0)",
+            0,
+            0
+          ]
+        },
+        "shin_fl": {
+          "rotation": [
+            "math.max(0, math.sin(q.modified_distance_moved * 30)) * 28 * math.min(1.0, q.modified_move_speed * 6.0)",
+            0,
+            0
+          ]
+        },
+        "shin_hr": {
+          "rotation": [
+            "math.max(0, math.sin(q.modified_distance_moved * 30)) * 28 * math.min(1.0, q.modified_move_speed * 6.0)",
+            0,
+            0
+          ]
+        },
+        "body": {
+          "rotation": [
+            0,
+            0,
+            "math.sin(q.modified_distance_moved * 30) * 2.5 * math.min(1.0, q.modified_move_speed * 6.0)"
+          ],
+          "position": [
+            0,
+            "-math.abs(math.sin(q.modified_distance_moved * 30)) * 0.8 * math.min(1.0, q.modified_move_speed * 6.0)",
+            0
+          ]
+        },
+        "tail1": {
+          "rotation": [
+            0,
+            "math.sin(q.modified_distance_moved * 30) * 10 * math.min(1.0, q.modified_move_speed * 6.0)",
+            0
+          ]
+        },
+        "tail2": {
+          "rotation": [
+            0,
+            "math.sin(q.modified_distance_moved * 30 - 50) * 12 * math.min(1.0, q.modified_move_speed * 6.0)",
+            0
+          ]
+        },
+        "tail3": {
+          "rotation": [
+            0,
+            "math.sin(q.modified_distance_moved * 30 - 100) * 14 * math.min(1.0, q.modified_move_speed * 6.0)",
+            0
+          ]
+        }
+      }
+    },
+    "animation.hydra.idle": {
+      "loop": true,
+      "bones": {
+        "chest": {
+          "scale": [
+            1,
+            "1 + math.sin(q.life_time * 55) * 0.012",
+            "1 + math.sin(q.life_time * 55) * 0.012"
+          ]
+        },
+        "tail1": {
+          "rotation": [
+            0,
+            "math.sin(q.life_time * 40) * 6",
+            0
+          ]
+        },
+        "tail2": {
+          "rotation": [
+            0,
+            "math.sin(q.life_time * 40 - 45) * 8",
+            0
+          ]
+        },
+        "tail3": {
+          "rotation": [
+            "math.sin(q.life_time * 30) * 3",
+            "math.sin(q.life_time * 40 - 90) * 10",
+            0
+          ]
+        },
+        "tail_tip": {
+          "rotation": [
+            0,
+            "math.sin(q.life_time * 40 - 130) * 12",
+            0
+          ]
+        }
+      }
+    },
+    "animation.hydra.align": {
+      "loop": true,
+      "bones": {
+        "necks": {
+          "rotation": [
+            0,
+            "v.ny",
+            0
+          ]
+        }
+      }
+    },
+    "animation.hydra.aim0": {
+      "loop": true,
+      "bones": {
+        "neck0_yaw": {
+          "rotation": [
+            0,
+            "0.3 * v.y0 + math.sin(q.life_time * 38 + 0) * 4",
+            0
+          ]
+        },
+        "neck0_1": {
+          "rotation": [
+            "0.3 * v.e0 * (v.p0 - 15.0) + math.sin(q.life_time * 52 + 0) * 3",
+            0,
+            0
+          ]
+        },
+        "neck0_2": {
+          "rotation": [
+            "(-7.5) * v.e0 + math.sin(q.life_time * 52 + 50) * 3",
+            0,
+            0
+          ]
+        },
+        "neck0_3": {
+          "rotation": [
+            "(-7.5) * v.e0 + math.sin(q.life_time * 52 + 100) * 3",
+            0,
+            0
+          ]
+        },
+        "neck0_4": {
+          "rotation": [
+            "(-6.0) * v.e0 + math.sin(q.life_time * 52 + 150) * 2",
+            0,
+            0
+          ]
+        },
+        "head0_lvl": {
+          "rotation": [
+            "(-0.3) * v.e0 * (v.p0 - 85.0)",
+            0,
+            0
+          ]
+        },
+        "head0_yaw": {
+          "rotation": [
+            0,
+            "0.7 * v.y0",
+            0
+          ]
+        },
+        "head0": {
+          "rotation": [
+            "v.l0",
+            0,
+            "math.sin(q.life_time * 31 + 0) * 3"
+          ]
+        },
+        "jaw0": {
+          "rotation": [
+            "math.max(0, math.sin(q.life_time * 47 + 0)) * 7",
+            0,
+            0
+          ]
+        },
+        "stump0": {
+          "scale": 0
+        },
+        "tongue0": {
+          "position": [
+            0,
+            0,
+            "math.mod(q.life_time + 0.0, 3.4) < 0.35 ? math.sin(q.life_time * 2400) * 0.6 : 4"
+          ]
+        }
+      }
+    },
+    "animation.hydra.strike0": {
+      "loop": false,
+      "animation_length": 0.8,
+      "bones": {
+        "neck0_yaw": {
+          "rotation": {
+            "0.00": [
+              0,
+              "0.0 * v.y0",
+              0
+            ],
+            "0.15": [
+              0,
+              "(-0.175) * v.y0",
+              0
+            ],
+            "0.35": [
+              0,
+              "0.7 * v.y0",
+              0
+            ],
+            "0.45": [
+              0,
+              "0.7 * v.y0",
+              0
+            ],
+            "0.80": [
+              0,
+              "0.0 * v.y0",
+              0
+            ]
+          }
+        },
+        "neck0_1": {
+          "rotation": {
+            "0.00": [
+              "0.0 * ((q.property('cb:lo0') - 15.0) - 0.3 * (v.p0 - 15.0))",
+              0,
+              0
+            ],
+            "0.15": [
+              "(-0.25) * ((q.property('cb:lo0') - 15.0) - 0.3 * (v.p0 - 15.0))",
+              0,
+              0
+            ],
+            "0.35": [
+              "1.0 * ((q.property('cb:lo0') - 15.0) - 0.3 * (v.p0 - 15.0))",
+              0,
+              0
+            ],
+            "0.45": [
+              "1.0 * ((q.property('cb:lo0') - 15.0) - 0.3 * (v.p0 - 15.0))",
+              0,
+              0
+            ],
+            "0.80": [
+              "0.0 * ((q.property('cb:lo0') - 15.0) - 0.3 * (v.p0 - 15.0))",
+              0,
+              0
+            ]
+          }
+        },
+        "neck0_2": {
+          "rotation": {
+            "0.00": [
+              0.0,
+              0,
+              0
+            ],
+            "0.15": [
+              4.375,
+              0,
+              0
+            ],
+            "0.35": [
+              -17.5,
+              0,
+              0
+            ],
+            "0.45": [
+              -17.5,
+              0,
+              0
+            ],
+            "0.80": [
+              0.0,
+              0,
+              0
+            ]
+          }
+        },
+        "neck0_3": {
+          "rotation": {
+            "0.00": [
+              "0.0 * ((q.property('cb:up0') - q.property('cb:lo0')) - 17.5)",
+              0,
+              0
+            ],
+            "0.15": [
+              "(-0.25) * ((q.property('cb:up0') - q.property('cb:lo0')) - 17.5)",
+              0,
+              0
+            ],
+            "0.35": [
+              "1.0 * ((q.property('cb:up0') - q.property('cb:lo0')) - 17.5)",
+              0,
+              0
+            ],
+            "0.45": [
+              "1.0 * ((q.property('cb:up0') - q.property('cb:lo0')) - 17.5)",
+              0,
+              0
+            ],
+            "0.80": [
+              "0.0 * ((q.property('cb:up0') - q.property('cb:lo0')) - 17.5)",
+              0,
+              0
+            ]
+          }
+        },
+        "neck0_4": {
+          "rotation": {
+            "0.00": [
+              0.0,
+              0,
+              0
+            ],
+            "0.15": [
+              3.5,
+              0,
+              0
+            ],
+            "0.35": [
+              -14.0,
+              0,
+              0
+            ],
+            "0.45": [
+              -14.0,
+              0,
+              0
+            ],
+            "0.80": [
+              0.0,
+              0,
+              0
+            ]
+          }
+        },
+        "head0_lvl": {
+          "rotation": {
+            "0.00": [
+              "0.0 * (0.3 * (v.p0 - 85.0) - (q.property('cb:up0') - 85.0))",
+              0,
+              0
+            ],
+            "0.15": [
+              "(-0.25) * (0.3 * (v.p0 - 85.0) - (q.property('cb:up0') - 85.0))",
+              0,
+              0
+            ],
+            "0.35": [
+              "1.0 * (0.3 * (v.p0 - 85.0) - (q.property('cb:up0') - 85.0))",
+              0,
+              0
+            ],
+            "0.45": [
+              "1.0 * (0.3 * (v.p0 - 85.0) - (q.property('cb:up0') - 85.0))",
+              0,
+              0
+            ],
+            "0.80": [
+              "0.0 * (0.3 * (v.p0 - 85.0) - (q.property('cb:up0') - 85.0))",
+              0,
+              0
+            ]
+          }
+        },
+        "head0_yaw": {
+          "rotation": {
+            "0.00": [
+              0,
+              "0.0 * v.y0",
+              0
+            ],
+            "0.15": [
+              0,
+              "0.175 * v.y0",
+              0
+            ],
+            "0.35": [
+              0,
+              "(-0.7) * v.y0",
+              0
+            ],
+            "0.45": [
+              0,
+              "(-0.7) * v.y0",
+              0
+            ],
+            "0.80": [
+              0,
+              "0.0 * v.y0",
+              0
+            ]
+          }
+        },
+        "jaw0": {
+          "rotation": {
+            "0.00": [
+              0,
+              0,
+              0
+            ],
+            "0.15": [
+              42,
+              0,
+              0
+            ],
+            "0.30": [
+              46,
+              0,
+              0
+            ],
+            "0.37": [
+              0,
+              0,
+              0
+            ],
+            "0.50": [
+              14,
+              0,
+              0
+            ],
+            "0.80": [
+              0,
+              0,
+              0
+            ]
+          }
+        }
+      }
+    },
+    "animation.hydra.hurt0": {
+      "loop": false,
+      "animation_length": 0.3,
+      "bones": {
+        "neck0_2": {
+          "rotation": {
+            "0.00": [
+              0,
+              0,
+              0
+            ],
+            "0.08": [
+              -14,
+              0,
+              0
+            ],
+            "0.30": [
+              0,
+              0,
+              0
+            ]
+          }
+        },
+        "neck0_3": {
+          "rotation": {
+            "0.00": [
+              0,
+              0,
+              0
+            ],
+            "0.08": [
+              -10,
+              0,
+              0
+            ],
+            "0.30": [
+              0,
+              0,
+              0
+            ]
+          }
+        },
+        "head0": {
+          "rotation": {
+            "0.00": [
+              0,
+              0,
+              0
+            ],
+            "0.08": [
+              -20,
+              0,
+              8
+            ],
+            "0.30": [
+              0,
+              0,
+              0
+            ]
+          }
+        },
+        "jaw0": {
+          "rotation": {
+            "0.00": [
+              0,
+              0,
+              0
+            ],
+            "0.08": [
+              30,
+              0,
+              0
+            ],
+            "0.30": [
+              0,
+              0,
+              0
+            ]
+          }
+        }
+      }
+    },
+    "animation.hydra.grow0": {
+      "loop": "hold_on_last_frame",
+      "animation_length": 2.0,
+      "bones": {
+        "neck0_2": {
+          "scale": {
+            "0.00": [
+              0.05,
+              0.05,
+              0.05
+            ],
+            "1.40": [
+              0.8,
+              1.0,
+              0.8
+            ],
+            "2.00": [
+              1,
+              1,
+              1
+            ]
+          }
+        },
+        "jaw0": {
+          "rotation": {
+            "0.00": [
+              0,
+              0,
+              0
+            ],
+            "1.50": [
+              0,
+              0,
+              0
+            ],
+            "1.70": [
+              45,
+              0,
+              0
+            ],
+            "2.00": [
+              0,
+              0,
+              0
+            ]
+          }
+        }
+      }
+    },
+    "animation.hydra.dead0": {
+      "loop": true,
+      "bones": {
+        "neck0_2": {
+          "scale": 0
+        },
+        "neck0_1": {
+          "rotation": [
+            "14 + math.sin(q.life_time * 70 + 0) * 4",
+            0,
+            "math.cos(q.life_time * 60 + 0) * 4"
+          ]
+        }
+      }
+    },
+    "animation.hydra.aim1": {
+      "loop": true,
+      "bones": {
+        "neck1_yaw": {
+          "rotation": [
+            0,
+            "0.3 * v.y1 + math.sin(q.life_time * 38 + 67) * 4",
+            0
+          ]
+        },
+        "neck1_1": {
+          "rotation": [
+            "0.3 * v.e1 * (v.p1 - 0.0) + math.sin(q.life_time * 52 + 67) * 3",
+            0,
+            0
+          ]
+        },
+        "neck1_2": {
+          "rotation": [
+            "(-6.0) * v.e1 + math.sin(q.life_time * 52 + 117) * 3",
+            0,
+            0
+          ]
+        },
+        "neck1_3": {
+          "rotation": [
+            "(-9.0) * v.e1 + math.sin(q.life_time * 52 + 167) * 3",
+            0,
+            0
+          ]
+        },
+        "neck1_4": {
+          "rotation": [
+            "(-9.0) * v.e1 + math.sin(q.life_time * 52 + 217) * 2",
+            0,
+            0
+          ]
+        },
+        "head1_lvl": {
+          "rotation": [
+            "(-0.3) * v.e1 * (v.p1 - 80.0)",
+            0,
+            0
+          ]
+        },
+        "head1_yaw": {
+          "rotation": [
+            0,
+            "0.7 * v.y1",
+            0
+          ]
+        },
+        "head1": {
+          "rotation": [
+            "v.l1",
+            0,
+            "math.sin(q.life_time * 31 + 67) * 3"
+          ]
+        },
+        "jaw1": {
+          "rotation": [
+            "math.max(0, math.sin(q.life_time * 47 + 67)) * 7",
+            0,
+            0
+          ]
+        },
+        "stump1": {
+          "scale": 0
+        },
+        "tongue1": {
+          "position": [
+            0,
+            0,
+            "math.mod(q.life_time + 0.9, 3.4) < 0.35 ? math.sin(q.life_time * 2400) * 0.6 : 4"
+          ]
+        }
+      }
+    },
+    "animation.hydra.strike1": {
+      "loop": false,
+      "animation_length": 0.8,
+      "bones": {
+        "neck1_yaw": {
+          "rotation": {
+            "0.00": [
+              0,
+              "0.0 * v.y1",
+              0
+            ],
+            "0.15": [
+              0,
+              "(-0.175) * v.y1",
+              0
+            ],
+            "0.35": [
+              0,
+              "0.7 * v.y1",
+              0
+            ],
+            "0.45": [
+              0,
+              "0.7 * v.y1",
+              0
+            ],
+            "0.80": [
+              0,
+              "0.0 * v.y1",
+              0
+            ]
+          }
+        },
+        "neck1_1": {
+          "rotation": {
+            "0.00": [
+              "0.0 * ((q.property('cb:lo1') - 0.0) - 0.3 * (v.p1 - 0.0))",
+              0,
+              0
+            ],
+            "0.15": [
+              "(-0.25) * ((q.property('cb:lo1') - 0.0) - 0.3 * (v.p1 - 0.0))",
+              0,
+              0
+            ],
+            "0.35": [
+              "1.0 * ((q.property('cb:lo1') - 0.0) - 0.3 * (v.p1 - 0.0))",
+              0,
+              0
+            ],
+            "0.45": [
+              "1.0 * ((q.property('cb:lo1') - 0.0) - 0.3 * (v.p1 - 0.0))",
+              0,
+              0
+            ],
+            "0.80": [
+              "0.0 * ((q.property('cb:lo1') - 0.0) - 0.3 * (v.p1 - 0.0))",
+              0,
+              0
+            ]
+          }
+        },
+        "neck1_2": {
+          "rotation": {
+            "0.00": [
+              0.0,
+              0,
+              0
+            ],
+            "0.15": [
+              3.5,
+              0,
+              0
+            ],
+            "0.35": [
+              -14.0,
+              0,
+              0
+            ],
+            "0.45": [
+              -14.0,
+              0,
+              0
+            ],
+            "0.80": [
+              0.0,
+              0,
+              0
+            ]
+          }
+        },
+        "neck1_3": {
+          "rotation": {
+            "0.00": [
+              "0.0 * ((q.property('cb:up1') - q.property('cb:lo1')) - 21.0)",
+              0,
+              0
+            ],
+            "0.15": [
+              "(-0.25) * ((q.property('cb:up1') - q.property('cb:lo1')) - 21.0)",
+              0,
+              0
+            ],
+            "0.35": [
+              "1.0 * ((q.property('cb:up1') - q.property('cb:lo1')) - 21.0)",
+              0,
+              0
+            ],
+            "0.45": [
+              "1.0 * ((q.property('cb:up1') - q.property('cb:lo1')) - 21.0)",
+              0,
+              0
+            ],
+            "0.80": [
+              "0.0 * ((q.property('cb:up1') - q.property('cb:lo1')) - 21.0)",
+              0,
+              0
+            ]
+          }
+        },
+        "neck1_4": {
+          "rotation": {
+            "0.00": [
+              0.0,
+              0,
+              0
+            ],
+            "0.15": [
+              5.25,
+              0,
+              0
+            ],
+            "0.35": [
+              -21.0,
+              0,
+              0
+            ],
+            "0.45": [
+              -21.0,
+              0,
+              0
+            ],
+            "0.80": [
+              0.0,
+              0,
+              0
+            ]
+          }
+        },
+        "head1_lvl": {
+          "rotation": {
+            "0.00": [
+              "0.0 * (0.3 * (v.p1 - 80.0) - (q.property('cb:up1') - 80.0))",
+              0,
+              0
+            ],
+            "0.15": [
+              "(-0.25) * (0.3 * (v.p1 - 80.0) - (q.property('cb:up1') - 80.0))",
+              0,
+              0
+            ],
+            "0.35": [
+              "1.0 * (0.3 * (v.p1 - 80.0) - (q.property('cb:up1') - 80.0))",
+              0,
+              0
+            ],
+            "0.45": [
+              "1.0 * (0.3 * (v.p1 - 80.0) - (q.property('cb:up1') - 80.0))",
+              0,
+              0
+            ],
+            "0.80": [
+              "0.0 * (0.3 * (v.p1 - 80.0) - (q.property('cb:up1') - 80.0))",
+              0,
+              0
+            ]
+          }
+        },
+        "head1_yaw": {
+          "rotation": {
+            "0.00": [
+              0,
+              "0.0 * v.y1",
+              0
+            ],
+            "0.15": [
+              0,
+              "0.175 * v.y1",
+              0
+            ],
+            "0.35": [
+              0,
+              "(-0.7) * v.y1",
+              0
+            ],
+            "0.45": [
+              0,
+              "(-0.7) * v.y1",
+              0
+            ],
+            "0.80": [
+              0,
+              "0.0 * v.y1",
+              0
+            ]
+          }
+        },
+        "jaw1": {
+          "rotation": {
+            "0.00": [
+              0,
+              0,
+              0
+            ],
+            "0.15": [
+              42,
+              0,
+              0
+            ],
+            "0.30": [
+              46,
+              0,
+              0
+            ],
+            "0.37": [
+              0,
+              0,
+              0
+            ],
+            "0.50": [
+              14,
+              0,
+              0
+            ],
+            "0.80": [
+              0,
+              0,
+              0
+            ]
+          }
+        }
+      }
+    },
+    "animation.hydra.hurt1": {
+      "loop": false,
+      "animation_length": 0.3,
+      "bones": {
+        "neck1_2": {
+          "rotation": {
+            "0.00": [
+              0,
+              0,
+              0
+            ],
+            "0.08": [
+              -14,
+              0,
+              0
+            ],
+            "0.30": [
+              0,
+              0,
+              0
+            ]
+          }
+        },
+        "neck1_3": {
+          "rotation": {
+            "0.00": [
+              0,
+              0,
+              0
+            ],
+            "0.08": [
+              -10,
+              0,
+              0
+            ],
+            "0.30": [
+              0,
+              0,
+              0
+            ]
+          }
+        },
+        "head1": {
+          "rotation": {
+            "0.00": [
+              0,
+              0,
+              0
+            ],
+            "0.08": [
+              -20,
+              0,
+              8
+            ],
+            "0.30": [
+              0,
+              0,
+              0
+            ]
+          }
+        },
+        "jaw1": {
+          "rotation": {
+            "0.00": [
+              0,
+              0,
+              0
+            ],
+            "0.08": [
+              30,
+              0,
+              0
+            ],
+            "0.30": [
+              0,
+              0,
+              0
+            ]
+          }
+        }
+      }
+    },
+    "animation.hydra.grow1": {
+      "loop": "hold_on_last_frame",
+      "animation_length": 2.0,
+      "bones": {
+        "neck1_2": {
+          "scale": {
+            "0.00": [
+              0.05,
+              0.05,
+              0.05
+            ],
+            "1.40": [
+              0.8,
+              1.0,
+              0.8
+            ],
+            "2.00": [
+              1,
+              1,
+              1
+            ]
+          }
+        },
+        "jaw1": {
+          "rotation": {
+            "0.00": [
+              0,
+              0,
+              0
+            ],
+            "1.50": [
+              0,
+              0,
+              0
+            ],
+            "1.70": [
+              45,
+              0,
+              0
+            ],
+            "2.00": [
+              0,
+              0,
+              0
+            ]
+          }
+        }
+      }
+    },
+    "animation.hydra.dead1": {
+      "loop": true,
+      "bones": {
+        "neck1_2": {
+          "scale": 0
+        },
+        "neck1_1": {
+          "rotation": [
+            "14 + math.sin(q.life_time * 70 + 67) * 4",
+            0,
+            "math.cos(q.life_time * 60 + 67) * 4"
+          ]
+        }
+      }
+    },
+    "animation.hydra.aim2": {
+      "loop": true,
+      "bones": {
+        "neck2_yaw": {
+          "rotation": [
+            0,
+            "0.3 * v.y2 + math.sin(q.life_time * 38 + 134) * 4",
+            0
+          ]
+        },
+        "neck2_1": {
+          "rotation": [
+            "0.3 * v.e2 * (v.p2 - (-18.0)) + math.sin(q.life_time * 52 + 134) * 3",
+            0,
+            0
+          ]
+        },
+        "neck2_2": {
+          "rotation": [
+            "(-4.2) * v.e2 + math.sin(q.life_time * 52 + 184) * 3",
+            0,
+            0
+          ]
+        },
+        "neck2_3": {
+          "rotation": [
+            "(-9.0) * v.e2 + math.sin(q.life_time * 52 + 234) * 3",
+            0,
+            0
+          ]
+        },
+        "neck2_4": {
+          "rotation": [
+            "(-10.8) * v.e2 + math.sin(q.life_time * 52 + 284) * 2",
+            0,
+            0
+          ]
+        },
+        "head2_lvl": {
+          "rotation": [
+            "(-0.3) * v.e2 * (v.p2 - 62.0)",
+            0,
+            0
+          ]
+        },
+        "head2_yaw": {
+          "rotation": [
+            0,
+            "0.7 * v.y2",
+            0
+          ]
+        },
+        "head2": {
+          "rotation": [
+            "v.l2",
+            0,
+            "math.sin(q.life_time * 31 + 134) * 3"
+          ]
+        },
+        "jaw2": {
+          "rotation": [
+            "math.max(0, math.sin(q.life_time * 47 + 134)) * 7",
+            0,
+            0
+          ]
+        },
+        "stump2": {
+          "scale": 0
+        },
+        "tongue2": {
+          "position": [
+            0,
+            0,
+            "math.mod(q.life_time + 1.8, 3.4) < 0.35 ? math.sin(q.life_time * 2400) * 0.6 : 4"
+          ]
+        }
+      }
+    },
+    "animation.hydra.strike2": {
+      "loop": false,
+      "animation_length": 0.8,
+      "bones": {
+        "neck2_yaw": {
+          "rotation": {
+            "0.00": [
+              0,
+              "0.0 * v.y2",
+              0
+            ],
+            "0.15": [
+              0,
+              "(-0.175) * v.y2",
+              0
+            ],
+            "0.35": [
+              0,
+              "0.7 * v.y2",
+              0
+            ],
+            "0.45": [
+              0,
+              "0.7 * v.y2",
+              0
+            ],
+            "0.80": [
+              0,
+              "0.0 * v.y2",
+              0
+            ]
+          }
+        },
+        "neck2_1": {
+          "rotation": {
+            "0.00": [
+              "0.0 * ((q.property('cb:lo2') - (-18.0)) - 0.3 * (v.p2 - (-18.0)))",
+              0,
+              0
+            ],
+            "0.15": [
+              "(-0.25) * ((q.property('cb:lo2') - (-18.0)) - 0.3 * (v.p2 - (-18.0)))",
+              0,
+              0
+            ],
+            "0.35": [
+              "1.0 * ((q.property('cb:lo2') - (-18.0)) - 0.3 * (v.p2 - (-18.0)))",
+              0,
+              0
+            ],
+            "0.45": [
+              "1.0 * ((q.property('cb:lo2') - (-18.0)) - 0.3 * (v.p2 - (-18.0)))",
+              0,
+              0
+            ],
+            "0.80": [
+              "0.0 * ((q.property('cb:lo2') - (-18.0)) - 0.3 * (v.p2 - (-18.0)))",
+              0,
+              0
+            ]
+          }
+        },
+        "neck2_2": {
+          "rotation": {
+            "0.00": [
+              0.0,
+              0,
+              0
+            ],
+            "0.15": [
+              2.45,
+              0,
+              0
+            ],
+            "0.35": [
+              -9.8,
+              0,
+              0
+            ],
+            "0.45": [
+              -9.8,
+              0,
+              0
+            ],
+            "0.80": [
+              0.0,
+              0,
+              0
+            ]
+          }
+        },
+        "neck2_3": {
+          "rotation": {
+            "0.00": [
+              "0.0 * ((q.property('cb:up2') - q.property('cb:lo2')) - 21.0)",
+              0,
+              0
+            ],
+            "0.15": [
+              "(-0.25) * ((q.property('cb:up2') - q.property('cb:lo2')) - 21.0)",
+              0,
+              0
+            ],
+            "0.35": [
+              "1.0 * ((q.property('cb:up2') - q.property('cb:lo2')) - 21.0)",
+              0,
+              0
+            ],
+            "0.45": [
+              "1.0 * ((q.property('cb:up2') - q.property('cb:lo2')) - 21.0)",
+              0,
+              0
+            ],
+            "0.80": [
+              "0.0 * ((q.property('cb:up2') - q.property('cb:lo2')) - 21.0)",
+              0,
+              0
+            ]
+          }
+        },
+        "neck2_4": {
+          "rotation": {
+            "0.00": [
+              0.0,
+              0,
+              0
+            ],
+            "0.15": [
+              6.3,
+              0,
+              0
+            ],
+            "0.35": [
+              -25.2,
+              0,
+              0
+            ],
+            "0.45": [
+              -25.2,
+              0,
+              0
+            ],
+            "0.80": [
+              0.0,
+              0,
+              0
+            ]
+          }
+        },
+        "head2_lvl": {
+          "rotation": {
+            "0.00": [
+              "0.0 * (0.3 * (v.p2 - 62.0) - (q.property('cb:up2') - 62.0))",
+              0,
+              0
+            ],
+            "0.15": [
+              "(-0.25) * (0.3 * (v.p2 - 62.0) - (q.property('cb:up2') - 62.0))",
+              0,
+              0
+            ],
+            "0.35": [
+              "1.0 * (0.3 * (v.p2 - 62.0) - (q.property('cb:up2') - 62.0))",
+              0,
+              0
+            ],
+            "0.45": [
+              "1.0 * (0.3 * (v.p2 - 62.0) - (q.property('cb:up2') - 62.0))",
+              0,
+              0
+            ],
+            "0.80": [
+              "0.0 * (0.3 * (v.p2 - 62.0) - (q.property('cb:up2') - 62.0))",
+              0,
+              0
+            ]
+          }
+        },
+        "head2_yaw": {
+          "rotation": {
+            "0.00": [
+              0,
+              "0.0 * v.y2",
+              0
+            ],
+            "0.15": [
+              0,
+              "0.175 * v.y2",
+              0
+            ],
+            "0.35": [
+              0,
+              "(-0.7) * v.y2",
+              0
+            ],
+            "0.45": [
+              0,
+              "(-0.7) * v.y2",
+              0
+            ],
+            "0.80": [
+              0,
+              "0.0 * v.y2",
+              0
+            ]
+          }
+        },
+        "jaw2": {
+          "rotation": {
+            "0.00": [
+              0,
+              0,
+              0
+            ],
+            "0.15": [
+              42,
+              0,
+              0
+            ],
+            "0.30": [
+              46,
+              0,
+              0
+            ],
+            "0.37": [
+              0,
+              0,
+              0
+            ],
+            "0.50": [
+              14,
+              0,
+              0
+            ],
+            "0.80": [
+              0,
+              0,
+              0
+            ]
+          }
+        }
+      }
+    },
+    "animation.hydra.hurt2": {
+      "loop": false,
+      "animation_length": 0.3,
+      "bones": {
+        "neck2_2": {
+          "rotation": {
+            "0.00": [
+              0,
+              0,
+              0
+            ],
+            "0.08": [
+              -14,
+              0,
+              0
+            ],
+            "0.30": [
+              0,
+              0,
+              0
+            ]
+          }
+        },
+        "neck2_3": {
+          "rotation": {
+            "0.00": [
+              0,
+              0,
+              0
+            ],
+            "0.08": [
+              -10,
+              0,
+              0
+            ],
+            "0.30": [
+              0,
+              0,
+              0
+            ]
+          }
+        },
+        "head2": {
+          "rotation": {
+            "0.00": [
+              0,
+              0,
+              0
+            ],
+            "0.08": [
+              -20,
+              0,
+              8
+            ],
+            "0.30": [
+              0,
+              0,
+              0
+            ]
+          }
+        },
+        "jaw2": {
+          "rotation": {
+            "0.00": [
+              0,
+              0,
+              0
+            ],
+            "0.08": [
+              30,
+              0,
+              0
+            ],
+            "0.30": [
+              0,
+              0,
+              0
+            ]
+          }
+        }
+      }
+    },
+    "animation.hydra.grow2": {
+      "loop": "hold_on_last_frame",
+      "animation_length": 2.0,
+      "bones": {
+        "neck2_2": {
+          "scale": {
+            "0.00": [
+              0.05,
+              0.05,
+              0.05
+            ],
+            "1.40": [
+              0.8,
+              1.0,
+              0.8
+            ],
+            "2.00": [
+              1,
+              1,
+              1
+            ]
+          }
+        },
+        "jaw2": {
+          "rotation": {
+            "0.00": [
+              0,
+              0,
+              0
+            ],
+            "1.50": [
+              0,
+              0,
+              0
+            ],
+            "1.70": [
+              45,
+              0,
+              0
+            ],
+            "2.00": [
+              0,
+              0,
+              0
+            ]
+          }
+        }
+      }
+    },
+    "animation.hydra.dead2": {
+      "loop": true,
+      "bones": {
+        "neck2_2": {
+          "scale": 0
+        },
+        "neck2_1": {
+          "rotation": [
+            "14 + math.sin(q.life_time * 70 + 134) * 4",
+            0,
+            "math.cos(q.life_time * 60 + 134) * 4"
+          ]
+        }
+      }
+    },
+    "animation.hydra.aim3": {
+      "loop": true,
+      "bones": {
+        "neck3_yaw": {
+          "rotation": [
+            0,
+            "0.3 * v.y3 + math.sin(q.life_time * 38 + 201) * 4",
+            0
+          ]
+        },
+        "neck3_1": {
+          "rotation": [
+            "0.3 * v.e3 * (v.p3 - 0.0) + math.sin(q.life_time * 52 + 201) * 3",
+            0,
+            0
+          ]
+        },
+        "neck3_2": {
+          "rotation": [
+            "(-6.0) * v.e3 + math.sin(q.life_time * 52 + 251) * 3",
+            0,
+            0
+          ]
+        },
+        "neck3_3": {
+          "rotation": [
+            "(-9.0) * v.e3 + math.sin(q.life_time * 52 + 301) * 3",
+            0,
+            0
+          ]
+        },
+        "neck3_4": {
+          "rotation": [
+            "(-9.0) * v.e3 + math.sin(q.life_time * 52 + 351) * 2",
+            0,
+            0
+          ]
+        },
+        "head3_lvl": {
+          "rotation": [
+            "(-0.3) * v.e3 * (v.p3 - 80.0)",
+            0,
+            0
+          ]
+        },
+        "head3_yaw": {
+          "rotation": [
+            0,
+            "0.7 * v.y3",
+            0
+          ]
+        },
+        "head3": {
+          "rotation": [
+            "v.l3",
+            0,
+            "math.sin(q.life_time * 31 + 201) * 3"
+          ]
+        },
+        "jaw3": {
+          "rotation": [
+            "math.max(0, math.sin(q.life_time * 47 + 201)) * 7",
+            0,
+            0
+          ]
+        },
+        "stump3": {
+          "scale": 0
+        },
+        "tongue3": {
+          "position": [
+            0,
+            0,
+            "math.mod(q.life_time + 2.7, 3.4) < 0.35 ? math.sin(q.life_time * 2400) * 0.6 : 4"
+          ]
+        }
+      }
+    },
+    "animation.hydra.strike3": {
+      "loop": false,
+      "animation_length": 0.8,
+      "bones": {
+        "neck3_yaw": {
+          "rotation": {
+            "0.00": [
+              0,
+              "0.0 * v.y3",
+              0
+            ],
+            "0.15": [
+              0,
+              "(-0.175) * v.y3",
+              0
+            ],
+            "0.35": [
+              0,
+              "0.7 * v.y3",
+              0
+            ],
+            "0.45": [
+              0,
+              "0.7 * v.y3",
+              0
+            ],
+            "0.80": [
+              0,
+              "0.0 * v.y3",
+              0
+            ]
+          }
+        },
+        "neck3_1": {
+          "rotation": {
+            "0.00": [
+              "0.0 * ((q.property('cb:lo3') - 0.0) - 0.3 * (v.p3 - 0.0))",
+              0,
+              0
+            ],
+            "0.15": [
+              "(-0.25) * ((q.property('cb:lo3') - 0.0) - 0.3 * (v.p3 - 0.0))",
+              0,
+              0
+            ],
+            "0.35": [
+              "1.0 * ((q.property('cb:lo3') - 0.0) - 0.3 * (v.p3 - 0.0))",
+              0,
+              0
+            ],
+            "0.45": [
+              "1.0 * ((q.property('cb:lo3') - 0.0) - 0.3 * (v.p3 - 0.0))",
+              0,
+              0
+            ],
+            "0.80": [
+              "0.0 * ((q.property('cb:lo3') - 0.0) - 0.3 * (v.p3 - 0.0))",
+              0,
+              0
+            ]
+          }
+        },
+        "neck3_2": {
+          "rotation": {
+            "0.00": [
+              0.0,
+              0,
+              0
+            ],
+            "0.15": [
+              3.5,
+              0,
+              0
+            ],
+            "0.35": [
+              -14.0,
+              0,
+              0
+            ],
+            "0.45": [
+              -14.0,
+              0,
+              0
+            ],
+            "0.80": [
+              0.0,
+              0,
+              0
+            ]
+          }
+        },
+        "neck3_3": {
+          "rotation": {
+            "0.00": [
+              "0.0 * ((q.property('cb:up3') - q.property('cb:lo3')) - 21.0)",
+              0,
+              0
+            ],
+            "0.15": [
+              "(-0.25) * ((q.property('cb:up3') - q.property('cb:lo3')) - 21.0)",
+              0,
+              0
+            ],
+            "0.35": [
+              "1.0 * ((q.property('cb:up3') - q.property('cb:lo3')) - 21.0)",
+              0,
+              0
+            ],
+            "0.45": [
+              "1.0 * ((q.property('cb:up3') - q.property('cb:lo3')) - 21.0)",
+              0,
+              0
+            ],
+            "0.80": [
+              "0.0 * ((q.property('cb:up3') - q.property('cb:lo3')) - 21.0)",
+              0,
+              0
+            ]
+          }
+        },
+        "neck3_4": {
+          "rotation": {
+            "0.00": [
+              0.0,
+              0,
+              0
+            ],
+            "0.15": [
+              5.25,
+              0,
+              0
+            ],
+            "0.35": [
+              -21.0,
+              0,
+              0
+            ],
+            "0.45": [
+              -21.0,
+              0,
+              0
+            ],
+            "0.80": [
+              0.0,
+              0,
+              0
+            ]
+          }
+        },
+        "head3_lvl": {
+          "rotation": {
+            "0.00": [
+              "0.0 * (0.3 * (v.p3 - 80.0) - (q.property('cb:up3') - 80.0))",
+              0,
+              0
+            ],
+            "0.15": [
+              "(-0.25) * (0.3 * (v.p3 - 80.0) - (q.property('cb:up3') - 80.0))",
+              0,
+              0
+            ],
+            "0.35": [
+              "1.0 * (0.3 * (v.p3 - 80.0) - (q.property('cb:up3') - 80.0))",
+              0,
+              0
+            ],
+            "0.45": [
+              "1.0 * (0.3 * (v.p3 - 80.0) - (q.property('cb:up3') - 80.0))",
+              0,
+              0
+            ],
+            "0.80": [
+              "0.0 * (0.3 * (v.p3 - 80.0) - (q.property('cb:up3') - 80.0))",
+              0,
+              0
+            ]
+          }
+        },
+        "head3_yaw": {
+          "rotation": {
+            "0.00": [
+              0,
+              "0.0 * v.y3",
+              0
+            ],
+            "0.15": [
+              0,
+              "0.175 * v.y3",
+              0
+            ],
+            "0.35": [
+              0,
+              "(-0.7) * v.y3",
+              0
+            ],
+            "0.45": [
+              0,
+              "(-0.7) * v.y3",
+              0
+            ],
+            "0.80": [
+              0,
+              "0.0 * v.y3",
+              0
+            ]
+          }
+        },
+        "jaw3": {
+          "rotation": {
+            "0.00": [
+              0,
+              0,
+              0
+            ],
+            "0.15": [
+              42,
+              0,
+              0
+            ],
+            "0.30": [
+              46,
+              0,
+              0
+            ],
+            "0.37": [
+              0,
+              0,
+              0
+            ],
+            "0.50": [
+              14,
+              0,
+              0
+            ],
+            "0.80": [
+              0,
+              0,
+              0
+            ]
+          }
+        }
+      }
+    },
+    "animation.hydra.hurt3": {
+      "loop": false,
+      "animation_length": 0.3,
+      "bones": {
+        "neck3_2": {
+          "rotation": {
+            "0.00": [
+              0,
+              0,
+              0
+            ],
+            "0.08": [
+              -14,
+              0,
+              0
+            ],
+            "0.30": [
+              0,
+              0,
+              0
+            ]
+          }
+        },
+        "neck3_3": {
+          "rotation": {
+            "0.00": [
+              0,
+              0,
+              0
+            ],
+            "0.08": [
+              -10,
+              0,
+              0
+            ],
+            "0.30": [
+              0,
+              0,
+              0
+            ]
+          }
+        },
+        "head3": {
+          "rotation": {
+            "0.00": [
+              0,
+              0,
+              0
+            ],
+            "0.08": [
+              -20,
+              0,
+              8
+            ],
+            "0.30": [
+              0,
+              0,
+              0
+            ]
+          }
+        },
+        "jaw3": {
+          "rotation": {
+            "0.00": [
+              0,
+              0,
+              0
+            ],
+            "0.08": [
+              30,
+              0,
+              0
+            ],
+            "0.30": [
+              0,
+              0,
+              0
+            ]
+          }
+        }
+      }
+    },
+    "animation.hydra.grow3": {
+      "loop": "hold_on_last_frame",
+      "animation_length": 2.0,
+      "bones": {
+        "neck3_2": {
+          "scale": {
+            "0.00": [
+              0.05,
+              0.05,
+              0.05
+            ],
+            "1.40": [
+              0.8,
+              1.0,
+              0.8
+            ],
+            "2.00": [
+              1,
+              1,
+              1
+            ]
+          }
+        },
+        "jaw3": {
+          "rotation": {
+            "0.00": [
+              0,
+              0,
+              0
+            ],
+            "1.50": [
+              0,
+              0,
+              0
+            ],
+            "1.70": [
+              45,
+              0,
+              0
+            ],
+            "2.00": [
+              0,
+              0,
+              0
+            ]
+          }
+        }
+      }
+    },
+    "animation.hydra.dead3": {
+      "loop": true,
+      "bones": {
+        "neck3_2": {
+          "scale": 0
+        },
+        "neck3_1": {
+          "rotation": [
+            "14 + math.sin(q.life_time * 70 + 201) * 4",
+            0,
+            "math.cos(q.life_time * 60 + 201) * 4"
+          ]
+        }
+      }
+    },
+    "animation.hydra.aim4": {
+      "loop": true,
+      "bones": {
+        "neck4_yaw": {
+          "rotation": [
+            0,
+            "0.3 * v.y4 + math.sin(q.life_time * 38 + 268) * 4",
+            0
+          ]
+        },
+        "neck4_1": {
+          "rotation": [
+            "0.3 * v.e4 * (v.p4 - 15.0) + math.sin(q.life_time * 52 + 268) * 3",
+            0,
+            0
+          ]
+        },
+        "neck4_2": {
+          "rotation": [
+            "(-7.5) * v.e4 + math.sin(q.life_time * 52 + 318) * 3",
+            0,
+            0
+          ]
+        },
+        "neck4_3": {
+          "rotation": [
+            "(-7.5) * v.e4 + math.sin(q.life_time * 52 + 368) * 3",
+            0,
+            0
+          ]
+        },
+        "neck4_4": {
+          "rotation": [
+            "(-6.0) * v.e4 + math.sin(q.life_time * 52 + 418) * 2",
+            0,
+            0
+          ]
+        },
+        "head4_lvl": {
+          "rotation": [
+            "(-0.3) * v.e4 * (v.p4 - 85.0)",
+            0,
+            0
+          ]
+        },
+        "head4_yaw": {
+          "rotation": [
+            0,
+            "0.7 * v.y4",
+            0
+          ]
+        },
+        "head4": {
+          "rotation": [
+            "v.l4",
+            0,
+            "math.sin(q.life_time * 31 + 268) * 3"
+          ]
+        },
+        "jaw4": {
+          "rotation": [
+            "math.max(0, math.sin(q.life_time * 47 + 268)) * 7",
+            0,
+            0
+          ]
+        },
+        "stump4": {
+          "scale": 0
+        },
+        "tongue4": {
+          "position": [
+            0,
+            0,
+            "math.mod(q.life_time + 3.6, 3.4) < 0.35 ? math.sin(q.life_time * 2400) * 0.6 : 4"
+          ]
+        }
+      }
+    },
+    "animation.hydra.strike4": {
+      "loop": false,
+      "animation_length": 0.8,
+      "bones": {
+        "neck4_yaw": {
+          "rotation": {
+            "0.00": [
+              0,
+              "0.0 * v.y4",
+              0
+            ],
+            "0.15": [
+              0,
+              "(-0.175) * v.y4",
+              0
+            ],
+            "0.35": [
+              0,
+              "0.7 * v.y4",
+              0
+            ],
+            "0.45": [
+              0,
+              "0.7 * v.y4",
+              0
+            ],
+            "0.80": [
+              0,
+              "0.0 * v.y4",
+              0
+            ]
+          }
+        },
+        "neck4_1": {
+          "rotation": {
+            "0.00": [
+              "0.0 * ((q.property('cb:lo4') - 15.0) - 0.3 * (v.p4 - 15.0))",
+              0,
+              0
+            ],
+            "0.15": [
+              "(-0.25) * ((q.property('cb:lo4') - 15.0) - 0.3 * (v.p4 - 15.0))",
+              0,
+              0
+            ],
+            "0.35": [
+              "1.0 * ((q.property('cb:lo4') - 15.0) - 0.3 * (v.p4 - 15.0))",
+              0,
+              0
+            ],
+            "0.45": [
+              "1.0 * ((q.property('cb:lo4') - 15.0) - 0.3 * (v.p4 - 15.0))",
+              0,
+              0
+            ],
+            "0.80": [
+              "0.0 * ((q.property('cb:lo4') - 15.0) - 0.3 * (v.p4 - 15.0))",
+              0,
+              0
+            ]
+          }
+        },
+        "neck4_2": {
+          "rotation": {
+            "0.00": [
+              0.0,
+              0,
+              0
+            ],
+            "0.15": [
+              4.375,
+              0,
+              0
+            ],
+            "0.35": [
+              -17.5,
+              0,
+              0
+            ],
+            "0.45": [
+              -17.5,
+              0,
+              0
+            ],
+            "0.80": [
+              0.0,
+              0,
+              0
+            ]
+          }
+        },
+        "neck4_3": {
+          "rotation": {
+            "0.00": [
+              "0.0 * ((q.property('cb:up4') - q.property('cb:lo4')) - 17.5)",
+              0,
+              0
+            ],
+            "0.15": [
+              "(-0.25) * ((q.property('cb:up4') - q.property('cb:lo4')) - 17.5)",
+              0,
+              0
+            ],
+            "0.35": [
+              "1.0 * ((q.property('cb:up4') - q.property('cb:lo4')) - 17.5)",
+              0,
+              0
+            ],
+            "0.45": [
+              "1.0 * ((q.property('cb:up4') - q.property('cb:lo4')) - 17.5)",
+              0,
+              0
+            ],
+            "0.80": [
+              "0.0 * ((q.property('cb:up4') - q.property('cb:lo4')) - 17.5)",
+              0,
+              0
+            ]
+          }
+        },
+        "neck4_4": {
+          "rotation": {
+            "0.00": [
+              0.0,
+              0,
+              0
+            ],
+            "0.15": [
+              3.5,
+              0,
+              0
+            ],
+            "0.35": [
+              -14.0,
+              0,
+              0
+            ],
+            "0.45": [
+              -14.0,
+              0,
+              0
+            ],
+            "0.80": [
+              0.0,
+              0,
+              0
+            ]
+          }
+        },
+        "head4_lvl": {
+          "rotation": {
+            "0.00": [
+              "0.0 * (0.3 * (v.p4 - 85.0) - (q.property('cb:up4') - 85.0))",
+              0,
+              0
+            ],
+            "0.15": [
+              "(-0.25) * (0.3 * (v.p4 - 85.0) - (q.property('cb:up4') - 85.0))",
+              0,
+              0
+            ],
+            "0.35": [
+              "1.0 * (0.3 * (v.p4 - 85.0) - (q.property('cb:up4') - 85.0))",
+              0,
+              0
+            ],
+            "0.45": [
+              "1.0 * (0.3 * (v.p4 - 85.0) - (q.property('cb:up4') - 85.0))",
+              0,
+              0
+            ],
+            "0.80": [
+              "0.0 * (0.3 * (v.p4 - 85.0) - (q.property('cb:up4') - 85.0))",
+              0,
+              0
+            ]
+          }
+        },
+        "head4_yaw": {
+          "rotation": {
+            "0.00": [
+              0,
+              "0.0 * v.y4",
+              0
+            ],
+            "0.15": [
+              0,
+              "0.175 * v.y4",
+              0
+            ],
+            "0.35": [
+              0,
+              "(-0.7) * v.y4",
+              0
+            ],
+            "0.45": [
+              0,
+              "(-0.7) * v.y4",
+              0
+            ],
+            "0.80": [
+              0,
+              "0.0 * v.y4",
+              0
+            ]
+          }
+        },
+        "jaw4": {
+          "rotation": {
+            "0.00": [
+              0,
+              0,
+              0
+            ],
+            "0.15": [
+              42,
+              0,
+              0
+            ],
+            "0.30": [
+              46,
+              0,
+              0
+            ],
+            "0.37": [
+              0,
+              0,
+              0
+            ],
+            "0.50": [
+              14,
+              0,
+              0
+            ],
+            "0.80": [
+              0,
+              0,
+              0
+            ]
+          }
+        }
+      }
+    },
+    "animation.hydra.hurt4": {
+      "loop": false,
+      "animation_length": 0.3,
+      "bones": {
+        "neck4_2": {
+          "rotation": {
+            "0.00": [
+              0,
+              0,
+              0
+            ],
+            "0.08": [
+              -14,
+              0,
+              0
+            ],
+            "0.30": [
+              0,
+              0,
+              0
+            ]
+          }
+        },
+        "neck4_3": {
+          "rotation": {
+            "0.00": [
+              0,
+              0,
+              0
+            ],
+            "0.08": [
+              -10,
+              0,
+              0
+            ],
+            "0.30": [
+              0,
+              0,
+              0
+            ]
+          }
+        },
+        "head4": {
+          "rotation": {
+            "0.00": [
+              0,
+              0,
+              0
+            ],
+            "0.08": [
+              -20,
+              0,
+              8
+            ],
+            "0.30": [
+              0,
+              0,
+              0
+            ]
+          }
+        },
+        "jaw4": {
+          "rotation": {
+            "0.00": [
+              0,
+              0,
+              0
+            ],
+            "0.08": [
+              30,
+              0,
+              0
+            ],
+            "0.30": [
+              0,
+              0,
+              0
+            ]
+          }
+        }
+      }
+    },
+    "animation.hydra.grow4": {
+      "loop": "hold_on_last_frame",
+      "animation_length": 2.0,
+      "bones": {
+        "neck4_2": {
+          "scale": {
+            "0.00": [
+              0.05,
+              0.05,
+              0.05
+            ],
+            "1.40": [
+              0.8,
+              1.0,
+              0.8
+            ],
+            "2.00": [
+              1,
+              1,
+              1
+            ]
+          }
+        },
+        "jaw4": {
+          "rotation": {
+            "0.00": [
+              0,
+              0,
+              0
+            ],
+            "1.50": [
+              0,
+              0,
+              0
+            ],
+            "1.70": [
+              45,
+              0,
+              0
+            ],
+            "2.00": [
+              0,
+              0,
+              0
+            ]
+          }
+        }
+      }
+    },
+    "animation.hydra.dead4": {
+      "loop": true,
+      "bones": {
+        "neck4_2": {
+          "scale": 0
+        },
+        "neck4_1": {
+          "rotation": [
+            "14 + math.sin(q.life_time * 70 + 268) * 4",
+            0,
+            "math.cos(q.life_time * 60 + 268) * 4"
+          ]
+        }
+      }
+    },
+    "animation.hydra.dance": {
+      "loop": true,
+      "bones": {
+        "body": {
+          "position": [
+            0,
+            "math.abs(math.sin(q.life_time * 360)) * 3.0",
+            0
+          ],
+          "rotation": [
+            "math.sin(q.life_time * 360) * 7",
+            "math.cos(q.life_time * 180) * 16",
+            "math.sin(q.life_time * 180) * 10"
+          ]
+        },
+        "chest": {
+          "rotation": [
+            "math.sin(q.life_time * 360) * 8",
+            0,
+            0
+          ]
+        },
+        "tail1": {
+          "rotation": [
+            0,
+            "math.sin(q.life_time * 360) * 22",
+            0
+          ]
+        },
+        "tail2": {
+          "rotation": [
+            0,
+            "math.sin(q.life_time * 360 - 45) * 26",
+            0
+          ]
+        },
+        "tail3": {
+          "rotation": [
+            0,
+            "math.sin(q.life_time * 360 - 90) * 30",
+            0
+          ]
+        },
+        "neck0_1": {
+          "rotation": [
+            "math.sin(q.life_time * 360) * 18",
+            "math.cos(q.life_time * 180) * 20",
+            0
+          ]
+        },
+        "head0": {
+          "rotation": [
+            "math.sin(q.life_time * 360) * 20",
+            0,
+            "math.cos(q.life_time * 360) * 18"
+          ]
+        },
+        "neck1_1": {
+          "rotation": [
+            "math.sin(q.life_time * 360 + 72) * 18",
+            "math.cos(q.life_time * 180 + 72) * 20",
+            0
+          ]
+        },
+        "head1": {
+          "rotation": [
+            "math.sin(q.life_time * 360 + 72) * 20",
+            0,
+            "math.cos(q.life_time * 360 + 72) * 18"
+          ]
+        },
+        "neck2_1": {
+          "rotation": [
+            "math.sin(q.life_time * 360 + 144) * 18",
+            "math.cos(q.life_time * 180 + 144) * 20",
+            0
+          ]
+        },
+        "head2": {
+          "rotation": [
+            "math.sin(q.life_time * 360 + 144) * 20",
+            0,
+            "math.cos(q.life_time * 360 + 144) * 18"
+          ]
+        },
+        "neck3_1": {
+          "rotation": [
+            "math.sin(q.life_time * 360 + 216) * 18",
+            "math.cos(q.life_time * 180 + 216) * 20",
+            0
+          ]
+        },
+        "head3": {
+          "rotation": [
+            "math.sin(q.life_time * 360 + 216) * 20",
+            0,
+            "math.cos(q.life_time * 360 + 216) * 18"
+          ]
+        },
+        "neck4_1": {
+          "rotation": [
+            "math.sin(q.life_time * 360 + 288) * 18",
+            "math.cos(q.life_time * 180 + 288) * 20",
+            0
+          ]
+        },
+        "head4": {
+          "rotation": [
+            "math.sin(q.life_time * 360 + 288) * 20",
+            0,
+            "math.cos(q.life_time * 360 + 288) * 18"
+          ]
+        }
+      }
+    }
+  }
+}

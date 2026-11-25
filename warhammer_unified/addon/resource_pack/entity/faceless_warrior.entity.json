@@ -1,0 +1,38 @@
+{
+  "format_version": "1.10.0",
+  "minecraft:client_entity": {
+    "description": {
+      "identifier": "warcraft:faceless_warrior",
+      "min_engine_version": "1.16.0",
+      "materials": {
+        "default": "entity_alphatest"
+      },
+      "textures": {
+        "default": "textures/entity/faceless_warrior"
+      },
+      "geometry": {
+        "default": "geometry.faceless_warrior"
+      },
+      "animations": {
+        "idle_a": "animation.faceless_warrior.idle_a",
+        "walk": "animation.faceless_warrior.walk",
+        "attack_a": "animation.faceless_warrior.attack_a",
+        "slam": "animation.faceless_warrior.slam",
+        "death": "animation.faceless_warrior.death",
+        "controller": "controller.animation.faceless_warrior"
+      },
+      "scripts": {
+        "animate": [
+          "controller"
+        ]
+      },
+      "render_controllers": [
+        "controller.render.faceless_warrior"
+      ],
+      "spawn_egg": {
+        "texture": "egg_warcraft_faceless_warrior",
+        "texture_index": 0
+      }
+    }
+  }
+}

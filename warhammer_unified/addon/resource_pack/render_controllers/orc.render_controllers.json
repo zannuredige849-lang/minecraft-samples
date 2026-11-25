@@ -1,0 +1,63 @@
+{
+  "format_version": "1.8.0",
+  "render_controllers": {
+    "controller.render.cb_orc": {
+      "arrays": {
+        "textures": {
+          "Array.skins": [
+            "Texture.orc_skin0",
+            "Texture.orc_skin1",
+            "Texture.orc_slave"
+          ]
+        }
+      },
+      "geometry": "Geometry.default",
+      "materials": [
+        {
+          "*": "Material.default"
+        }
+      ],
+      "textures": [
+        "Array.skins[q.property('cb:slave') ? 2 : math.clamp(q.property('cb:skin'), 0, 1)]"
+      ]
+    },
+    "controller.render.cb_green_orc": {
+      "arrays": {
+        "textures": {
+          "Array.skins": [
+            "Texture.green_skin0",
+            "Texture.green_skin1"
+          ]
+        }
+      },
+      "geometry": "Geometry.default",
+      "materials": [
+        {
+          "*": "Material.default"
+        }
+      ],
+      "textures": [
+        "Array.skins[math.clamp(q.property('cb:skin'), 0, 1)]"
+      ]
+    },
+    "controller.render.cb_hell_orc": {
+      "arrays": {
+        "textures": {
+          "Array.skins": [
+            "Texture.hell_skin0",
+            "Texture.hell_skin1"
+          ]
+        }
+      },
+      "geometry": "Geometry.default",
+      "materials": [
+        {
+          "*": "Material.default"
+        }
+      ],
+      "textures": [
+        "Array.skins[math.clamp(q.property('cb:skin'), 0, 1)]"
+      ]
+    }
+  }
+}

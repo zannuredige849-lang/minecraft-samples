@@ -1,0 +1,39 @@
+{
+  "format_version": "1.10.0",
+  "minecraft:client_entity": {
+    "description": {
+      "identifier": "warcraft:skeleton_bear",
+      "materials": {
+        "default": "entity_alphatest"
+      },
+      "textures": {
+        "default": "textures/entity/skeleton_bear_voxel"
+      },
+      "geometry": {
+        "default": "geometry.skeleton_bear"
+      },
+      "animations": {
+        "idle_a": "animation.skeleton_bear.idle_a",
+        "idle_b": "animation.skeleton_bear.idle_b",
+        "walk": "animation.skeleton_bear.walk",
+        "attack_a": "animation.skeleton_bear.attack_a",
+        "attack_b": "animation.skeleton_bear.attack_b",
+        "ability": "animation.skeleton_bear.ability",
+        "death": "animation.skeleton_bear.death",
+        "move_ctrl": "controller.animation.skeleton_bear"
+      },
+      "scripts": {
+        "animate": [
+          "move_ctrl"
+        ]
+      },
+      "render_controllers": [
+        "controller.render.default"
+      ],
+      "spawn_egg": {
+        "texture": "egg_warcraft_skeleton_bear",
+        "texture_index": 0
+      }
+    }
+  }
+}

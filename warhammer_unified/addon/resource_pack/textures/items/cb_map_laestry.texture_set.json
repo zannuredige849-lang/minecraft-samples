@@ -1,0 +1,7 @@
+{
+  "format_version": "1.16.100",
+  "minecraft:texture_set": {
+    "color": "cb_map_laestry",
+    "metalness_emissive_roughness": "cb_map_laestry_mer"
+  }
+}

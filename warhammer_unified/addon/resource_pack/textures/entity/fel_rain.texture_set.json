@@ -1,0 +1,8 @@
+{
+  "format_version": "1.16.100",
+  "minecraft:texture_set": {
+    "color": "fel_rain",
+    "metalness_emissive_roughness": "fel_rain_mer",
+    "heightmap": "fel_rain_height"
+  }
+}

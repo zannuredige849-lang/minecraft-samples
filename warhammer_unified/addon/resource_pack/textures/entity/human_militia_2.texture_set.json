@@ -1,0 +1,8 @@
+{
+  "format_version": "1.16.100",
+  "minecraft:texture_set": {
+    "color": "human_militia_2",
+    "metalness_emissive_roughness": "human_militia_2_mer",
+    "heightmap": "human_militia_2_height"
+  }
+}
