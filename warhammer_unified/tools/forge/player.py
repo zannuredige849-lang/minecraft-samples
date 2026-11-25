@@ -52,6 +52,17 @@ def register(key, **kw):
     _CACHE.pop(key, None)
 
 
+def has_override(key):
+    return os.path.exists(os.path.join(OVERRIDE, key + ".png"))
+
+
+def skin_slim(key):
+    """Arm width for the geometry: from the dropped-in skin if there is one, else from PEOPLE."""
+    if has_override(key):
+        return is_slim(Image.open(os.path.join(OVERRIDE, key + ".png")))
+    return PEOPLE.get(key, False)
+
+
 def is_slim(img):
     a = np.asarray(img.convert("RGBA"))
     return a[20:32, 54:56, 3].max() == 0

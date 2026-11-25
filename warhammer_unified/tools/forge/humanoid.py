@@ -39,8 +39,10 @@ class Humanoid(Model):
         if player is None and ident.startswith("geometry.") and ident[9:] in _pl.PEOPLE:
             player = ident[9:]
         self.player = player
+        self.real_skin = False
         if player:                                   # vanilla player proportions, skin from a 64x64 player skin
-            slim = _pl.PEOPLE.get(player, False) if slim is None else slim
+            slim = _pl.skin_slim(player) if slim is None else slim
+            self.real_skin = _pl.has_override(player)          # a downloaded skin carries its own clothes/helmet
             self.slim = slim
             H, hs, tw, td, aw, lh, th, arm_h = 32, 8, 8, 4, (3 if slim else 4), 12, 12, 12
             _pl.register(player, pal=pal, slim=slim)
@@ -213,6 +215,9 @@ class Humanoid(Model):
             self.box(self.head, (-hs / 2 + 2, sh - 5, -hs / 2 - 1), (hs - 4, 2, 2), M(beard, "fur", 2.8))
 
     def head_helm(self, kind="great", metal="armor", eyes="glow", trim="trim", plume=None, crest=None, horns=None, skin="skin"):
+        if self.real_skin:                                  # the downloaded skin already has its helmet / hood / face
+            self.head_box(self._pskin("head"))
+            return
         hs = self.hs; sh = self.sh
         ey = R(hs * 0.45)
         face = dec(M(metal, "plate", 3.0), ("north", "slit", ey, eyes), ("north", "visor", ey - 1, 1, "dark"))
@@ -309,6 +314,7 @@ class Humanoid(Model):
         self.box(self.body, (-tw / 2 + 1, self.sh - 5, -td / 2 - 1.5), (tw - 2, 2, 1), M(slot, "fur", 2.8))
 
     def belt(self, slot="leather", buckle="trim", skull=False, y_off=0):
+        if self.real_skin: return            # the downloaded skin already draws it
         tw, td, lh, s = self.tw, self.td, self.lh, self.s
         y = lh + R(2 * s) + y_off
         self.box(self.body, (-tw / 2 - 0.5, y, -td / 2 - 0.5), (tw + 1, 2, td + 1), M(slot, "leather", 2.6))
@@ -335,6 +341,7 @@ class Humanoid(Model):
         self.box(self.body, (-0.5, sh - th * 0.55, -td / 2 - 2), (1, 1, 1), M(metal, "plate", 3.8))
 
     def tabard(self, slot="cloth", trim="trim", emblem=None, length=None):
+        if self.real_skin: return            # the downloaded skin already draws it
         tw, td, lh = self.tw, self.td, self.lh
         L = length or R(7 * self.s)
         mat = M(slot, "cloth", 3.0)
