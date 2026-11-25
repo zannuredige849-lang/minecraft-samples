@@ -61,8 +61,8 @@ def faceless_cultist():
     m.box(m.head, (-hs / 2 - 1, m.sh + hs - 2, -hs / 2 - 1), (hs + 2, 3, hs + 3), M("cloth", "cloth", 2.4))
     m.box(m.head, (-hs / 2 - 1, m.sh - 1, hs / 2), (hs + 2, hs, 2), M("cloth", "cloth", 2.3))
     m.skirt("cloth", length=m.lh + 2, widen=4, trim=None)
-    m.bone("halo", m.head, (0, m.sh + 2, hs / 2 + 4))
-    m.box("halo", (-5, m.sh + 2, hs / 2 + 4), (10, 10, 1), M("glow", "glow", 3.4, decals=[("*", "rune", "dark")]))
+    m.box(m.body, (-1, m.sh - 6, m.td / 2), (2, hs + 8, 1), M("trim", "plate", 3.0))                 # pole bolted to the back
+    m.box(m.body, (-5, m.sh + hs - 2, m.td / 2 + 1), (10, 10, 1), M("glow", "glow", 3.4, decals=[("*", "rune", "dark")]))
     m.weapon("dagger", slot="metal", trim="trim")
     return Spec(m)
 

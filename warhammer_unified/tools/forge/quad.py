@@ -29,11 +29,15 @@ class Quad(Model):
         self.box(self.body, (-W / 2, lg, -L / 2), (W, Hb, L), M(body, bstyle, 3.0))
         if belly:
             self.box(self.body, (-W / 2 + 1, lg - 1, -L / 2 + 2), (W - 2, 2, L - 4), M(belly, bstyle, 3.2))
+        self.box(self.body, (-W / 2 - 0.5, lg + 1, -L / 2 - 0.5), (W + 1, Hb - 1, 6), M(body, bstyle, 3.15))      # shoulder mass
+        self.box(self.body, (-W / 2 - 0.5, lg + 1, L / 2 - 5.5), (W + 1, Hb - 2, 6), M(body, bstyle, 3.15))      # haunches
+        self.box(self.body, (-W / 2 + 1, lg + Hb, -L / 2 + 6), (W - 2, 1, max(2, L - 12)), M(body, bstyle, 3.45))   # dorsal ridge
         xo = W / 2 - lt
         for nm, sx, sz in (("leg_fl", 1, -1), ("leg_fr", -1, -1), ("leg_bl", 1, 1), ("leg_br", -1, 1)):
             x = (W / 2 - lt) if sx > 0 else -W / 2
             z = (-L / 2) if sz < 0 else (L / 2 - lt)
             self.box(nm, (x, 2, z), (lt, lg - 2, lt), M(legs or body, lstyle, 2.8))
+            self.box(nm, (x - 0.5, lg - 5, z - 0.5), (lt + 1, 5, lt + 1), M(legs or body, lstyle, 3.1))               # upper-leg bulge
             self.box(nm, (x - 0.5, 0, z - 0.5 - (1 if sz < 0 else 0)), (lt + 1, 2, lt + 1 + (1 if sz < 0 else 0)), M(paws, "plate", ptone))
 
     def head_box(self, mat, snout=None, snout_mat=None, ears=None, ear_size=3, eyes="glow", eye_y=None, fangs=None, jaw=False):
@@ -43,6 +47,7 @@ class Quad(Model):
         m = dec(mat, ("north", "eyes", eyes, ey)) if eyes else mat
         # head main (back part), face on its north side
         self.box(self.head, (-hw / 2, hy, -self.L / 2 - hl + 2), (hw, hh, hl - 2), mat)
+        self.box(self.head, (-hw / 2 - 0.5, hy + hh - 2, -self.L / 2 - hl + 1), (hw + 1, 2, 2), mat)                      # brow ridge
         if snout:
             sw = max(3, hw - 3); sh = max(3, hh - 3)
             sm = snout_mat or mat

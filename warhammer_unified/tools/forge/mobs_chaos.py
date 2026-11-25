@@ -96,7 +96,7 @@ def burning_chariot():
         q.box(nm, (sgn * 10 - 1.5, 5, zb + 10), (3, 2, 2), M("trim", "plate", 3.8))
         q.box(nm, (sgn * 10 - 1, 5, zb + 4), (2, 2, 14), M("trim", "plate", 3.2))
     for i in range(3):
-        q.box("body", (-6 + i * 5, 18, zb + 6 + i * 3), (4, 8 - i, 4), M("flame", "flame", 3.2))
+        q.box("body", (-6 + i * 5, 10, zb + 5 + i * 4), (4, 8 - i, 4), M("flame", "flame", 3.2))
     wheel = {"walk": {"wheel_l": {"rotation": ["query.anim_time*450", 0, 0]}, "wheel_r": {"rotation": ["query.anim_time*450", 0, 0]}}}
     return Spec(q, rig="quad", heavy=1.2, extra=wheel)
 
@@ -112,7 +112,7 @@ def great_unclean_one():
     m.box(m.body, (-tw / 2 - 1, lh + 12, -td / 2 - 5), (tw + 2, 8, 4), M("skin", "skin", 3.3))
     m.box(m.body, (-7, lh + 5, -td / 2 - 5), (14, 8, 1), M("flesh", "flat", 2.4, decals=[("north", "teeth", 1, "bone"), ("north", "teeth", 6, "bone")]))
     # boils
-    for (x, y, z) in ((-10, lh + 18, -td / 2 - 6), (9, lh + 15, -td / 2 - 6), (-12, lh + 8, td / 2 + 2), (11, lh + 20, td / 2 + 2), (0, lh + 24, td / 2 + 2)):
+    for (x, y, z) in ((-10, lh + 18, -td / 2 - 6), (9, lh + 15, -td / 2 - 6), (-12, lh + 8, td / 2 - 1), (11, lh + 20, td / 2 - 1), (0, lh + 24, td / 2 - 1)):
         m.box(m.body, (x, y, z), (3, 3, 2), M("glow", "flat", 3.6))
     m.head_box(dec(M("skin", "skin", 3.0), ("north", "eyes", "glow", 6), ("north", "teeth", 3, "bone"), ("north", "mouth", 2)))
     m.horns("bone", size=1.6)
@@ -125,11 +125,6 @@ def great_unclean_one():
     for i in range(5):  # chain + flail
         m.box(wb, (m.acx - 0.5, m.hand_y - 3 - i * 2.2, -2), (1, 2, 1), M("metal", "metal", 3.0))
     m.box(wb, (m.acx - 2.5, m.hand_y - 17, -4), (5, 5, 5), M("metal", "metal", 3.2))
-    m.bone("orbit", m.head, (0, m.sh + 4, 0))
-    import math
-    for i in range(7):
-        a = 2 * math.pi * i / 7; r_ = 12 + (i % 3) * 2
-        m.box("orbit", (r_ * math.cos(a) - 1, m.sh + 2 + (i % 4) * 3, r_ * math.sin(a) - 1), (2, 2, 2), M("fly", "flat", 2.0))
     return Spec(m, heavy=1.6)
 
 

@@ -100,15 +100,24 @@ def paint_face(mat, face, w, h, pal, seed=0):
         if w >= 6 and h >= 6:
             for (x, y) in ((1, 1), (w - 2, 1), (1, h - 2), (w - 2, h - 2)):
                 put(x, y, hi if (x + y) % 2 == 0 else light)
+        if w >= 8 and h >= 8:   # inset panel groove + two scratches
+            for x in range(2, w - 2):
+                put(x, 2, dark); put(x, h - 3, light)
+            for y in range(2, h - 2):
+                put(2, y, dark); put(w - 3, y, light)
+            sx_ = 3 + _hash(seed, "sc") % max(w - 8, 1); sy_ = 3 + _hash(seed, "sy") % max(h - 8, 1)
+            put(sx_, sy_, light); put(sx_ + 1, sy_ + 1, light); put(sx_ + 2, sy_ + 1, hi)
     elif style == "cloth":
-        for x in range(w):
-            if (x // 2) % 2 == 1:
-                img[:, x] = ramp_at(ramp, tone - 0.55)
+        for y in range(h):
+            for x in range(w):
+                if ((x + (y // 4) * 1) // 2) % 2 == 1:
+                    img[y, x] = ramp_at(ramp, tone - 0.55)
         if h >= 5:
             img[h - 1, :] = dark
     elif style == "leather":
         if h >= 5:
             for x in range(0, w, 2): put(x, h // 2, dark)
+            for x in range(1, w, 4): put(x, h // 2 - 1, light)
         img[0, :] = light if h > 2 else img[0, :]
     elif style == "fur":
         for x in range(w):
@@ -168,7 +177,16 @@ def paint_face(mat, face, w, h, pal, seed=0):
                 if hv == 0: img[y, x] = dark
                 elif hv == 1: img[y, x] = light
                 elif hv == 2 and (x + y) % 3 == 0: img[y, x] = hi
+    elif style == "woven":
+        for y in range(h):
+            for x in range(w):
+                img[y, x] = ramp_at(ramp, tone + (0.9 if (x + y) % 2 == 0 else -0.8))
     elif style == "skin":
+        if h >= 6:
+            img[h // 3:h // 3 + 1, :] = ramp_at(ramp, tone + 0.35)
+        for y in range(2, h - 1, 3):
+            for x in range(1, w - 1):
+                if _hash(seed, x, y) % 9 == 0: img[y, x] = ramp_at(ramp, tone - 0.35)
         if h >= 4:
             img[h - 1, :] = ramp_at(ramp, tone - 0.5)
     elif style == "wood":

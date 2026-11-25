@@ -38,7 +38,7 @@ def classify(short):
 # --------------------------------------------------------------------------- roles
 def roles_humanoid(m, pre=""):
     g = lambda n: (pre + n) if (pre + n) in m.bones else None
-    return dict(body=g("body"), head=g("head"), arm_l=g("arm_l"), arm_r=g("arm_r"), leg_l=g("leg_l"), leg_r=g("leg_r"),
+    return dict(body=g("body"), head=g("head"), arm_l=g("arm_l"), arm_r=g("arm_r"), farm_l=g("farm_l"), farm_r=g("farm_r"), leg_l=g("leg_l"), leg_r=g("leg_r"),
                 cape=g("cape"), skirt=g("skirt"), wing_l=g("wing_l"), wing_r=g("wing_r"), tail=g("tail"), halo=g("halo"),
                 orbit=g("orbit"), root=g("root"))
 
@@ -62,6 +62,7 @@ def hum_motion(R, kind, L, loop, heavy=1.0, armed=True, floaty=False):
         sw = 30 * (0.8 if heavy > 1.2 else 1.0)
         A("leg_l", "rotation", [S(L, sw), 0, 0]); A("leg_r", "rotation", [S(L, -sw), 0, 0])
         A("arm_l", "rotation", [S(L, -sw * 0.9), 0, 2]); A("arm_r", "rotation", [S(L, sw * (0.35 if armed else 0.9)), 0, -2])
+        A("farm_l", "rotation", [S(L, -8, 20), 0, 0]); A("farm_r", "rotation", [S(L, 8, 20), 0, 0])
         A("body", "position", [0, AB(L, 0.9 * amp), 0]); A("body", "rotation", [3 * amp, S(L, 3), S(L, 2, 90)])
         A("head", "rotation", [-3, S(L, -3), 0])
         A("cape", "rotation", [S(L, 6, 0, 10), 0, 0]); A("skirt", "rotation", [S(L, 5, 0, 3), 0, 0])
@@ -70,6 +71,7 @@ def hum_motion(R, kind, L, loop, heavy=1.0, armed=True, floaty=False):
         if floaty:
             A("root", "position", [0, S(L, 1.2, 0, 0), 0])
     elif kind == "idle":
+        A("farm_l", "rotation", [S(L, 2.5, 60), 0, 0]); A("farm_r", "rotation", [S(L, 2.5, 120), 0, 0])
         A("body", "position", [0, S(L, 0.4 * amp), 0]); A("body", "rotation", [S(L, 1.2), 0, 0])
         A("arm_l", "rotation", [S(L, 2, 40), 0, S(L, 2, 0, 3)]); A("arm_r", "rotation", [S(L, 2, 80), 0, S(L, -2, 0, -3)])
         A("head", "rotation", [S(L, 2, 20), S(L, 4, 0, 0, 1), 0])
@@ -85,6 +87,7 @@ def hum_motion(R, kind, L, loop, heavy=1.0, armed=True, floaty=False):
     elif kind == "attack":
         A("arm_r", "rotation", kf({0: [0, 0, 0], L * .22: [-105, 0, 14], L * .42: [-20, 0, -6], L * .7: [-8, 0, 0], L: [0, 0, 0]}))
         A("arm_l", "rotation", kf({0: [0, 0, 0], L * .22: [-30, 0, -10], L * .42: [-10, 0, 0], L: [0, 0, 0]}))
+        A("farm_r", "rotation", kf({0: [0, 0, 0], L * .22: [-25, 0, 0], L * .42: [30, 0, 0], L * .7: [8, 0, 0], L: [0, 0, 0]}))
         A("body", "rotation", kf({0: [0, 0, 0], L * .22: [-8 * amp, -12, 0], L * .42: [14 * amp, 14, 0], L * .75: [4, 3, 0], L: [0, 0, 0]}))
         A("body", "position", kf({0: [0, 0, 0], L * .22: [0, 0, 1], L * .42: [0, -1, -2.5 * amp], L: [0, 0, 0]}))
         A("head", "rotation", kf({0: [0, 0, 0], L * .22: [-8, 6, 0], L * .42: [8, -8, 0], L: [0, 0, 0]}))
@@ -94,6 +97,7 @@ def hum_motion(R, kind, L, loop, heavy=1.0, armed=True, floaty=False):
     elif kind == "slam":
         A("arm_r", "rotation", kf({0: [0, 0, 0], L * .3: [-150, 0, 12], L * .5: [-18, 0, 0], L * .8: [-10, 0, 0], L: [0, 0, 0]}))
         A("arm_l", "rotation", kf({0: [0, 0, 0], L * .3: [-150, 0, -12], L * .5: [-18, 0, 0], L * .8: [-10, 0, 0], L: [0, 0, 0]}))
+        A("farm_l", "rotation", kf({0: [0, 0, 0], L * .3: [-20, 0, 0], L * .5: [30, 0, 0], L: [0, 0, 0]})); A("farm_r", "rotation", kf({0: [0, 0, 0], L * .3: [-20, 0, 0], L * .5: [30, 0, 0], L: [0, 0, 0]}))
         A("body", "rotation", kf({0: [0, 0, 0], L * .3: [-16 * amp, 0, 0], L * .5: [26 * amp, 0, 0], L * .85: [8, 0, 0], L: [0, 0, 0]}))
         A("body", "position", kf({0: [0, 0, 0], L * .3: [0, 1, 2], L * .5: [0, -2, -4 * amp], L: [0, 0, 0]}))
         A("head", "rotation", kf({0: [0, 0, 0], L * .3: [-14, 0, 0], L * .5: [14, 0, 0], L: [0, 0, 0]}))
@@ -102,6 +106,7 @@ def hum_motion(R, kind, L, loop, heavy=1.0, armed=True, floaty=False):
     elif kind == "cast":
         A("arm_r", "rotation", kf({0: [0, 0, 0], L * .25: [-125, 0, 24], L * .7: [-125, 0, 24], L: [0, 0, 0]}))
         A("arm_l", "rotation", kf({0: [0, 0, 0], L * .25: [-125, 0, -24], L * .7: [-125, 0, -24], L: [0, 0, 0]}))
+        A("farm_l", "rotation", kf({0: [0, 0, 0], L * .25: [20, 0, 0], L * .7: [20, 0, 0], L: [0, 0, 0]})); A("farm_r", "rotation", kf({0: [0, 0, 0], L * .25: [20, 0, 0], L * .7: [20, 0, 0], L: [0, 0, 0]}))
         A("head", "rotation", kf({0: [0, 0, 0], L * .25: [-22, 0, 0], L * .7: [-22, 0, 0], L: [0, 0, 0]}))
         A("body", "rotation", kf({0: [0, 0, 0], L * .25: [-8, 0, 0], L * .7: [-8, 0, 0], L: [0, 0, 0]}))
         A("body", "position", kf({0: [0, 0, 0], L * .3: [0, 1.5, 0], L * .7: [0, 1.5, 0], L: [0, 0, 0]}))
