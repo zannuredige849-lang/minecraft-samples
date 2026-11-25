@@ -78,6 +78,13 @@ def main(src, out, mca, show):
             elif isinstance(o, list):
                 for x in o: bump(x)
         bump(md); W(mp, md)
+    for r in report: print("  %-30s cubes=%d uv=%d zfix=%d new_bones=%s" % r)
+    check_and_pack(out, mca)
+
+
+def check_and_pack(out, mca):
+    """Validate a built add-on folder (JSON, texture sets, references, JS syntax, counts) and zip it as .mcaddon."""
+    rp = out + "/resource_pack"
     # checks: all JSON parse, texture sets point to files, JS syntax
     bad = []
     for p in glob.glob(out + "/**/*.json", recursive=True):
@@ -117,7 +124,6 @@ def main(src, out, mca, show):
         for part in ("behavior_pack", "resource_pack"):
             for p in sorted(glob.glob(f"{out}/{part}/**/*", recursive=True)):
                 if os.path.isfile(p): z.write(p, os.path.relpath(p, out))
-    for r in report: print("  %-30s cubes=%d uv=%d zfix=%d new_bones=%s" % r)
     print("entities:", len(glob.glob(out + "/behavior_pack/entities/*.json")), "items:", len(glob.glob(out + "/behavior_pack/items/*.json")))
     print("json/reference errors:", len(bad), bad[:8]); print("js modules:", len(js), "syntax errors:", len(js_bad), js_bad[:3])
     print("mcaddon:", mca, os.path.getsize(mca) // 1024, "KB")
