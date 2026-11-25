@@ -41,9 +41,15 @@ def _noise(w, h, cell, seed):
 
 def tone_field(style, face, w, h, d, seed, tone, mat):
     ys, xs = np.mgrid[0:h, 0:w].astype(float)
-    T = np.full((h, w), tone + FACE_SHIFT[face])
-    n2 = _noise(w, h, max(2, 3 * d), seed)
-    vgrad = 0.35 - 0.7 * ys / max(h - 1, 1)          # light from above, inside every face
+    T = np.full((h, w), tone + (FACE_SHIFT[face] * (0.45 if face == "up" else 1.0) if "seed" in mat else FACE_SHIFT[face]))
+    if "seed" in mat:                                 # shared field across the slices of one rounded volume
+        seed = mat["seed"] * 13 + len(face)
+        oy = int(mat.get("wy", 0) * d) if face not in ("up", "down") else 0
+        n2 = _noise(w, h + oy, max(2, 3 * d), seed)[oy:oy + h]
+        ys = ys + oy
+    else:
+        n2 = _noise(w, h, max(2, 3 * d), seed)
+    vgrad = (0.35 - 0.7 * (ys - (ys.min() if "seed" in mat else 0)) / max(h - 1, 1)) * (mat.get("vg", 1))
     if style in ("forged", "plate", "gold"):
         T += vgrad * 0.8 + n2 * 0.25
         band = ((xs + ys) // (2 * d)) % 6
@@ -80,9 +86,9 @@ def tone_field(style, face, w, h, d, seed, tone, mat):
         T += np.where(tip, 0.9, 0) + np.where(ph > layer - d, -1.2, 0) + vgrad * 0.5 + n2 * 0.25
         T += np.where((col % 3) == 0, -0.4, 0)
     elif style in ("flesh", "skin"):
-        blobs = _noise(w, h, max(3, 3 * d), seed + 7)
+        blobs = _noise(w, int(ys.max()) + 1, max(3, 3 * d), seed + 7)[ys.astype(int), xs.astype(int)] if "seed" in mat else _noise(w, h, max(3, 3 * d), seed + 7)
         T += np.rint(blobs * (1.6 if style == "flesh" else 0.8)) * 0.6 + vgrad * 0.5
-        spots = _noise(w, h, max(2, 4 * d), seed + 11) > 0.62
+        spots = (_noise(w, int(ys.max()) + 1, max(2, 4 * d), seed + 11)[ys.astype(int), xs.astype(int)] if "seed" in mat else _noise(w, h, max(2, 4 * d), seed + 11)) > 0.62
         T += np.where(spots, -1.0, 0)
     elif style == "ribbed":
         T += np.rint(np.sin(ys / (2.0 * d) * math.pi)) * 0.45 + np.rint(n2 * 1.5) * 0.35 + vgrad * 0.5
@@ -129,7 +135,7 @@ def paint(mat, face, w, h, d, pal, seed):
     slot = mat.get("slot", "armor")
     ramp = pal[slot] if slot in pal else pal["armor"]
     tone = mat.get("tone", 3.0)
-    T = tone_field(style, face, w, h, d, seed, tone, mat)
+    T = tone_field(style, face, w, h, d, seed, tone + (0 if "seed" in mat else ((seed // 7) % 5 - 2) * 0.08), mat)
     lo, hi = mat.get("range", (0, 5))
     idx = cluster(np.clip(np.rint(T), lo, hi).astype(int))
     rgba = np.zeros((h, w, 4), np.uint8)

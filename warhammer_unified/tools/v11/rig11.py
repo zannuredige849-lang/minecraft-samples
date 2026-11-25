@@ -60,6 +60,53 @@ class Rig11:
         if rot and pivot is None: p2 = [-(x + s / 2), y + max(1, round(h)) / 2, z + max(1, round(d)) / 2]
         self.c(bone_l, -(x + s), y, z, w, h, d, mat, r2, p2, inflate)
 
+    # ------------------------------------------------------------------ sculpting helpers (v10.8)
+    def seg(self, bone, p0, p1, w, d, mat, inflate=0.0, over=0.0):
+        """Box of section w x d running from point p0 to p1 (file coordinates), rotated to follow the segment."""
+        import math
+        vx, vy, vz = (p1[0] - p0[0], p1[1] - p0[1], p1[2] - p0[2])
+        L = math.sqrt(vx * vx + vy * vy + vz * vz) + over
+        if L < 1e-6: return
+        tx, ty, tz = -vx / (L - over), vy / (L - over), vz / (L - over)
+        a = math.asin(max(-1, min(1, tz)))
+        b = math.atan2(-tx, ty) if abs(math.cos(a)) > 1e-6 else 0.0
+        rx, rz = round(-math.degrees(a), 2), round(math.degrees(b), 2)
+        wi, di, Li = max(1, round(w)), max(1, round(d)), max(1, round(L))
+        rot = [rx, 0, rz] if (abs(rx) > 0.01 or abs(rz) > 0.01) else None
+        self.c(bone, p0[0] - wi / 2, p0[1], p0[2] - di / 2, wi, Li, di, mat, rot=rot, pivot=list(p0) if rot else None, inflate=inflate)
+
+    def chain(self, bone, pts, w0, w1, mat_fn, d0=None, d1=None):
+        n = len(pts) - 1
+        for i in range(n):
+            t = i / max(1, n - 1)
+            w = w0 + (w1 - w0) * t
+            d = (d0 if d0 is not None else w0) + ((d1 if d1 is not None else w1) - (d0 if d0 is not None else w0)) * t
+            self.seg(bone, pts[i], pts[i + 1], w, d, mat_fn(i), over=0.6)
+
+    def ell(self, bone, c, r, mat, step=3, cross=True, squash=0.84):
+        """Rounded volume (ellipsoid) from horizontal slices; each slice is a cross of two boxes for round x and z.
+        Slices share one noise field (continuous across slices) and a single top-lit gradient; decals go on the middle slice."""
+        import math
+        cx, cy, cz = c; rx, ry, rz = r
+        n = max(2, int(round(2 * ry / step)))
+        h = step
+        seed = abs(hash((bone, round(cx), round(cy), round(cz)))) % 100000
+        for i in range(n):
+            yc = -n * h / 2 + (i + 0.5) * h
+            f = math.sqrt(max(0.05, 1 - (yc / (n * h / 2 + 0.5)) ** 2))
+            w, d = max(1, round(2 * rx * f)), max(1, round(2 * rz * f))
+            y0 = cy - n * h / 2 + i * h
+            m = dict(mat); m["seed"] = seed; m["wy"] = (n - 1 - i) * h; m["vg"] = 0
+            m["tone"] = mat.get("tone", 3.0) + 0.45 * (yc / max(1, n * h / 2)) + (0.15 if i == n - 1 else 0)
+            if i != n // 2: m.pop("decals", None)
+            if cross and w > 3 and d > 3:
+                w2, d2 = max(1, round(w * squash)), max(1, round(d * squash))
+                self.c(bone, cx - w / 2, y0, cz - d2 / 2, w, h, d2, m)
+                m2 = dict(m); m2.pop("decals", None)
+                self.c(bone, cx - w2 / 2, y0, cz - d / 2, w2, h, d, m2)
+            else:
+                self.c(bone, cx - w / 2, y0, cz - d / 2, w, h, d, m)
+
     def cube_count(self):
         return sum(len(b["cubes"]) for b in self.bones.values())
 
@@ -99,12 +146,13 @@ class Rig11:
                         small.inflate = round(small.inflate + 0.05, 3); fixed += 1
         return fixed
 
-    def finalize(self, png=256):
+    def finalize(self, png=None):
         self.zfix = self.dezfight()
-        for uvsize in (128, 256):
+        png = png or getattr(self, "png", 256)
+        for uvsize in [u for u in (64, 128, 256, 512) if u <= png and png // u <= 4]:
             if self._pack(uvsize): break
         else:
-            raise RuntimeError(f"{self.ident}: UV islands do not fit 256x256")
+            raise RuntimeError(f"{self.ident}: UV islands do not fit {png}x{png}")
         self.tw = uvsize
         dens = png // uvsize
         tex = np.zeros((png, png, 4), np.uint8)

@@ -2,7 +2,8 @@
 python3 tools/v11/apply11.py <extracted add-on> <out dir> <out .mcaddon> <showcase.png>"""
 import sys, os, json, re, glob, shutil, subprocess, zipfile
 sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
-from v11.mobs11 import BUILDERS
+import importlib
+BUILDERS = importlib.import_module("v11." + os.environ.get("MOBS", "mobs11")).BUILDERS
 
 def L(p): return json.loads(re.sub(r'(?m)^\s*//.*$', '', open(p, encoding='utf-8').read()))
 def W(p, d):
