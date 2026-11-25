@@ -1673,7 +1673,7 @@ try {
           st.shieldDisabledUntil = now + 100; // 5 seconds shield cooldown
           try { hurt.setProperty("cb:blocking", false); } catch (e) {}
           sound(hurt.dimension, "random.break", hurt.location, 1.3, 0.9);
-          fx(hurt.dimension, "minecraft:crit_emitter", { x: hurt.location.x, y: hurt.location.y + 1.2, z: hurt.location.z });
+          fx(hurt.dimension, "minecraft:critical_hit_emitter", { x: hurt.location.x, y: hurt.location.y + 1.2, z: hurt.location.z });
           // Still blocks 50% of the axe blow that disabled the shield
           const hp = healthOf(hurt);
           if (hp) {

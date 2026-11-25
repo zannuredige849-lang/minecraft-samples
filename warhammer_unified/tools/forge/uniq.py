@@ -58,7 +58,7 @@ mob(W("heide_hood_knight"), "Рыцарь в капюшоне", [
     hit("Удар из тумана", "Сильнее бьёт, если цель ослеплена", 0.3, effects=fx(("weakness", 3, 0)))],
     [D("minecraft:leather", 2, 4, 1.0, "§2Плащ из вереска"), D("minecraft:fermented_spider_eye", 1, 1, 0.3, "§2Вересковый настой")])
 mob(W("high_elf_spearman"), "Высокий эльф-копейщик", [
-    cast("bolt", "Бросок лунного копья", "Метает копьё на расстоянии", 100, 16, dmg=6, p="minecraft:crit_particle"),
+    cast("bolt", "Бросок лунного копья", "Метает копьё на расстоянии", 100, 16, dmg=6, p="minecraft:basic_crit_particle"),
     hit("Лунный шаг", "После удара получает Скорость II", 0.25, self_fx=fx(("speed", 4, 1)))],
     [D("minecraft:amethyst_shard", 1, 3, 1.0, "§bЛунный осколок"), D("minecraft:feather", 2, 4, 0.8, "§fЭльфийское перо")])
 mob(W("imperial_guard"), "Имперский страж", [
@@ -151,7 +151,7 @@ mob(W("burning_chariot"), "Пылающая колесница", [
     death("Взрыв колесницы", "При гибели взрывается огнём", burst=dict(r=4, dmg=6, fire=4))],
     [D("minecraft:blaze_rod", 1, 2, 1.0, "§6Ось колесницы"), D("minecraft:magma_cream", 1, 3, 0.7, "§cЖар колёс")])
 mob(W("great_unclean_one"), "Великий осквернитель", [
-    aura("Зловоние Нургла", "Яд и тошнота врагам вокруг", "foes", 8, fx(("poison", 3, 0), ("nausea", 5, 0)), 60, "minecraft:sporeblossom_ambient_particle")],
+    aura("Зловоние Нургла", "Яд и тошнота врагам вокруг", "foes", 8, fx(("poison", 3, 0), ("nausea", 5, 0)), 60, "minecraft:spore_blossom_ambient_particle")],
     [D("minecraft:slime_ball", 3, 6, 1.0, "§2Слизь Нургла"), D("minecraft:fermented_spider_eye", 1, 2, 0.6, "§2Чума"), D("minecraft:totem_of_undying", 1, 1, 0.1, "§2Дар Нургла")],
     note="Есть собственные механики (ярость, призыв, исцеление от убийств)")
 mob(W("abomination_lord"), "Лорд-мерзость", [
@@ -255,7 +255,7 @@ mob(C("hell_orc"), "Адский орк", [hit("Адский удар", "Под�
 mob(C("fel_minion"), "Миньон Скверны", [hit("Касание Скверны", "Замедление и слабость", 0.3, effects=fx(("slowness", 2, 0), ("weakness", 3, 0)))],
     [D("minecraft:slime_ball", 1, 2, 0.8, "§aСлизь Скверны")])
 mob(C("smart_troll"), "Умный тролль", [
-    cast("bolt", "Метание копья", "Бросает копьё", 100, 14, dmg=5, p="minecraft:crit_particle"),
+    cast("bolt", "Метание копья", "Бросает копьё", 100, 14, dmg=5, p="minecraft:basic_crit_particle"),
     aura("Смекалка", "Тролли рядом получают Скорость", "allies", 8, fx(("speed", 4, 0)), 120)],
     [D("minecraft:bone", 1, 3, 0.8, "§fТролльская кость")])
 mob(C("tribal_troll"), "Тролль-шаман", [
@@ -284,14 +284,14 @@ mob(C("thunder_lizard"), "Громовой ящер", [
     cast("bolt", "Раскат грома", "Разряд молнии с цепным ударом", 140, 14, dmg=6, chain=dict(n=2, r=5, dmg=3), p="minecraft:electric_spark_particle"),
     cast("charge", "Таран ящера", "Рывок с ударом", 160, 14, dmg=8, r=3)],
     [D("minecraft:lightning_rod", 1, 1, 0.5, "§eЗуб ящера"), D("minecraft:leather", 2, 3, 0.8, "§6Чешуя ящера")], note="Верховой зверь; есть механики в thunder_lizard.js")
-mob(C("mermaid"), "Русалка", [aura("Песнь течений", "Игроки и союзники рядом дышат под водой", "allies", 8, fx(("water_breathing", 8, 0)), 120, "minecraft:bubble_particle")],
+mob(C("mermaid"), "Русалка", [aura("Песнь течений", "Игроки и союзники рядом дышат под водой", "allies", 8, fx(("water_breathing", 8, 0)), 120, "minecraft:basic_bubble_particle")],
     [D("minecraft:prismarine_shard", 1, 2, 0.7, "§3Чешуя русалки"), D("minecraft:pufferfish", 1, 1, 0.2, "§3Дар глубин")], note="Есть механики в merfolk.js")
 mob(C("siren"), "Сирена", [
     cast("fear", "Зов сирены", "Враги слабеют и замедляются", 260, 12, r=10, fx=fx(("slowness", 4, 1), ("nausea", 5, 0))),
     hit("Ядовитая песнь", "Яд", 0.3, effects=fx(("poison", 4, 0)))],
     [D("minecraft:nautilus_shell", 1, 1, 0.25, "§3Ракушка сирены"), D("minecraft:prismarine_crystals", 1, 2, 0.8, "§3Слеза сирены")], note="Есть механики в merfolk.js")
 mob(C("poseidon_triton"), "Тритон Посейдона", [
-    cast("bolt", "Трезубец", "Бросок трезубца", 100, 14, dmg=6, p="minecraft:bubble_particle"),
+    cast("bolt", "Трезубец", "Бросок трезубца", 100, 14, dmg=6, p="minecraft:basic_bubble_particle"),
     aura("Благословение моря", "Дыхание под водой союзникам", "allies", 8, fx(("water_breathing", 8, 0), ("speed", 4, 0)), 100)],
     [D("minecraft:prismarine_shard", 1, 3, 1.0, "§3Осколок тритона")])
 mob(C("zeus_archon"), "Архонт Зевса", [

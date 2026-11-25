@@ -817,7 +817,7 @@ function scan(now) {
       if (grabs.has(c.id) || inspections.has(c.id) || poisoned.has(c.id)) continue;
       if (now % 10 === 0) breakTrees(c);
       const swinging = swings.has(c.id);
-      if (now % 20 === 0) applyBossDifficultyHp(c, 560);
+      if (now % 20 === 0) applyBossDifficultyHp(c, 360);
       if (!swinging) {
         if (tryBedtime(c, now) || bedtime.has(c.id)) continue;
         const hasTarget = (() => { try { return !!c.target && alive(c.target); } catch { return false; } })();
@@ -1079,7 +1079,7 @@ function startGrab(c, v) {
 
   if (isPlayer(v)) {
     try {
-      v.onScreenDisplay.setTitle(" ", { subtitle: T("cyc.grabbed_you"), fadeInDuration: 0, stayDuration: 40, fadeOutDuration: 10 });
+      v.onScreenDisplay.setTitle(" ", { subtitle: T("cyc.grabbed_you") + " §e(бейте Циклопа, чтобы вырваться)", fadeInDuration: 0, stayDuration: 40, fadeOutDuration: 10 });
     } catch {}
   }
 }
@@ -1312,3 +1312,24 @@ try {
     } catch {}
   });
 } catch {}
+
+
+// ---------- v10.12 fairness: a grabbed player can break free (2 hits on the Cyclops) ----------
+world.afterEvents.entityHurt.subscribe((ev) => {
+  try {
+    const c = ev.hurtEntity;
+    if (!c || c.typeId !== "cb:cyclops") return;
+    const g = grabs.get(c.id);
+    if (!g || g.eaten) return;
+    const a = ev.damageSource?.damagingEntity;
+    if (!a || a.id !== g.vId || !isPlayer(a)) return;
+    g.escape = (g.escape ?? 0) + 1;
+    if (g.escape < 2) { actionBar(a, "§eЕщё удар — и вы вырветесь!"); return; }
+    release(c.id, g);
+    try { c.triggerEvent(isBlind(c) ? "cb:end_grab_blind" : "cb:end_grab_sighted"); } catch {}
+    cooldowns.set(c.id, system.currentTick + COOLDOWN);
+    try { a.applyKnockback(-Math.sin(g.yaw * Math.PI / 180), Math.cos(g.yaw * Math.PI / 180), 1.2, 0.45); } catch {}
+    try { a.addEffect("slow_falling", 60, { amplifier: 0, showParticles: false }); } catch {}
+    actionBar(a, "§aВы вырвались из лапы Циклопа!");
+  } catch {}
+});

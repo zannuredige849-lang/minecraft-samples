@@ -63,8 +63,8 @@
         ]
       },
       "minecraft:health": {
-        "value": 580,
-        "max": 580
+        "value": 360,
+        "max": 360
       },
       "minecraft:collision_box": {
         "width": 3.2,
@@ -94,7 +94,7 @@
         "value": 0.9
       },
       "minecraft:attack": {
-        "damage": 14
+        "damage": 11
       },
       "minecraft:follow_range": {
         "value": 32,

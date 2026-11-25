@@ -290,7 +290,7 @@ export function critical(attacker, victim) {
   const base = lead ? 5 : 3;
   try { victim.applyDamage(Math.max(1, Math.round(base * CRIT_BONUS * 2) / 2), { cause: "entityAttack", damagingEntity: attacker }); } catch { return false; }
   fx(victim.dimension, "minecraft:critical_hit_emitter", { x: victim.location.x, y: victim.location.y + 1, z: victim.location.z });
-  sound(victim.dimension, "game.player.attack.crit", victim.location, 1, 1);
+  sound(victim.dimension, "game.player.attack.critical", victim.location, 1, 1);
   return true;
 }
 
@@ -338,7 +338,7 @@ export function finisher(e, victim, now) {
   const at = { x: victim.location.x, y: victim.location.y + 0.5, z: victim.location.z };
   switch (c.combo) {
     case "bash":   knock(1.1, 0.35); try { victim.addEffect("slowness", 60, { amplifier: 1 }); } catch {} fx(victim.dimension, "minecraft:large_explosion", at); break;
-    case "rend":   knock(0.5, 0.2);  try { victim.addEffect("weakness", 100, { amplifier: 0 }); } catch {} fx(victim.dimension, "minecraft:crit_emitter", at); break;
+    case "rend":   knock(0.5, 0.2);  try { victim.addEffect("weakness", 100, { amplifier: 0 }); } catch {} fx(victim.dimension, "minecraft:critical_hit_emitter", at); break;
     case "blast":  knock(1.0, 0.45); try { victim.setOnFire(5, true); } catch {} fx(victim.dimension, "minecraft:lava_particle", at); break;
     case "stomp":  knock(0.4, 0.9);  try { victim.addEffect("slowness", 80, { amplifier: 1 }); } catch {} fx(victim.dimension, "minecraft:large_explosion", at); break;
     default: return false;

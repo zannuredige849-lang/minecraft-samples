@@ -19,6 +19,10 @@
           "test": "has_biome_tag",
           "operator": "==",
           "value": "mesa"
+        },
+        "minecraft:density_limit": {
+          "surface": 3,
+          "underground": 3
         }
       }
     ]

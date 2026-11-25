@@ -175,7 +175,7 @@ export function sweep(giant, victim) {
     sound(victim.dimension, "random.anvil_land", victim.location, 1, 0.7);
   }
   if (n || ORC_TYPES.includes(victim.typeId)) {
-    fx(victim.dimension, "minecraft:sweep_particle", { x: victim.location.x, y: victim.location.y + 1, z: victim.location.z });
+    fx(victim.dimension, "minecraft:critical_hit_emitter", { x: victim.location.x, y: victim.location.y + 1, z: victim.location.z });
     sound(victim.dimension, "cb.laestrygonian.swing", victim.location, 1.2, 0.8);
   }
   return n;

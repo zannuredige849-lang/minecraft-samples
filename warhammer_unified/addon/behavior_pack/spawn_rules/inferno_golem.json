@@ -28,6 +28,10 @@
               "value": "mountains"
             }
           ]
+        },
+        "minecraft:density_limit": {
+          "surface": 3,
+          "underground": 3
         }
       }
     ]

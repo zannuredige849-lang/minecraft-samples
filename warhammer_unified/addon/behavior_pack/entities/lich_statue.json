@@ -29,8 +29,8 @@
         ]
       },
       "minecraft:health": {
-        "value": 500,
-        "max": 500
+        "value": 360,
+        "max": 360
       },
       "minecraft:collision_box": {
         "width": 1.1,
@@ -72,6 +72,10 @@
             "deals_damage": false
           }
         ]
+      },
+      "minecraft:boss": {
+        "should_darken_sky": false,
+        "hud_range": 40
       }
     }
   }

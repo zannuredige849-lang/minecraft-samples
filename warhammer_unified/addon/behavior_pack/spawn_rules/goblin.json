@@ -54,6 +54,10 @@
               "value": "swamp"
             }
           ]
+        },
+        "minecraft:density_limit": {
+          "surface": 3,
+          "underground": 3
         }
       }
     ]

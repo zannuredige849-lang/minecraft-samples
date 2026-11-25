@@ -33,11 +33,11 @@
         "height": 2.2
       },
       "minecraft:health": {
-        "value": 95,
-        "max": 95
+        "value": 80,
+        "max": 80
       },
       "minecraft:attack": {
-        "damage": 9
+        "damage": 7
       },
       "minecraft:movement": {
         "value": 0.29

@@ -92,7 +92,7 @@
         "value": 0.85
       },
       "minecraft:attack": {
-        "damage": 13
+        "damage": 11
       },
       "minecraft:follow_range": {
         "value": 40,

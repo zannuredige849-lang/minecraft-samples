@@ -1,7 +1,7 @@
 """Full pipeline: python3 build_all.py <original-extracted-dir> <out-dir> [--zip path.mcaddon]"""
 import sys, os, shutil, argparse
 sys.path.insert(0, os.path.dirname(__file__))
-import build_models, ent_variants, restyle, items_style, patch_bp, package, strip_strays, remove_orc_gear, banners
+import build_models, ent_variants, mechanics, restyle, items_style, patch_bp, package, strip_strays, remove_orc_gear, banners
 from forge.registry import REG
 from forge.common import ENT
 
@@ -24,6 +24,7 @@ def main():
     print("textures restyled:", restyle.run(a.out, skip))
     print("items/eggs:", items_style.run(a.out))
     print("factions:", patch_bp.run(a.out))
+    print("balance/mechanics:", mechanics.run(a.out))
     package.manifests(a.out)
     errs, warns, info = package.validate(a.out)
     print("validate:", info, "errors", len(errs), "warnings", len(warns))

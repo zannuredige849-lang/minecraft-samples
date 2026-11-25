@@ -483,7 +483,7 @@ export function hex(e, c, form) {
 }
 
 function newRecord(formId, form, by, now) {
-  return { formId, form, by, refresh: now + CURSE_REFRESH, egg: now + EGG_MIN + Math.floor(Math.random() * EGG_SPREAD),
+  return { t0: now, formId, form, by, refresh: now + CURSE_REFRESH, egg: now + EGG_MIN + Math.floor(Math.random() * EGG_SPREAD),
     ram: 0, graze: 0, sheared: false, ambient: now + 160 + Math.floor(Math.random() * 160) };
 }
 
@@ -1055,3 +1055,16 @@ system.runInterval(() => {
   try { tickHexed(now); } catch (e) { console.warn(`[circe] hex: ${e}`); }
   if (now % 40 === 0) { try { restoreHexes(now); sweepForms(); } catch {} }
 }, 1);
+
+
+// ---------- v10.12 fairness: a hexed player is never stuck - the spell wears off after 60 s ----------
+system.runInterval(() => {
+  const now = system.currentTick;
+  for (const [id, h] of hexed) {
+    if (h.t0 === undefined || now - h.t0 < 1200) continue;
+    let e; try { e = world.getEntity(id); } catch {}
+    if (!e || !isPlayer(e)) continue;
+    unhex(id, false);
+    actionBar(e, "§aЧары Цирцеи развеялись — вы снова человек");
+  }
+}, 20);

@@ -28,7 +28,7 @@
         "max": 20
       },
       "minecraft:knockback_resistance": {
-        "value": 1.0
+        "value": 0.8
       },
       "minecraft:physics": {
         "has_gravity": true,

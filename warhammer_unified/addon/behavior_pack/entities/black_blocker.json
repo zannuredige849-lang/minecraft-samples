@@ -50,7 +50,7 @@
       "minecraft:jump.static": {},
       "minecraft:can_climb": {},
       "minecraft:knockback_resistance": {
-        "value": 0.92
+        "value": 0.9
       },
       "minecraft:physics": {},
       "minecraft:pushable": {

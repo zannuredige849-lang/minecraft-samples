@@ -51,7 +51,7 @@ function beam(dim, a, b, particle) {
   const n = Math.max(2, Math.floor(dist(a, b) / 1.2));
   for (let i = 1; i <= n; i++) {
     const k = i / n;
-    try { dim.spawnParticle(particle || "minecraft:crit_particle", { x: a.x + (b.x - a.x) * k, y: a.y + 1.2 + (b.y - a.y) * k, z: a.z + (b.z - a.z) * k }); } catch {}
+    try { dim.spawnParticle(particle || "minecraft:basic_crit_particle", { x: a.x + (b.x - a.x) * k, y: a.y + 1.2 + (b.y - a.y) * k, z: a.z + (b.z - a.z) * k }); } catch {}
   }
 }
 function ring(dim, c, r, particle) {
@@ -121,6 +121,18 @@ function doCast(e, ab, target) {
   return false;
 }
 
+// ------------------------------------------------------------------ telegraphs (v10.12)
+const TELEGRAPH = new Set(["bolt", "slam", "charge", "pull", "fear", "mist"]);
+function warn(e, ab) {
+  const dim = e.dimension, loc = e.location;
+  for (let i = 0; i < 12; i++) {
+    const a = i / 12 * Math.PI * 2, r = ab.do === "slam" ? (ab.r ?? 4) : 1.6;
+    try { dim.spawnParticle("minecraft:villager_angry", { x: loc.x + Math.cos(a) * r, y: loc.y + 0.4, z: loc.z + Math.sin(a) * r }); } catch {}
+  }
+  sound(dim, ab.do === "charge" ? "mob.goat.prepare_ram" : "mob.evocation_illager.prepare_attack", loc, 1, 0.9);
+  say(e, "§c⚠ " + ab.name + "…");
+}
+
 // ------------------------------------------------------------------ main loop (every 10 ticks)
 system.runInterval(() => {
   for (const d of DIMS) {
@@ -143,6 +155,13 @@ system.runInterval(() => {
             if (ab.do === "heal" && ab.only_self && frac(e) > 0.5) continue;
             const t = nearestFoe(e, ab.rng ?? 12);
             if (!t && ab.do !== "heal") continue;
+            if (TELEGRAPH.has(ab.do) && isPlayer(t)) {          // fair play: warn, then strike ~0.8 s later (step away / block)
+              warn(e, ab);
+              system.runTimeout(() => {
+                try { if (valid(e) && alive(e)) { const t2 = nearestFoe(e, ab.rng ?? 12); if (t2) doCast(e, ab, t2); } } catch {}
+              }, 16);
+              continue;
+            }
             if (doCast(e, ab, t)) say(e, ab.name + "!");
             else cooldown.set(e.id + "|c" + i, system.currentTick + 40);
           }
@@ -165,7 +184,7 @@ world.afterEvents.entityHitEntity.subscribe((ev) => {
       if (extra) hurtFoe(a, v, extra, EntityDamageCause.magic);
       addFx(v, ab.fx); if (ab.fire) { try { v.setOnFire(ab.fire, true); } catch {} }
       if (ab.kb) push(a, v, ab.kb[0], ab.kb[1]);
-      if (ab.steal) heal(a, 3 * ab.steal * 5);
+      if (ab.steal) heal(a, Math.min(4, 3 * ab.steal * 5));
       addFx(a, ab.self_fx);
       if (ab.cleave) for (const f of foesNear(v, ab.cleave.r)) if (f.id !== v.id) hurtFoe(a, f, ab.cleave.dmg, EntityDamageCause.entityAttack);
       if (ab.chain) { let n = ab.chain.n; for (const f of foesNear(v, ab.chain.r)) { if (f.id === v.id || n-- <= 0) break; hurtFoe(a, f, ab.chain.dmg); } }

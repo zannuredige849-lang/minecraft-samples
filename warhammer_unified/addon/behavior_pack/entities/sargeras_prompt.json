@@ -45,7 +45,7 @@
         "is_pushable_by_piston": false
       },
       "minecraft:knockback_resistance": {
-        "value": 1.0
+        "value": 0.8
       },
       "minecraft:fire_immune": {},
       "minecraft:damage_sensor": {

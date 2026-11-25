@@ -36,8 +36,8 @@ const athenaQuests = new Map();
 const itemCooldowns = new Map();
 
 const BOSS_BASE_HP = {
-  "cb:minotaur": 260, "cb:fel_lord": 580, "cb:lich_king": 300, "cb:ice_spirit": 120,
-  "cb:dreadlord": 220, "cb:zeus": 360, "cb:poseidon": 350, "cb:hades": 380,
+  "cb:minotaur": 260, "cb:fel_lord": 360, "cb:lich_king": 300, "cb:ice_spirit": 90,
+  "cb:dreadlord": 220, "cb:zeus": 360, "cb:poseidon": 350, "cb:hades": 360,
   "cb:ares": 320, "cb:athena": 300, "cb:hephaestus": 340,
 };
 
@@ -344,7 +344,7 @@ function tickMinotaur(m, now) {
       minotaurGrabs.set(m.id, { victimId: target.id, t: 0 });
       setCastState(m, 2, 26);
       sound(dim, "mob.ravager.roar", loc, 2.0, 0.85);
-      if (isPlayer(target)) 
+      if (isPlayer(target)) actionBar(target, "§cМинотавр поднял вас на рога! Через секунду бросит — готовьтесь к падению");
       return;
     }
   }
@@ -387,7 +387,7 @@ function tickMinotaur(m, now) {
     st.runDist += stepMoved;
     if (m.isOnGround !== false && now % 2 === 0) {
       try { m.applyImpulse({ x: st.chargeDir.x * 0.42, y: 0.03, z: st.chargeDir.z * 0.42 }); } catch {}
-      fx(dim, "minecraft:crit_emitter", { x: loc.x, y: loc.y + 0.5, z: loc.z });
+      fx(dim, "minecraft:critical_hit_emitter", { x: loc.x, y: loc.y + 0.5, z: loc.z });
     }
 
     if (st.runDist >= 3.5) {
@@ -940,7 +940,7 @@ function tickDreadlord(e, now) {
 
   if (now < s.mistUntil) {
     if (now % 4 === 0) {
-      fx(dim, "minecraft:large_smoke", { x: loc.x + (Math.random() - 0.5) * 1.6, y: loc.y + 0.8 + Math.random(), z: loc.z + (Math.random() - 0.5) * 1.6 });
+      fx(dim, "minecraft:white_smoke_particle", { x: loc.x + (Math.random() - 0.5) * 1.6, y: loc.y + 0.8 + Math.random(), z: loc.z + (Math.random() - 0.5) * 1.6 });
       fx(dim, "minecraft:witchspell_emitter", { x: loc.x, y: loc.y + 1.0, z: loc.z });
     }
     return;
@@ -1017,7 +1017,7 @@ function tickDreadlord(e, now) {
       e.addEffect("resistance", 50, { amplifier: 3, showParticles: false });
       e.addEffect("speed", 50, { amplifier: 1, showParticles: false });
     } catch {}
-    drawRing(dim, loc, 2.0, 14, "minecraft:large_smoke", 0.5);
+    drawRing(dim, loc, 2.0, 14, "minecraft:white_smoke_particle", 0.5);
     sound(dim, "mob.phantom.swoop", loc, 1.8, 0.75);
   }
 }
@@ -1121,7 +1121,7 @@ function tickPoseidon(e, now) {
     s.gcdUntil = now + 24;
     setCastState(e, 2, 22);
     drawRing(dim, target.location, 3.5, 20, "minecraft:water_splash_particle_manual", 0.5);
-    sound(dim, "mob.guardian.attack", loc, 2.0, 0.8);
+    sound(dim, "mob.elderguardian.curse", loc, 2.0, 0.8);
     try {
       const dx = target.location.x - loc.x, dz = target.location.z - loc.z, n = Math.hypot(dx, dz) || 1;
       target.applyDamage(shared.diffDmg(12), { cause: EntityDamageCause.magic, damagingEntity: e });
@@ -1435,7 +1435,7 @@ world.afterEvents.entityHitEntity.subscribe((ev) => {
     try {
       const splashR = a.typeId === "cb:fel_lord" ? 3.8 : 3.0;
       const splashDmg = shared.diffDmg(a.typeId === "cb:fel_lord" ? 7 : 5);
-      fx(v.dimension, "minecraft:crit_emitter", { x: v.location.x, y: v.location.y + 1.0, z: v.location.z });
+      fx(v.dimension, "minecraft:critical_hit_emitter", { x: v.location.x, y: v.location.y + 1.0, z: v.location.z });
       for (const m of v.dimension.getEntities({ location: v.location, maxDistance: splashR })) {
         if (!m || m.id === a.id || m.id === v.id || !alive(m)) continue;
         if (a.typeId === "cb:fel_lord" && isFelFactionEntity(m)) continue;

@@ -20,7 +20,7 @@ world.afterEvents.entityHitEntity.subscribe((ev) => {
         break;
       case "cb:laestrygonian_sword":
         for (const f of v.dimension.getEntities({ location: v.location, maxDistance: 3 })) if (f.id !== p.id && f.id !== v.id && f.typeId !== "minecraft:player") { try { f.applyDamage(4, { cause: EntityDamageCause.entityAttack, damagingEntity: p }); knock(p, f, 1.0, 0.35); } catch {} }
-        fx(v.dimension, "minecraft:sweep_particle", v.location); break;
+        fx(v.dimension, "minecraft:critical_hit_emitter", v.location); break;
     }
   } catch {}
 });

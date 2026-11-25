@@ -276,7 +276,7 @@ export const ABILITIES = {
    "cd": 100,
    "rng": 16,
    "dmg": 6,
-   "p": "minecraft:crit_particle"
+   "p": "minecraft:basic_crit_particle"
   },
   {
    "k": "hit",
@@ -1027,7 +1027,7 @@ export const ABILITIES = {
     ]
    ],
    "every": 60,
-   "p": "minecraft:sporeblossom_ambient_particle"
+   "p": "minecraft:spore_blossom_ambient_particle"
   }
  ],
  "warcraft:abomination_lord": [
@@ -1905,7 +1905,7 @@ export const ABILITIES = {
    "cd": 100,
    "rng": 14,
    "dmg": 5,
-   "p": "minecraft:crit_particle"
+   "p": "minecraft:basic_crit_particle"
   },
   {
    "k": "aura",
@@ -2167,7 +2167,7 @@ export const ABILITIES = {
     ]
    ],
    "every": 120,
-   "p": "minecraft:bubble_particle"
+   "p": "minecraft:basic_bubble_particle"
   }
  ],
  "cb:siren": [
@@ -2223,7 +2223,7 @@ export const ABILITIES = {
    "cd": 100,
    "rng": 14,
    "dmg": 6,
-   "p": "minecraft:bubble_particle"
+   "p": "minecraft:basic_bubble_particle"
   },
   {
    "k": "aura",

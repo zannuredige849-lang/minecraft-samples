@@ -486,7 +486,7 @@ function castChainFelLightning(e, firstTarget) {
     } catch {}
     fromPos = toPos;
   }
-  sound(dim, "mob.guardian.attack", e.location, 1.6, 1.4);
+  sound(dim, "mob.elderguardian.curse", e.location, 1.6, 1.4);
   sound(dim, "ambient.weather.thunder", e.location, 0.9, 1.6);
 }
 
@@ -1038,7 +1038,7 @@ function tickGuldan(e, now) {
         try { if (tgt.typeId === "cb:hydra_head" || tgt.typeId === "cb:hydra_neck") tgt.setOnFire(5, true); } catch {}
         tgt.applyDamage(dmg, { cause: EntityDamageCause.magic, damagingEntity: e });
         if (h) h.setCurrentValue(Math.min(MAX_HP, h.currentValue + dmg));
-        sound(e.dimension, "mob.guardian.attack", e.location, 1.1, 1.25);
+        sound(e.dimension, "mob.elderguardian.curse", e.location, 1.1, 1.25);
       } catch {}
     }
     return;
@@ -1128,7 +1128,7 @@ function tickGuldan(e, now) {
       bossName(e);
       tickDrainBeam(e, victim);
       fx(e.dimension, "minecraft:heart_particle", { x: e.location.x, y: e.location.y + 2.2, z: e.location.z });
-      sound(e.dimension, "mob.guardian.attack", e.location, 1.5, 1.05);
+      sound(e.dimension, "mob.elderguardian.curse", e.location, 1.5, 1.05);
 
       // Через 5 секунд (100 тиков) призываем 2 временных демонов Скверны (живут 30 с)
       pendingMinions.push({

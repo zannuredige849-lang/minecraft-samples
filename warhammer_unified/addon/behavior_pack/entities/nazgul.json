@@ -37,7 +37,7 @@
         "max": 155
       },
       "minecraft:attack": {
-        "damage": 10
+        "damage": 9
       },
       "minecraft:movement": {
         "value": 0.29

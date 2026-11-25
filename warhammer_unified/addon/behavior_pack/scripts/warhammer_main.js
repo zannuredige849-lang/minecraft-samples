@@ -171,9 +171,9 @@ function triggerPlagueCloud(boss, st) {
 function triggerChainPull(boss, target, st) {
   const dim = boss.dimension, bLoc = boss.location, tLoc = target.location;
   setAnim(boss, 2, 32, st);
-  safeSound(dim, "block.chain.place", bLoc);
+  safeSound(dim, "place.chain", bLoc);
   safeSound(dim, "random.anvil_land", tLoc);
-  spawnBeam(dim, bLoc, tLoc, 14, "minecraft:crit", "minecraft:totem_particle");
+  spawnBeam(dim, bLoc, tLoc, 14, "minecraft:basic_crit_particle", "minecraft:totem_particle");
   const dx = bLoc.x - tLoc.x, dz = bLoc.z - tLoc.z, dist = Math.hypot(dx, dz) || 1;
   try {
     target.applyKnockback(dx / dist, dz / dist, Math.min(2.6, Math.max(1.2, dist * 0.22)), 0.35);
@@ -246,7 +246,7 @@ function triggerChainLightning(golem, primary, st) {
   const dim = golem.dimension, gLoc = golem.location, tLoc = primary.location;
   setAnim(golem, 1, 24, st);
   safeSound(dim, "ambient.weather.thunder", tLoc);
-  spawnBeam(dim, gLoc, tLoc, 14, "minecraft:blue_flame_particle", "minecraft:crit");
+  spawnBeam(dim, gLoc, tLoc, 14, "minecraft:blue_flame_particle", "minecraft:basic_crit_particle");
   // If tamed ally, deal direct shock damage instead of spawning fire-starting lightning near owner
   if (isTamedAlly(golem)) {
     try { primary.applyDamage(7); spawnRing(dim, tLoc, 1.4, 12, "minecraft:blue_flame_particle", 1.0); } catch {}
@@ -425,7 +425,7 @@ function triggerBloodDive(angel, target, st) {
   setAnim(angel, 1, 24, st);
   safeSound(dim, "mob.phantom.swoop", aLoc);
   const dx = tLoc.x - aLoc.x, dz = tLoc.z - aLoc.z, dist = Math.hypot(dx, dz) || 1;
-  spawnBeam(dim, aLoc, tLoc, 12, "minecraft:basic_flame_particle", "minecraft:crit");
+  spawnBeam(dim, aLoc, tLoc, 12, "minecraft:basic_flame_particle", "minecraft:basic_crit_particle");
   try {
     angel.applyKnockback(dx / dist, dz / dist, Math.min(2.3, dist * 0.26), 0.55);
     angel.addEffect("slow_falling", 50, { amplifier: 0, showParticles: false });

@@ -315,8 +315,8 @@
           "value": 2
         },
         "minecraft:health": {
-          "value": 190,
-          "max": 190
+          "value": 180,
+          "max": 180
         },
         "minecraft:attack": {
           "damage": 9
@@ -325,7 +325,7 @@
           "value": 0.22
         },
         "minecraft:knockback_resistance": {
-          "value": 0.94
+          "value": 0.9
         }
       },
       "ent_cherry": {
@@ -351,11 +351,11 @@
           "value": 4
         },
         "minecraft:health": {
-          "value": 185,
-          "max": 185
+          "value": 180,
+          "max": 180
         },
         "minecraft:attack": {
-          "damage": 10
+          "damage": 9
         },
         "minecraft:movement": {
           "value": 0.25
@@ -425,17 +425,17 @@
           "value": 8
         },
         "minecraft:health": {
-          "value": 200,
-          "max": 200
+          "value": 180,
+          "max": 180
         },
         "minecraft:attack": {
-          "damage": 10
+          "damage": 9
         },
         "minecraft:movement": {
           "value": 0.21
         },
         "minecraft:knockback_resistance": {
-          "value": 0.95
+          "value": 0.9
         }
       },
       "ent_mangrove": {

@@ -1,4 +1,5 @@
 // ZhekAziz Fathylogy: точка входа. Механики каждого моба лежат в своём файле.
+import "./fairness.js";
 import "./factions.js";
 import "./abilities.js";
 import "./item_abilities.js";

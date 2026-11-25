@@ -283,6 +283,10 @@
       },
       "minecraft:scale": {
         "value": 1.02
+      },
+      "minecraft:boss": {
+        "should_darken_sky": false,
+        "hud_range": 40
       }
     }
   }

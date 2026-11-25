@@ -20,6 +20,10 @@
           "test": "has_biome_tag",
           "operator": "==",
           "value": "ocean"
+        },
+        "minecraft:density_limit": {
+          "surface": 3,
+          "underground": 3
         }
       }
     ]
