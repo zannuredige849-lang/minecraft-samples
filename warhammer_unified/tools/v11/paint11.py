@@ -216,6 +216,10 @@ def decal(rgba, mer, mat, face, d, pal):
             for k in range(dc[3] if len(dc) > 3 else 3):
                 x = 1 + (_h(k, w, h) % max(1, W - 2)); y = 1 + (_h(k, h, w, 3) % max(1, H - 2))
                 put(x, y, slot, 4, 120, 1, 1); put(x, y + 1, slot, 2, 0, 1, 1)
+        elif kind == "scar":          # pale diagonal battle scar
+            y0 = dc[2]
+            for k in range(min(W - 2, 6)):
+                put(1 + k, y0 + k // 2, slot if (slot := mat.get("slot")) else "bone", 5, 0, 1, 1)
         elif kind == "ribs":          # exposed ribs
             slot = dc[2]
             for k in range(1, H - 1, 3):

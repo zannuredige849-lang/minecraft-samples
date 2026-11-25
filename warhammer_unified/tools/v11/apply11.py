@@ -8,6 +8,8 @@ def L(p): return json.loads(re.sub(r'(?m)^\s*//.*$', '', open(p, encoding='utf-8
 def W(p, d):
     with open(p, "w", encoding="utf-8") as f: json.dump(d, f, indent=2, ensure_ascii=False)
 
+VERSION = tuple(int(x) for x in os.environ.get("ADDON_VERSION", "11.0.0").split("."))
+
 # extra animation channels for bones that the old rig did not have
 EXTRA_ANIM = {"lowerArmR": {"idle": ["math.sin(query.anim_time * 120) * 10", 0, "math.sin(query.anim_time * 90) * 6"],
                             "walk": ["math.sin(query.anim_time * 400) * 22", 0, 0], "attack": ["-60 * math.sin(query.anim_time * 240)", 0, 10]},
@@ -68,8 +70,9 @@ def main(src, out, mca, show):
         def bump(o):
             if isinstance(o, dict):
                 for k, v in o.items():
-                    if k == "version" and isinstance(v, list) and len(v) == 3: o[k] = [11, 0, 0]
-                    elif k == "name" and isinstance(v, str): o[k] = re.sub(r"v?10\.6\.2", "v11.0.0", v)
+                    if k == "version" and isinstance(v, list) and len(v) == 3: o[k] = list(VERSION)
+                    elif k == "min_engine_version": o[k] = [1, 21, 10]
+                    elif k in ("name", "description") and isinstance(v, str): o[k] = re.sub(r"v?10\.6\.2", "v" + ".".join(map(str, VERSION)), v)
                     else: bump(v)
             elif isinstance(o, list):
                 for x in o: bump(x)
@@ -84,6 +87,23 @@ def main(src, out, mca, show):
         for k in ("color", "metalness_emissive_roughness", "normal", "heightmap"):
             v = ts.get(k)
             if isinstance(v, str) and not any(os.path.exists(f"{d}/{v}{e}") for e in (".png", ".tga", ".jpg")): bad.append((p, f"{k} -> {v} missing"))
+    # references: client entity geometry / textures / render controllers, attachables
+    geos = set(); rcs = set()
+    for p in glob.glob(rp + "/models/**/*.json", recursive=True):
+        for g in L(p).get("minecraft:geometry", []): geos.add(g["description"]["identifier"])
+        for k in L(p):
+            if k.startswith("geometry."): geos.add(k.split(":")[0])
+    for p in glob.glob(rp + "/render_controllers/*.json"): rcs |= set(L(p).get("render_controllers", {}))
+    def tex_ok(t): return any(os.path.exists(f"{rp}/{t}{e}") for e in (".png", ".tga", ".jpg"))
+    for p in glob.glob(rp + "/entity/*.json") + glob.glob(rp + "/attachables/*.json"):
+        d = L(p); dd = (d.get("minecraft:client_entity") or d.get("minecraft:attachable"))["description"]
+        for g in dd.get("geometry", {}).values():
+            if g not in geos and not g.startswith("geometry.humanoid") and not g.startswith("geometry.player"): bad.append((p, "geometry " + g))
+        for t in dd.get("textures", {}).values():
+            if not t.startswith("textures/misc") and not tex_ok(t) and t not in ("textures/entity/steve",): bad.append((p, "texture " + t))
+        for r in dd.get("render_controllers", []):
+            rid = r if isinstance(r, str) else next(iter(r))
+            if rid not in rcs and not rid.startswith("controller.render.item_default") and rid not in ("controller.render.default", "controller.render.armor"): bad.append((p, "render controller " + rid))
     js = sorted(glob.glob(out + "/behavior_pack/scripts/**/*.js", recursive=True))
     js_bad = []
     for p in js:
@@ -97,7 +117,8 @@ def main(src, out, mca, show):
             for p in sorted(glob.glob(f"{out}/{part}/**/*", recursive=True)):
                 if os.path.isfile(p): z.write(p, os.path.relpath(p, out))
     for r in report: print("  %-30s cubes=%d uv=%d zfix=%d new_bones=%s" % r)
-    print("json errors:", len(bad), bad[:5]); print("js modules:", len(js), "syntax errors:", len(js_bad), js_bad[:3])
+    print("entities:", len(glob.glob(out + "/behavior_pack/entities/*.json")), "items:", len(glob.glob(out + "/behavior_pack/items/*.json")))
+    print("json/reference errors:", len(bad), bad[:8]); print("js modules:", len(js), "syntax errors:", len(js_bad), js_bad[:3])
     print("mcaddon:", mca, os.path.getsize(mca) // 1024, "KB")
 
 

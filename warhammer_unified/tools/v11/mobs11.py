@@ -14,7 +14,7 @@ def pal(**kw):
 # ------------------------------------------------------------------------------------------- 1. Abomination Lord
 def abomination_lord(base):
     p = pal(flesh="#a9a374", flesh2="#8c8a5c", bile="#86ff3c", iron="#6c6c76", indigo="#2c2c5e", leather="#5a3a26",
-            bone="#e0d6b8", horn="#cfc6a6", glow="#86ff3c", dark="#141018", gore="#6a2a26")
+            bone="#e0d6b8", horn="#cfc6a6", glow="#86ff3c", dark="#141018", gore="#6a2a26", face="#7f8e6a")
     r = Rig11("geometry.abomination_lord", p, base)
     fl = lambda t=3.0, **k: M("flesh", "flesh", t, **k)
     iron = lambda t=3.0, **k: M("iron", "forged", t, **k)
@@ -37,7 +37,6 @@ def abomination_lord(base):
     r.c("torso", -12, 16, -18, 3, 3, 4, fl(2.8), rot=[0, 0, 20])
     r.c("torso", -14, 13, -20, 3, 4, 3, fl(2.6))
     r.c("torso", -14, 12, -22, 1, 2, 2, M("bone", "bone", 3.4))
-    r.c("torso", -12, 12, -22, 1, 2, 2, M("bone", "bone", 3.4))
     # shoulders, bone spikes, chains
     r.c("torso", -17, 28, -6, 6, 8, 12, fl(3.1))
     r.c("torso", 11, 28, -6, 6, 8, 12, fl(3.1))
@@ -46,12 +45,19 @@ def abomination_lord(base):
     r.c("torso", -19, 33, 3, 2, 6, 2, M("bone", "horn", 3.0), rot=[0, 0, 45])
     r.c("torso", -12, 27, -15, 24, 2, 1, iron(2.6), rot=[0, 0, -12])                                    # chain across chest
     # head: horned iron helm with toothed jaw
-    r.c("head", -5, 41, -8, 10, 9, 10, iron(3.1, decals=[("north", "eyes", "bile", 4)]))
-    r.c("head", -5, 38, -9, 10, 3, 6, iron(2.7, decals=[("north", "mouth", 0, 8, "bone")]))
-    r.c("head", -1, 50, -8, 2, 2, 10, iron(3.6))
-    r.pair("head", "head", -8, 46, -4, 3, 3, 3, M("horn", "horn", 3.0))
-    r.pair("head", "head", -10, 48, -4, 3, 4, 2, M("horn", "horn", 3.3))
-    r.pair("head", "head", -11, 51, -3.5, 2, 4, 1, M("horn", "horn", 3.9))
+    r.c("head", -5, 38, -11, 10, 9, 10, iron(3.1, decals=[("north", "eyes", "bile", 4)]))              # hunched forward
+    r.c("head", -5, 35, -12, 10, 3, 6, M("face", "flesh", 2.8, decals=[("north", "mouth", 0, 8, "bone")]))   # grey-green jaw
+    r.pair("head", "head", -4, 34, -13, 1, 3, 1, M("bone", "teeth", 4.0))                              # tusks
+    r.c("head", -1, 47, -11, 2, 2, 10, iron(3.6))
+    r.pair("head", "head", -8, 43, -7, 3, 3, 3, M("horn", "horn", 3.0))
+    r.pair("head", "head", -10, 45, -7, 3, 4, 2, M("horn", "horn", 3.3))
+    r.pair("head", "head", -11, 48, -6.5, 2, 4, 1, M("horn", "horn", 3.9))
+    for (x, y, z) in ((-6, 22, -17), (4, 26, -17), (-14, 20, -6), (13, 24, 2)):                         # iron staples on seams
+        r.c("torso", x, y, z, 3, 1, 1, iron(3.4))
+    for (x, y, z) in ((-8, 24, -17), (9, 13, -14), (-14, 26, 0)):                                       # boils
+        r.c("torso", x, y, z, 2, 2, 1, M("bile", "glow", 3.6))
+    for k in range(3):                                                                                  # chain on the hook
+        r.c("rightForearm", -17.5, 1 - k * 2 + 2, -18 - k, 1, 2, 1, iron(3.0 + 0.3 * k))
     # right arm + butcher hook
     r.c("rightArm", -20, 22, -4.5, 8, 13, 9, fl(3.0, decals=[("west", "stitch", 6)]))
     r.c("rightForearm", -20.5, 8, -4, 8, 14, 8, fl(2.9))
@@ -85,7 +91,7 @@ def abomination_lord(base):
 
 # ------------------------------------------------------------------------------------------- 2. Great Unclean One
 def great_unclean_one(base):
-    p = pal(plague="#6f8436", plague2="#a3a25a", pus="#e2e85a", guts="#9a3a36", tongue="#c42a2a", horn="#c2b48c", rust="#6c4a2c",
+    p = pal(plague="#6f8436", plague2="#a3a25a", pus="#e2e85a", guts="#9a3a36", tongue="#c42a2a", gore="#4a1e1a", horn="#c2b48c", rust="#6c4a2c",
             iron="#5e5e66", leather="#4a3424", glow="#9aff48", dark="#141a10", bone="#e6dcbc")
     r = Rig11("geometry.great_unclean_one", p, base)
     sk = lambda t=3.0, **k: M("plague", "flesh", t, **k)
@@ -97,6 +103,8 @@ def great_unclean_one(base):
     r.c("torso", -13, 29, -11, 26, 9, 20, sk(3.0, decals=[("north", "spots", "pus", 3)]))
     r.c("torso", -11, 32, 7, 22, 8, 8, sk(2.8, decals=[("south", "spots", "pus", 4)]))
     r.c("torso", -1, 12, -17, 3, 3, 1, M("tongue", "flesh", 3.2))                                   # belly-mouth tongue
+    r.c("torso", -9, 21, -16, 10, 7, 1, M("gore", "flesh", 2.2, decals=[("north", "ribs", "guts")]))   # torn belly
+    r.c("torso", -7, 22, -18, 4, 3, 2, M("guts", "flesh", 3.3)); r.c("torso", -3, 24, -19, 3, 2, 3, M("guts", "flesh", 3.0))
     r.c("torso", -6, 5, -17, 3, 7, 2, M("guts", "flesh", 2.8))                                      # hanging guts
     r.c("torso", 3, 4, -17, 2, 8, 2, M("guts", "flesh", 3.2))
     r.c("torso", -10, 6, -17, 1, 6, 1, M("iron", "forged", 2.6))                                    # chains
@@ -123,9 +131,10 @@ def great_unclean_one(base):
     # plague sword (weapon bone, right hand)
     r.c("weapon", -20, 4, -3, 2, 8, 2, M("leather", "leather", 2.5))
     r.c("weapon", -23, 12, -4, 8, 2, 4, M("rust", "forged", 2.8))
-    r.c("weapon", -22, 14, -3, 6, 30, 1, M("iron", "forged", 2.8, decals=[("north", "runes", "glow"), ("south", "runes", "glow")]))
+    r.c("weapon", -23, 14, -3, 8, 30, 1, M("iron", "forged", 2.8, decals=[("north", "runes", "glow"), ("south", "runes", "glow")]))
+    r.c("weapon", -20, 14, -3.5, 2, 30, 2, M("rust", "forged", 2.4))                                  # rusted spine
     for k in range(6):
-        r.c("weapon", -23, 16 + k * 4, -3, 1, 2, 1, M("iron", "forged", 3.8))
+        r.c("weapon", -24, 16 + k * 4, -3, 1, 2, 1, M("iron", "forged", 3.8))
     r.c("weapon", -21, 44, -3, 4, 2, 1, M("iron", "forged", 3.6))
     for side, bn in ((-1, "rightLeg"), (1, "leftLeg")):
         x = -14 if side < 0 else 3
@@ -139,7 +148,7 @@ def great_unclean_one(base):
 # ------------------------------------------------------------------------------------------- 3. Hornet Demon
 def hornet_demon(base):
     p = pal(red="#ac2830", red2="#7c1a22", vein="#1c0a10", mane="#17121c", bone="#ead9bb", horn="#e2d2b2", gold="#d9a63a",
-            iron="#55555f", glow="#ffb030", hoof="#2a2026", leather="#3a2420", dark="#120a0e")
+            iron="#55555f", glow="#ffd030", hoof="#2a2026", leather="#3a2420", dark="#120a0e", blk="#24202a")
     r = Rig11("geometry.hornet_demon", p, base)
     mu = lambda t=3.0, **k: M("red", "skin", t, **k)
     r.c("pelvis", -7, 12, -4, 14, 5, 9, M("red2", "skin", 2.8))
@@ -151,7 +160,9 @@ def hornet_demon(base):
     r.c("torso", -9, 15, -5.5, 18, 3, 11, M("leather", "leather", 2.6, decals=[("north", "skull", 0)]))  # belt + skull buckle
     r.c("torso", -8, 11, -6, 1, 4, 1, M("iron", "forged", 2.8))
     r.c("torso", 6, 11, -6, 1, 5, 1, M("iron", "forged", 2.8))
-    r.c("torso", -17, 30, -5, 8, 8, 10, M("iron", "forged", 2.9))                                     # spiked wheel pauldron
+    r.c("torso", -17, 30, -5, 8, 8, 10, M("blk", "forged", 3.0))                                      # spiked wheel pauldron
+    r.c("torso", -7, 28, -7, 14, 4, 1, M("blk", "forged", 3.1))                                       # black gorget plate
+    r.pair("torso", "torso", -9, 18, -6, 2, 6, 1, M("blk", "forged", 3.0))                             # black side plates
     r.c("torso", -19, 37, -1, 2, 4, 2, M("bone", "horn", 3.4), rot=[0, 0, 25])
     r.c("torso", -21, 33, 0, 3, 2, 2, M("bone", "horn", 3.6))
     r.c("torso", -19, 33, -7, 2, 2, 3, M("bone", "horn", 3.6))
@@ -192,7 +203,7 @@ def hornet_demon(base):
 
 # ------------------------------------------------------------------------------------------- 4. Pink Horror of Tzeentch
 def pink_horror(base):
-    p = pal(pink="#e2897f", pink2="#c66a6c", gum="#8a2a3c", bone="#efe2c8", flame="#3ae4d2", flame2="#f2c23e",
+    p = pal(pink="#d98571", pink2="#b4625f", gum="#8a2a3c", bone="#efe2c8", flame="#3ae8ff", flame2="#ff4ad8",
             claw="#3a2632", glow="#3ae4d2", dark="#2a0e1a")
     r = Rig11("geometry.pink_horror", p, base)
     pk = lambda t=3.0, **k: M("pink", "ribbed", t, **k)
@@ -206,17 +217,17 @@ def pink_horror(base):
     r.c("torso", 6, 23, -5, 3, 4, 7, pk(2.8))
     r.c("head", -6, 25, -9, 12, 8, 10, pk(3.1, decals=[("north", "eyes", "flame2", 5)]))
     r.c("head", -5, 24, -10, 10, 3, 2, M("pink2", "ribbed", 2.9, decals=[("north", "mouth", 0, 8, "bone")]))
-    r.c("head", -4, 30, -1, 2, 2, 9, pk(3.3), rot=[22, 0, -8])                                            # swept-back tentacles
-    r.c("head", 2, 30, -1, 2, 2, 9, pk(3.3), rot=[22, 0, 8])
-    r.c("head", -1, 31, 0, 2, 2, 11, pk(3.5), rot=[28, 0, 0])
+    r.c("head", -4, 30, -1, 2, 2, 13, pk(3.3), rot=[22, 0, -8])                                           # swept-back tentacles
+    r.c("head", 2, 30, -1, 2, 2, 13, pk(3.3), rot=[22, 0, 8])
+    r.c("head", -1, 31, 0, 2, 2, 15, pk(3.5), rot=[28, 0, 0])
     r.c("head", -4, 28, 8, 1, 1, 5, M("pink2", "ribbed", 3.0), rot=[35, 0, -8])
     r.c("head", -4, 22, -9, 8, 2, 3, M("pink2", "ribbed", 2.6))                                         # hanging lower jaw
     r.c("torso", -4, 26, 0, 3, 3, 3, pk(3.4)); r.c("torso", 1, 25, 3, 3, 3, 3, pk(3.4))                 # back lumps
     r.c("head", 3, 28, 8, 1, 1, 5, M("pink2", "ribbed", 3.0), rot=[35, 0, 8])
     for side, up, fo in ((-1, "rightArm", "rightForearm"), (1, "leftArm", "leftForearm")):
         x = -11 if side < 0 else 8
-        r.c(up, x, 15, -3, 3, 10, 3, pk(3.0))
-        r.c(fo, x - 1, 7, -6, 3, 9, 3, M("pink2", "ribbed", 2.9))
+        r.c(up, x + 0.5, 15, -2.5, 2, 10, 2, pk(3.0))
+        r.c(fo, x - 0.5, 6, -5.5, 2, 10, 2, M("pink2", "ribbed", 2.9))
         r.c(fo, x - 1.5, 4, -8, 4, 3, 4, M("claw", "horn", 2.8))
         r.c(fo, x - 1.5, 2, -9, 4, 2, 3, M("flame", "flame", 4.0))
         r.c(fo, x - 1, 5, -10, 1, 2, 1, M("claw", "horn", 3.4))
@@ -247,11 +258,14 @@ def ice_demon(base):
     r.c("pelvis", -6, 13, -4, 12, 5, 8, M("scale2", "scale", 2.8))
     r.c("torso", -7, 22, -5, 14, 11, 10, sc(3.0))
     r.c("torso", -5, 16, -4, 10, 7, 8, M("scale2", "scale", 2.9))
-    r.c("torso", -2, 25, -6, 4, 4, 1, M("heart", "glow", 4.2))                                         # ice heart
+    r.c("torso", -2, 25, -7, 4, 4, 1, M("heart", "glow", 4.2))                                         # ice heart
     r.c("torso", -1, 22, 5, 2, 3, 2, M("crystal", "ice", 3.4))                                         # crystal spine
     r.c("torso", -1, 26, 5, 2, 4, 2, M("crystal", "ice", 3.6))
     r.c("torso", -1, 31, 4, 2, 4, 2, M("crystal", "ice", 3.8), rot=[-20, 0, 0])
     r.pair("torso", "torso", -11, 29, -4, 4, 3, 8, M("ice", "ice", 3.2))
+    r.pair("torso", "torso", -12, 32, -2, 2, 5, 2, M("crystal", "ice", 3.7), rot=[0, 0, 25], pivot=[-11, 32, -1])     # shoulder ridges
+    r.pair("torso", "torso", -10, 32, 1, 2, 4, 2, M("crystal", "ice", 3.5), rot=[-20, 0, 15], pivot=[-9, 32, 2])
+    r.c("torso", -8, 24, -6, 16, 7, 1, M("scale", "scale", 3.2))                                        # heavier chest plate
     r.c("head", -4, 32, -6, 8, 8, 8, sc(3.1, decals=[("north", "eyes", "glow", 3)]))
     r.c("head", -3, 31, -7, 6, 2, 4, M("scale2", "scale", 2.8, decals=[("north", "mouth", 0, 4, "crystal")]))
     r.pair("head", "head", -5, 39, -4, 2, 4, 2, M("ice", "ice", 3.3), rot=[0, 0, 20], pivot=[-4, 39, -3])
@@ -271,15 +285,13 @@ def ice_demon(base):
         r.c(bn, x, 0, -5, 6, 3, 7, sc(2.7))
         r.c(bn, x + 1, 0, -6, 1, 2, 1, M("ice", "ice", 3.6))
         r.c(bn, x + 4, 0, -6, 1, 2, 1, M("ice", "ice", 3.6))
-    for wing, sgn in (("leftWing", 1), ("rightWing", -1)):
-        ox = 8 if sgn > 0 else -24
-        r.c(wing, ox, 31, 5, 16, 2, 2, M("ice", "ice", 3.4))
-        for k, (dx, hh) in enumerate(((5, 13), (10, 11), (14, 9))):
-            xx = (8 + dx) if sgn > 0 else (-8 - dx - 1)
-            r.c(wing, xx, 31 - hh, 6, 1, hh, 1, M("ice", "ice", 3.6))
-        for k, (dx, hh, ww) in enumerate(((1, 12, 5), (6, 10, 4), (10, 8, 5))):
-            xx = (8 + dx) if sgn > 0 else (-8 - dx - ww)
-            r.c(wing, xx, 31 - hh, 6.5, ww, hh, 1, M("membrane", "ice", 2.6 + 0.2 * k))
+    for wing, sgn in (("leftWing", 1), ("rightWing", -1)):                                       # back ice ridges on the wing bones
+        x0 = 7 if sgn > 0 else -10
+        r.c(wing, x0, 27, 4, 3, 5, 3, M("ice", "ice", 3.2))                                              # crystal root
+        for k, (dx, hh, ww) in enumerate(((2, 10, 3), (6, 13, 3), (10, 8, 2))):
+            xx = (7 + dx) if sgn > 0 else (-7 - dx - ww)
+            r.c(wing, xx, 29, 4.5, ww, hh, 2, M("crystal", "ice", 3.4 + 0.2 * k),
+                rot=[-20, 0, -38 * sgn], pivot=[xx + ww / 2, 29, 5.5])
     r.c("tail", -1.5, 14, 5, 3, 3, 7, sc(2.9))
     r.c("tail", -1, 14.5, 12, 2, 2, 6, M("scale2", "scale", 2.8))
     r.c("tail", -1.5, 14, 18, 3, 3, 4, M("crystal", "ice", 3.6))
@@ -289,15 +301,15 @@ def ice_demon(base):
 
 
 # ------------------------------------------------------------------------------------------- Faceless Ones (N'raqi)
-FACELESS = dict(chitin="#1f8a78", chitin2="#13574e", bronze="#c58b3a", iron="#55555e", gem="#3aff9a", glow="#5affa0",
-                tent="#2a7a68", bone="#ddd3b2", robe="#14474a", gold="#dcaa44", leather="#3a2a20", dark="#081412", cloth="#1a2a30")
+FACELESS = dict(violet="#a65cff", chitin="#2a957a", chitin2="#13574e", bronze="#c58b3a", iron="#55555e", gem="#3aff9a", glow="#5affa0",
+                tent="#2a7a68", bone="#ddd3b2", robe="#14474a", gold="#dcaa44", leather="#3a2a20", dark="#081412", cloth="#2e3d40")
 
 
-def _fl_head(r, x0, y0, z0, s, eyes=2, tent=4):
+def _fl_head(r, x0, y0, z0, s, eyes=2, tent=4, tl=5):
     r.c("head", x0, y0, z0, s, s, s, M("chitin", "chitin", 3.1, decals=[("north", "eyes", "glow", s // 3, eyes)]))
     step = max(1, (s - 2) // max(1, tent - 1))
     for k in range(tent):
-        r.c("head", x0 + 1 + k * step, y0 - 5, z0 - 1, 1, 5 + (k % 2), 1, M("tent", "ribbed", 3.0 + 0.2 * (k % 2)))
+        r.c("head", x0 + 1 + k * step, y0 - tl, z0 - 1, 1, tl + (k % 2), 1, M("tent", "ribbed", 3.0 + 0.2 * (k % 2)))
 
 
 def faceless_general(base):
@@ -306,7 +318,16 @@ def faceless_general(base):
     ch = lambda t=3.0, **k: M("chitin", "chitin", t, **k)
     br = lambda t=3.0, **k: M("bronze", "forged", t, **k)
     r.c("pelvis", -9, 10, -7, 18, 6, 14, M("chitin2", "chitin", 2.8))
-    r.c("pelvis", -6, 3, -8, 12, 8, 1, M("cloth", "cloth", 2.6, decals=[("north", "gem", "gem", 5, 2, 2)]))
+    r.c("pelvis", -6, 0, -8.5, 12, 14, 1, M("cloth", "cloth", 2.6, bands=[("bronze", "forged", 0.0, 0.12), ("bronze", "forged", 0.9, 1.0)]))   # tabard
+    r.c("pelvis", -1.5, 8, -10, 3, 4, 2, M("gem", "gem", 3.8))                                          # emerald crystal
+    r.bone("weapon", "rightForearm", [-15, 3, -6], [78, 0, 0])
+    r.c("weapon", -16, -2, -7, 2, 10, 2, M("leather", "leather", 2.6))                                 # great blade grip
+    r.c("weapon", -19, 8, -8, 8, 2, 4, M("bronze", "forged", 3.2))
+    r.c("weapon", -20, 10, -7, 9, 20, 1, M("iron", "forged", 3.0, decals=[("north", "runes", "glow"), ("south", "runes", "glow")]))
+    r.c("weapon", -16, 10, -7.5, 2, 20, 2, M("bronze", "forged", 2.6))
+    for k in range(4):
+        r.c("weapon", -21, 12 + k * 5, -7, 1, 3, 1, M("iron", "forged", 3.8))
+    r.c("weapon", -18, 30, -7, 5, 3, 1, M("iron", "forged", 3.7))
     r.c("torso", -11, 20, -8, 22, 16, 17, ch(3.0))
     r.c("torso", -10, 24, -10, 20, 10, 2, br(3.1))
     r.c("torso", -8, 16, -7, 16, 6, 13, M("chitin2", "chitin", 2.9))
@@ -318,17 +339,20 @@ def faceless_general(base):
     r.pair("torso", "torso", -18, 35, -2, 2, 4, 2, M("bone", "horn", 3.5), rot=[0, 0, 25], pivot=[-17, 35, -1])
     r.c("torso", -9, 34, 4, 18, 2, 6, br(2.9))                                                          # riveted hump band
     r.c("torso", -1, 27, -11, 2, 2, 1, M("gem", "gem", 3.8))
-    _fl_head(r, -5, 27, -14, 10, eyes=4, tent=4)
+    _fl_head(r, -5, 27, -14, 10, eyes=4, tent=4, tl=8)
     r.c("head", -5, 36, -14, 10, 2, 4, M("chitin2", "chitin", 3.3))
     for side, up, fo in ((-1, "rightArm", "rightForearm"), (1, "leftArm", "leftForearm")):
         x = -20 if side < 0 else 10
         r.c(up, x, 20, -5, 10, 13, 10, ch(3.0))
         r.c(fo, x + 1, 8, -7, 8, 12, 9, M("chitin2", "chitin", 2.9))
         r.c(fo, x + 0.5, 13, -7.5, 9, 4, 10, br(3.0))
-        r.c(fo, x + 1, 3, -10, 8, 5, 8, ch(2.9))                                                        # claw palm
-        r.c(fo, x + 0.5, 5, -16, 9, 3, 7, M("chitin2", "chitin", 3.2))                                   # upper pincer
-        r.c(fo, x + 1, 1, -15, 8, 2, 6, ch(2.8))                                                        # lower pincer
-        r.c(fo, x + 0.5, 4, -17, 2, 2, 1, M("bone", "horn", 3.8))
+        if side < 0:
+            r.c(fo, x + 2, 2, -8, 7, 6, 6, ch(2.8))                                                      # fist on the blade
+        else:
+            r.c(fo, x + 1, 3, -10, 8, 5, 8, ch(2.9))                                                    # crab claw
+            r.c(fo, x + 0.5, 5, -16, 9, 3, 7, M("chitin2", "chitin", 3.2))
+            r.c(fo, x + 1, 1, -15, 8, 2, 6, ch(2.8))
+            r.c(fo, x + 0.5, 4, -17, 2, 2, 1, M("bone", "horn", 3.8))
     for side, bn in ((-1, "rightLeg"), (1, "leftLeg")):
         x = -11 if side < 0 else 2
         r.c(bn, x, 6, -6, 9, 8, 10, ch(2.9))
@@ -345,11 +369,17 @@ def faceless_berserker(base):
     br = lambda t=3.0, **k: M("bronze", "forged", t, **k)
     r.c("pelvis", -6, 9, -4.5, 12, 5, 9, M("chitin2", "chitin", 2.8))
     r.c("pelvis", -4, 4, -5, 8, 6, 1, M("cloth", "cloth", 2.6))
-    r.c("torso", -7, 19, -4.5, 14, 9, 9, ch(3.1))
+    r.c("torso", -8, 19, -4.5, 16, 9, 9, ch(3.1, decals=[("north", "scar", 2), ("north", "scar", 9)]))
     r.c("torso", -6, 14, -4, 12, 5, 8, M("chitin2", "ribbed", 3.0))
     r.c("torso", -6.5, 22, -5, 13, 5, 1, ch(3.4))
     r.c("torso", -7, 13, -5, 14, 3, 10, br(3.0, decals=[("north", "gem", "gem", 6, 1, 2)]))
-    r.pair("torso", "torso", -12, 25, -3.5, 5, 4, 7, M("chitin2", "chitin", 3.0))
+    r.pair("torso", "torso", -13, 25, -4, 6, 4, 8, M("bronze", "forged", 3.1))
+    r.pair("torso", "torso", -13.5, 24, -4.5, 6, 1, 9, M("bone", "bone", 3.2))
+    r.bone("weaponL", "leftForearm", [9.5, 10, -2], [78, 0, 0])
+    r.c("weaponL", 9, 4, -2.5, 1, 7, 1, M("leather", "leather", 2.6))                                  # paired blade
+    r.c("weaponL", 8, 11, -3, 3, 1, 2, M("bronze", "forged", 3.2))
+    r.c("weaponL", 9, 12, -2.5, 2, 13, 1, M("iron", "forged", 3.1))
+    r.c("weaponL", 11, 14, -2.5, 1, 2, 1, M("iron", "forged", 3.9)); r.c("weaponL", 11, 19, -2.5, 1, 2, 1, M("iron", "forged", 3.9))
     r.pair("torso", "torso", -11, 29, -1, 2, 4, 2, M("bone", "horn", 3.4), rot=[0, 0, 20], pivot=[-10, 29, 0])
     r.pair("torso", "torso", -13, 28, 1, 2, 3, 2, M("bone", "horn", 3.6), rot=[0, 0, 35], pivot=[-12, 28, 2])
     _fl_head(r, -4, 28, -5, 8, eyes=2, tent=4)
@@ -439,7 +469,8 @@ def faceless_sorcerer(base):
     r.c("torso", -7, 13, -5, 14, 2, 10, M("gold", "forged", 3.0, decals=[("north", "gem", "gem", 6, 0, 2)]))   # belt
     r.c("torso", -5, 4, -6, 10, 10, 1, rb(2.7, bands=[("gold", "forged", 0.85, 1.0)]))               # front apron
     r.c("torso", -6, 8, 4.5, 12, 18, 1, rb(2.6))                                                     # back cloak
-    r.pair("head", "head", -4, 36, -3, 1, 3, 2, M("chitin2", "chitin", 3.4))                         # head crest
+    r.c("head", -2, 36, -3, 4, 5, 3, M("bronze", "forged", 3.3))                                      # tall headdress
+    r.c("head", -1, 41, -2.5, 2, 3, 2, M("bronze", "forged", 3.7))
     _fl_head(r, -4, 28, -5, 8, eyes=2, tent=5)
     r.c("head", -2, 19, -6, 1, 4, 1, M("tent", "ribbed", 2.8))
     r.c("head", 1, 18, -6, 1, 5, 1, M("tent", "ribbed", 2.8))
@@ -456,7 +487,8 @@ def faceless_sorcerer(base):
     r.c("weapon", -10.5, 8, -3, 2, 1, 2, M("bronze", "forged", 3.2))
     r.c("weapon", -10.5, 20, -3, 2, 1, 2, M("bronze", "forged", 3.2))
     r.c("weapon", -11.5, 29, -4, 4, 4, 4, M("bone", "bone", 3.3, decals=[("north", "eyes", "dark", 1)]))
-    r.c("weapon", -10.5, 33, -3, 2, 3, 2, M("gem", "glow", 4.0))
+    r.c("weapon", -10.5, 34, -3, 2, 4, 2, M("violet", "gem", 3.9))                                    # floating emerald-violet crystal
+    r.c("weapon", -10, 35, -3.5, 1, 2, 1, M("gem", "glow", 4.4))
     r.c("weapon", -12, 31, -3, 1, 4, 1, M("bronze", "forged", 3.6))
     r.c("weapon", -8, 31, -3, 1, 4, 1, M("bronze", "forged", 3.6))
     r.c("weapon", -10.5, 14, -3, 2, 1, 2, M("bronze", "forged", 3.2))
@@ -470,17 +502,17 @@ def faceless_cultist(base):
     p = pal(**FACELESS)
     r = Rig11("geometry.faceless_cultist", p, base)
     cl = lambda t=3.0, **k: M("cloth", "cloth", t, **k)
-    r.c("pelvis", -6, 0, -5, 12, 14, 10, cl(2.7))
+    r.c("pelvis", -6, 0, -5, 12, 14, 10, cl(2.7, decals=[("north", "runes", "glow")]))
     r.c("pelvis", -7, 0, -6, 14, 3, 12, cl(2.4))
-    r.c("torso", -7.5, 14, -4.5, 15, 14, 9, cl(2.9))
+    r.c("torso", -7.5, 14, -4.5, 15, 14, 9, cl(2.9, decals=[("north", "runes", "glow"), ("south", "runes", "glow")]))
     r.c("torso", -8, 24, -5, 16, 4, 10, M("bronze", "forged", 3.1))                                  # ritual mantle
     r.pair("torso", "torso", -6, 17, -5.5, 4, 8, 1, M("bronze", "forged", 2.9, decals=[("north", "runes", "glow")]))
-    r.c("head", -4, 28, -4.5, 8, 8, 8, M("chitin2", "chitin", 2.6, decals=[("north", "eyes", "glow", 3)]))
-    r.c("head", -5, 29, -3, 10, 9, 9, cl(2.6))                                                        # hood, pushed back
+    r.c("head", -4, 27, -6.5, 8, 8, 8, M("chitin2", "chitin", 2.4, decals=[("north", "eyes", "glow", 3)]))   # hunched forward
+    r.c("head", -5, 28, -5, 10, 9, 9, cl(2.6))                                                        # hood, pushed back
     r.c("head", -3, 36, 2, 6, 3, 5, cl(2.8))
     r.c("head", -5, 24, 3, 10, 7, 3, cl(2.4))
     for k, x in enumerate((-2, 0, 2)):
-        r.c("head", x - 0.5, 24, -5, 1, 4 + (k % 2), 1, M("tent", "ribbed", 3.0))
+        r.c("head", x - 0.5, 21, -7, 1, 6 + (k % 2), 1, M("tent", "ribbed", 3.0))
     for side, up, fo in ((-1, "rightArm", "rightForearm"), (1, "leftArm", "leftForearm")):
         x = -10 if side < 0 else 6
         r.c(up, x, 18, -2, 4, 8, 4, cl(2.9))
