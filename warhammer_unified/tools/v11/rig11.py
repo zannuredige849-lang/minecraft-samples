@@ -148,11 +148,20 @@ class Rig11:
 
     def finalize(self, png=None):
         self.zfix = self.dezfight()
-        png = png or getattr(self, "png", 256)
-        for uvsize in [u for u in (64, 128, 256, 512) if u <= png and png // u <= 4]:
-            if self._pack(uvsize): break
+        import os
+        td = int(os.environ.get("TEXEL_DENSITY", "0") or 0)
+        if td:   # one style with the rest of the add-on: a fixed number of texture pixels per model unit
+            for uvsize in (64, 128, 256, 512, 1024):
+                if self._pack(uvsize): break
+            else:
+                raise RuntimeError(f"{self.ident}: UV islands do not fit 1024x1024")
+            png = uvsize * td
         else:
-            raise RuntimeError(f"{self.ident}: UV islands do not fit {png}x{png}")
+            png = png or getattr(self, "png", 256)
+            for uvsize in [u for u in (64, 128, 256, 512) if u <= png and png // u <= 4]:
+                if self._pack(uvsize): break
+            else:
+                raise RuntimeError(f"{self.ident}: UV islands do not fit {png}x{png}")
         self.tw = uvsize
         dens = png // uvsize
         tex = np.zeros((png, png, 4), np.uint8)

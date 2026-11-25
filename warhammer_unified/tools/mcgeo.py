@@ -89,6 +89,7 @@ def cube_faces(cube, tw, th):
     ox, oy, oz = cube["origin"]
     sx, sy, sz = cube["size"]
     inf = cube.get("inflate", 0) or 0
+    bw, bh, bd = math.ceil(sx), math.ceil(sy), math.ceil(sz)   # box UV uses the un-inflated size
     ox -= inf; oy -= inf; oz -= inf
     sx += 2 * inf; sy += 2 * inf; sz += 2 * inf
     x0, x1 = -(ox + sx), -ox
@@ -101,7 +102,7 @@ def cube_faces(cube, tw, th):
             rects[f] = (e["uv"][0], e["uv"][1], e.get("uv_size", [0, 0])[0], e.get("uv_size", [0, 0])[1])
     elif uv is not None:
         u, v = uv
-        w, h, d = math.ceil(sx), math.ceil(sy), math.ceil(sz)
+        w, h, d = bw, bh, bd
         rects = {"east": (u, v + d, d, h), "north": (u + d, v + d, w, h), "west": (u + d + w, v + d, d, h),
                  "south": (u + 2 * d + w, v + d, w, h), "up": (u + d, v, w, d), "down": (u + d + w, v, w, d)}
         if cube.get("mirror"):
