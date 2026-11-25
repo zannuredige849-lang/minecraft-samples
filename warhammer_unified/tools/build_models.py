@@ -25,6 +25,7 @@ def run(out, only=None, report=None):
         return anim_files[fname]
 
     stats = []
+    from forge import player as _pl
     for ent, fn in REG.items():
         if only and ent not in only:
             continue
@@ -79,6 +80,11 @@ def run(out, only=None, report=None):
         stats.append((ent, m.cube_count(), m.tw, len(new)))
     for f, doc in anim_files.items():
         write_json(os.path.join(rp, "animations", f), doc)
+    # the people's 64x64 player skins, also usable as ordinary Minecraft skins (previews/skins/<mob>.png)
+    sk = os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), "previews", "skins")
+    os.makedirs(sk, exist_ok=True)
+    for key in sorted(_pl.SPECS):
+        _pl.get_skin(key)[0].save(os.path.join(sk, key + ".png"))
     return stats
 
 

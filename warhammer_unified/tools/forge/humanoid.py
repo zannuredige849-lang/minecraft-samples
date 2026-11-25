@@ -33,8 +33,17 @@ HOLD = {  # kind: (final tilt forward, forearm bend)
 
 class Humanoid(Model):
     def __init__(self, ident, pal, H=32, w=1.0, hs=None, arm_h=None, bulk=1.0, shoulder=0, pre="", oy=0.0, oz=0.0,
-                 parent_bone=None, legs=True, lh=None, th=None, tw=None, td=None, aw=None):
+                 parent_bone=None, legs=True, lh=None, th=None, tw=None, td=None, aw=None, player=None, slim=None):
         super().__init__(ident, pal)
+        from . import player as _pl
+        if player is None and ident.startswith("geometry.") and ident[9:] in _pl.PEOPLE:
+            player = ident[9:]
+        self.player = player
+        if player:                                   # vanilla player proportions, skin from a 64x64 player skin
+            slim = _pl.PEOPLE.get(player, False) if slim is None else slim
+            self.slim = slim
+            H, hs, tw, td, aw, lh, th, arm_h = 32, 8, 8, 4, (3 if slim else 4), 12, 12, 12
+            _pl.register(player, pal=pal, slim=slim)
         self.pre, self.oy, self.oz, self.has_legs = pre, oy, oz, legs
         s = H / 32.0
         self.s = s; self.H = H
@@ -87,6 +96,8 @@ class Humanoid(Model):
     # ---------------------------------------------------------------- body
     def base(self, skin="skin", cloth="cloth", armor="armor", trim="trim", arm_style="cloth", leg_style="cloth",
              torso_style="plate", boots=True, gauntlets=True, sleeves_slot=None):
+        if self.player:
+            return self._player_base(skin, cloth, armor, trim, arm_style, leg_style, torso_style, boots, gauntlets, sleeves_slot)
         s, tw, td, th, lh, aw, sh = self.s, self.tw, self.td, self.th, self.lh, self.aw, self.sh
         b = self.body
         trimslot = trim if trim in self.pal else armor
@@ -146,13 +157,43 @@ class Humanoid(Model):
                 self.box(bone, (ox + 0.5, 0, -lw / 2 + 0.5), (max(1, lw - 1), lh - th_h, max(1, lw - 1)), M(cloth, leg_style, 2.5))
         self.base_done = True
 
+    def _pskin(self, part, rows=None):
+        m = {"slot": "skin", "style": "pskin", "pskin": self.player, "part": part}
+        if rows: m["rows"] = list(rows)
+        return m
+
+    def _player_base(self, skin, cloth, armor, trim, arm_style, leg_style, torso_style, boots, gauntlets, sleeves_slot):
+        """Vanilla player body: 8x12x4 torso, 4x12x4 (slim 3x12x4) arms split at the elbow, 4x12x4 legs."""
+        from . import player as _pl
+        _pl.register(self.player, outfit=dict(armor=armor, cloth=cloth, trim=trim, arm_style=arm_style, leg_style=leg_style,
+                                               torso_style=torso_style, boots=boots, gauntlets=gauntlets, sleeves=sleeves_slot or cloth,
+                                               leather="leather" if "leather" in self.pal else trim), head=dict(skin=skin))
+        tw, aw, lh = self.tw, self.aw, self.lh
+        self.box(self.body, (-tw / 2, lh, -2), (tw, self.th, 4), self._pskin("body"))
+        for side, up, fo, part in ((1, self.arm_l, self.farm_l, "arm_l"), (-1, self.arm_r, self.farm_r, "arm_r")):
+            ox = side * (tw / 2) if side > 0 else -(tw / 2) - aw
+            self.box(up, (ox, self.elbow_y, -2), (aw, self.sh - self.elbow_y, 4), self._pskin(part, (0, self.sh - self.elbow_y)))
+            self.box(fo, (ox, self.hand_y, -2), (aw, self.elbow_y - self.hand_y, 4), self._pskin(part, (self.sh - self.elbow_y, 12)))
+        self.pose_arm("l"); self.pose_arm("r")
+        if self.has_legs:
+            for side, bone, part in ((1, self.leg_l, "leg_l"), (-1, self.leg_r, "leg_r")):
+                self.box(bone, (0 if side > 0 else -4, 0, -2), (4, lh, 4), self._pskin(part))
+        self.base_done = True
+
     # ---------------------------------------------------------------- heads
     def head_box(self, mat, inflate=0, y_off=0, size=None):
+        if self.player and mat.get("style") == "skin" and not size and not y_off:
+            mat = self._pskin("head")                       # the face comes from the player skin
         hs = size or self.hs
         self.box(self.head, (-hs / 2, self.sh + y_off, -hs / 2), (hs, hs, hs), mat)
 
     def head_bare(self, skin="skin", hair=None, eyes="glow", beard=None, eye_y=None, brow=True):
         hs, sh = self.hs, self.sh
+        if self.player:                                     # hair, beard and eyes are painted into the skin
+            from . import player as _pl
+            _pl.register(self.player, head=dict(skin=skin, hair=hair, eyes=eyes, beard=beard))
+            self.head_box(self._pskin("head"))
+            return
         ey = eye_y if eye_y is not None else R(hs * 0.45)
         self.head_box(dec(M(skin, "skin", 3.0), ("north", "face", eyes, ey)))
         self.box(self.head, (-1, sh + ey - 2, -hs / 2 - 1), (2, 2, 1), M(skin, "skin", 3.3))          # nose

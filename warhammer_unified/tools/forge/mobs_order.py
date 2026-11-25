@@ -17,7 +17,11 @@ def _mount(name, pal_, top_h, body="#e8e4dc", barding=True, dark=False, tex_trim
 
 
 def _rider(q, pal_, H, pre="r_"):
-    r = Humanoid("x", pal_, H=H, pre=pre, oy=q.top - R(H * 0.34) + 1, oz=0, parent_bone="body", legs=False)
+    from .player import PEOPLE
+    key = q.ident.split(".", 1)[1]
+    if key in PEOPLE: H = 32                            # riders who are people use the vanilla player model
+    r = Humanoid("x", pal_, H=H, pre=pre, oy=q.top - R(H * 0.34) + 1, oz=0, parent_bone="body", legs=False,
+                 player=key if key in PEOPLE else None)
     return r
 
 

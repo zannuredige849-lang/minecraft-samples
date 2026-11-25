@@ -74,6 +74,9 @@ def _hash(*a):
 
 def paint_face(mat, face, w, h, pal, seed=0):
     """Return (h,w,4) uint8 array for one face. mat = dict(slot, style, tone, decals=[...])."""
+    if mat.get("pskin"):                      # a body part of a player-model human: pixels straight from its 64x64 skin
+        from .player import face_pixels
+        return face_pixels(mat["pskin"], mat["part"], face, w, h, mat.get("rows"))
     slot_ = mat.get("slot", "armor")
     ramp = pal[slot_]
     style = mat.get("style", "plate")
