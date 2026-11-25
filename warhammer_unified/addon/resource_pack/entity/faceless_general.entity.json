@@ -1,38 +1,38 @@
 {
-  "format_version": "1.10.0",
-  "minecraft:client_entity": {
-    "description": {
-      "identifier": "warcraft:faceless_general",
-      "min_engine_version": "1.16.0",
-      "materials": {
-        "default": "entity_alphatest"
-      },
-      "textures": {
-        "default": "textures/entity/faceless_general"
-      },
-      "geometry": {
-        "default": "geometry.faceless_general"
-      },
-      "animations": {
-        "idle_a": "animation.faceless_general.idle_a",
-        "walk": "animation.faceless_general.walk",
-        "attack_a": "animation.faceless_general.attack_a",
-        "slam": "animation.faceless_general.slam",
-        "death": "animation.faceless_general.death",
-        "controller": "controller.animation.faceless_general"
-      },
-      "scripts": {
-        "animate": [
-          "controller"
-        ]
-      },
-      "render_controllers": [
-        "controller.render.faceless_general"
-      ],
-      "spawn_egg": {
-        "texture": "egg_warcraft_faceless_general",
-        "texture_index": 0
-      }
-    }
+ "format_version": "1.10.0",
+ "minecraft:client_entity": {
+  "description": {
+   "identifier": "warcraft:faceless_general",
+   "min_engine_version": "1.16.0",
+   "materials": {
+    "default": "entity_alphatest"
+   },
+   "textures": {
+    "default": "textures/entity/faceless_general"
+   },
+   "geometry": {
+    "default": "geometry.faceless_general"
+   },
+   "animations": {
+    "idle_a": "animation.faceless_general.idle_a",
+    "walk": "animation.faceless_general.walk",
+    "attack_a": "animation.faceless_general.attack_a",
+    "slam": "animation.faceless_general.slam",
+    "death": "animation.faceless_general.death",
+    "controller": "controller.animation.faceless_general"
+   },
+   "scripts": {
+    "animate": [
+     "controller"
+    ]
+   },
+   "render_controllers": [
+    "controller.render.faceless_general"
+   ],
+   "spawn_egg": {
+    "base_color": "#2d9f8a",
+    "overlay_color": "#5a3a9a"
+   }
   }
+ }
 }

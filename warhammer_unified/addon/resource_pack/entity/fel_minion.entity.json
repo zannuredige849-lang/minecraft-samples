@@ -1,49 +1,50 @@
 {
-  "format_version": "1.10.0",
-  "minecraft:client_entity": {
-    "description": {
-      "identifier": "cb:fel_minion",
-      "materials": {
-        "default": "entity_emissive_alpha"
-      },
-      "textures": {
-        "fel_minion": "textures/entity/fel_minion"
-      },
-      "geometry": {
-        "default": "geometry.cb_fel_minion"
-      },
-      "animations": {
-        "idle": "animation.cb_fel_minion.idle",
-        "attack": "animation.cb_fel_minion.attack",
-        "dance": "animation.cb_fel_minion.dance",
-        "look_at_target": "animation.common.look_at_target",
-        "walk": "animation.cb_fel_minion.walk",
-        "hurt": "animation.cb_fel_minion.hurt"
-      },
-      "scripts": {
-        "animate": [
-          "idle",
-          {
-            "walk": "query.modified_move_speed > 0.015"
-          },
-          "look_at_target",
-          {
-            "attack": "v.attack_time > 0"
-          },
-          {
-            "hurt": "query.hurt_time > 0"
-          },
-          {
-            "dance": "q.property('cb:dancing')"
-          }
-        ]
-      },
-      "render_controllers": [
-        "controller.render.cb_fel_minion"
-      ],
-      "spawn_egg": {
-        "texture": "cb_egg_fel_minion"
-      }
-    }
+ "format_version": "1.10.0",
+ "minecraft:client_entity": {
+  "description": {
+   "identifier": "cb:fel_minion",
+   "materials": {
+    "default": "entity_emissive_alpha"
+   },
+   "textures": {
+    "fel_minion": "textures/entity/fel_minion"
+   },
+   "geometry": {
+    "default": "geometry.cb_fel_minion"
+   },
+   "animations": {
+    "idle": "animation.cb_fel_minion.idle",
+    "attack": "animation.cb_fel_minion.attack",
+    "dance": "animation.cb_fel_minion.dance",
+    "look_at_target": "animation.common.look_at_target",
+    "walk": "animation.cb_fel_minion.walk",
+    "hurt": "animation.cb_fel_minion.hurt"
+   },
+   "scripts": {
+    "animate": [
+     "idle",
+     {
+      "walk": "query.modified_move_speed > 0.015"
+     },
+     "look_at_target",
+     {
+      "attack": "v.attack_time > 0"
+     },
+     {
+      "hurt": "query.hurt_time > 0"
+     },
+     {
+      "dance": "q.property('cb:dancing')"
+     }
+    ]
+   },
+   "render_controllers": [
+    "controller.render.cb_fel_minion"
+   ],
+   "spawn_egg": {
+    "base_color": "#193920",
+    "overlay_color": "#9aff30"
+   }
   }
+ }
 }

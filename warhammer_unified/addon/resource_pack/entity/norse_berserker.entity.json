@@ -1,39 +1,39 @@
 {
-  "format_version": "1.10.0",
-  "minecraft:client_entity": {
-    "description": {
-      "identifier": "warcraft:norse_berserker",
-      "materials": {
-        "default": "entity_alphatest"
-      },
-      "textures": {
-        "default": "textures/entity/norse_berserker_voxel"
-      },
-      "geometry": {
-        "default": "geometry.norse_berserker"
-      },
-      "animations": {
-        "idle_a": "animation.norse_berserker.idle_a",
-        "idle_b": "animation.norse_berserker.idle_b",
-        "walk": "animation.norse_berserker.walk",
-        "attack_a": "animation.norse_berserker.attack_a",
-        "attack_b": "animation.norse_berserker.attack_b",
-        "ability": "animation.norse_berserker.ability",
-        "death": "animation.norse_berserker.death",
-        "move_ctrl": "controller.animation.norse_berserker"
-      },
-      "scripts": {
-        "animate": [
-          "move_ctrl"
-        ]
-      },
-      "render_controllers": [
-        "controller.render.default"
-      ],
-      "spawn_egg": {
-        "texture": "egg_warcraft_norse_berserker",
-        "texture_index": 0
-      }
-    }
+ "format_version": "1.10.0",
+ "minecraft:client_entity": {
+  "description": {
+   "identifier": "warcraft:norse_berserker",
+   "materials": {
+    "default": "entity_alphatest"
+   },
+   "textures": {
+    "default": "textures/entity/norse_berserker_voxel"
+   },
+   "geometry": {
+    "default": "geometry.norse_berserker"
+   },
+   "animations": {
+    "idle_a": "animation.norse_berserker.idle_a",
+    "idle_b": "animation.norse_berserker.idle_b",
+    "walk": "animation.norse_berserker.walk",
+    "attack_a": "animation.norse_berserker.attack_a",
+    "attack_b": "animation.norse_berserker.attack_b",
+    "ability": "animation.norse_berserker.ability",
+    "death": "animation.norse_berserker.death",
+    "move_ctrl": "controller.animation.norse_berserker"
+   },
+   "scripts": {
+    "animate": [
+     "move_ctrl"
+    ]
+   },
+   "render_controllers": [
+    "controller.render.default"
+   ],
+   "spawn_egg": {
+    "base_color": "#cd9e82",
+    "overlay_color": "#b02a2a"
+   }
   }
+ }
 }

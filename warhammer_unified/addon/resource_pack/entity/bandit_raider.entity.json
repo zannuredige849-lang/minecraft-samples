@@ -1,39 +1,39 @@
 {
-  "format_version": "1.10.0",
-  "minecraft:client_entity": {
-    "description": {
-      "identifier": "warcraft:bandit_raider",
-      "materials": {
-        "default": "entity_alphatest"
-      },
-      "textures": {
-        "default": "textures/entity/bandit_raider_voxel"
-      },
-      "geometry": {
-        "default": "geometry.bandit_raider"
-      },
-      "animations": {
-        "idle_a": "animation.bandit_raider.idle_a",
-        "idle_b": "animation.bandit_raider.idle_b",
-        "walk": "animation.bandit_raider.walk",
-        "attack_a": "animation.bandit_raider.attack_a",
-        "attack_b": "animation.bandit_raider.attack_b",
-        "ability": "animation.bandit_raider.ability",
-        "death": "animation.bandit_raider.death",
-        "move_ctrl": "controller.animation.bandit_raider"
-      },
-      "scripts": {
-        "animate": [
-          "move_ctrl"
-        ]
-      },
-      "render_controllers": [
-        "controller.render.default"
-      ],
-      "spawn_egg": {
-        "texture": "egg_warcraft_bandit_raider",
-        "texture_index": 0
-      }
-    }
+ "format_version": "1.10.0",
+ "minecraft:client_entity": {
+  "description": {
+   "identifier": "warcraft:bandit_raider",
+   "materials": {
+    "default": "entity_alphatest"
+   },
+   "textures": {
+    "default": "textures/entity/bandit_raider_voxel"
+   },
+   "geometry": {
+    "default": "geometry.bandit_raider"
+   },
+   "animations": {
+    "idle_a": "animation.bandit_raider.idle_a",
+    "idle_b": "animation.bandit_raider.idle_b",
+    "walk": "animation.bandit_raider.walk",
+    "attack_a": "animation.bandit_raider.attack_a",
+    "attack_b": "animation.bandit_raider.attack_b",
+    "ability": "animation.bandit_raider.ability",
+    "death": "animation.bandit_raider.death",
+    "move_ctrl": "controller.animation.bandit_raider"
+   },
+   "scripts": {
+    "animate": [
+     "move_ctrl"
+    ]
+   },
+   "render_controllers": [
+    "controller.render.default"
+   ],
+   "spawn_egg": {
+    "base_color": "#55402d",
+    "overlay_color": "#b02a2a"
+   }
   }
+ }
 }

@@ -1,39 +1,39 @@
 {
-  "format_version": "1.10.0",
-  "minecraft:client_entity": {
-    "description": {
-      "identifier": "warcraft:nazgul",
-      "materials": {
-        "default": "entity_alphatest"
-      },
-      "textures": {
-        "default": "textures/entity/nazgul_voxel"
-      },
-      "geometry": {
-        "default": "geometry.nazgul"
-      },
-      "animations": {
-        "idle_a": "animation.nazgul.idle_a",
-        "idle_b": "animation.nazgul.idle_b",
-        "walk": "animation.nazgul.walk",
-        "attack_a": "animation.nazgul.attack_a",
-        "attack_b": "animation.nazgul.attack_b",
-        "ability": "animation.nazgul.ability",
-        "death": "animation.nazgul.death",
-        "move_ctrl": "controller.animation.nazgul"
-      },
-      "scripts": {
-        "animate": [
-          "move_ctrl"
-        ]
-      },
-      "render_controllers": [
-        "controller.render.default"
-      ],
-      "spawn_egg": {
-        "texture": "egg_warcraft_nazgul",
-        "texture_index": 0
-      }
-    }
+ "format_version": "1.10.0",
+ "minecraft:client_entity": {
+  "description": {
+   "identifier": "warcraft:nazgul",
+   "materials": {
+    "default": "entity_alphatest"
+   },
+   "textures": {
+    "default": "textures/entity/nazgul_voxel"
+   },
+   "geometry": {
+    "default": "geometry.nazgul"
+   },
+   "animations": {
+    "idle_a": "animation.nazgul.idle_a",
+    "idle_b": "animation.nazgul.idle_b",
+    "walk": "animation.nazgul.walk",
+    "attack_a": "animation.nazgul.attack_a",
+    "attack_b": "animation.nazgul.attack_b",
+    "ability": "animation.nazgul.ability",
+    "death": "animation.nazgul.death",
+    "move_ctrl": "controller.animation.nazgul"
+   },
+   "scripts": {
+    "animate": [
+     "move_ctrl"
+    ]
+   },
+   "render_controllers": [
+    "controller.render.default"
+   ],
+   "spawn_egg": {
+    "base_color": "#363b52",
+    "overlay_color": "#6ae6ff"
+   }
   }
+ }
 }

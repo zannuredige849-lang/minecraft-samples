@@ -1,39 +1,39 @@
 {
-  "format_version": "1.10.0",
-  "minecraft:client_entity": {
-    "description": {
-      "identifier": "warcraft:chival_warrior",
-      "materials": {
-        "default": "entity_alphatest"
-      },
-      "textures": {
-        "default": "textures/entity/chival_warrior_voxel"
-      },
-      "geometry": {
-        "default": "geometry.chival_warrior"
-      },
-      "animations": {
-        "idle_a": "animation.chival_warrior.idle_a",
-        "idle_b": "animation.chival_warrior.idle_b",
-        "walk": "animation.chival_warrior.walk",
-        "attack_a": "animation.chival_warrior.attack_a",
-        "attack_b": "animation.chival_warrior.attack_b",
-        "ability": "animation.chival_warrior.ability",
-        "death": "animation.chival_warrior.death",
-        "move_ctrl": "controller.animation.chival_warrior"
-      },
-      "scripts": {
-        "animate": [
-          "move_ctrl"
-        ]
-      },
-      "render_controllers": [
-        "controller.render.default"
-      ],
-      "spawn_egg": {
-        "texture": "egg_warcraft_chival_warrior",
-        "texture_index": 0
-      }
-    }
+ "format_version": "1.10.0",
+ "minecraft:client_entity": {
+  "description": {
+   "identifier": "warcraft:chival_warrior",
+   "materials": {
+    "default": "entity_alphatest"
+   },
+   "textures": {
+    "default": "textures/entity/chival_warrior_voxel"
+   },
+   "geometry": {
+    "default": "geometry.chival_warrior"
+   },
+   "animations": {
+    "idle_a": "animation.chival_warrior.idle_a",
+    "idle_b": "animation.chival_warrior.idle_b",
+    "walk": "animation.chival_warrior.walk",
+    "attack_a": "animation.chival_warrior.attack_a",
+    "attack_b": "animation.chival_warrior.attack_b",
+    "ability": "animation.chival_warrior.ability",
+    "death": "animation.chival_warrior.death",
+    "move_ctrl": "controller.animation.chival_warrior"
+   },
+   "scripts": {
+    "animate": [
+     "move_ctrl"
+    ]
+   },
+   "render_controllers": [
+    "controller.render.default"
+   ],
+   "spawn_egg": {
+    "base_color": "#9c6538",
+    "overlay_color": "#dcae3c"
+   }
   }
+ }
 }

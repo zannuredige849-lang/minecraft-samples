@@ -1,61 +1,62 @@
 {
-  "format_version": "1.10.0",
-  "minecraft:client_entity": {
-    "description": {
-      "identifier": "cb:siren",
-      "materials": {
-        "default": "entity_emissive_alpha"
-      },
-      "textures": {
-        "abyss": "textures/entity/siren/siren_abyss",
-        "swamp": "textures/entity/siren/siren_swamp",
-        "blood": "textures/entity/siren/siren_blood",
-        "bone": "textures/entity/siren/siren_bone",
-        "nightshade": "textures/entity/siren/siren_nightshade",
-        "toxic": "textures/entity/siren/siren_toxic"
-      },
-      "geometry": {
-        "default": "geometry.cb_siren"
-      },
-      "animations": {
-        "idle": "animation.cb_merfolk.idle",
-        "swim": "animation.cb_merfolk.swim",
-        "sing": "animation.cb_merfolk.sing",
-        "look_at_target": "animation.common.look_at_target",
-        "sing_ctrl": "controller.animation.cb_merfolk.sing",
-        "angry": "animation.cb_siren.angry",
-        "attack": "animation.cb_siren.attack",
-        "angry_ctrl": "controller.animation.cb_siren.angry",
-        "crawl": "animation.cb_siren.crawl",
-        "dance": "animation.cb_merfolk.dance"
-      },
-      "scripts": {
-        "initialize": [
-          "v.swim = 0.0;",
-          "v.land = 0.0;"
-        ],
-        "pre_animation": [
-          "v.swim = math.lerp(v.swim, q.is_in_water ? math.clamp(q.modified_move_speed * 4, 0, 1) : 0, 0.08);",
-          "v.land = math.lerp(v.land, (!q.is_in_water && q.is_on_ground) ? 1 : 0, 0.1);"
-        ],
-        "animate": [
-          "idle",
-          "swim",
-          "sing_ctrl",
-          "look_at_target",
-          "angry_ctrl",
-          "crawl",
-          {
-            "dance": "q.property('cb:dancing')"
-          }
-        ]
-      },
-      "render_controllers": [
-        "controller.render.cb_siren"
-      ],
-      "spawn_egg": {
-        "texture": "cb_egg_siren"
-      }
-    }
+ "format_version": "1.10.0",
+ "minecraft:client_entity": {
+  "description": {
+   "identifier": "cb:siren",
+   "materials": {
+    "default": "entity_emissive_alpha"
+   },
+   "textures": {
+    "abyss": "textures/entity/siren/siren_abyss",
+    "swamp": "textures/entity/siren/siren_swamp",
+    "blood": "textures/entity/siren/siren_blood",
+    "bone": "textures/entity/siren/siren_bone",
+    "nightshade": "textures/entity/siren/siren_nightshade",
+    "toxic": "textures/entity/siren/siren_toxic"
+   },
+   "geometry": {
+    "default": "geometry.cb_siren"
+   },
+   "animations": {
+    "idle": "animation.cb_merfolk.idle",
+    "swim": "animation.cb_merfolk.swim",
+    "sing": "animation.cb_merfolk.sing",
+    "look_at_target": "animation.common.look_at_target",
+    "sing_ctrl": "controller.animation.cb_merfolk.sing",
+    "angry": "animation.cb_siren.angry",
+    "attack": "animation.cb_siren.attack",
+    "angry_ctrl": "controller.animation.cb_siren.angry",
+    "crawl": "animation.cb_siren.crawl",
+    "dance": "animation.cb_merfolk.dance"
+   },
+   "scripts": {
+    "initialize": [
+     "v.swim = 0.0;",
+     "v.land = 0.0;"
+    ],
+    "pre_animation": [
+     "v.swim = math.lerp(v.swim, q.is_in_water ? math.clamp(q.modified_move_speed * 4, 0, 1) : 0, 0.08);",
+     "v.land = math.lerp(v.land, (!q.is_in_water && q.is_on_ground) ? 1 : 0, 0.1);"
+    ],
+    "animate": [
+     "idle",
+     "swim",
+     "sing_ctrl",
+     "look_at_target",
+     "angry_ctrl",
+     "crawl",
+     {
+      "dance": "q.property('cb:dancing')"
+     }
+    ]
+   },
+   "render_controllers": [
+    "controller.render.cb_siren"
+   ],
+   "spawn_egg": {
+    "base_color": "#02165a",
+    "overlay_color": "#f0a0c0"
+   }
   }
+ }
 }

@@ -1,39 +1,39 @@
 {
-  "format_version": "1.10.0",
-  "minecraft:client_entity": {
-    "description": {
-      "identifier": "warcraft:heide_knight",
-      "materials": {
-        "default": "entity_alphatest"
-      },
-      "textures": {
-        "default": "textures/entity/heide_knight_voxel"
-      },
-      "geometry": {
-        "default": "geometry.heide_knight"
-      },
-      "animations": {
-        "idle_a": "animation.heide_knight.idle_a",
-        "idle_b": "animation.heide_knight.idle_b",
-        "walk": "animation.heide_knight.walk",
-        "attack_a": "animation.heide_knight.attack_a",
-        "attack_b": "animation.heide_knight.attack_b",
-        "ability": "animation.heide_knight.ability",
-        "death": "animation.heide_knight.death",
-        "move_ctrl": "controller.animation.heide_knight"
-      },
-      "scripts": {
-        "animate": [
-          "move_ctrl"
-        ]
-      },
-      "render_controllers": [
-        "controller.render.default"
-      ],
-      "spawn_egg": {
-        "texture": "egg_warcraft_heide_knight",
-        "texture_index": 0
-      }
-    }
+ "format_version": "1.10.0",
+ "minecraft:client_entity": {
+  "description": {
+   "identifier": "warcraft:heide_knight",
+   "materials": {
+    "default": "entity_alphatest"
+   },
+   "textures": {
+    "default": "textures/entity/heide_knight_voxel"
+   },
+   "geometry": {
+    "default": "geometry.heide_knight"
+   },
+   "animations": {
+    "idle_a": "animation.heide_knight.idle_a",
+    "idle_b": "animation.heide_knight.idle_b",
+    "walk": "animation.heide_knight.walk",
+    "attack_a": "animation.heide_knight.attack_a",
+    "attack_b": "animation.heide_knight.attack_b",
+    "ability": "animation.heide_knight.ability",
+    "death": "animation.heide_knight.death",
+    "move_ctrl": "controller.animation.heide_knight"
+   },
+   "scripts": {
+    "animate": [
+     "move_ctrl"
+    ]
+   },
+   "render_controllers": [
+    "controller.render.default"
+   ],
+   "spawn_egg": {
+    "base_color": "#cba958",
+    "overlay_color": "#dcae3c"
+   }
   }
+ }
 }

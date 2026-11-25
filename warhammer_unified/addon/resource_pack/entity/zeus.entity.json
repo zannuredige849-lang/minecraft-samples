@@ -1,60 +1,61 @@
 {
-  "format_version": "1.10.0",
-  "minecraft:client_entity": {
-    "description": {
-      "identifier": "cb:zeus",
-      "materials": {
-        "default": "entity_emissive_alpha"
-      },
-      "textures": {
-        "default": "textures/entity/zeus"
-      },
-      "geometry": {
-        "default": "geometry.cb_zeus"
-      },
-      "animations": {
-        "idle": "animation.zeus.idle",
-        "walk": "animation.zeus.walk",
-        "attack": "animation.zeus.attack",
-        "special_attack": "animation.zeus.special_attack",
-        "hurt": "animation.zeus.hurt",
-        "death": "animation.zeus.death",
-        "charge": "animation.zeus.summon_lightning",
-        "special1": "animation.zeus.summon_lightning",
-        "special2": "animation.zeus.storm_control",
-        "special3": "animation.zeus.divine_shield",
-        "stun": "animation.zeus.stun",
-        "rage": "animation.zeus.rage",
-        "dance": "animation.zeus.dance",
-        "ctrl": "controller.animation.cb_zeus",
-        "look_at_target": "animation.common.look_at_target"
-      },
-      "scripts": {
-        "animate": [
-          {
-            "idle": "!q.property('cb:dancing')"
-          },
-          {
-            "walk": "q.modified_move_speed > 0.015 && !q.property('cb:dancing') && !q.property('cb:charging')"
-          },
-          {
-            "rage": "q.property('cb:enraged') && !q.property('cb:dancing')"
-          },
-          {
-            "hurt": "q.hurt_time > 0 && !q.property('cb:dancing')"
-          },
-          "ctrl",
-          {
-            "look_at_target": "!q.property('cb:dancing') && q.property('cb:cast_state') == 0"
-          }
-        ]
-      },
-      "render_controllers": [
-        "controller.render.cb_zeus"
-      ],
-      "spawn_egg": {
-        "texture": "cb_egg_zeus"
-      }
-    }
+ "format_version": "1.10.0",
+ "minecraft:client_entity": {
+  "description": {
+   "identifier": "cb:zeus",
+   "materials": {
+    "default": "entity_emissive_alpha"
+   },
+   "textures": {
+    "default": "textures/entity/zeus"
+   },
+   "geometry": {
+    "default": "geometry.cb_zeus"
+   },
+   "animations": {
+    "idle": "animation.zeus.idle",
+    "walk": "animation.zeus.walk",
+    "attack": "animation.zeus.attack",
+    "special_attack": "animation.zeus.special_attack",
+    "hurt": "animation.zeus.hurt",
+    "death": "animation.zeus.death",
+    "charge": "animation.zeus.summon_lightning",
+    "special1": "animation.zeus.summon_lightning",
+    "special2": "animation.zeus.storm_control",
+    "special3": "animation.zeus.divine_shield",
+    "stun": "animation.zeus.stun",
+    "rage": "animation.zeus.rage",
+    "dance": "animation.zeus.dance",
+    "ctrl": "controller.animation.cb_zeus",
+    "look_at_target": "animation.common.look_at_target"
+   },
+   "scripts": {
+    "animate": [
+     {
+      "idle": "!q.property('cb:dancing')"
+     },
+     {
+      "walk": "q.modified_move_speed > 0.015 && !q.property('cb:dancing') && !q.property('cb:charging')"
+     },
+     {
+      "rage": "q.property('cb:enraged') && !q.property('cb:dancing')"
+     },
+     {
+      "hurt": "q.hurt_time > 0 && !q.property('cb:dancing')"
+     },
+     "ctrl",
+     {
+      "look_at_target": "!q.property('cb:dancing') && q.property('cb:cast_state') == 0"
+     }
+    ]
+   },
+   "render_controllers": [
+    "controller.render.cb_zeus"
+   ],
+   "spawn_egg": {
+    "base_color": "#dea908",
+    "overlay_color": "#40c8e0"
+   }
   }
+ }
 }

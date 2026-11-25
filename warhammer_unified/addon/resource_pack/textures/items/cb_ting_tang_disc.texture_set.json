@@ -1,7 +1,0 @@
-{
-  "format_version": "1.16.100",
-  "minecraft:texture_set": {
-    "color": "cb_ting_tang_disc",
-    "metalness_emissive_roughness": "cb_ting_tang_disc_mer"
-  }
-}

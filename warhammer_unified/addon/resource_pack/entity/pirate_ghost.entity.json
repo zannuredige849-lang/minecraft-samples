@@ -1,39 +1,39 @@
 {
-  "format_version": "1.10.0",
-  "minecraft:client_entity": {
-    "description": {
-      "identifier": "warcraft:pirate_ghost",
-      "materials": {
-        "default": "entity_alphatest"
-      },
-      "textures": {
-        "default": "textures/entity/pirate_ghost_voxel"
-      },
-      "geometry": {
-        "default": "geometry.pirate_ghost"
-      },
-      "animations": {
-        "idle_a": "animation.pirate_ghost.idle_a",
-        "idle_b": "animation.pirate_ghost.idle_b",
-        "walk": "animation.pirate_ghost.walk",
-        "attack_a": "animation.pirate_ghost.attack_a",
-        "attack_b": "animation.pirate_ghost.attack_b",
-        "ability": "animation.pirate_ghost.ability",
-        "death": "animation.pirate_ghost.death",
-        "move_ctrl": "controller.animation.pirate_ghost"
-      },
-      "scripts": {
-        "animate": [
-          "move_ctrl"
-        ]
-      },
-      "render_controllers": [
-        "controller.render.default"
-      ],
-      "spawn_egg": {
-        "texture": "egg_warcraft_pirate_ghost",
-        "texture_index": 0
-      }
-    }
+ "format_version": "1.10.0",
+ "minecraft:client_entity": {
+  "description": {
+   "identifier": "warcraft:pirate_ghost",
+   "materials": {
+    "default": "entity_alphatest"
+   },
+   "textures": {
+    "default": "textures/entity/pirate_ghost_voxel"
+   },
+   "geometry": {
+    "default": "geometry.pirate_ghost"
+   },
+   "animations": {
+    "idle_a": "animation.pirate_ghost.idle_a",
+    "idle_b": "animation.pirate_ghost.idle_b",
+    "walk": "animation.pirate_ghost.walk",
+    "attack_a": "animation.pirate_ghost.attack_a",
+    "attack_b": "animation.pirate_ghost.attack_b",
+    "ability": "animation.pirate_ghost.ability",
+    "death": "animation.pirate_ghost.death",
+    "move_ctrl": "controller.animation.pirate_ghost"
+   },
+   "scripts": {
+    "animate": [
+     "move_ctrl"
+    ]
+   },
+   "render_controllers": [
+    "controller.render.default"
+   ],
+   "spawn_egg": {
+    "base_color": "#347b76",
+    "overlay_color": "#6ae6ff"
+   }
   }
+ }
 }

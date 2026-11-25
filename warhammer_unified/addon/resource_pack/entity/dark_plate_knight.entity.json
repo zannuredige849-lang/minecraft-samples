@@ -1,39 +1,39 @@
 {
-  "format_version": "1.10.0",
-  "minecraft:client_entity": {
-    "description": {
-      "identifier": "warcraft:dark_plate_knight",
-      "materials": {
-        "default": "entity_alphatest"
-      },
-      "textures": {
-        "default": "textures/entity/dark_plate_knight_voxel"
-      },
-      "geometry": {
-        "default": "geometry.dark_plate_knight"
-      },
-      "animations": {
-        "idle_a": "animation.dark_plate_knight.idle_a",
-        "idle_b": "animation.dark_plate_knight.idle_b",
-        "walk": "animation.dark_plate_knight.walk",
-        "attack_a": "animation.dark_plate_knight.attack_a",
-        "attack_b": "animation.dark_plate_knight.attack_b",
-        "ability": "animation.dark_plate_knight.ability",
-        "death": "animation.dark_plate_knight.death",
-        "move_ctrl": "controller.animation.dark_plate_knight"
-      },
-      "scripts": {
-        "animate": [
-          "move_ctrl"
-        ]
-      },
-      "render_controllers": [
-        "controller.render.default"
-      ],
-      "spawn_egg": {
-        "texture": "egg_warcraft_dark_plate_knight",
-        "texture_index": 0
-      }
-    }
+ "format_version": "1.10.0",
+ "minecraft:client_entity": {
+  "description": {
+   "identifier": "warcraft:dark_plate_knight",
+   "materials": {
+    "default": "entity_alphatest"
+   },
+   "textures": {
+    "default": "textures/entity/dark_plate_knight_voxel"
+   },
+   "geometry": {
+    "default": "geometry.dark_plate_knight"
+   },
+   "animations": {
+    "idle_a": "animation.dark_plate_knight.idle_a",
+    "idle_b": "animation.dark_plate_knight.idle_b",
+    "walk": "animation.dark_plate_knight.walk",
+    "attack_a": "animation.dark_plate_knight.attack_a",
+    "attack_b": "animation.dark_plate_knight.attack_b",
+    "ability": "animation.dark_plate_knight.ability",
+    "death": "animation.dark_plate_knight.death",
+    "move_ctrl": "controller.animation.dark_plate_knight"
+   },
+   "scripts": {
+    "animate": [
+     "move_ctrl"
+    ]
+   },
+   "render_controllers": [
+    "controller.render.default"
+   ],
+   "spawn_egg": {
+    "base_color": "#303039",
+    "overlay_color": "#dcae3c"
+   }
   }
+ }
 }

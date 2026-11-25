@@ -1,40 +1,40 @@
 {
-  "format_version": "1.10.0",
-  "minecraft:client_entity": {
-    "description": {
-      "identifier": "warcraft:hornet_demon",
-      "min_engine_version": "1.16.0",
-      "materials": {
-        "default": "entity_alphatest"
-      },
-      "textures": {
-        "default": "textures/entity/hornet_demon"
-      },
-      "geometry": {
-        "default": "geometry.hornet_demon"
-      },
-      "animations": {
-        "idle_a": "animation.hornet_demon.idle_a",
-        "idle_ready": "animation.hornet_demon.idle_ready",
-        "walk": "animation.hornet_demon.walk",
-        "attack_a": "animation.hornet_demon.attack_a",
-        "slam": "animation.hornet_demon.slam",
-        "channel": "animation.hornet_demon.channel",
-        "death": "animation.hornet_demon.death",
-        "controller": "controller.animation.hornet_demon"
-      },
-      "scripts": {
-        "animate": [
-          "controller"
-        ]
-      },
-      "render_controllers": [
-        "controller.render.hornet_demon"
-      ],
-      "spawn_egg": {
-        "texture": "egg_warcraft_hornet_demon",
-        "texture_index": 0
-      }
-    }
+ "format_version": "1.10.0",
+ "minecraft:client_entity": {
+  "description": {
+   "identifier": "warcraft:hornet_demon",
+   "min_engine_version": "1.16.0",
+   "materials": {
+    "default": "entity_alphatest"
+   },
+   "textures": {
+    "default": "textures/entity/hornet_demon"
+   },
+   "geometry": {
+    "default": "geometry.hornet_demon"
+   },
+   "animations": {
+    "idle_a": "animation.hornet_demon.idle_a",
+    "idle_ready": "animation.hornet_demon.idle_ready",
+    "walk": "animation.hornet_demon.walk",
+    "attack_a": "animation.hornet_demon.attack_a",
+    "slam": "animation.hornet_demon.slam",
+    "channel": "animation.hornet_demon.channel",
+    "death": "animation.hornet_demon.death",
+    "controller": "controller.animation.hornet_demon"
+   },
+   "scripts": {
+    "animate": [
+     "controller"
+    ]
+   },
+   "render_controllers": [
+    "controller.render.hornet_demon"
+   ],
+   "spawn_egg": {
+    "base_color": "#a7272a",
+    "overlay_color": "#a98a4a"
+   }
   }
+ }
 }

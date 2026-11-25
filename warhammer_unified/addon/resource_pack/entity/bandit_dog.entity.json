@@ -1,39 +1,39 @@
 {
-  "format_version": "1.10.0",
-  "minecraft:client_entity": {
-    "description": {
-      "identifier": "warcraft:bandit_dog",
-      "materials": {
-        "default": "entity_alphatest"
-      },
-      "textures": {
-        "default": "textures/entity/bandit_dog_voxel"
-      },
-      "geometry": {
-        "default": "geometry.bandit_dog"
-      },
-      "animations": {
-        "idle_a": "animation.bandit_dog.idle_a",
-        "idle_b": "animation.bandit_dog.idle_b",
-        "walk": "animation.bandit_dog.walk",
-        "attack_a": "animation.bandit_dog.attack_a",
-        "attack_b": "animation.bandit_dog.attack_b",
-        "ability": "animation.bandit_dog.ability",
-        "death": "animation.bandit_dog.death",
-        "move_ctrl": "controller.animation.bandit_dog"
-      },
-      "scripts": {
-        "animate": [
-          "move_ctrl"
-        ]
-      },
-      "render_controllers": [
-        "controller.render.default"
-      ],
-      "spawn_egg": {
-        "texture": "egg_warcraft_bandit_dog",
-        "texture_index": 0
-      }
-    }
+ "format_version": "1.10.0",
+ "minecraft:client_entity": {
+  "description": {
+   "identifier": "warcraft:bandit_dog",
+   "materials": {
+    "default": "entity_alphatest"
+   },
+   "textures": {
+    "default": "textures/entity/bandit_dog_voxel"
+   },
+   "geometry": {
+    "default": "geometry.bandit_dog"
+   },
+   "animations": {
+    "idle_a": "animation.bandit_dog.idle_a",
+    "idle_b": "animation.bandit_dog.idle_b",
+    "walk": "animation.bandit_dog.walk",
+    "attack_a": "animation.bandit_dog.attack_a",
+    "attack_b": "animation.bandit_dog.attack_b",
+    "ability": "animation.bandit_dog.ability",
+    "death": "animation.bandit_dog.death",
+    "move_ctrl": "controller.animation.bandit_dog"
+   },
+   "scripts": {
+    "animate": [
+     "move_ctrl"
+    ]
+   },
+   "render_controllers": [
+    "controller.render.default"
+   ],
+   "spawn_egg": {
+    "base_color": "#7f7461",
+    "overlay_color": "#b02a2a"
+   }
   }
+ }
 }

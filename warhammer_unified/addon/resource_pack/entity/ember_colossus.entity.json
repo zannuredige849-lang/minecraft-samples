@@ -1,38 +1,38 @@
 {
-  "format_version": "1.10.0",
-  "minecraft:client_entity": {
-    "description": {
-      "identifier": "warcraft:ember_colossus",
-      "materials": {
-        "default": "entity_alphatest"
-      },
-      "textures": {
-        "default": "textures/entity/ember_colossus_voxel"
-      },
-      "geometry": {
-        "default": "geometry.ember_colossus"
-      },
-      "animations": {
-        "walk": "animation.ember_colossus.walk",
-        "ability": "animation.ember_colossus.ability",
-        "ability2": "animation.ember_colossus.ability2",
-        "death": "animation.ember_colossus.death",
-        "move_ctrl": "controller.animation.ember_colossus",
-        "idle_a": "animation.ember_colossus.idle",
-        "attack_a": "animation.ember_colossus.attack"
-      },
-      "scripts": {
-        "animate": [
-          "move_ctrl"
-        ]
-      },
-      "render_controllers": [
-        "controller.render.default"
-      ],
-      "spawn_egg": {
-        "texture": "egg_warcraft_ember_colossus",
-        "texture_index": 0
-      }
-    }
+ "format_version": "1.10.0",
+ "minecraft:client_entity": {
+  "description": {
+   "identifier": "warcraft:ember_colossus",
+   "materials": {
+    "default": "entity_alphatest"
+   },
+   "textures": {
+    "default": "textures/entity/ember_colossus_voxel"
+   },
+   "geometry": {
+    "default": "geometry.ember_colossus"
+   },
+   "animations": {
+    "walk": "animation.ember_colossus.walk",
+    "ability": "animation.ember_colossus.ability",
+    "ability2": "animation.ember_colossus.ability2",
+    "death": "animation.ember_colossus.death",
+    "move_ctrl": "controller.animation.ember_colossus",
+    "idle_a": "animation.ember_colossus.idle",
+    "attack_a": "animation.ember_colossus.attack"
+   },
+   "scripts": {
+    "animate": [
+     "move_ctrl"
+    ]
+   },
+   "render_controllers": [
+    "controller.render.default"
+   ],
+   "spawn_egg": {
+    "base_color": "#392f2c",
+    "overlay_color": "#ffb040"
+   }
   }
+ }
 }

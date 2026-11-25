@@ -1,61 +1,62 @@
 {
-  "format_version": "1.10.0",
-  "minecraft:client_entity": {
-    "description": {
-      "identifier": "cb:dragon_west",
-      "materials": {
-        "default": "entity_emissive_alpha"
-      },
-      "textures": {
-        "oak": "textures/entity/dragon/dragon_west_oak",
-        "spruce": "textures/entity/dragon/dragon_west_spruce",
-        "stone": "textures/entity/dragon/dragon_west_stone",
-        "deepslate": "textures/entity/dragon/dragon_west_deepslate",
-        "fire": "textures/entity/dragon/dragon_west_fire",
-        "ice": "textures/entity/dragon/dragon_west_ice",
-        "lightning": "textures/entity/dragon/dragon_west_lightning"
-      },
-      "geometry": {
-        "default": "geometry.cb_dragon_west"
-      },
-      "animations": {
-        "fly": "animation.cb_dragon_west.fly",
-        "ground": "animation.cb_dragon_west.ground",
-        "walk": "animation.cb_dragon_west.walk",
-        "bite": "animation.cb_dragon_west.bite",
-        "breath": "animation.cb_dragon_west.breath",
-        "look_at_target": "animation.common.look_at_target",
-        "dance": "animation.cb_dragon_west.dance"
-      },
-      "scripts": {
-        "animate": [
-          {
-            "fly": "!q.is_on_ground"
-          },
-          {
-            "ground": "q.is_on_ground"
-          },
-          {
-            "walk": "q.is_on_ground && q.modified_move_speed > 0.02"
-          },
-          {
-            "bite": "variable.attack_time > 0"
-          },
-          {
-            "breath": "q.property('cb:breath')"
-          },
-          "look_at_target",
-          {
-            "dance": "q.property('cb:dancing')"
-          }
-        ]
-      },
-      "render_controllers": [
-        "controller.render.cb_dragon_west"
-      ],
-      "spawn_egg": {
-        "texture": "cb_egg_dragon_west"
-      }
-    }
+ "format_version": "1.10.0",
+ "minecraft:client_entity": {
+  "description": {
+   "identifier": "cb:dragon_west",
+   "materials": {
+    "default": "entity_emissive_alpha"
+   },
+   "textures": {
+    "oak": "textures/entity/dragon/dragon_west_oak",
+    "spruce": "textures/entity/dragon/dragon_west_spruce",
+    "stone": "textures/entity/dragon/dragon_west_stone",
+    "deepslate": "textures/entity/dragon/dragon_west_deepslate",
+    "fire": "textures/entity/dragon/dragon_west_fire",
+    "ice": "textures/entity/dragon/dragon_west_ice",
+    "lightning": "textures/entity/dragon/dragon_west_lightning"
+   },
+   "geometry": {
+    "default": "geometry.cb_dragon_west"
+   },
+   "animations": {
+    "fly": "animation.cb_dragon_west.fly",
+    "ground": "animation.cb_dragon_west.ground",
+    "walk": "animation.cb_dragon_west.walk",
+    "bite": "animation.cb_dragon_west.bite",
+    "breath": "animation.cb_dragon_west.breath",
+    "look_at_target": "animation.common.look_at_target",
+    "dance": "animation.cb_dragon_west.dance"
+   },
+   "scripts": {
+    "animate": [
+     {
+      "fly": "!q.is_on_ground"
+     },
+     {
+      "ground": "q.is_on_ground"
+     },
+     {
+      "walk": "q.is_on_ground && q.modified_move_speed > 0.02"
+     },
+     {
+      "bite": "variable.attack_time > 0"
+     },
+     {
+      "breath": "q.property('cb:breath')"
+     },
+     "look_at_target",
+     {
+      "dance": "q.property('cb:dancing')"
+     }
+    ]
+   },
+   "render_controllers": [
+    "controller.render.cb_dragon_west"
+   ],
+   "spawn_egg": {
+    "base_color": "#a6550e",
+    "overlay_color": "#ffb040"
+   }
   }
+ }
 }

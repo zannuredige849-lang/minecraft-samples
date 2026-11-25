@@ -1,39 +1,39 @@
 {
-  "format_version": "1.10.0",
-  "minecraft:client_entity": {
-    "description": {
-      "identifier": "warcraft:elector_knight",
-      "materials": {
-        "default": "entity_alphatest"
-      },
-      "textures": {
-        "default": "textures/entity/elector_knight_voxel"
-      },
-      "geometry": {
-        "default": "geometry.elector_knight"
-      },
-      "animations": {
-        "idle_a": "animation.elector_knight.idle_a",
-        "idle_b": "animation.elector_knight.idle_b",
-        "walk": "animation.elector_knight.walk",
-        "attack_a": "animation.elector_knight.attack_a",
-        "attack_b": "animation.elector_knight.attack_b",
-        "ability": "animation.elector_knight.ability",
-        "death": "animation.elector_knight.death",
-        "move_ctrl": "controller.animation.elector_knight"
-      },
-      "scripts": {
-        "animate": [
-          "move_ctrl"
-        ]
-      },
-      "render_controllers": [
-        "controller.render.default"
-      ],
-      "spawn_egg": {
-        "texture": "egg_warcraft_elector_knight",
-        "texture_index": 0
-      }
-    }
+ "format_version": "1.10.0",
+ "minecraft:client_entity": {
+  "description": {
+   "identifier": "warcraft:elector_knight",
+   "materials": {
+    "default": "entity_alphatest"
+   },
+   "textures": {
+    "default": "textures/entity/elector_knight_voxel"
+   },
+   "geometry": {
+    "default": "geometry.elector_knight"
+   },
+   "animations": {
+    "idle_a": "animation.elector_knight.idle_a",
+    "idle_b": "animation.elector_knight.idle_b",
+    "walk": "animation.elector_knight.walk",
+    "attack_a": "animation.elector_knight.attack_a",
+    "attack_b": "animation.elector_knight.attack_b",
+    "ability": "animation.elector_knight.ability",
+    "death": "animation.elector_knight.death",
+    "move_ctrl": "controller.animation.elector_knight"
+   },
+   "scripts": {
+    "animate": [
+     "move_ctrl"
+    ]
+   },
+   "render_controllers": [
+    "controller.render.default"
+   ],
+   "spawn_egg": {
+    "base_color": "#1c3680",
+    "overlay_color": "#dcae3c"
+   }
   }
+ }
 }

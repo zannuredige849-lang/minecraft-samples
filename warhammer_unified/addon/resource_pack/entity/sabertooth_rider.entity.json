@@ -1,39 +1,39 @@
 {
-  "format_version": "1.10.0",
-  "minecraft:client_entity": {
-    "description": {
-      "identifier": "warcraft:sabertooth_rider",
-      "materials": {
-        "default": "entity_alphatest"
-      },
-      "textures": {
-        "default": "textures/entity/sabertooth_rider_voxel"
-      },
-      "geometry": {
-        "default": "geometry.sabertooth_rider"
-      },
-      "animations": {
-        "idle_a": "animation.sabertooth_rider.idle_a",
-        "idle_b": "animation.sabertooth_rider.idle_b",
-        "walk": "animation.sabertooth_rider.walk",
-        "attack_a": "animation.sabertooth_rider.attack_a",
-        "attack_b": "animation.sabertooth_rider.attack_b",
-        "ability": "animation.sabertooth_rider.ability",
-        "death": "animation.sabertooth_rider.death",
-        "move_ctrl": "controller.animation.sabertooth_rider"
-      },
-      "scripts": {
-        "animate": [
-          "move_ctrl"
-        ]
-      },
-      "render_controllers": [
-        "controller.render.default"
-      ],
-      "spawn_egg": {
-        "texture": "egg_warcraft_sabertooth_rider",
-        "texture_index": 0
-      }
-    }
+ "format_version": "1.10.0",
+ "minecraft:client_entity": {
+  "description": {
+   "identifier": "warcraft:sabertooth_rider",
+   "materials": {
+    "default": "entity_alphatest"
+   },
+   "textures": {
+    "default": "textures/entity/sabertooth_rider_voxel"
+   },
+   "geometry": {
+    "default": "geometry.sabertooth_rider"
+   },
+   "animations": {
+    "idle_a": "animation.sabertooth_rider.idle_a",
+    "idle_b": "animation.sabertooth_rider.idle_b",
+    "walk": "animation.sabertooth_rider.walk",
+    "attack_a": "animation.sabertooth_rider.attack_a",
+    "attack_b": "animation.sabertooth_rider.attack_b",
+    "ability": "animation.sabertooth_rider.ability",
+    "death": "animation.sabertooth_rider.death",
+    "move_ctrl": "controller.animation.sabertooth_rider"
+   },
+   "scripts": {
+    "animate": [
+     "move_ctrl"
+    ]
+   },
+   "render_controllers": [
+    "controller.render.default"
+   ],
+   "spawn_egg": {
+    "base_color": "#d58236",
+    "overlay_color": "#b02a2a"
+   }
   }
+ }
 }

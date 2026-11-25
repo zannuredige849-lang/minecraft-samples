@@ -1,57 +1,58 @@
 {
-  "format_version": "1.10.0",
-  "minecraft:client_entity": {
-    "description": {
-      "identifier": "cb:thunder_lizard",
-      "materials": {
-        "default": "entity_emissive_alpha"
-      },
-      "textures": {
-        "storm": "textures/entity/thunder_lizard/thunder_lizard_storm",
-        "dune": "textures/entity/thunder_lizard/thunder_lizard_dune",
-        "ember": "textures/entity/thunder_lizard/thunder_lizard_ember"
-      },
-      "geometry": {
-        "default": "geometry.cb_thunder_lizard"
-      },
-      "animations": {
-        "idle": "animation.cb_thunder_lizard.idle",
-        "walk": "animation.cb_thunder_lizard.walk",
-        "charge": "animation.cb_thunder_lizard.charge",
-        "bite": "animation.cb_thunder_lizard.bite",
-        "saddle": "animation.cb_thunder_lizard.saddle",
-        "look_at_target": "animation.common.look_at_target",
-        "dance": "animation.cb_thunder_lizard.dance",
-        "hurt": "animation.cb_thunder_lizard.hurt"
-      },
-      "scripts": {
-        "animate": [
-          "idle",
-          "saddle",
-          {
-            "walk": "q.modified_move_speed > 0.02 && !q.property('cb:charge')"
-          },
-          {
-            "charge": "q.property('cb:charge')"
-          },
-          {
-            "bite": "variable.attack_time > 0"
-          },
-          "look_at_target",
-          {
-            "dance": "q.property('cb:dancing')"
-          },
-          {
-            "hurt": "query.hurt_time > 0"
-          }
-        ]
-      },
-      "render_controllers": [
-        "controller.render.cb_thunder_lizard"
-      ],
-      "spawn_egg": {
-        "texture": "cb_egg_thunder_lizard"
-      }
-    }
+ "format_version": "1.10.0",
+ "minecraft:client_entity": {
+  "description": {
+   "identifier": "cb:thunder_lizard",
+   "materials": {
+    "default": "entity_emissive_alpha"
+   },
+   "textures": {
+    "storm": "textures/entity/thunder_lizard/thunder_lizard_storm",
+    "dune": "textures/entity/thunder_lizard/thunder_lizard_dune",
+    "ember": "textures/entity/thunder_lizard/thunder_lizard_ember"
+   },
+   "geometry": {
+    "default": "geometry.cb_thunder_lizard"
+   },
+   "animations": {
+    "idle": "animation.cb_thunder_lizard.idle",
+    "walk": "animation.cb_thunder_lizard.walk",
+    "charge": "animation.cb_thunder_lizard.charge",
+    "bite": "animation.cb_thunder_lizard.bite",
+    "saddle": "animation.cb_thunder_lizard.saddle",
+    "look_at_target": "animation.common.look_at_target",
+    "dance": "animation.cb_thunder_lizard.dance",
+    "hurt": "animation.cb_thunder_lizard.hurt"
+   },
+   "scripts": {
+    "animate": [
+     "idle",
+     "saddle",
+     {
+      "walk": "q.modified_move_speed > 0.02 && !q.property('cb:charge')"
+     },
+     {
+      "charge": "q.property('cb:charge')"
+     },
+     {
+      "bite": "variable.attack_time > 0"
+     },
+     "look_at_target",
+     {
+      "dance": "q.property('cb:dancing')"
+     },
+     {
+      "hurt": "query.hurt_time > 0"
+     }
+    ]
+   },
+   "render_controllers": [
+    "controller.render.cb_thunder_lizard"
+   ],
+   "spawn_egg": {
+    "base_color": "#325482",
+    "overlay_color": "#e0c080"
+   }
   }
+ }
 }

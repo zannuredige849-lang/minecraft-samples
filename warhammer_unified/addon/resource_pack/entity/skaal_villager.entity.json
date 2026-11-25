@@ -1,39 +1,39 @@
 {
-  "format_version": "1.10.0",
-  "minecraft:client_entity": {
-    "description": {
-      "identifier": "warcraft:skaal_villager",
-      "materials": {
-        "default": "entity_alphatest"
-      },
-      "textures": {
-        "default": "textures/entity/skaal_villager_voxel"
-      },
-      "geometry": {
-        "default": "geometry.skaal_villager"
-      },
-      "animations": {
-        "idle_a": "animation.skaal_villager.idle_a",
-        "idle_b": "animation.skaal_villager.idle_b",
-        "walk": "animation.skaal_villager.walk",
-        "attack_a": "animation.skaal_villager.attack_a",
-        "attack_b": "animation.skaal_villager.attack_b",
-        "ability": "animation.skaal_villager.ability",
-        "death": "animation.skaal_villager.death",
-        "move_ctrl": "controller.animation.skaal_villager"
-      },
-      "scripts": {
-        "animate": [
-          "move_ctrl"
-        ]
-      },
-      "render_controllers": [
-        "controller.render.default"
-      ],
-      "spawn_egg": {
-        "texture": "egg_warcraft_skaal_villager",
-        "texture_index": 0
-      }
-    }
+ "format_version": "1.10.0",
+ "minecraft:client_entity": {
+  "description": {
+   "identifier": "warcraft:skaal_villager",
+   "materials": {
+    "default": "entity_alphatest"
+   },
+   "textures": {
+    "default": "textures/entity/skaal_villager_voxel"
+   },
+   "geometry": {
+    "default": "geometry.skaal_villager"
+   },
+   "animations": {
+    "idle_a": "animation.skaal_villager.idle_a",
+    "idle_b": "animation.skaal_villager.idle_b",
+    "walk": "animation.skaal_villager.walk",
+    "attack_a": "animation.skaal_villager.attack_a",
+    "attack_b": "animation.skaal_villager.attack_b",
+    "ability": "animation.skaal_villager.ability",
+    "death": "animation.skaal_villager.death",
+    "move_ctrl": "controller.animation.skaal_villager"
+   },
+   "scripts": {
+    "animate": [
+     "move_ctrl"
+    ]
+   },
+   "render_controllers": [
+    "controller.render.default"
+   ],
+   "spawn_egg": {
+    "base_color": "#7a5d37",
+    "overlay_color": "#b02a2a"
+   }
   }
+ }
 }

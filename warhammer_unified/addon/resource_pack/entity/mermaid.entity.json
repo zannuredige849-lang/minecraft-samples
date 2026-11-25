@@ -1,55 +1,56 @@
 {
-  "format_version": "1.10.0",
-  "minecraft:client_entity": {
-    "description": {
-      "identifier": "cb:mermaid",
-      "materials": {
-        "default": "entity_alphatest"
-      },
-      "textures": {
-        "coral": "textures/entity/mermaid/mermaid_coral",
-        "lagoon": "textures/entity/mermaid/mermaid_lagoon",
-        "golden": "textures/entity/mermaid/mermaid_golden",
-        "amethyst": "textures/entity/mermaid/mermaid_amethyst",
-        "emerald": "textures/entity/mermaid/mermaid_emerald",
-        "pearl": "textures/entity/mermaid/mermaid_pearl"
-      },
-      "geometry": {
-        "default": "geometry.cb_mermaid"
-      },
-      "animations": {
-        "idle": "animation.cb_merfolk.idle",
-        "swim": "animation.cb_merfolk.swim",
-        "sing": "animation.cb_merfolk.sing",
-        "look_at_target": "animation.common.look_at_target",
-        "sing_ctrl": "controller.animation.cb_merfolk.sing",
-        "dance": "animation.cb_merfolk.dance"
-      },
-      "scripts": {
-        "initialize": [
-          "v.swim = 0.0;",
-          "v.land = 0.0;"
-        ],
-        "pre_animation": [
-          "v.swim = math.lerp(v.swim, q.is_in_water ? math.clamp(q.modified_move_speed * 4, 0, 1) : 0, 0.08);",
-          "v.land = math.lerp(v.land, (!q.is_in_water && q.is_on_ground) ? 1 : 0, 0.1);"
-        ],
-        "animate": [
-          "idle",
-          "swim",
-          "sing_ctrl",
-          "look_at_target",
-          {
-            "dance": "q.property('cb:dancing')"
-          }
-        ]
-      },
-      "render_controllers": [
-        "controller.render.cb_mermaid"
-      ],
-      "spawn_egg": {
-        "texture": "cb_egg_mermaid"
-      }
-    }
+ "format_version": "1.10.0",
+ "minecraft:client_entity": {
+  "description": {
+   "identifier": "cb:mermaid",
+   "materials": {
+    "default": "entity_alphatest"
+   },
+   "textures": {
+    "coral": "textures/entity/mermaid/mermaid_coral",
+    "lagoon": "textures/entity/mermaid/mermaid_lagoon",
+    "golden": "textures/entity/mermaid/mermaid_golden",
+    "amethyst": "textures/entity/mermaid/mermaid_amethyst",
+    "emerald": "textures/entity/mermaid/mermaid_emerald",
+    "pearl": "textures/entity/mermaid/mermaid_pearl"
+   },
+   "geometry": {
+    "default": "geometry.cb_mermaid"
+   },
+   "animations": {
+    "idle": "animation.cb_merfolk.idle",
+    "swim": "animation.cb_merfolk.swim",
+    "sing": "animation.cb_merfolk.sing",
+    "look_at_target": "animation.common.look_at_target",
+    "sing_ctrl": "controller.animation.cb_merfolk.sing",
+    "dance": "animation.cb_merfolk.dance"
+   },
+   "scripts": {
+    "initialize": [
+     "v.swim = 0.0;",
+     "v.land = 0.0;"
+    ],
+    "pre_animation": [
+     "v.swim = math.lerp(v.swim, q.is_in_water ? math.clamp(q.modified_move_speed * 4, 0, 1) : 0, 0.08);",
+     "v.land = math.lerp(v.land, (!q.is_in_water && q.is_on_ground) ? 1 : 0, 0.1);"
+    ],
+    "animate": [
+     "idle",
+     "swim",
+     "sing_ctrl",
+     "look_at_target",
+     {
+      "dance": "q.property('cb:dancing')"
+     }
+    ]
+   },
+   "render_controllers": [
+    "controller.render.cb_mermaid"
+   ],
+   "spawn_egg": {
+    "base_color": "#fd3a01",
+    "overlay_color": "#f0a0c0"
+   }
   }
+ }
 }

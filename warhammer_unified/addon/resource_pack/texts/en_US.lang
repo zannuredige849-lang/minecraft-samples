@@ -470,3 +470,4 @@ entity.warcraft:burning_chariot.name=Burning Chariot of Tzeentch
 item.spawn_egg.entity.warcraft:burning_chariot.name=Spawn Burning Chariot of Tzeentch
 entity.warcraft:santa_claus.name=Battle Santa
 item.spawn_egg.entity.warcraft:santa_claus.name=Spawn Battle Santa
+item.cb:bestiary.name=Bestiary of Uniqueness

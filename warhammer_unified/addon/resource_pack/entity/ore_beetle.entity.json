@@ -1,23 +1,24 @@
 {
-  "format_version": "1.10.0",
-  "minecraft:client_entity": {
-    "description": {
-      "identifier": "cb:ore_beetle",
-      "materials": {
-        "default": "entity_alphatest"
-      },
-      "textures": {
-        "default": "textures/entity/beetles/ore_beetle_base"
-      },
-      "geometry": {
-        "default": "geometry.ore_beetle"
-      },
-      "render_controllers": [
-        "controller.render.default"
-      ],
-      "spawn_egg": {
-        "texture": "cb_egg_ore_beetle"
-      }
-    }
+ "format_version": "1.10.0",
+ "minecraft:client_entity": {
+  "description": {
+   "identifier": "cb:ore_beetle",
+   "materials": {
+    "default": "entity_alphatest"
+   },
+   "textures": {
+    "default": "textures/entity/beetles/ore_beetle_base"
+   },
+   "geometry": {
+    "default": "geometry.ore_beetle"
+   },
+   "render_controllers": [
+    "controller.render.default"
+   ],
+   "spawn_egg": {
+    "base_color": "#ffffc6",
+    "overlay_color": "#9a9aa8"
+   }
   }
+ }
 }

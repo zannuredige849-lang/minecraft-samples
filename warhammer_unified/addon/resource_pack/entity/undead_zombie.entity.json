@@ -1,39 +1,39 @@
 {
-  "format_version": "1.10.0",
-  "minecraft:client_entity": {
-    "description": {
-      "identifier": "warcraft:undead_zombie",
-      "materials": {
-        "default": "entity_alphatest"
-      },
-      "textures": {
-        "default": "textures/entity/undead_zombie_voxel"
-      },
-      "geometry": {
-        "default": "geometry.undead_zombie"
-      },
-      "animations": {
-        "idle_a": "animation.undead_zombie.idle_a",
-        "idle_b": "animation.undead_zombie.idle_b",
-        "walk": "animation.undead_zombie.walk",
-        "attack_a": "animation.undead_zombie.attack_a",
-        "attack_b": "animation.undead_zombie.attack_b",
-        "ability": "animation.undead_zombie.ability",
-        "death": "animation.undead_zombie.death",
-        "move_ctrl": "controller.animation.undead_zombie"
-      },
-      "scripts": {
-        "animate": [
-          "move_ctrl"
-        ]
-      },
-      "render_controllers": [
-        "controller.render.default"
-      ],
-      "spawn_egg": {
-        "texture": "egg_warcraft_undead_zombie",
-        "texture_index": 0
-      }
-    }
+ "format_version": "1.10.0",
+ "minecraft:client_entity": {
+  "description": {
+   "identifier": "warcraft:undead_zombie",
+   "materials": {
+    "default": "entity_alphatest"
+   },
+   "textures": {
+    "default": "textures/entity/undead_zombie_voxel"
+   },
+   "geometry": {
+    "default": "geometry.undead_zombie"
+   },
+   "animations": {
+    "idle_a": "animation.undead_zombie.idle_a",
+    "idle_b": "animation.undead_zombie.idle_b",
+    "walk": "animation.undead_zombie.walk",
+    "attack_a": "animation.undead_zombie.attack_a",
+    "attack_b": "animation.undead_zombie.attack_b",
+    "ability": "animation.undead_zombie.ability",
+    "death": "animation.undead_zombie.death",
+    "move_ctrl": "controller.animation.undead_zombie"
+   },
+   "scripts": {
+    "animate": [
+     "move_ctrl"
+    ]
+   },
+   "render_controllers": [
+    "controller.render.default"
+   ],
+   "spawn_egg": {
+    "base_color": "#809d7f",
+    "overlay_color": "#6ae6ff"
+   }
   }
+ }
 }

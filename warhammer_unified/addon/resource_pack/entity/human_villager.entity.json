@@ -1,80 +1,81 @@
 {
-  "format_version": "1.10.0",
-  "minecraft:client_entity": {
-    "description": {
-      "identifier": "cb:human_villager",
-      "materials": {
-        "default": "entity_alphatest"
-      },
-      "textures": {
-        "villager_0": "textures/entity/human_villager_0",
-        "villager_1": "textures/entity/human_villager_1",
-        "villager_2": "textures/entity/human_villager_2",
-        "villager_3": "textures/entity/human_villager_3",
-        "villager_4": "textures/entity/human_villager_4",
-        "villager_5": "textures/entity/human_villager_5",
-        "militia_0": "textures/entity/human_militia_0",
-        "militia_1": "textures/entity/human_militia_1",
-        "militia_2": "textures/entity/human_militia_2",
-        "swordsman_0": "textures/entity/human_swordsman_0",
-        "swordsman_1": "textures/entity/human_swordsman_1",
-        "swordsman_2": "textures/entity/human_swordsman_2",
-        "archer_0": "textures/entity/human_archer_0",
-        "archer_1": "textures/entity/human_archer_1",
-        "archer_2": "textures/entity/human_archer_2",
-        "crossbowman_0": "textures/entity/human_crossbowman_0",
-        "crossbowman_1": "textures/entity/human_crossbowman_1",
-        "crossbowman_2": "textures/entity/human_crossbowman_2",
-        "spearman_0": "textures/entity/human_spearman_0",
-        "spearman_1": "textures/entity/human_spearman_1",
-        "spearman_2": "textures/entity/human_spearman_2",
-        "captain_0": "textures/entity/human_captain_0",
-        "captain_1": "textures/entity/human_captain_1",
-        "captain_2": "textures/entity/human_captain_2"
-      },
-      "geometry": {
-        "default": "geometry.cb_human_villager"
-      },
-      "enable_attachables": true,
-      "animations": {
-        "idle": "animation.cb_human.idle",
-        "walk": "animation.cb_human.walk",
-        "attack": "animation.cb_human.attack",
-        "work": "animation.cb_human.work",
-        "bow_aim": "animation.cb_human.bow_aim",
-        "spear_thrust": "animation.cb_human.spear_thrust",
-        "command_horn": "animation.cb_human.command_horn",
-        "look_at_target": "animation.cb_human.look_at_target",
-        "dance": "animation.cb_human.dance",
-        "move_ctrl": "controller.animation.cb_mob.move",
-        "hurt": "animation.cb_human.hurt",
-        "shield_block": "animation.cb_human.shield_block",
-        "shield_bash": "animation.cb_human.shield_bash",
-        "crossbow_aim": "animation.cb_human.crossbow_aim",
-        "holding": "animation.humanoid.holding"
-      },
-      "scripts": {
-        "animate": [
-          "look_at_target",
-          "move_ctrl",
-          "holding",
-          {
-            "shield_block": "q.property('cb:blocking') && !q.property('cb:dancing')"
-          },
-          {
-            "attack": "variable.attack_time > 0 && !q.property('cb:blocking')"
-          },
-          {
-            "hurt": "query.hurt_time > 0"
-          }
-        ]
-      },
-      "render_controllers": [
-        "controller.render.cb_human_villager"
-      ],
-      "spawn_egg": {
-        "texture": "cb_egg_human_villager"
-      }
-    }
+ "format_version": "1.10.0",
+ "minecraft:client_entity": {
+  "description": {
+   "identifier": "cb:human_villager",
+   "materials": {
+    "default": "entity_alphatest"
+   },
+   "textures": {
+    "villager_0": "textures/entity/human_villager_0",
+    "villager_1": "textures/entity/human_villager_1",
+    "villager_2": "textures/entity/human_villager_2",
+    "villager_3": "textures/entity/human_villager_3",
+    "villager_4": "textures/entity/human_villager_4",
+    "villager_5": "textures/entity/human_villager_5",
+    "militia_0": "textures/entity/human_militia_0",
+    "militia_1": "textures/entity/human_militia_1",
+    "militia_2": "textures/entity/human_militia_2",
+    "swordsman_0": "textures/entity/human_swordsman_0",
+    "swordsman_1": "textures/entity/human_swordsman_1",
+    "swordsman_2": "textures/entity/human_swordsman_2",
+    "archer_0": "textures/entity/human_archer_0",
+    "archer_1": "textures/entity/human_archer_1",
+    "archer_2": "textures/entity/human_archer_2",
+    "crossbowman_0": "textures/entity/human_crossbowman_0",
+    "crossbowman_1": "textures/entity/human_crossbowman_1",
+    "crossbowman_2": "textures/entity/human_crossbowman_2",
+    "spearman_0": "textures/entity/human_spearman_0",
+    "spearman_1": "textures/entity/human_spearman_1",
+    "spearman_2": "textures/entity/human_spearman_2",
+    "captain_0": "textures/entity/human_captain_0",
+    "captain_1": "textures/entity/human_captain_1",
+    "captain_2": "textures/entity/human_captain_2"
+   },
+   "geometry": {
+    "default": "geometry.cb_human_villager"
+   },
+   "enable_attachables": true,
+   "animations": {
+    "idle": "animation.cb_human.idle",
+    "walk": "animation.cb_human.walk",
+    "attack": "animation.cb_human.attack",
+    "work": "animation.cb_human.work",
+    "bow_aim": "animation.cb_human.bow_aim",
+    "spear_thrust": "animation.cb_human.spear_thrust",
+    "command_horn": "animation.cb_human.command_horn",
+    "look_at_target": "animation.cb_human.look_at_target",
+    "dance": "animation.cb_human.dance",
+    "move_ctrl": "controller.animation.cb_mob.move",
+    "hurt": "animation.cb_human.hurt",
+    "shield_block": "animation.cb_human.shield_block",
+    "shield_bash": "animation.cb_human.shield_bash",
+    "crossbow_aim": "animation.cb_human.crossbow_aim",
+    "holding": "animation.humanoid.holding"
+   },
+   "scripts": {
+    "animate": [
+     "look_at_target",
+     "move_ctrl",
+     "holding",
+     {
+      "shield_block": "q.property('cb:blocking') && !q.property('cb:dancing')"
+     },
+     {
+      "attack": "variable.attack_time > 0 && !q.property('cb:blocking')"
+     },
+     {
+      "hurt": "query.hurt_time > 0"
+     }
+    ]
+   },
+   "render_controllers": [
+    "controller.render.cb_human_villager"
+   ],
+   "spawn_egg": {
+    "base_color": "#5c3011",
+    "overlay_color": "#d8b080"
+   }
   }
+ }
 }

@@ -1,45 +1,46 @@
 {
-  "format_version": "1.10.0",
-  "minecraft:client_entity": {
-    "description": {
-      "identifier": "cb:circe",
-      "materials": {
-        "default": "entity_emissive_alpha"
-      },
-      "textures": {
-        "default": "textures/entity/circe"
-      },
-      "geometry": {
-        "default": "geometry.cb_circe"
-      },
-      "animations": {
-        "idle": "animation.cb_circe.idle",
-        "walk": "animation.cb_circe.walk",
-        "angry": "animation.cb_circe.angry",
-        "cast": "animation.cb_circe.cast",
-        "strike": "animation.cb_circe.strike",
-        "look_at_target": "animation.common.look_at_target",
-        "move_ctrl": "controller.animation.cb_circe.move",
-        "attack_ctrl": "controller.animation.cb_circe.attack",
-        "dance": "animation.cb_circe.dance"
-      },
-      "scripts": {
-        "animate": [
-          "idle",
-          "move_ctrl",
-          "attack_ctrl",
-          "look_at_target",
-          {
-            "dance": "q.property('cb:dancing')"
-          }
-        ]
-      },
-      "render_controllers": [
-        "controller.render.default"
-      ],
-      "spawn_egg": {
-        "texture": "cb_egg_circe"
-      }
-    }
+ "format_version": "1.10.0",
+ "minecraft:client_entity": {
+  "description": {
+   "identifier": "cb:circe",
+   "materials": {
+    "default": "entity_emissive_alpha"
+   },
+   "textures": {
+    "default": "textures/entity/circe"
+   },
+   "geometry": {
+    "default": "geometry.cb_circe"
+   },
+   "animations": {
+    "idle": "animation.cb_circe.idle",
+    "walk": "animation.cb_circe.walk",
+    "angry": "animation.cb_circe.angry",
+    "cast": "animation.cb_circe.cast",
+    "strike": "animation.cb_circe.strike",
+    "look_at_target": "animation.common.look_at_target",
+    "move_ctrl": "controller.animation.cb_circe.move",
+    "attack_ctrl": "controller.animation.cb_circe.attack",
+    "dance": "animation.cb_circe.dance"
+   },
+   "scripts": {
+    "animate": [
+     "idle",
+     "move_ctrl",
+     "attack_ctrl",
+     "look_at_target",
+     {
+      "dance": "q.property('cb:dancing')"
+     }
+    ]
+   },
+   "render_controllers": [
+    "controller.render.default"
+   ],
+   "spawn_egg": {
+    "base_color": "#ffff35",
+    "overlay_color": "#e0b040"
+   }
   }
+ }
 }

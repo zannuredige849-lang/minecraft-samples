@@ -1,51 +1,52 @@
 {
-  "format_version": "1.10.0",
-  "minecraft:client_entity": {
-    "description": {
-      "identifier": "cb:dragon_east",
-      "materials": {
-        "default": "entity_emissive_alpha"
-      },
-      "textures": {
-        "oak": "textures/entity/dragon/dragon_east_oak",
-        "spruce": "textures/entity/dragon/dragon_east_spruce",
-        "stone": "textures/entity/dragon/dragon_east_stone",
-        "deepslate": "textures/entity/dragon/dragon_east_deepslate",
-        "fire": "textures/entity/dragon/dragon_east_fire",
-        "ice": "textures/entity/dragon/dragon_east_ice",
-        "lightning": "textures/entity/dragon/dragon_east_lightning"
-      },
-      "geometry": {
-        "default": "geometry.cb_dragon_east"
-      },
-      "animations": {
-        "fly": "animation.cb_dragon_east.fly",
-        "bite": "animation.cb_dragon_east.bite",
-        "breath": "animation.cb_dragon_east.breath",
-        "look_at_target": "animation.common.look_at_target",
-        "dance": "animation.cb_dragon_east.dance"
-      },
-      "scripts": {
-        "animate": [
-          "fly",
-          {
-            "bite": "variable.attack_time > 0"
-          },
-          {
-            "breath": "q.property('cb:breath')"
-          },
-          "look_at_target",
-          {
-            "dance": "q.property('cb:dancing')"
-          }
-        ]
-      },
-      "render_controllers": [
-        "controller.render.cb_dragon_east"
-      ],
-      "spawn_egg": {
-        "texture": "cb_egg_dragon_east"
-      }
-    }
+ "format_version": "1.10.0",
+ "minecraft:client_entity": {
+  "description": {
+   "identifier": "cb:dragon_east",
+   "materials": {
+    "default": "entity_emissive_alpha"
+   },
+   "textures": {
+    "oak": "textures/entity/dragon/dragon_east_oak",
+    "spruce": "textures/entity/dragon/dragon_east_spruce",
+    "stone": "textures/entity/dragon/dragon_east_stone",
+    "deepslate": "textures/entity/dragon/dragon_east_deepslate",
+    "fire": "textures/entity/dragon/dragon_east_fire",
+    "ice": "textures/entity/dragon/dragon_east_ice",
+    "lightning": "textures/entity/dragon/dragon_east_lightning"
+   },
+   "geometry": {
+    "default": "geometry.cb_dragon_east"
+   },
+   "animations": {
+    "fly": "animation.cb_dragon_east.fly",
+    "bite": "animation.cb_dragon_east.bite",
+    "breath": "animation.cb_dragon_east.breath",
+    "look_at_target": "animation.common.look_at_target",
+    "dance": "animation.cb_dragon_east.dance"
+   },
+   "scripts": {
+    "animate": [
+     "fly",
+     {
+      "bite": "variable.attack_time > 0"
+     },
+     {
+      "breath": "q.property('cb:breath')"
+     },
+     "look_at_target",
+     {
+      "dance": "q.property('cb:dancing')"
+     }
+    ]
+   },
+   "render_controllers": [
+    "controller.render.cb_dragon_east"
+   ],
+   "spawn_egg": {
+    "base_color": "#9e3b08",
+    "overlay_color": "#ffb040"
+   }
   }
+ }
 }

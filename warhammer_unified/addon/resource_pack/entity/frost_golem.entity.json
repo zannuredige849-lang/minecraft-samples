@@ -1,38 +1,38 @@
 {
-  "format_version": "1.10.0",
-  "minecraft:client_entity": {
-    "description": {
-      "identifier": "warcraft:frost_golem",
-      "min_engine_version": "1.16.0",
-      "materials": {
-        "default": "entity_alphatest"
-      },
-      "textures": {
-        "default": "textures/entity/frost_golem"
-      },
-      "geometry": {
-        "default": "geometry.frost_golem"
-      },
-      "animations": {
-        "idle_a": "animation.frost_golem.idle_a",
-        "walk": "animation.frost_golem.walk",
-        "attack_a": "animation.frost_golem.attack_a",
-        "spell": "animation.frost_golem.spell",
-        "death": "animation.frost_golem.death",
-        "controller": "controller.animation.frost_golem"
-      },
-      "scripts": {
-        "animate": [
-          "controller"
-        ]
-      },
-      "render_controllers": [
-        "controller.render.frost_golem"
-      ],
-      "spawn_egg": {
-        "texture": "egg_warcraft_frost_golem",
-        "texture_index": 0
-      }
-    }
+ "format_version": "1.10.0",
+ "minecraft:client_entity": {
+  "description": {
+   "identifier": "warcraft:frost_golem",
+   "min_engine_version": "1.16.0",
+   "materials": {
+    "default": "entity_alphatest"
+   },
+   "textures": {
+    "default": "textures/entity/frost_golem"
+   },
+   "geometry": {
+    "default": "geometry.frost_golem"
+   },
+   "animations": {
+    "idle_a": "animation.frost_golem.idle_a",
+    "walk": "animation.frost_golem.walk",
+    "attack_a": "animation.frost_golem.attack_a",
+    "spell": "animation.frost_golem.spell",
+    "death": "animation.frost_golem.death",
+    "controller": "controller.animation.frost_golem"
+   },
+   "scripts": {
+    "animate": [
+     "controller"
+    ]
+   },
+   "render_controllers": [
+    "controller.render.frost_golem"
+   ],
+   "spawn_egg": {
+    "base_color": "#61819a",
+    "overlay_color": "#ffb040"
+   }
   }
+ }
 }

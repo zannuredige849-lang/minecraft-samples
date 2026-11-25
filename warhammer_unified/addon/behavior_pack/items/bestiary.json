@@ -1,0 +1,22 @@
+{
+  "format_version": "1.21.0",
+  "minecraft:item": {
+    "description": {
+      "identifier": "cb:bestiary",
+      "menu_category": {
+        "category": "items"
+      }
+    },
+    "components": {
+      "minecraft:icon": {
+        "textures": {
+          "default": "cb_bestiary"
+        }
+      },
+      "minecraft:display_name": {
+        "value": "item.cb:bestiary.name"
+      },
+      "minecraft:max_stack_size": 1
+    }
+  }
+}

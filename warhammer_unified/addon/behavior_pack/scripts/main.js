@@ -1,5 +1,8 @@
 // ZhekAziz Fathylogy: точка входа. Механики каждого моба лежат в своём файле.
 import "./factions.js";
+import "./abilities.js";
+import "./item_abilities.js";
+import "./bestiary.js";
 import "./cyclops.js";
 import "./hydra.js";
 import "./beetles.js";

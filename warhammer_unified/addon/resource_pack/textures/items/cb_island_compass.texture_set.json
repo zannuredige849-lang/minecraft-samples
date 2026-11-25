@@ -1,7 +1,0 @@
-{
-  "format_version": "1.16.100",
-  "minecraft:texture_set": {
-    "color": "cb_island_compass",
-    "metalness_emissive_roughness": "cb_island_compass_mer"
-  }
-}

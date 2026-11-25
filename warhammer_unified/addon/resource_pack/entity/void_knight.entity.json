@@ -1,38 +1,38 @@
 {
-  "format_version": "1.10.0",
-  "minecraft:client_entity": {
-    "description": {
-      "identifier": "warcraft:void_knight",
-      "min_engine_version": "1.16.0",
-      "materials": {
-        "default": "entity_alphatest"
-      },
-      "textures": {
-        "default": "textures/entity/void_knight"
-      },
-      "geometry": {
-        "default": "geometry.void_knight"
-      },
-      "animations": {
-        "idle_a": "animation.void_knight.idle_a",
-        "walk": "animation.void_knight.walk",
-        "attack_a": "animation.void_knight.attack_a",
-        "spell": "animation.void_knight.spell",
-        "death": "animation.void_knight.death",
-        "controller": "controller.animation.void_knight"
-      },
-      "scripts": {
-        "animate": [
-          "controller"
-        ]
-      },
-      "render_controllers": [
-        "controller.render.void_knight"
-      ],
-      "spawn_egg": {
-        "texture": "egg_warcraft_void_knight",
-        "texture_index": 0
-      }
-    }
+ "format_version": "1.10.0",
+ "minecraft:client_entity": {
+  "description": {
+   "identifier": "warcraft:void_knight",
+   "min_engine_version": "1.16.0",
+   "materials": {
+    "default": "entity_alphatest"
+   },
+   "textures": {
+    "default": "textures/entity/void_knight"
+   },
+   "geometry": {
+    "default": "geometry.void_knight"
+   },
+   "animations": {
+    "idle_a": "animation.void_knight.idle_a",
+    "walk": "animation.void_knight.walk",
+    "attack_a": "animation.void_knight.attack_a",
+    "spell": "animation.void_knight.spell",
+    "death": "animation.void_knight.death",
+    "controller": "controller.animation.void_knight"
+   },
+   "scripts": {
+    "animate": [
+     "controller"
+    ]
+   },
+   "render_controllers": [
+    "controller.render.void_knight"
+   ],
+   "spawn_egg": {
+    "base_color": "#191234",
+    "overlay_color": "#a98a4a"
+   }
   }
+ }
 }

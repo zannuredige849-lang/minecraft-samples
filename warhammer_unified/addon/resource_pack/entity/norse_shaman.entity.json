@@ -1,39 +1,39 @@
 {
-  "format_version": "1.10.0",
-  "minecraft:client_entity": {
-    "description": {
-      "identifier": "warcraft:norse_shaman",
-      "materials": {
-        "default": "entity_alphatest"
-      },
-      "textures": {
-        "default": "textures/entity/norse_shaman_voxel"
-      },
-      "geometry": {
-        "default": "geometry.norse_shaman"
-      },
-      "animations": {
-        "idle_a": "animation.norse_shaman.idle_a",
-        "idle_b": "animation.norse_shaman.idle_b",
-        "walk": "animation.norse_shaman.walk",
-        "attack_a": "animation.norse_shaman.attack_a",
-        "attack_b": "animation.norse_shaman.attack_b",
-        "ability": "animation.norse_shaman.ability",
-        "death": "animation.norse_shaman.death",
-        "move_ctrl": "controller.animation.norse_shaman"
-      },
-      "scripts": {
-        "animate": [
-          "move_ctrl"
-        ]
-      },
-      "render_controllers": [
-        "controller.render.default"
-      ],
-      "spawn_egg": {
-        "texture": "egg_warcraft_norse_shaman",
-        "texture_index": 0
-      }
-    }
+ "format_version": "1.10.0",
+ "minecraft:client_entity": {
+  "description": {
+   "identifier": "warcraft:norse_shaman",
+   "materials": {
+    "default": "entity_alphatest"
+   },
+   "textures": {
+    "default": "textures/entity/norse_shaman_voxel"
+   },
+   "geometry": {
+    "default": "geometry.norse_shaman"
+   },
+   "animations": {
+    "idle_a": "animation.norse_shaman.idle_a",
+    "idle_b": "animation.norse_shaman.idle_b",
+    "walk": "animation.norse_shaman.walk",
+    "attack_a": "animation.norse_shaman.attack_a",
+    "attack_b": "animation.norse_shaman.attack_b",
+    "ability": "animation.norse_shaman.ability",
+    "death": "animation.norse_shaman.death",
+    "move_ctrl": "controller.animation.norse_shaman"
+   },
+   "scripts": {
+    "animate": [
+     "move_ctrl"
+    ]
+   },
+   "render_controllers": [
+    "controller.render.default"
+   ],
+   "spawn_egg": {
+    "base_color": "#3c2f58",
+    "overlay_color": "#b02a2a"
+   }
   }
+ }
 }

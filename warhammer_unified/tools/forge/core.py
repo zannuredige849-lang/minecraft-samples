@@ -80,6 +80,15 @@ def paint_face(mat, face, w, h, pal, seed=0):
     img = np.zeros((h, w, 4), np.uint8)
     base = ramp_at(ramp, tone)
     img[:, :] = base
+    # vanilla grain: the pattern of a real Minecraft block recoloured with this material's ramp
+    from .vanilla import grain as _grain
+    gr = _grain(style, mat.get("slot", "armor"), _hash(seed, "g"))
+    if gr is not None:
+        gmap, amp = gr
+        ox, oy = _hash(seed, "ox") % 16, _hash(seed, "oy") % 16
+        for y in range(h):
+            for x in range(w):
+                img[y, x] = ramp_at(ramp, tone + amp * gmap[(y + oy) % 16, (x + ox) % 16])
     light = ramp_at(ramp, tone + 1.0)
     dark = ramp_at(ramp, tone - 1.0)
     dark2 = ramp_at(ramp, tone - 2.0)

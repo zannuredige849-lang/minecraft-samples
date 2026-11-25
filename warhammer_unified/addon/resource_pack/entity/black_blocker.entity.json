@@ -1,38 +1,38 @@
 {
-  "format_version": "1.10.0",
-  "minecraft:client_entity": {
-    "description": {
-      "identifier": "warcraft:black_blocker",
-      "materials": {
-        "default": "entity_alphatest"
-      },
-      "textures": {
-        "default": "textures/entity/black_blocker_voxel"
-      },
-      "geometry": {
-        "default": "geometry.black_blocker"
-      },
-      "animations": {
-        "walk": "animation.black_blocker.walk",
-        "ability": "animation.black_blocker.ability",
-        "ability2": "animation.black_blocker.ability2",
-        "death": "animation.black_blocker.death",
-        "move_ctrl": "controller.animation.black_blocker",
-        "idle_a": "animation.black_blocker.idle",
-        "attack_a": "animation.black_blocker.attack"
-      },
-      "scripts": {
-        "animate": [
-          "move_ctrl"
-        ]
-      },
-      "render_controllers": [
-        "controller.render.default"
-      ],
-      "spawn_egg": {
-        "texture": "egg_warcraft_black_blocker",
-        "texture_index": 0
-      }
-    }
+ "format_version": "1.10.0",
+ "minecraft:client_entity": {
+  "description": {
+   "identifier": "warcraft:black_blocker",
+   "materials": {
+    "default": "entity_alphatest"
+   },
+   "textures": {
+    "default": "textures/entity/black_blocker_voxel"
+   },
+   "geometry": {
+    "default": "geometry.black_blocker"
+   },
+   "animations": {
+    "walk": "animation.black_blocker.walk",
+    "ability": "animation.black_blocker.ability",
+    "ability2": "animation.black_blocker.ability2",
+    "death": "animation.black_blocker.death",
+    "move_ctrl": "controller.animation.black_blocker",
+    "idle_a": "animation.black_blocker.idle",
+    "attack_a": "animation.black_blocker.attack"
+   },
+   "scripts": {
+    "animate": [
+     "move_ctrl"
+    ]
+   },
+   "render_controllers": [
+    "controller.render.default"
+   ],
+   "spawn_egg": {
+    "base_color": "#2a313d",
+    "overlay_color": "#a98a4a"
+   }
   }
+ }
 }

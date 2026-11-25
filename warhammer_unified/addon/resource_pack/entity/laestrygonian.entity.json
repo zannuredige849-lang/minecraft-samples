@@ -1,59 +1,60 @@
 {
-  "format_version": "1.10.0",
-  "minecraft:client_entity": {
-    "description": {
-      "identifier": "cb:laestrygonian",
-      "materials": {
-        "default": "entity_alphatest"
-      },
-      "textures": {
-        "rubicund": "textures/entity/laestrygonian/laestrygonian_rubicund",
-        "olive": "textures/entity/laestrygonian/laestrygonian_olive",
-        "ashen": "textures/entity/laestrygonian/laestrygonian_ashen"
-      },
-      "geometry": {
-        "default": "geometry.cb_laestrygonian"
-      },
-      "animations": {
-        "idle": "animation.cb_laestrygonian.idle",
-        "walk": "animation.cb_laestrygonian.walk",
-        "attack_chop": "animation.cb_laestrygonian.attack_chop",
-        "attack_slash": "animation.cb_laestrygonian.attack_slash",
-        "attack_smash": "animation.cb_laestrygonian.attack_smash",
-        "attack_stomp": "animation.cb_laestrygonian.attack_stomp",
-        "swipe": "animation.cb_laestrygonian.swipe",
-        "roar": "animation.cb_laestrygonian.roar",
-        "rage": "animation.cb_laestrygonian.rage",
-        "look_at_target": "animation.common.look_at_target",
-        "swipe_ctrl": "controller.animation.cb_laestrygonian.swipe",
-        "roar_ctrl": "controller.animation.cb_laestrygonian.roar",
-        "dance": "animation.cb_laestrygonian.dance",
-        "attack_ctrl": "controller.animation.cb_laestrygonian.attack"
-      },
-      "scripts": {
-        "animate": [
-          "idle",
-          {
-            "walk": "q.modified_move_speed > 0.01"
-          },
-          {
-            "rage": "q.property('cb:rage')"
-          },
-          "attack_ctrl",
-          "swipe_ctrl",
-          "roar_ctrl",
-          "look_at_target",
-          {
-            "dance": "q.property('cb:dancing')"
-          }
-        ]
-      },
-      "render_controllers": [
-        "controller.render.cb_laestrygonian"
-      ],
-      "spawn_egg": {
-        "texture": "cb_egg_laestrygonian"
-      }
-    }
+ "format_version": "1.10.0",
+ "minecraft:client_entity": {
+  "description": {
+   "identifier": "cb:laestrygonian",
+   "materials": {
+    "default": "entity_alphatest"
+   },
+   "textures": {
+    "rubicund": "textures/entity/laestrygonian/laestrygonian_rubicund",
+    "olive": "textures/entity/laestrygonian/laestrygonian_olive",
+    "ashen": "textures/entity/laestrygonian/laestrygonian_ashen"
+   },
+   "geometry": {
+    "default": "geometry.cb_laestrygonian"
+   },
+   "animations": {
+    "idle": "animation.cb_laestrygonian.idle",
+    "walk": "animation.cb_laestrygonian.walk",
+    "attack_chop": "animation.cb_laestrygonian.attack_chop",
+    "attack_slash": "animation.cb_laestrygonian.attack_slash",
+    "attack_smash": "animation.cb_laestrygonian.attack_smash",
+    "attack_stomp": "animation.cb_laestrygonian.attack_stomp",
+    "swipe": "animation.cb_laestrygonian.swipe",
+    "roar": "animation.cb_laestrygonian.roar",
+    "rage": "animation.cb_laestrygonian.rage",
+    "look_at_target": "animation.common.look_at_target",
+    "swipe_ctrl": "controller.animation.cb_laestrygonian.swipe",
+    "roar_ctrl": "controller.animation.cb_laestrygonian.roar",
+    "dance": "animation.cb_laestrygonian.dance",
+    "attack_ctrl": "controller.animation.cb_laestrygonian.attack"
+   },
+   "scripts": {
+    "animate": [
+     "idle",
+     {
+      "walk": "q.modified_move_speed > 0.01"
+     },
+     {
+      "rage": "q.property('cb:rage')"
+     },
+     "attack_ctrl",
+     "swipe_ctrl",
+     "roar_ctrl",
+     "look_at_target",
+     {
+      "dance": "q.property('cb:dancing')"
+     }
+    ]
+   },
+   "render_controllers": [
+    "controller.render.cb_laestrygonian"
+   ],
+   "spawn_egg": {
+    "base_color": "#ee561d",
+    "overlay_color": "#e8c080"
+   }
   }
+ }
 }

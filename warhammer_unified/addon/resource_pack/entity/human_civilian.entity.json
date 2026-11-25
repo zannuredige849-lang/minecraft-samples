@@ -1,53 +1,54 @@
 {
-  "format_version": "1.10.0",
-  "minecraft:client_entity": {
-    "description": {
-      "identifier": "cb:human_civilian",
-      "materials": {
-        "default": "entity_alphatest"
-      },
-      "textures": {
-        "woman_0": "textures/entity/human_woman_0",
-        "child_0": "textures/entity/human_child_0",
-        "woman_1": "textures/entity/human_woman_1",
-        "child_1": "textures/entity/human_child_1",
-        "woman_2": "textures/entity/human_woman_2",
-        "child_2": "textures/entity/human_child_2",
-        "woman_3": "textures/entity/human_woman_3",
-        "child_3": "textures/entity/human_child_3",
-        "woman_4": "textures/entity/human_woman_4",
-        "child_4": "textures/entity/human_child_4",
-        "woman_5": "textures/entity/human_woman_5",
-        "child_5": "textures/entity/human_child_5"
-      },
-      "geometry": {
-        "default": "geometry.cb_human_civilian"
-      },
-      "animations": {
-        "idle": "animation.cb_human.idle",
-        "walk": "animation.cb_human.walk",
-        "work": "animation.cb_human.work",
-        "panic_indoors": "animation.cb_human.panic_indoors",
-        "look_at_target": "animation.cb_human.look_at_target",
-        "dance": "animation.cb_human.dance",
-        "move_ctrl": "controller.animation.cb_mob.move",
-        "hurt": "animation.cb_human.hurt"
-      },
-      "scripts": {
-        "animate": [
-          "look_at_target",
-          "move_ctrl",
-          {
-            "hurt": "query.hurt_time > 0"
-          }
-        ]
-      },
-      "render_controllers": [
-        "controller.render.cb_human_civilian"
-      ],
-      "spawn_egg": {
-        "texture": "cb_egg_human_civilian"
-      }
-    }
+ "format_version": "1.10.0",
+ "minecraft:client_entity": {
+  "description": {
+   "identifier": "cb:human_civilian",
+   "materials": {
+    "default": "entity_alphatest"
+   },
+   "textures": {
+    "woman_0": "textures/entity/human_woman_0",
+    "child_0": "textures/entity/human_child_0",
+    "woman_1": "textures/entity/human_woman_1",
+    "child_1": "textures/entity/human_child_1",
+    "woman_2": "textures/entity/human_woman_2",
+    "child_2": "textures/entity/human_child_2",
+    "woman_3": "textures/entity/human_woman_3",
+    "child_3": "textures/entity/human_child_3",
+    "woman_4": "textures/entity/human_woman_4",
+    "child_4": "textures/entity/human_child_4",
+    "woman_5": "textures/entity/human_woman_5",
+    "child_5": "textures/entity/human_child_5"
+   },
+   "geometry": {
+    "default": "geometry.cb_human_civilian"
+   },
+   "animations": {
+    "idle": "animation.cb_human.idle",
+    "walk": "animation.cb_human.walk",
+    "work": "animation.cb_human.work",
+    "panic_indoors": "animation.cb_human.panic_indoors",
+    "look_at_target": "animation.cb_human.look_at_target",
+    "dance": "animation.cb_human.dance",
+    "move_ctrl": "controller.animation.cb_mob.move",
+    "hurt": "animation.cb_human.hurt"
+   },
+   "scripts": {
+    "animate": [
+     "look_at_target",
+     "move_ctrl",
+     {
+      "hurt": "query.hurt_time > 0"
+     }
+    ]
+   },
+   "render_controllers": [
+    "controller.render.cb_human_civilian"
+   ],
+   "spawn_egg": {
+    "base_color": "#bf1739",
+    "overlay_color": "#d8b080"
+   }
   }
+ }
 }

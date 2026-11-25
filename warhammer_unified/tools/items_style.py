@@ -8,6 +8,7 @@ from forge.core import make_ramp, hex2rgb
 from forge.factions import FACTION_OF, FACTIONS
 from forge.common import ENT
 from restyle import restyle_icon
+import json
 
 GLYPH = {
     "cross": ["..#..", "..#..", "#####", "..#..", "..#.."],
@@ -110,41 +111,76 @@ def egg(body_rgb, emblem_rgb, glyph):
     return Image.fromarray(img)
 
 
+DYES = {"white": "#f9fffe", "orange": "#f9801d", "magenta": "#c74ebd", "light_blue": "#3ab3da", "yellow": "#fed83d", "lime": "#80c71f",
+        "pink": "#f38baa", "gray": "#474f52", "light_gray": "#9d9d97", "cyan": "#169c9c", "purple": "#8932b8", "blue": "#3c44aa",
+        "brown": "#835432", "green": "#5e7c16", "red": "#b02e26", "black": "#1d1d21"}
+# item icon -> (vanilla item icon, tint colour or None)
+ICON_SRC = {
+    "cb_bronze_ingot": ("copper_ingot", "#b98a38"), "cb_dragon_scale": ("turtle_shell_piece", "#e0782a"),
+    "cb_island_compass": ("compass_item", None), "cb_sargeras_shard": ("amethyst_shard", "#7aff30"),
+    "cb_ting_tang_disc": ("record_cat", "#e060c0"), "frost_orb": ("heartofthesea_closed", "#7fd8ff"),
+    "inferno_orb": ("fireball", None), "storm_orb": ("ender_pearl", "#ffe35a"),
+    "cb_map_circe": ("map_filled", "#8a4ac0"), "cb_map_cyclops": ("map_filled", "#c0703a"), "cb_map_hydra": ("map_filled", "#2a9a8a"),
+    "cb_map_laestry": ("map_filled", "#c0402a"), "cb_map_list": ("map_filled", "#d8c070"),
+}
+WEAPONS = ("cb_hell_scimitar", "cb_laestrygonian_sword", "cb_orc_cleaver", "cb_orc_war_axe")
+
+
+def _drop_siblings(rp, path):
+    for suf in ("_mer.png", "_height.png", "_normal.png", ".texture_set.json"):
+        f = f"{rp}/{path}{suf}"
+        if os.path.exists(f): os.remove(f)
+
+
 def run(out, generated=()):
+    from forge import vanilla as V
     rp = os.path.join(out, "resource_pack")
-    itd = load_json(f"{rp}/textures/item_texture.json")["texture_data"]
-    stats = dict(eggs=0, icons=0)
-    egg_names = set()
+    itd_path = f"{rp}/textures/item_texture.json"
+    doc = load_json(itd_path); itd = doc["texture_data"]
+    stats = dict(eggs=0, icons=0, armor=0, weapons=0)
+    # ---- spawn eggs: the VANILLA egg with the mob's dominant colour and the faction colour as overlay
     for ent, info in ENT.items():
         se = info.get("spawn_egg")
         if not se: continue
-        name = se["texture"]
-        egg_names.add(name)
-        td = itd.get(name)
-        if not td: continue
-        path = td["textures"] if isinstance(td["textures"], str) else td["textures"][0]
-        tex_path = list(info["textures"].values())[0]
-        tex = Image.open(f"{rp}/{tex_path}.png")
+        cp = f"{rp}/entity/{info['client']}"
+        cdoc = load_json(cp)
         fac = FACTION_OF.get(ent)
-        c2 = FACTIONS[fac]["c2"] if fac else "#dddddd"
-        glyph = OVERRIDE.get(ent) or (FACTIONS[fac]["emblem"] if fac else "gem")
-        img = egg(dominant(tex), hex2rgb(c2), glyph)
-        os.makedirs(os.path.dirname(f"{rp}/{path}.png"), exist_ok=True)
-        img.save(f"{rp}/{path}.png")
-        for suf in ("_mer", "_height", "_normal"):
-            f = f"{rp}/{path}{suf}.png"
-            if os.path.exists(f): os.remove(f)
-        ts = f"{rp}/{path}.texture_set.json"
-        if os.path.exists(ts): os.remove(ts)
+        tex = Image.open(f"{rp}/{list(info['textures'].values())[0]}.png")
+        base = dominant(tex)
+        over = hex2rgb(FACTIONS[fac]["c2"]) if fac else (221, 221, 221)
+        cdoc["minecraft:client_entity"]["description"]["spawn_egg"] = {"base_color": "#%02x%02x%02x" % base, "overlay_color": "#%02x%02x%02x" % over}
+        json.dump(cdoc, open(cp, "w", encoding="utf-8"), indent=1, ensure_ascii=False)
+        name = se.get("texture")
+        td = itd.pop(name, None)
+        if td:
+            path = td["textures"] if isinstance(td["textures"], str) else td["textures"][0]
+            for f in (f"{rp}/{path}.png",):
+                if os.path.exists(f): os.remove(f)
+            _drop_siblings(rp, path)
         stats["eggs"] += 1
-    # remaining icons (items, maps, weapons): restyle within their silhouette
-    for name, td in itd.items():
-        if name in egg_names: continue
-        path = td["textures"] if isinstance(td["textures"], str) else td["textures"][0]
-        p = f"{rp}/{path}.png"
-        if not os.path.exists(p): continue
-        im = Image.open(p)
-        restyle_icon(im).save(p); stats["icons"] += 1
+    # ---- icons from vanilla textures
+    def path_of(name):
+        td = itd[name]; return td["textures"] if isinstance(td["textures"], str) else td["textures"][0]
+    for name, (van, col) in ICON_SRC.items():
+        if name not in itd: continue
+        img = V.icon(van)
+        if col: img = V.tint(img, hex2rgb(col))
+        p = f"{rp}/{path_of(name)}.png"; img.save(p); _drop_siblings(rp, path_of(name)); stats["icons"] += 1
+    for name in list(itd):
+        if name.startswith("cb_sheepskin"):
+            color = name[len("cb_sheepskin_"):] if name != "cb_sheepskin" else "white"
+            dye = hex2rgb(DYES.get(color, "#f9fffe"))
+            p = f"{rp}/{path_of(name)}.png"
+            V.tint(V.icon("leather"), dye).save(p); _drop_siblings(rp, path_of(name)); stats["icons"] += 1
+            ap = f"{rp}/textures/models/armor/{name}.png"
+            if os.path.exists(ap):
+                V.wool_fabric(64, dye).save(ap); _drop_siblings(rp, f"textures/models/armor/{name}"); stats["armor"] += 1
+    refs = [V.icon(n) for n in ("iron_sword", "gold_sword", "stick", "iron_axe", "copper_ingot")]
+    for name in WEAPONS:
+        if name not in itd: continue
+        p = f"{rp}/{path_of(name)}.png"
+        V.palette_map(Image.open(p), refs).save(p); stats["weapons"] += 1
+    json.dump(doc, open(itd_path, "w", encoding="utf-8"), indent=2)
     return stats
 
 
