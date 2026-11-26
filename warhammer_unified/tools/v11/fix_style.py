@@ -8,6 +8,7 @@
    box UV maps the wrong part of the texture onto them (a second squeezed face in front of Circe's real one, etc.).
    v10.8.2 re-mapped them; since v10.8.4 they are removed (the user found the extra front layer unnecessary).
 3. cb:cannibal_troll gets its v9.1 textures back (the v10.6.2 ones do not fit its model).
+5. Vanilla combat (vanilla_combat.py): bows that keep their distance, real vanilla shields.
 4. Held items: vanilla rightItem/leftItem anchors (fix_held.fix_items); manifests bumped.
 
 python3 fix_style.py <built folder> <repo addon/ folder> <original v9.1 folder> <version x.y.z> [out .mcaddon]
@@ -124,6 +125,8 @@ if __name__ == "__main__":
     rep = fix_all_rounding(out)
     print("rounding cubes removed:", sum(n for _, n in rep), "in", len(rep), "models")
     for r in fix_items(out): print("  item anchor", r)
+    import vanilla_combat
+    print("vanilla combat: humans", vanilla_combat.humans(out), "orcs/shields.js", vanilla_combat.orcs(out))
     bump(out, ver)
     if len(sys.argv) > 5:
         from apply11 import check_and_pack
