@@ -48,6 +48,32 @@ def restore_cannibal(out, orig):
     return n
 
 
+def orc_theme(out):
+    """The orc look the user picked (previews: Ominous banner on the back, skin-coloured shoulders and arms
+    under the leather vest). That picture mapped each inflated overlay cube (vest, sleeves, pauldrons) onto the
+    texture net of its inflated size (ceil(size + 2 * inflate)); the game maps the un-inflated size. Per-face UV
+    pins exactly that mapping, so the game shows the picture. The banner is shown on every orc, not only leaders."""
+    import math
+    n = 0
+    for m in ORCS:
+        p = f"{out}/resource_pack/models/entity/{m}.geo.json"; d = L(p)
+        for g in d["minecraft:geometry"]:
+            for b in g["bones"]:
+                for c in b.get("cubes") or []:
+                    inf = c.get("inflate") or 0
+                    if not inf or not isinstance(c.get("uv"), list): continue
+                    u, v = c["uv"]
+                    w, h, dd = (math.ceil(x + 2 * inf) for x in c["size"])
+                    rects = {"east": (u, v + dd, dd, h), "north": (u + dd, v + dd, w, h), "west": (u + dd + w, v + dd, dd, h),
+                             "south": (u + 2 * dd + w, v + dd, w, h), "up": (u + dd, v, w, dd), "down": (u + dd + w, v, w, dd)}
+                    c["uv"] = {f: {"uv": [r[0], r[1]], "uv_size": [r[2], r[3]]} for f, r in rects.items()}; n += 1
+        W(p, d)
+    ap = f"{out}/resource_pack/animations/orc.animation.json"; a = L(ap)
+    a["animations"]["animation.cb_orc.banner"]["bones"]["banner"]["scale"] = 1
+    W(ap, a)
+    return n
+
+
 def _frac(s):
     return any(abs(v - round(v)) > 1e-6 for v in s)
 
@@ -116,6 +142,7 @@ if __name__ == "__main__":
     out, ours, orig, ver = sys.argv[1], sys.argv[2], sys.argv[3], tuple(int(x) for x in sys.argv[4].split("."))
     print("orc files from the repository:", restore_orcs(out, ours))
     print("cannibal troll textures from v9.1:", restore_cannibal(out, orig))
+    print("orc theme: overlay cubes pinned:", orc_theme(out))
     rep = fix_all_rounding(out)
     print("rounding cubes re-mapped:", sum(n for _, n in rep), "in", len(rep), "models")
     for r in fix_items(out): print("  item anchor", r)
