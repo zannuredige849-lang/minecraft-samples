@@ -1,25 +1,22 @@
-"""v10.8.2: one clean style on top of a built add-on folder.
+"""v10.8.2-10.8.4: one clean style on top of a built add-on folder.
 
 1. Orcs (cb:orc, cb:green_orc, cb:hell_orc) get back the models and textures developed in this repository
    (addon/: restyled skins, Ominous banner of the leader); their client entity files (spawn eggs) stay as they are.
    The MER / texture_set of the old textures are removed, they belonged to the old texture layout.
 2. "Rounding" cubes: many cb:* models round a box with two crossed, slightly longer cubes that reuse the box's
-   UV origin with a different (fractional) size. Box UV then maps the wrong part of the texture onto them:
-   stretched, shifted pixels, a second squeezed face in front of the real one (Circe's face, orcs, humans, trolls,
-   golems, Cyclops, Hydra ...). Each such cube now gets per-face UV that shows exactly the pixels of the box face
-   it stands on, so the rounded silhouette stays and the texture lines up.
+   UV origin with a different (fractional) size. They stand ~0.7 out of the front/back/sides as an extra layer and
+   box UV maps the wrong part of the texture onto them (a second squeezed face in front of Circe's real one, etc.).
+   v10.8.2 re-mapped them; since v10.8.4 they are removed (the user found the extra front layer unnecessary).
 3. cb:cannibal_troll gets its v9.1 textures back (the v10.6.2 ones do not fit its model).
 4. Held items: vanilla rightItem/leftItem anchors (fix_held.fix_items); manifests bumped.
 
 python3 fix_style.py <built folder> <repo addon/ folder> <original v9.1 folder> <version x.y.z> [out .mcaddon]
 """
 import sys, os, glob, shutil, json
-import numpy as np
 
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 from fix_held import L, W, fix_items, bump
-from mcgeo import cube_faces
 
 ORCS = ["orc", "green_orc", "hell_orc"]
 
@@ -78,14 +75,6 @@ def _frac(s):
     return any(abs(v - round(v)) > 1e-6 for v in s)
 
 
-def _plain(c):
-    d = dict(c); d.pop("inflate", None); return d
-
-
-def _faces(c, tw, th):
-    return {f[0]: (np.array(f[1], float), np.array(f[2], float), np.array(f[3], float), f[4]) for f in cube_faces(_plain(c), tw, th)}
-
-
 def _contains(p, r):
     """r's centre lies inside p's box in at least two axes (the crossed rounding cubes poke out in one)."""
     k = 0
@@ -95,34 +84,24 @@ def _contains(p, r):
     return k >= 2
 
 
-def fix_rounding(geo, tw, th):
-    fixed = 0
+def remove_rounding(geo):
+    """Drop the crossed rounding cubes: a fractional-size cube that reuses the UV origin of a bigger box in the same
+    bone and sits inside it except for one axis, where it pokes out of the front/back (or sides) by ~0.7 as an extra
+    layer. The box under it keeps the full texture, so nothing is lost but the extra layer."""
+    removed = 0
     for b in geo["bones"]:
         cubes = b.get("cubes") or []
+        vol = lambda c: c["size"][0] * c["size"][1] * c["size"][2]
+        drop = []
         for r in cubes:
             uv = r.get("uv")
             if not isinstance(uv, list) or not _frac(r["size"]): continue
             same = [p for p in cubes if p is not r and p.get("uv") == uv and list(p["size"]) != list(r["size"])
-                    and p.get("rotation") == r.get("rotation") and _contains(p, r)]
-            if not same: continue
-            same.sort(key=lambda p: (_frac(p["size"]), -p["size"][0] * p["size"][1] * p["size"][2]))
-            p = same[0]
-            if _frac(p["size"]): continue
-            pf, rf = _faces(p, tw, th), _faces(r, tw, th)
-            new = {}
-            for name, (cr, uar, var, _) in rf.items():
-                cp, uap, vap, (u, v, w, h) = pf[name]
-                def st(x):
-                    s = np.dot(x - cp, uap) / np.dot(uap, uap); t = np.dot(x - cp, vap) / np.dot(vap, vap)
-                    return min(1, max(0, s)), min(1, max(0, t))
-                s0, t0 = st(cr); s1, t1 = st(cr + uar + var)
-                u0, v0, u1, v1 = u + s0 * w, v + t0 * h, u + s1 * w, v + t1 * h
-                new[name] = {"uv": [round(u0, 3), round(v0, 3)], "uv_size": [round(u1 - u0, 3), round(v1 - v0, 3)]}
-            r["uv"] = new; r.pop("mirror", None); fixed += 1
-            # a rounding cube of an outer layer (hat, hood: inflated box) stands out by the same amount,
-            # otherwise its faces lie in one plane with the inner layer's rounding cube and flicker
-            if (p.get("inflate") or 0) > (r.get("inflate") or 0): r["inflate"] = p["inflate"]
-    return fixed
+                    and p.get("rotation") == r.get("rotation") and _contains(p, r) and vol(p) > vol(r)]
+            if same: drop.append(id(r))
+        if drop:
+            b["cubes"] = [c for c in cubes if id(c) not in drop]; removed += len(drop)
+    return removed
 
 
 def fix_all_rounding(out):
@@ -131,9 +110,8 @@ def fix_all_rounding(out):
         d = L(p); n = 0
         for g in d.get("minecraft:geometry", []):
             ds = g["description"]
-            n += fix_rounding(g, ds.get("texture_width", 64), ds.get("texture_height", 64))
+            n += remove_rounding(g)
         if n:
-            if d.get("format_version", "1.12.0") < "1.12.0": d["format_version"] = "1.12.0"
             W(p, d); rep.append((os.path.basename(p), n))
     return rep
 
@@ -144,7 +122,7 @@ if __name__ == "__main__":
     print("cannibal troll textures from v9.1:", restore_cannibal(out, orig))
     print("orc theme: overlay cubes pinned:", orc_theme(out))
     rep = fix_all_rounding(out)
-    print("rounding cubes re-mapped:", sum(n for _, n in rep), "in", len(rep), "models")
+    print("rounding cubes removed:", sum(n for _, n in rep), "in", len(rep), "models")
     for r in fix_items(out): print("  item anchor", r)
     bump(out, ver)
     if len(sys.argv) > 5:
