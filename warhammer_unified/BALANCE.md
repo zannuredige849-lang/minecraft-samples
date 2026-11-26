@@ -1,112 +1,47 @@
-# Баланс (v10.12)
+# Баланс (v10.8.6)
 
-Расчёт для игрока 20 HP. Урон по игроку в броне: железо ×0.40, алмаз ×0.20 (броня 15/20 из 25). Урон игрока: алмазный меч 7 (≈12 урона/с при ~1,7 удара/с), незеритовый с Остротой V 11 (≈19/с).
+Игрок: 20 HP. Урон игрока: алмазный меч ≈12 в секунду, незеритовый с Остротой V ≈19. Урон по игроку в броне: железо ×0,4, алмаз ×0,2.
+Ранги: обычные 20–46 HP / 2–7 урона, элита 50–180 / 5–9, боссы 140–400 / 7–12 (с полосой здоровья).
+Скриптовые способности ограничены `scripts/fairness.js`: не больше 40 % здоровья игрока за удар босса (25 % — обычного моба), не больше 60 % за 3 секунды, без мгновенных смертей, вредные эффекты не дольше 5 с и не сильнее II, босс в бою лечится не больше 8 % за 10 с.
+Сложность мира: лёгкая ×0,75 HP, тяжёлая ×1,35 HP (скрипты аддона).
 
-Скриптовые способности дополнительно ограничены `scripts/fairness.js`: не больше 40% здоровья игрока за удар босса (25% — обычного моба), не больше 60% за любые 3 секунды, без мгновенных смертей, вредные эффекты не дольше 5 с и не сильнее II, босс в бою лечится не больше чем на 8% здоровья за 10 с, перед сильными ударами — предупреждение.
-
-| Существо | Ранг | HP было | HP стало | Урон было | Урон стал | Убить алмазным мечом | Убить незеритовым V |
-|---|---|---|---|---|---|---|---|
-| `cb:cyclops` | boss | 560 | 360 | 0/0 | 0/0 | 30 с | 19 с |
-| `cb:fel_lord` | boss | 580 | 360 | 14 | 11 | 30 с | 19 с |
-| `cb:hades` | boss | 380 | 360 | 12 | 11 | 30 с | 19 с |
-| `cb:lich_statue` | boss | 500 | 360 | 0 | 0 | 30 с | 19 с |
-| `cb:zeus` | boss | 360 | 360 | 12 | 11 | 30 с | 19 с |
-| `cb:poseidon` | boss | 350 | 350 | 11 | 11 | 29 с | 18 с |
-| `cb:hephaestus` | boss | 340 | 340 | 13 | 11 | 28 с | 18 с |
-| `cb:ares` | boss | 320 | 320 | 12 | 11 | 27 с | 17 с |
-| `cb:athena` | boss | 300 | 300 | 11 | 11 | 25 с | 16 с |
-| `warcraft:great_unclean_one` | boss | 300 | 300 | 7 | 7 | 25 с | 16 с |
-| `cb:lich_king` | boss | 300 | 300 | 11 | 11 | 25 с | 16 с |
-| `cb:minotaur` | boss | 260 | 260 | 10 | 10 | 22 с | 14 с |
-| `cb:dreadlord` | boss | 220 | 220 | 10 | 10 | 18 с | 12 с |
-| `warcraft:ember_colossus` | boss | 220 | 220 | 9 | 9 | 18 с | 12 с |
-| `cb:guldan` | boss | 180 | 180 | 6 | 6 | 15 с | 9 с |
-| `cb:hydra` | boss | 165 | 165 | 6 | 6 | 14 с | 9 с |
-| `warcraft:abomination_lord` | boss | 140 | 140 | 6 | 6 | 12 с | 7 с |
-| `cb:ice_spirit` | boss | 90 | 90 | 8 | 8 | 8 с | 5 с |
-| `cb:circe` | boss | 70 | 70 | 0 | 0 | 6 с | 4 с |
-| `warcraft:big_ent` | elite | 200 | 180 | 8/8/7/9/7/10/9/8/8/10/8/9/6/7 | 8/8/7/9/7/9/9/8/8/9/8/9/6/7 | 15 с | 9 с |
-| `cb:cannibal_troll` | elite | 170 | 170 | 14 | 9 | 14 с | 9 с |
-| `warcraft:santa_claus` | elite | 165 | 165 | 9 | 9 | 14 с | 9 с |
-| `warcraft:garithos_paladin` | elite | 155 | 155 | 11 | 9 | 13 с | 8 с |
-| `warcraft:nazgul` | elite | 155 | 155 | 10 | 9 | 13 с | 8 с |
-| `warcraft:burning_chariot` | elite | 145 | 145 | 9 | 9 | 12 с | 8 с |
-| `warcraft:wulfrik_champion` | elite | 145 | 145 | 10 | 9 | 12 с | 8 с |
-| `warcraft:sabertooth_rider` | elite | 135 | 135 | 10 | 9 | 11 с | 7 с |
-| `warcraft:black_blocker` | elite | 130 | 130 | 7 | 7 | 11 с | 7 с |
-| `warcraft:dark_plate_knight` | elite | 128 | 128 | 10 | 9 | 11 с | 7 с |
-| `warcraft:chaos_warrior` | elite | 120 | 120 | 9 | 9 | 10 с | 6 с |
-| `warcraft:frost_golem` | elite | 120 | 120 | 7 | 7 | 10 с | 6 с |
-| `cb:ice_troll` | elite | 120 | 120 | 10 | 9 | 10 с | 6 с |
-| `warcraft:lightning_golem` | elite | 120 | 120 | 7 | 7 | 10 с | 6 с |
-| `warcraft:inferno_golem` | elite | 120 | 120 | 7 | 7 | 10 с | 6 с |
-| `warcraft:royal_captain` | elite | 115 | 115 | 9 | 9 | 10 с | 6 с |
-| `warcraft:blood_angel` | elite | 110 | 110 | 7 | 7 | 9 с | 6 с |
-| `cb:inferno_golem` | elite | 110 | 110 | 4 | 4 | 9 с | 6 с |
-| `warcraft:royal_knight` | elite | 110 | 110 | 9 | 9 | 9 с | 6 с |
-| `warcraft:skeleton_bear` | elite | 108 | 108 | 9 | 9 | 9 с | 6 с |
-| `warcraft:imperial_guard` | elite | 105 | 105 | 9 | 9 | 9 с | 6 с |
-| `warcraft:elector_knight` | elite | 100 | 100 | 9 | 9 | 8 с | 5 с |
-| `warcraft:chaos_knight` | regular | 85 | 80 | 8 | 7 | 7 с | 4 с |
-| `warcraft:chival_warrior` | regular | 88 | 80 | 8 | 7 | 7 с | 4 с |
-| `warcraft:grizzly_bear` | regular | 98 | 80 | 8 | 7 | 7 с | 4 с |
-| `warcraft:heide_hood_knight` | regular | 90 | 80 | 9 | 7 | 7 с | 4 с |
-| `warcraft:heide_knight` | regular | 95 | 80 | 9 | 7 | 7 с | 4 с |
-| `warcraft:paladin_swordsman` | regular | 82 | 80 | 8 | 7 | 7 с | 4 с |
-| `warcraft:void_knight` | regular | 95 | 80 | 7 | 7 | 7 с | 4 с |
-| `warcraft:ice_demon` | regular | 78 | 78 | 8 | 7 | 6 с | 4 с |
-| `warcraft:norse_berserker` | regular | 78 | 78 | 8 | 7 | 6 с | 4 с |
-| `warcraft:pirate_ghost` | regular | 78 | 78 | 8 | 7 | 6 с | 4 с |
-| `warcraft:bandit_raider` | regular | 75 | 75 | 7 | 7 | 6 с | 4 с |
-| `warcraft:high_elf_spearman` | regular | 72 | 72 | 8 | 7 | 6 с | 4 с |
-| `warcraft:royal_queen` | regular | 68 | 68 | 5 | 5 | 6 с | 4 с |
-| `cb:ares_berserker` | regular | 65 | 65 | 10 | 7 | 5 с | 3 с |
-| `cb:hephaestus_golem` | regular | 65 | 65 | 8 | 7 | 5 с | 3 с |
-| `warcraft:hornet_demon` | regular | 65 | 65 | 6 | 6 | 5 с | 3 с |
-| `cb:hades_shade` | regular | 60 | 60 | 9 | 7 | 5 с | 3 с |
-| `warcraft:teutonic_cleric` | regular | 56 | 56 | 5 | 5 | 5 с | 3 с |
-| `warcraft:faceless_general` | regular | 55 | 55 | 7 | 7 | 5 с | 3 с |
-| `warcraft:norse_marauder` | regular | 55 | 55 | 7 | 7 | 5 с | 3 с |
-| `warcraft:pink_horror` | regular | 55 | 55 | 6 | 6 | 5 с | 3 с |
-| `cb:zeus_archon` | regular | 55 | 55 | 8 | 7 | 5 с | 3 с |
-| `warcraft:faceless_nightmare` | regular | 52 | 52 | 7 | 7 | 4 с | 3 с |
-| `cb:wild_troll` | regular | 50 | 50 | 7 | 7 | 4 с | 3 с |
-| `warcraft:norse_shaman` | regular | 46 | 46 | 5 | 5 | 4 с | 2 с |
-| `cb:athena_hoplite` | regular | 45 | 45 | 6 | 6 | 4 с | 2 с |
-| `cb:death_knight` | regular | 45 | 45 | 6 | 6 | 4 с | 2 с |
-| `warcraft:faceless_berserker` | regular | 42 | 42 | 6 | 6 | 4 с | 2 с |
-| `cb:poseidon_triton` | regular | 42 | 42 | 6 | 6 | 4 с | 2 с |
-| `warcraft:undead_zombie` | regular | 42 | 42 | 5 | 5 | 4 с | 2 с |
-| `cb:laestrygonian` | regular | 41 | 41 | [6, 7] | [6, 7] | 3 с | 2 с |
-| `warcraft:faceless_sorcerer` | regular | 40 | 40 | 5 | 5 | 3 с | 2 с |
-| `warcraft:faceless_cultist` | regular | 38 | 38 | 5 | 5 | 3 с | 2 с |
-| `warcraft:skaal_villager` | regular | 38 | 38 | 5 | 5 | 3 с | 2 с |
-| `cb:dragon_east` | regular | 37 | 37 | 4/4/5 | 4/4/5 | 3 с | 2 с |
-| `cb:dragon_west` | regular | 37 | 37 | 4/4/5 | 4/4/5 | 3 с | 2 с |
-| `cb:green_orc` | regular | 37 | 37 | 3/5 | 3/5 | 3 с | 2 с |
-| `cb:hell_orc` | regular | 37 | 37 | 3/5 | 3/5 | 3 с | 2 с |
-| `cb:orc` | regular | 37 | 37 | 3/5/5 | 3/5/5 | 3 с | 2 с |
-| `warcraft:faceless_warrior` | regular | 35 | 35 | 5 | 5 | 3 с | 2 с |
-| `cb:diamond_beetle` | regular | 33 | 33 | 5 | 5 | 3 с | 2 с |
-| `warcraft:bandit_dog` | regular | 32 | 32 | 5 | 5 | 3 с | 2 с |
-| `cb:thunder_lizard` | regular | 30 | 30 | 4/7 | 4/7 | 2 с | 2 с |
-| `cb:emerald_beetle` | regular | 28 | 28 | 4 | 4 | 2 с | 1 с |
-| `cb:human_villager` | regular | 28 | 28 | 1/1/4/6/4/5/6/7 | 1/1/4/6/4/5/6/7 | 2 с | 1 с |
-| `cb:gold_beetle` | regular | 25 | 25 | 4 | 4 | 2 с | 1 с |
-| `cb:siren` | regular | 25 | 25 | 3 | 3 | 2 с | 1 с |
-| `cb:tribal_troll` | regular | 25 | 25 | 5 | 5 | 2 с | 1 с |
-| `cb:lapis_beetle` | regular | 22 | 22 | 3 | 3 | 2 с | 1 с |
-| `cb:smart_troll` | regular | 22 | 22 | 4 | 4 | 2 с | 1 с |
-| `cb:goblin` | regular | 20 | 20 | 1 | 1 | 2 с | 1 с |
-| `cb:iron_beetle` | regular | 20 | 20 | 3 | 3 | 2 с | 1 с |
-| `cb:sargeras_prompt` | regular | 20 | 20 | — | — | 2 с | 1 с |
-| `cb:troll_totem` | regular | 20 | 20 | — | — | 2 с | 1 с |
-| `cb:warg` | regular | 20 | 20 | 4 | 4 | 2 с | 1 с |
-| `cb:human_civilian` | regular | 18 | 18 | — | — | 2 с | 1 с |
-| `cb:redstone_beetle` | regular | 18 | 18 | 3 | 3 | 2 с | 1 с |
-| `cb:mermaid` | regular | 17 | 17 | — | — | 1 с | 1 с |
-| `cb:quartz_beetle` | regular | 17 | 17 | 3 | 3 | 1 с | 1 с |
-| `cb:copper_beetle` | regular | 15 | 15 | 2 | 2 | 1 с | 1 с |
-| `cb:fel_minion` | regular | 15 | 15 | 2 | 2 | 1 с | 1 с |
-| `cb:coal_beetle` | regular | 13 | 13 | 2 | 2 | 1 с | 1 с |
-| `cb:ore_beetle` | regular | 8 | 8 | — | — | 1 с | 0 с |
+| Существо | Ранг | Было (HP / урон) | Стало (HP / урон) | Убить алмазным мечом | Незеритовым V |
+|---|---|---|---|---|---|
+| `cb:cyclops` | boss | 560/None; cb:sighted: None/0; cb:blind_state: None/0 | 400/— | 33 с | 21 с |
+| `cb:fel_lord` | boss | 580/14 | 400/12 | 33 с | 21 с |
+| `warcraft:great_unclean_one` | boss | 300/7 | 320/10 | 27 с | 17 с |
+| `cb:minotaur` | boss | 260/10 | 300/11 | 25 с | 16 с |
+| `warcraft:abomination_lord` | boss | 140/6 | 280/10 | 23 с | 15 с |
+| `cb:dreadlord` | boss | 220/10 | 280/10 | 23 с | 15 с |
+| `warcraft:ember_colossus` | boss | 220/9 | 260/11 | 22 с | 14 с |
+| `cb:cannibal_troll` | boss | 170/14 | 240/11 | 20 с | 13 с |
+| `cb:guldan` | boss | 180/6 | 240/7 | 20 с | 13 с |
+| `cb:hydra` | boss | 165/6 | 200/7 | 17 с | 11 с |
+| `cb:circe` | boss | 70/0 | 140/— | 12 с | 7 с |
+| `warcraft:big_ent` | elite | 160/8; ent_oak: 160/8; ent_birch: 135/7; ent_spruce: 190/9; ent_cherry: 145/7; ent_crimson: 185/10; ent_warped: 175/9 | 160/8; ent_oak: 160/8; ent_birch: 140/7; ent_spruce: 180/9; ent_cherry: 145/7; ent_crimson: 175/9; ent_warped: 170/9 | 13 с | 8 с |
+| `warcraft:frost_golem` | elite | 120/7 | 120/8 | 10 с | 6 с |
+| `cb:inferno_golem` | elite | 110/4 | 120/8 | 10 с | 6 с |
+| `warcraft:lightning_golem` | elite | 120/7 | 120/8 | 10 с | 6 с |
+| `warcraft:inferno_golem` | elite | 120/7 | 120/8 | 10 с | 6 с |
+| `cb:ice_troll` | elite | 120/10 | 100/8 | 8 с | 5 с |
+| `warcraft:faceless_general` | elite | 55/7 | 90/8 | 8 с | 5 с |
+| `warcraft:ice_demon` | elite | 78/8 | 80/7 | 7 с | 4 с |
+| `warcraft:hornet_demon` | elite | 65/6 | 60/6 | 5 с | 3 с |
+| `cb:laestrygonian` | elite | 41/[6, 7] | 60/7 | 5 с | 3 с |
+| `cb:wild_troll` | elite | 50/7 | 60/7 | 5 с | 3 с |
+| `warcraft:pink_horror` | elite | 55/6 | 50/5 | 4 с | 3 с |
+| `warcraft:faceless_berserker` | regular | 42/6 | 46/7 | 4 с | 2 с |
+| `cb:tribal_troll` | regular | 25/5 | 45/6 | 4 с | 2 с |
+| `warcraft:faceless_warrior` | regular | 35/5 | 40/5 | 3 с | 2 с |
+| `cb:smart_troll` | regular | 22/4 | 40/5 | 3 с | 2 с |
+| `cb:thunder_lizard` | regular | 30/4; cb:ridden: None/7 | 40/5; cb:ridden: —/7 | 3 с | 2 с |
+| `warcraft:faceless_sorcerer` | regular | 40/5 | 36/4 | 3 с | 2 с |
+| `warcraft:faceless_cultist` | regular | 38/5 | 32/4 | 3 с | 2 с |
+| `cb:siren` | regular | 25/3 | 30/4 | 2 с | 2 с |
+| `cb:hell_orc` | regular | 22/3; cb:leader: 37/5 | 28/5; cb:leader: 44/7 | 2 с | 1 с |
+| `cb:green_orc` | regular | 22/3; cb:leader: 37/5 | 24/4; cb:leader: 40/6 | 2 с | 1 с |
+| `cb:orc` | regular | 22/3; cb:leader: 37/5; cb:enslaved: 30/5 | 24/4; cb:leader: 40/6; cb:enslaved: 26/4 | 2 с | 1 с |
+| `cb:warg` | regular | 20/4 | 24/4 | 2 с | 1 с |
+| `cb:human_villager` | regular | 20/1; cb:role_villager: 20/1; cb:role_militia: 22/4; cb:role_swordsman: 26/6; cb:role_archer: 24/4; cb:role_crossbowman: 25/5; cb:role_spearman: 26/6; cb:role_captain: 28/7 | 20/2; cb:role_villager: 20/2; cb:role_militia: 22/4; cb:role_swordsman: 26/5; cb:role_archer: 22/3; cb:role_crossbowman: 24/3; cb:role_spearman: 26/5; cb:role_captain: 32/6 | 2 с | 1 с |
+| `cb:fel_minion` | regular | 15/2 | 16/3 | 1 с | 1 с |
+| `cb:goblin` | regular | 12/1; cb:Tamed: 20/None | 14/2; cb:Tamed: 22/— | 1 с | 1 с |

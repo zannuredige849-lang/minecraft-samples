@@ -77,12 +77,14 @@ def _frac(s):
 
 
 def _contains(p, r):
-    """r's centre lies inside p's box in at least two axes (the crossed rounding cubes poke out in one)."""
-    k = 0
+    """The crossed rounding cube's shape: inside the box p in two axes and through it (beyond both faces) in the third."""
+    inside = through = 0
     for i in range(3):
-        cc = r["origin"][i] + r["size"][i] / 2
-        if p["origin"][i] - 1e-6 <= cc <= p["origin"][i] + p["size"][i] + 1e-6: k += 1
-    return k >= 2
+        plo, phi = p["origin"][i], p["origin"][i] + p["size"][i]
+        rlo, rhi = r["origin"][i], r["origin"][i] + r["size"][i]
+        if rlo >= plo - 1e-6 and rhi <= phi + 1e-6: inside += 1
+        elif rlo < plo and rhi > phi: through += 1
+    return inside == 2 and through == 1
 
 
 def remove_rounding(geo):
@@ -96,7 +98,7 @@ def remove_rounding(geo):
         drop = []
         for r in cubes:
             uv = r.get("uv")
-            if not isinstance(uv, list) or not _frac(r["size"]): continue
+            if not isinstance(uv, (list, dict)) or not _frac(r["size"]): continue   # box UV or per-face UV
             same = [p for p in cubes if p is not r and p.get("uv") == uv and list(p["size"]) != list(r["size"])
                     and p.get("rotation") == r.get("rotation") and _contains(p, r) and vol(p) > vol(r)]
             if same: drop.append(id(r))
@@ -125,6 +127,10 @@ if __name__ == "__main__":
     rep = fix_all_rounding(out)
     print("rounding cubes removed:", sum(n for _, n in rep), "in", len(rep), "models")
     for r in fix_items(out): print("  item anchor", r)
+    import balance
+    print("cannibal club cubes removed:", balance.cannibal_unarmed(out))
+    rows = balance.stats(out); print("entities balanced:", len(rows), "scripts:", balance.scripts(out))
+    balance.report(rows, os.path.join(os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__)))), "BALANCE.md"))
     import vanilla_combat
     print("vanilla combat: humans", vanilla_combat.humans(out), "orcs/shields.js", vanilla_combat.orcs(out))
     bump(out, ver)
