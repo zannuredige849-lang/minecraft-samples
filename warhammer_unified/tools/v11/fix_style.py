@@ -133,6 +133,9 @@ if __name__ == "__main__":
     balance.report(rows, os.path.join(os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__)))), "BALANCE.md"))
     import vanilla_combat
     print("vanilla combat: humans", vanilla_combat.humans(out), "orcs/shields.js", vanilla_combat.orcs(out))
+    print("troll gear tables:", vanilla_combat.troll_gear(out), "villager cubes removed:", vanilla_combat.villagers_plain(out))
+    import cannibal_tex
+    print("cannibal troll repainted (cubes, texture size):", cannibal_tex.run(out))
     bump(out, ver)
     if len(sys.argv) > 5:
         from apply11 import check_and_pack

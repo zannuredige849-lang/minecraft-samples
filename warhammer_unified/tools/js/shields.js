@@ -1,4 +1,4 @@
-// v10.8.5 Vanilla shields for item-holding mobs (orcs, goblins, item-holding trolls). Humans have their own shield
+// v10.8.5 Vanilla shields for item-holding mobs (orcs, goblins; trolls never carry shields since v10.8.7). Humans have their own shield
 // logic in settlements.js. Only stable @minecraft/server 1.14.0 APIs.
 //  * 40 % of melee orcs get a vanilla shield in the off hand (rolled once per orc; ranged orcs never).
 //  * A mob holding a vanilla shield blocks like a player: only hits from the front, 100 % of arrows and other
@@ -6,7 +6,7 @@
 //  * At most one block every half second, so a player can always break through.
 import { world, system, EntityDamageCause } from "@minecraft/server";
 
-const HOLDERS = new Set(["cb:orc", "cb:green_orc", "cb:hell_orc", "cb:goblin", "cb:smart_troll", "cb:tribal_troll"]);
+const HOLDERS = new Set(["cb:orc", "cb:green_orc", "cb:hell_orc", "cb:goblin"]);
 const ORCS = new Set(["cb:orc", "cb:green_orc", "cb:hell_orc"]);
 const ROLLED = "cb_shield_rolled";
 const disabledUntil = new Map();

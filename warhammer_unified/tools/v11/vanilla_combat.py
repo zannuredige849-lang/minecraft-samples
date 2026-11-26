@@ -102,7 +102,62 @@ def orcs(out):
     return "./shields.js" in m
 
 
+# ---------------------------------------------------------------------------------------------- v10.8.7
+TROLL_WEAPONS = {   # trolls: only wooden, stone and copper weapons; no bows, crossbows, arrows, tridents, shields, totems
+    "smart_troll": [("minecraft:stone_axe", 3), ("minecraft:copper_axe", 3), ("minecraft:stone_spear", 3), ("minecraft:copper_spear", 2),
+                    ("minecraft:copper_sword", 2), ("minecraft:stone_sword", 2)],
+    "tribal_troll": [("minecraft:wooden_spear", 3), ("minecraft:stone_spear", 3), ("minecraft:wooden_sword", 2), ("minecraft:stone_axe", 2),
+                     ("minecraft:wooden_axe", 2), ("minecraft:copper_spear", 1)],
+}
+
+
+def troll_gear(out):
+    n = 0
+    for m, weapons in TROLL_WEAPONS.items():
+        p = f"{out}/behavior_pack/loot_tables/entities/{m}_gear.json"
+        if not os.path.exists(p): continue
+        W(p, {"pools": [{"rolls": 1, "entries": [{"type": "item", "name": i, "weight": w} for i, w in weapons]}]}); n += 1
+    return n
+
+
+HUMAN_EXTRA = {"geometry.cb_human_villager": ["toolBelt", "knightArmor", "backQuiver", "captainCape", "crest", "shieldBone"],
+               "geometry.cb_human_civilian": ["dressSkirt"]}
+
+
+def villagers_plain(out):
+    """People keep only the vanilla player body (head, body, arms, legs: the skins draw the clothes): the modelled belt,
+    pouches, knight armour, quiver, cape, crest, shield, skirt and hair bun go. Residents (role villager) carry nothing."""
+    n = 0
+    for f in ("human.geo.json", "human_civilian.geo.json"):
+        p = f"{out}/resource_pack/models/entity/{f}"; d = L(p)
+        for g in d["minecraft:geometry"]:
+            extra = HUMAN_EXTRA.get(g["description"]["identifier"], [])
+            for b in g["bones"]:
+                cs = b.get("cubes") or []
+                if b["name"] in extra: keep = []
+                elif b["name"] in ("body", "head"): keep = cs[:1]      # the 8x12x4 body / 8x8x8 head; belt layer, bun go
+                else: keep = cs
+                n += len(cs) - len(keep)
+                if cs: b["cubes"] = keep
+        W(p, d)
+    js = f"{out}/behavior_pack/scripts/settlements.js"; s = open(js, encoding="utf-8").read()
+    a = s.find("function equipVillagerForJob(v, job) {")
+    if a >= 0:
+        b = s.index("\n}\n", a) + 3
+        s = s[:a] + """function equipVillagerForJob(v, job) {
+  // v10.8.7: residents carry no tools and wear no armour (their skins show their trade)
+  setEntitySlot(v, EquipmentSlot.Mainhand, null);
+  setEntitySlot(v, EquipmentSlot.Offhand, null);
+  setEntitySlot(v, EquipmentSlot.Chest, null);
+  try { v.setProperty("cb:weapon_type", WTYPE_NONE); } catch (e) {}
+}
+""" + s[b:]
+        open(js, "w", encoding="utf-8").write(s)
+    return n
+
+
 if __name__ == "__main__":
     out = sys.argv[1]
     print("humans:", humans(out))
     print("orcs + shields.js:", orcs(out))
+    print("troll gear tables:", troll_gear(out), "villager cubes removed:", villagers_plain(out))
