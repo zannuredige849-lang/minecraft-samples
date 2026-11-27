@@ -1,0 +1,8 @@
+{
+  "format_version": "1.16.100",
+  "minecraft:texture_set": {
+    "color": "zeus_archon",
+    "metalness_emissive_roughness": "zeus_archon_mer",
+    "heightmap": "zeus_archon_height"
+  }
+}

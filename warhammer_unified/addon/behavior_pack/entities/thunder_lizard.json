@@ -1,0 +1,663 @@
+{
+  "format_version": "1.21.0",
+  "minecraft:entity": {
+    "description": {
+      "identifier": "cb:thunder_lizard",
+      "is_spawnable": true,
+      "is_summonable": true,
+      "is_experimental": false,
+      "properties": {
+        "cb:variant": {
+          "type": "int",
+          "range": [
+            0,
+            2
+          ],
+          "default": 0,
+          "client_sync": true
+        },
+        "cb:charge": {
+          "type": "bool",
+          "default": false,
+          "client_sync": true
+        },
+        "cb:dancing": {
+          "type": "bool",
+          "default": false,
+          "client_sync": true
+        }
+      }
+    },
+    "components": {
+      "minecraft:type_family": {
+        "family": [
+          "thunder_lizard",
+          "lizard",
+          "beast",
+          "orc_mount",
+          "mob",
+          "f_tribes",
+          "summon_safe"
+        ]
+      },
+      "minecraft:health": {
+        "value": 30,
+        "max": 30
+      },
+      "minecraft:attack": {
+        "damage": 4
+      },
+      "minecraft:collision_box": {
+        "width": 1.6,
+        "height": 1.5
+      },
+      "minecraft:movement": {
+        "value": 0.2
+      },
+      "minecraft:movement.basic": {},
+      "minecraft:navigation.walk": {
+        "avoid_water": true,
+        "avoid_damage_blocks": true
+      },
+      "minecraft:jump.static": {},
+      "minecraft:horse.jump_strength": {
+        "value": {
+          "range_min": 0.75,
+          "range_max": 1.0
+        }
+      },
+      "minecraft:physics": {},
+      "minecraft:pushable": {
+        "is_pushable": true,
+        "is_pushable_by_piston": true
+      },
+      "minecraft:knockback_resistance": {
+        "value": 0.4
+      },
+      "minecraft:breathable": {
+        "total_supply": 15,
+        "suffocate_time": 0
+      },
+      "minecraft:nameable": {},
+      "minecraft:leashable": {
+        "soft_distance": 4,
+        "hard_distance": 6,
+        "max_distance": 10
+      },
+      "minecraft:healable": {
+        "items": [
+          {
+            "item": "apple",
+            "heal_amount": 3
+          },
+          {
+            "item": "golden_apple",
+            "heal_amount": 6
+          },
+          {
+            "item": "enchanted_golden_apple",
+            "heal_amount": 6
+          },
+          {
+            "item": "melon_slice",
+            "heal_amount": 3
+          },
+          {
+            "item": "sweet_berries",
+            "heal_amount": 3
+          },
+          {
+            "item": "glow_berries",
+            "heal_amount": 3
+          },
+          {
+            "item": "chorus_fruit",
+            "heal_amount": 3
+          },
+          {
+            "item": "carrot",
+            "heal_amount": 3
+          },
+          {
+            "item": "golden_carrot",
+            "heal_amount": 6
+          },
+          {
+            "item": "potato",
+            "heal_amount": 3
+          },
+          {
+            "item": "baked_potato",
+            "heal_amount": 3
+          },
+          {
+            "item": "beetroot",
+            "heal_amount": 3
+          },
+          {
+            "item": "bread",
+            "heal_amount": 6
+          },
+          {
+            "item": "wheat",
+            "heal_amount": 3
+          },
+          {
+            "item": "pumpkin_pie",
+            "heal_amount": 6
+          },
+          {
+            "item": "cookie",
+            "heal_amount": 3
+          },
+          {
+            "item": "dried_kelp",
+            "heal_amount": 3
+          },
+          {
+            "item": "cactus",
+            "heal_amount": 3
+          },
+          {
+            "item": "sugar",
+            "heal_amount": 3
+          },
+          {
+            "item": "beef",
+            "heal_amount": 3
+          },
+          {
+            "item": "cooked_beef",
+            "heal_amount": 6
+          },
+          {
+            "item": "porkchop",
+            "heal_amount": 3
+          },
+          {
+            "item": "cooked_porkchop",
+            "heal_amount": 6
+          },
+          {
+            "item": "chicken",
+            "heal_amount": 3
+          },
+          {
+            "item": "cooked_chicken",
+            "heal_amount": 6
+          },
+          {
+            "item": "mutton",
+            "heal_amount": 3
+          },
+          {
+            "item": "cooked_mutton",
+            "heal_amount": 6
+          },
+          {
+            "item": "rabbit",
+            "heal_amount": 3
+          },
+          {
+            "item": "cooked_rabbit",
+            "heal_amount": 6
+          },
+          {
+            "item": "cod",
+            "heal_amount": 3
+          },
+          {
+            "item": "cooked_cod",
+            "heal_amount": 6
+          },
+          {
+            "item": "salmon",
+            "heal_amount": 3
+          },
+          {
+            "item": "cooked_salmon",
+            "heal_amount": 6
+          },
+          {
+            "item": "tropical_fish",
+            "heal_amount": 3
+          },
+          {
+            "item": "rabbit_stew",
+            "heal_amount": 6
+          }
+        ]
+      },
+      "minecraft:loot": {
+        "table": "loot_tables/entities/thunder_lizard.json"
+      },
+      "minecraft:experience_reward": {
+        "on_death": "query.last_hit_by_player ? 5 : 0"
+      },
+      "minecraft:ambient_sound_interval": {
+        "value": 8,
+        "range": 10,
+        "event_name": "ambient"
+      },
+      "minecraft:damage_sensor": {
+        "triggers": [
+          {
+            "cause": "lightning",
+            "deals_damage": false
+          },
+          {
+            "cause": "fall",
+            "damage_multiplier": 0.5
+          }
+        ]
+      },
+      "minecraft:behavior.float": {
+        "priority": 0
+      }
+    },
+    "component_groups": {
+      "cb:wild": {
+        "minecraft:behavior.ram_attack": {
+          "priority": 3,
+          "run_speed": 0.6,
+          "ram_speed": 1.9,
+          "min_ram_distance": 3,
+          "ram_distance": 8,
+          "knockback_force": 3.0,
+          "knockback_height": 0.1,
+          "cooldown_range": [
+            3,
+            6
+          ]
+        },
+        "minecraft:despawn": {
+          "despawn_from_distance": {
+            "min_distance": 64,
+            "max_distance": 128
+          }
+        },
+        "minecraft:tameable": {
+          "probability": 0.33,
+          "tame_items": [
+            "apple",
+            "golden_apple",
+            "enchanted_golden_apple",
+            "melon_slice",
+            "sweet_berries",
+            "glow_berries",
+            "chorus_fruit",
+            "carrot",
+            "golden_carrot",
+            "potato",
+            "baked_potato",
+            "beetroot",
+            "bread",
+            "wheat",
+            "pumpkin_pie",
+            "cookie",
+            "dried_kelp",
+            "cactus",
+            "sugar",
+            "beef",
+            "cooked_beef",
+            "porkchop",
+            "cooked_porkchop",
+            "chicken",
+            "cooked_chicken",
+            "mutton",
+            "cooked_mutton",
+            "rabbit",
+            "cooked_rabbit",
+            "cod",
+            "cooked_cod",
+            "salmon",
+            "cooked_salmon",
+            "tropical_fish",
+            "rabbit_stew"
+          ],
+          "tame_event": {
+            "event": "cb:on_tame",
+            "target": "self"
+          }
+        }
+      },
+      "cb:tamed": {
+        "minecraft:is_tamed": {},
+        "minecraft:equippable": {
+          "slots": [
+            {
+              "slot": 0,
+              "item": "saddle",
+              "accepted_items": [
+                "saddle"
+              ],
+              "on_equip": {
+                "event": "cb:saddled"
+              },
+              "on_unequip": {
+                "event": "cb:unsaddled"
+              }
+            }
+          ]
+        },
+        "minecraft:inventory": {
+          "inventory_size": 1,
+          "container_type": "horse"
+        },
+        "minecraft:interact": {
+          "interactions": [
+            {
+              "on_interact": {
+                "filters": {
+                  "all_of": [
+                    {
+                      "test": "has_equipment",
+                      "subject": "self",
+                      "domain": "inventory",
+                      "operator": "not",
+                      "value": "saddle"
+                    },
+                    {
+                      "test": "has_equipment",
+                      "subject": "other",
+                      "domain": "hand",
+                      "value": "saddle"
+                    },
+                    {
+                      "test": "is_family",
+                      "subject": "other",
+                      "value": "player"
+                    }
+                  ]
+                },
+                "target": "self"
+              },
+              "equip_item_slot": "0",
+              "interact_text": "action.interact.saddle"
+            }
+          ]
+        },
+        "minecraft:behavior.follow_owner": {
+          "priority": 5,
+          "speed_multiplier": 1.0,
+          "start_distance": 10,
+          "stop_distance": 3
+        },
+        "minecraft:behavior.owner_hurt_by_target": {
+          "priority": 1,
+          "entity_types": [
+            {
+              "filters": {
+                "all_of": [
+                  {
+                    "test": "is_family",
+                    "subject": "other",
+                    "operator": "!=",
+                    "value": "f_tribes"
+                  }
+                ]
+              },
+              "max_dist": 64
+            }
+          ]
+        },
+        "minecraft:behavior.owner_hurt_target": {
+          "priority": 2
+        },
+        "minecraft:behavior.ram_attack": {
+          "priority": 3,
+          "run_speed": 0.65,
+          "ram_speed": 1.95,
+          "min_ram_distance": 2,
+          "ram_distance": 9,
+          "knockback_force": 3.2,
+          "knockback_height": 0.25,
+          "cooldown_range": [
+            2,
+            4
+          ]
+        }
+      },
+      "cb:saddled": {
+        "minecraft:input_ground_controlled": {},
+        "minecraft:behavior.player_ride_tamed": {},
+        "minecraft:can_power_jump": {},
+        "minecraft:rideable": {
+          "seat_count": 1,
+          "crouching_skip_interact": true,
+          "family_types": [
+            "player",
+            "orc",
+            "brown_orc",
+            "green_orc",
+            "hell_orc",
+            "orc_slave"
+          ],
+          "interact_text": "action.interact.ride.horse",
+          "seats": [
+            {
+              "position": [
+                0.0,
+                1.0,
+                -0.1
+              ]
+            }
+          ]
+        }
+      },
+      "cb:ridden_player": {
+        "minecraft:is_tamed": {},
+        "minecraft:input_ground_controlled": {},
+        "minecraft:behavior.player_ride_tamed": {},
+        "minecraft:can_power_jump": {}
+      },
+      "cb:ridden": {
+        "minecraft:movement": {
+          "value": 0.28
+        },
+        "minecraft:attack": {
+          "damage": 7
+        }
+      },
+      "cb:free": {
+        "minecraft:behavior.hurt_by_target": {
+          "priority": 1,
+          "alert_same_type": true,
+          "entity_types": [
+            {
+              "filters": {
+                "all_of": [
+                  {
+                    "test": "is_family",
+                    "subject": "other",
+                    "operator": "!=",
+                    "value": "f_tribes"
+                  }
+                ]
+              },
+              "max_dist": 64
+            }
+          ]
+        },
+        "minecraft:behavior.melee_attack": {
+          "priority": 4,
+          "speed_multiplier": 1.3,
+          "track_target": true
+        },
+        "minecraft:behavior.random_stroll": {
+          "priority": 7,
+          "speed_multiplier": 0.8
+        },
+        "minecraft:behavior.look_at_player": {
+          "priority": 8,
+          "look_distance": 8,
+          "probability": 0.02
+        },
+        "minecraft:behavior.random_look_around": {
+          "priority": 9
+        },
+        "minecraft:behavior.ram_attack": {
+          "priority": 2,
+          "run_speed": 0.65,
+          "ram_speed": 1.95,
+          "min_ram_distance": 2,
+          "ram_distance": 9,
+          "knockback_force": 3.2,
+          "knockback_height": 0.25,
+          "cooldown_range": [
+            2,
+            5
+          ]
+        }
+      },
+      "cb:war_mount": {
+        "minecraft:rideable": {
+          "seat_count": 1,
+          "family_types": [
+            "orc",
+            "brown_orc",
+            "green_orc",
+            "hell_orc",
+            "orc_slave"
+          ],
+          "seats": [
+            {
+              "position": [
+                0.0,
+                1.0,
+                -0.1
+              ]
+            }
+          ]
+        },
+        "minecraft:behavior.nearest_attackable_target": {
+          "priority": 2,
+          "must_see": true,
+          "entity_types": [
+            {
+              "filters": {
+                "all_of": [
+                  {
+                    "test": "is_family",
+                    "subject": "other",
+                    "operator": "!=",
+                    "value": "f_tribes"
+                  },
+                  {
+                    "test": "is_family",
+                    "subject": "other",
+                    "value": "player"
+                  }
+                ]
+              },
+              "max_dist": 16
+            }
+          ]
+        }
+      }
+    },
+    "events": {
+      "minecraft:entity_spawned": {
+        "add": {
+          "component_groups": [
+            "cb:wild",
+            "cb:free"
+          ]
+        },
+        "set_property": {
+          "cb:variant": "math.random_integer(0, 2)"
+        }
+      },
+      "cb:on_tame": {
+        "remove": {
+          "component_groups": [
+            "cb:wild"
+          ]
+        },
+        "add": {
+          "component_groups": [
+            "cb:tamed"
+          ]
+        }
+      },
+      "cb:saddled": {
+        "add": {
+          "component_groups": [
+            "cb:saddled"
+          ]
+        }
+      },
+      "cb:unsaddled": {
+        "remove": {
+          "component_groups": [
+            "cb:saddled"
+          ]
+        }
+      },
+      "cb:player_ride_on": {
+        "add": {
+          "component_groups": [
+            "cb:ridden_player"
+          ]
+        }
+      },
+      "cb:player_ride_off": {
+        "remove": {
+          "component_groups": [
+            "cb:ridden_player"
+          ]
+        }
+      },
+      "cb:ridden_on": {
+        "add": {
+          "component_groups": [
+            "cb:ridden"
+          ]
+        }
+      },
+      "cb:ridden_off": {
+        "remove": {
+          "component_groups": [
+            "cb:ridden"
+          ]
+        }
+      },
+      "cb:start_charge": {
+        "set_property": {
+          "cb:charge": true
+        }
+      },
+      "cb:end_charge": {
+        "set_property": {
+          "cb:charge": false
+        }
+      },
+      "cb:make_war_mount": {
+        "remove": {
+          "component_groups": [
+            "cb:wild"
+          ]
+        },
+        "add": {
+          "component_groups": [
+            "cb:war_mount"
+          ]
+        }
+      },
+      "cb:steer_on": {
+        "remove": {
+          "component_groups": [
+            "cb:free"
+          ]
+        }
+      },
+      "cb:steer_off": {
+        "add": {
+          "component_groups": [
+            "cb:free"
+          ]
+        }
+      }
+    }
+  }
+}

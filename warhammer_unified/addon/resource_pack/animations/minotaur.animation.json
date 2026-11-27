@@ -1,0 +1,595 @@
+{
+  "format_version": "1.8.0",
+  "animations": {
+    "animation.minotaur.idle": {
+      "loop": true,
+      "bones": {
+        "torso": {
+          "rotation": [
+            "2 + math.sin(q.life_time * 95) * 2.2",
+            "math.sin(q.life_time * 45) * 2.0",
+            0
+          ],
+          "position": [
+            0,
+            "math.sin(q.life_time * 95) * 0.35",
+            0
+          ]
+        },
+        "head": {
+          "rotation": [
+            "3 + math.cos(q.life_time * 95) * 2.5",
+            "math.sin(q.life_time * 38) * 6.0",
+            0
+          ]
+        },
+        "jaw": {
+          "rotation": [
+            "2 + math.max(0, math.sin(q.life_time * 95)) * 4.5",
+            0,
+            0
+          ]
+        },
+        "rightArm": {
+          "rotation": [
+            "-16 + math.sin(q.life_time * 95) * 3.5",
+            -6,
+            "8 + math.abs(math.cos(q.life_time * 95)) * 2.5"
+          ]
+        },
+        "rightForearm": {
+          "rotation": [
+            "-18 + math.sin(q.life_time * 95 + 30) * 3.0",
+            0,
+            0
+          ]
+        },
+        "leftArm": {
+          "rotation": [
+            "-10 - math.sin(q.life_time * 95) * 3.5",
+            6,
+            "-8 - math.abs(math.cos(q.life_time * 95)) * 2.5"
+          ]
+        },
+        "leftForearm": {
+          "rotation": [
+            "-14 - math.sin(q.life_time * 95 + 30) * 3.0",
+            0,
+            0
+          ]
+        },
+        "tail": {
+          "rotation": [
+            "24 + math.sin(q.life_time * 95) * 4",
+            "math.cos(q.life_time * 75) * 10",
+            0
+          ]
+        }
+      }
+    },
+    "animation.minotaur.walk": {
+      "loop": true,
+      "bones": {
+        "rightLeg": {
+          "rotation": [
+            "math.cos(q.modified_distance_moved * 36.0) * 38.0",
+            0,
+            0
+          ]
+        },
+        "leftLeg": {
+          "rotation": [
+            "-math.cos(q.modified_distance_moved * 36.0) * 38.0",
+            0,
+            0
+          ]
+        },
+        "rightShin": {
+          "rotation": [
+            "math.max(0, math.sin(q.modified_distance_moved * 36.0)) * 34.0",
+            0,
+            0
+          ]
+        },
+        "leftShin": {
+          "rotation": [
+            "math.max(0, -math.sin(q.modified_distance_moved * 36.0)) * 34.0",
+            0,
+            0
+          ]
+        },
+        "torso": {
+          "position": [
+            0,
+            "-math.abs(math.sin(q.modified_distance_moved * 36.0)) * 1.1",
+            0
+          ],
+          "rotation": [
+            6,
+            "math.sin(q.modified_distance_moved * 36.0) * 6.0",
+            "math.cos(q.modified_distance_moved * 36.0) * 3.5"
+          ]
+        },
+        "head": {
+          "rotation": [
+            4,
+            "-math.sin(q.modified_distance_moved * 36.0) * 4.0",
+            0
+          ]
+        },
+        "rightArm": {
+          "rotation": [
+            "-18 - math.cos(q.modified_distance_moved * 36.0) * 24.0",
+            -6,
+            8
+          ]
+        },
+        "rightForearm": {
+          "rotation": [
+            -20,
+            0,
+            0
+          ]
+        },
+        "leftArm": {
+          "rotation": [
+            "-10 + math.cos(q.modified_distance_moved * 36.0) * 28.0",
+            6,
+            -8
+          ]
+        },
+        "leftForearm": {
+          "rotation": [
+            -16,
+            0,
+            0
+          ]
+        },
+        "tail": {
+          "rotation": [
+            "32 + math.sin(q.modified_distance_moved * 36.0) * 8",
+            "math.cos(q.modified_distance_moved * 36.0) * 16",
+            0
+          ]
+        }
+      }
+    },
+    "animation.minotaur.attack": {
+      "loop": true,
+      "bones": {
+        "torso": {
+          "rotation": [
+            "-10 + math.max(math.sin(variable.attack_time * 180.0), math.abs(math.sin(q.anim_time * 260.0))) * 28",
+            "16 - math.max(math.sin(variable.attack_time * 180.0), math.abs(math.sin(q.anim_time * 260.0))) * 38",
+            0
+          ]
+        },
+        "head": {
+          "rotation": [
+            "-6 + math.max(math.sin(variable.attack_time * 180.0), math.abs(math.sin(q.anim_time * 260.0))) * 14",
+            0,
+            0
+          ]
+        },
+        "jaw": {
+          "rotation": [
+            "6 + math.max(math.sin(variable.attack_time * 180.0), math.abs(math.sin(q.anim_time * 260.0))) * 22",
+            0,
+            0
+          ]
+        },
+        "rightArm": {
+          "rotation": [
+            "-120 + math.max(math.sin(variable.attack_time * 180.0), math.abs(math.sin(q.anim_time * 260.0))) * 145",
+            "15 - math.max(math.sin(variable.attack_time * 180.0), math.abs(math.sin(q.anim_time * 260.0))) * 35",
+            12
+          ]
+        },
+        "rightForearm": {
+          "rotation": [
+            "-35 + math.max(math.sin(variable.attack_time * 180.0), math.abs(math.sin(q.anim_time * 260.0))) * 25",
+            0,
+            0
+          ]
+        },
+        "weapon": {
+          "rotation": [
+            "math.max(math.sin(variable.attack_time * 180.0), math.abs(math.sin(q.anim_time * 260.0))) * 25",
+            0,
+            0
+          ]
+        },
+        "leftArm": {
+          "rotation": [
+            "-25 + math.max(math.sin(variable.attack_time * 180.0), math.abs(math.sin(q.anim_time * 260.0))) * 35",
+            10,
+            -14
+          ]
+        }
+      }
+    },
+    "animation.minotaur.special_attack": {
+      "loop": true,
+      "bones": {
+        "torso": {
+          "rotation": [
+            "-14 + math.abs(math.sin(q.anim_time * 240.0)) * 34",
+            0,
+            0
+          ]
+        },
+        "head": {
+          "rotation": [
+            "-10 + math.abs(math.sin(q.anim_time * 240.0)) * 20",
+            0,
+            0
+          ]
+        },
+        "jaw": {
+          "rotation": [
+            "10 + math.abs(math.sin(q.anim_time * 240.0)) * 22",
+            0,
+            0
+          ]
+        },
+        "rightArm": {
+          "rotation": [
+            "-135 + math.abs(math.sin(q.anim_time * 240.0)) * 155",
+            -10,
+            10
+          ]
+        },
+        "leftArm": {
+          "rotation": [
+            "-120 + math.abs(math.sin(q.anim_time * 240.0)) * 140",
+            10,
+            -10
+          ]
+        }
+      }
+    },
+    "animation.minotaur.charge": {
+      "loop": true,
+      "bones": {
+        "torso": {
+          "rotation": [
+            24,
+            "math.sin(q.life_time * 540) * 6",
+            0
+          ],
+          "position": [
+            0,
+            "-1.0 + math.abs(math.sin(q.life_time * 540)) * 1.4",
+            0
+          ]
+        },
+        "head": {
+          "rotation": [
+            36,
+            0,
+            0
+          ]
+        },
+        "jaw": {
+          "rotation": [
+            18,
+            0,
+            0
+          ]
+        },
+        "rightLeg": {
+          "rotation": [
+            "math.cos(q.life_time * 640) * 48.0",
+            0,
+            0
+          ]
+        },
+        "leftLeg": {
+          "rotation": [
+            "-math.cos(q.life_time * 640) * 48.0",
+            0,
+            0
+          ]
+        },
+        "rightShin": {
+          "rotation": [
+            "math.max(0, math.sin(q.life_time * 640)) * 44.0",
+            0,
+            0
+          ]
+        },
+        "leftShin": {
+          "rotation": [
+            "math.max(0, -math.sin(q.life_time * 640)) * 44.0",
+            0,
+            0
+          ]
+        },
+        "rightArm": {
+          "rotation": [
+            "20 + math.cos(q.life_time * 640) * 28.0",
+            0,
+            14
+          ]
+        },
+        "leftArm": {
+          "rotation": [
+            "-45 - math.cos(q.life_time * 640) * 28.0",
+            0,
+            -14
+          ]
+        },
+        "tail": {
+          "rotation": [
+            58,
+            "math.sin(q.life_time * 540) * 18",
+            0
+          ]
+        }
+      }
+    },
+    "animation.minotaur.wall_break": {
+      "loop": true,
+      "bones": {
+        "torso": {
+          "rotation": [
+            "18 - math.abs(math.sin(q.anim_time * 240.0)) * 32",
+            0,
+            0
+          ]
+        },
+        "head": {
+          "rotation": [
+            "32 - math.abs(math.sin(q.anim_time * 240.0)) * 68",
+            0,
+            0
+          ]
+        },
+        "jaw": {
+          "rotation": [
+            24,
+            0,
+            0
+          ]
+        },
+        "leftArm": {
+          "rotation": [
+            "-95 - math.abs(math.sin(q.anim_time * 240.0)) * 45",
+            16,
+            -12
+          ]
+        },
+        "leftForearm": {
+          "rotation": [
+            -28,
+            0,
+            0
+          ]
+        },
+        "rightArm": {
+          "rotation": [
+            -35,
+            -12,
+            16
+          ]
+        }
+      }
+    },
+    "animation.minotaur.axe_slam": {
+      "loop": true,
+      "bones": {
+        "torso": {
+          "rotation": [
+            "-22 + math.abs(math.sin(q.anim_time * 240.0)) * 48",
+            0,
+            0
+          ]
+        },
+        "head": {
+          "rotation": [
+            "-14 + math.abs(math.sin(q.anim_time * 240.0)) * 28",
+            0,
+            0
+          ]
+        },
+        "jaw": {
+          "rotation": [
+            26,
+            0,
+            0
+          ]
+        },
+        "rightArm": {
+          "rotation": [
+            "-145 + math.abs(math.sin(q.anim_time * 240.0)) * 165",
+            -12,
+            10
+          ]
+        },
+        "rightForearm": {
+          "rotation": [
+            -25,
+            0,
+            0
+          ]
+        },
+        "weapon": {
+          "rotation": [
+            "math.abs(math.sin(q.anim_time * 240.0)) * 30",
+            0,
+            0
+          ]
+        },
+        "leftArm": {
+          "rotation": [
+            "-135 + math.abs(math.sin(q.anim_time * 240.0)) * 150",
+            12,
+            -10
+          ]
+        },
+        "leftForearm": {
+          "rotation": [
+            -25,
+            0,
+            0
+          ]
+        }
+      }
+    },
+    "animation.minotaur.stun": {
+      "loop": true,
+      "bones": {
+        "torso": {
+          "rotation": [
+            18,
+            "math.sin(q.life_time * 260) * 8",
+            "math.cos(q.life_time * 260) * 6"
+          ]
+        },
+        "head": {
+          "rotation": [
+            26,
+            "math.sin(q.life_time * 320) * 14",
+            "math.cos(q.life_time * 320) * 10"
+          ]
+        },
+        "jaw": {
+          "rotation": [
+            16,
+            0,
+            0
+          ]
+        },
+        "rightArm": {
+          "rotation": [
+            12,
+            0,
+            14
+          ]
+        },
+        "leftArm": {
+          "rotation": [
+            12,
+            0,
+            -14
+          ]
+        }
+      }
+    },
+    "animation.minotaur.rage": {
+      "loop": true,
+      "bones": {
+        "torso": {
+          "rotation": [
+            4,
+            0,
+            0
+          ]
+        },
+        "jaw": {
+          "rotation": [
+            "8 + math.abs(math.sin(q.life_time * 240)) * 10",
+            0,
+            0
+          ]
+        }
+      }
+    },
+    "animation.minotaur.hurt": {
+      "loop": true,
+      "bones": {
+        "torso": {
+          "rotation": [
+            -8,
+            0,
+            "math.sin(q.life_time * 720) * 5"
+          ]
+        },
+        "head": {
+          "rotation": [
+            -10,
+            0,
+            0
+          ]
+        },
+        "jaw": {
+          "rotation": [
+            16,
+            0,
+            0
+          ]
+        }
+      }
+    },
+    "animation.minotaur.death": {
+      "loop": "hold_on_last_frame",
+      "animation_length": 1.0,
+      "bones": {
+        "root": {
+          "rotation": {
+            "0.0": [
+              0,
+              0,
+              0
+            ],
+            "1.0": [
+              -85,
+              0,
+              0
+            ]
+          },
+          "position": {
+            "0.0": [
+              0,
+              0,
+              0
+            ],
+            "1.0": [
+              0,
+              -10,
+              8
+            ]
+          }
+        }
+      }
+    },
+    "animation.minotaur.dance": {
+      "loop": true,
+      "bones": {
+        "torso": {
+          "position": [
+            0,
+            "math.abs(math.sin(q.life_time * 400)) * 2.5",
+            0
+          ],
+          "rotation": [
+            "math.sin(q.life_time * 400) * 10",
+            "math.cos(q.life_time * 200) * 20",
+            "math.sin(q.life_time * 200) * 10"
+          ]
+        },
+        "head": {
+          "rotation": [
+            "math.sin(q.life_time * 400) * 14",
+            "math.cos(q.life_time * 200) * 18",
+            0
+          ]
+        },
+        "rightArm": {
+          "rotation": [
+            "-120 + math.sin(q.life_time * 400) * 35",
+            0,
+            22
+          ]
+        },
+        "leftArm": {
+          "rotation": [
+            "-120 - math.sin(q.life_time * 400) * 35",
+            0,
+            -22
+          ]
+        }
+      }
+    }
+  }
+}

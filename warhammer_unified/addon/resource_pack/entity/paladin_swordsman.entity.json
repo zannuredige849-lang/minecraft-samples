@@ -1,0 +1,39 @@
+{
+ "format_version": "1.10.0",
+ "minecraft:client_entity": {
+  "description": {
+   "identifier": "warcraft:paladin_swordsman",
+   "materials": {
+    "default": "entity_alphatest"
+   },
+   "textures": {
+    "default": "textures/entity/paladin_swordsman_voxel"
+   },
+   "geometry": {
+    "default": "geometry.paladin_swordsman"
+   },
+   "animations": {
+    "idle_a": "animation.paladin_swordsman.idle_a",
+    "idle_b": "animation.paladin_swordsman.idle_b",
+    "walk": "animation.paladin_swordsman.walk",
+    "attack_a": "animation.paladin_swordsman.attack_a",
+    "attack_b": "animation.paladin_swordsman.attack_b",
+    "ability": "animation.paladin_swordsman.ability",
+    "death": "animation.paladin_swordsman.death",
+    "move_ctrl": "controller.animation.paladin_swordsman"
+   },
+   "scripts": {
+    "animate": [
+     "move_ctrl"
+    ]
+   },
+   "render_controllers": [
+    "controller.render.default"
+   ],
+   "spawn_egg": {
+    "base_color": "#e5c159",
+    "overlay_color": "#dcae3c"
+   }
+  }
+ }
+}

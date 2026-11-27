@@ -1,0 +1,416 @@
+{
+  "format_version": "1.21.0",
+  "minecraft:entity": {
+    "description": {
+      "identifier": "cb:dreadlord",
+      "is_spawnable": true,
+      "is_summonable": true,
+      "is_experimental": false,
+      "properties": {
+        "cb:charging": {
+          "type": "bool",
+          "default": false,
+          "client_sync": true
+        },
+        "cb:mist": {
+          "type": "bool",
+          "default": false,
+          "client_sync": true
+        },
+        "cb:enraged": {
+          "type": "bool",
+          "default": false,
+          "client_sync": true
+        },
+        "cb:phase": {
+          "type": "int",
+          "range": [
+            1,
+            2
+          ],
+          "default": 1,
+          "client_sync": true
+        },
+        "cb:cast_state": {
+          "type": "int",
+          "range": [
+            0,
+            5
+          ],
+          "default": 0,
+          "client_sync": true
+        },
+        "cb:dancing": {
+          "type": "bool",
+          "default": false,
+          "client_sync": true
+        }
+      }
+    },
+    "components": {
+      "minecraft:type_family": {
+        "family": [
+          "dreadlord",
+          "lord",
+          "terror_lord",
+          "undead",
+          "scourge",
+          "undead_faction",
+          "boss",
+          "mob",
+          "f_scourge",
+          "summon_safe"
+        ]
+      },
+      "minecraft:health": {
+        "value": 220,
+        "max": 220
+      },
+      "minecraft:collision_box": {
+        "width": 2.0,
+        "height": 3.5
+      },
+      "minecraft:movement": {
+        "value": 0.28
+      },
+      "minecraft:movement.basic": {},
+      "minecraft:navigation.walk": {
+        "can_path_over_water": true,
+        "avoid_damage_blocks": true
+      },
+      "minecraft:breathable": {
+        "total_supply": 300,
+        "suffocate_time": 0,
+        "breathes_water": true,
+        "breathes_air": true
+      },
+      "minecraft:jump.static": {},
+      "minecraft:physics": {},
+      "minecraft:pushable": {
+        "is_pushable": false,
+        "is_pushable_by_piston": true
+      },
+      "minecraft:knockback_resistance": {
+        "value": 0.55
+      },
+      "minecraft:attack": {
+        "damage": 10
+      },
+      "minecraft:follow_range": {
+        "value": 42,
+        "max": 42
+      },
+      "minecraft:boss": {
+        "name": "entity.cb:dreadlord.name",
+        "hud_range": 55,
+        "should_darken_sky": false
+      },
+      "minecraft:persistent": {},
+      "minecraft:behavior.float": {
+        "priority": 0
+      },
+      "minecraft:behavior.hurt_by_target": {
+        "priority": 1,
+        "entity_types": [
+          {
+            "filters": {
+              "all_of": [
+                {
+                  "test": "is_family",
+                  "subject": "other",
+                  "operator": "!=",
+                  "value": "f_scourge"
+                },
+                {
+                  "test": "is_family",
+                  "subject": "other",
+                  "operator": "!=",
+                  "value": "undead_faction"
+                }
+              ]
+            }
+          }
+        ]
+      },
+      "minecraft:behavior.nearest_attackable_target": {
+        "priority": 2,
+        "must_see": false,
+        "reevaluate_description": true,
+        "within_radius": 32.0,
+        "entity_types": [
+          {
+            "filters": {
+              "all_of": [
+                {
+                  "test": "is_family",
+                  "subject": "other",
+                  "operator": "!=",
+                  "value": "f_scourge"
+                },
+                {
+                  "test": "is_family",
+                  "subject": "other",
+                  "value": "warden"
+                }
+              ]
+            },
+            "max_dist": 40,
+            "must_see": false
+          },
+          {
+            "filters": {
+              "all_of": [
+                {
+                  "test": "is_family",
+                  "subject": "other",
+                  "operator": "!=",
+                  "value": "f_scourge"
+                },
+                {
+                  "any_of": [
+                    {
+                      "test": "is_family",
+                      "subject": "other",
+                      "value": "player"
+                    },
+                    {
+                      "test": "is_family",
+                      "subject": "other",
+                      "value": "irongolem"
+                    },
+                    {
+                      "test": "is_family",
+                      "subject": "other",
+                      "value": "snowgolem"
+                    }
+                  ]
+                }
+              ]
+            },
+            "max_dist": 32
+          },
+          {
+            "filters": {
+              "all_of": [
+                {
+                  "test": "is_family",
+                  "subject": "other",
+                  "operator": "!=",
+                  "value": "f_scourge"
+                },
+                {
+                  "none_of": [
+                    {
+                      "test": "is_family",
+                      "subject": "other",
+                      "value": "dreadlord"
+                    },
+                    {
+                      "test": "is_family",
+                      "subject": "other",
+                      "value": "lich_king"
+                    },
+                    {
+                      "test": "is_family",
+                      "subject": "other",
+                      "value": "undead"
+                    },
+                    {
+                      "test": "is_family",
+                      "subject": "other",
+                      "value": "scourge"
+                    },
+                    {
+                      "test": "is_family",
+                      "subject": "other",
+                      "value": "undead_faction"
+                    }
+                  ]
+                },
+                {
+                  "any_of": [
+                    {
+                      "test": "is_family",
+                      "subject": "other",
+                      "value": "boss"
+                    },
+                    {
+                      "test": "is_family",
+                      "subject": "other",
+                      "value": "cyclops"
+                    },
+                    {
+                      "test": "is_family",
+                      "subject": "other",
+                      "value": "hydra"
+                    },
+                    {
+                      "test": "is_family",
+                      "subject": "other",
+                      "value": "hydra_head"
+                    },
+                    {
+                      "test": "is_family",
+                      "subject": "other",
+                      "value": "circe"
+                    },
+                    {
+                      "test": "is_family",
+                      "subject": "other",
+                      "value": "guldan_boss"
+                    },
+                    {
+                      "test": "is_family",
+                      "subject": "other",
+                      "value": "laestrygonian"
+                    },
+                    {
+                      "test": "is_family",
+                      "subject": "other",
+                      "value": "brown_orc"
+                    },
+                    {
+                      "test": "is_family",
+                      "subject": "other",
+                      "value": "green_orc"
+                    },
+                    {
+                      "test": "is_family",
+                      "subject": "other",
+                      "value": "hell_orc"
+                    },
+                    {
+                      "test": "is_family",
+                      "subject": "other",
+                      "value": "fel_orc"
+                    },
+                    {
+                      "test": "is_family",
+                      "subject": "other",
+                      "value": "fel_demon"
+                    },
+                    {
+                      "test": "is_family",
+                      "subject": "other",
+                      "value": "minotaur"
+                    },
+                    {
+                      "test": "is_family",
+                      "subject": "other",
+                      "value": "fel_lord"
+                    },
+                    {
+                      "test": "is_family",
+                      "subject": "other",
+                      "value": "olympian_god"
+                    },
+                    {
+                      "test": "is_family",
+                      "subject": "other",
+                      "value": "zeus"
+                    },
+                    {
+                      "test": "is_family",
+                      "subject": "other",
+                      "value": "poseidon"
+                    },
+                    {
+                      "test": "is_family",
+                      "subject": "other",
+                      "value": "hades"
+                    },
+                    {
+                      "test": "is_family",
+                      "subject": "other",
+                      "value": "ares"
+                    },
+                    {
+                      "test": "is_family",
+                      "subject": "other",
+                      "value": "athena"
+                    },
+                    {
+                      "test": "is_family",
+                      "subject": "other",
+                      "value": "hephaestus"
+                    },
+                    {
+                      "test": "is_family",
+                      "subject": "other",
+                      "value": "monster"
+                    },
+                    {
+                      "test": "is_family",
+                      "subject": "other",
+                      "value": "illager"
+                    },
+                    {
+                      "test": "is_family",
+                      "subject": "other",
+                      "value": "pillager"
+                    },
+                    {
+                      "test": "is_family",
+                      "subject": "other",
+                      "value": "ravager"
+                    }
+                  ]
+                }
+              ]
+            },
+            "max_dist": 32
+          }
+        ]
+      },
+      "minecraft:behavior.melee_attack": {
+        "priority": 3,
+        "speed_multiplier": 1.15,
+        "track_target": true,
+        "reach_multiplier": 2.2,
+        "cooldown_time": 1.25
+      },
+      "minecraft:behavior.random_stroll": {
+        "priority": 6,
+        "speed_multiplier": 0.8
+      },
+      "minecraft:behavior.look_at_player": {
+        "priority": 7,
+        "look_distance": 18
+      },
+      "minecraft:behavior.random_look_around": {
+        "priority": 8
+      },
+      "minecraft:damage_sensor": {
+        "triggers": [
+          {
+            "on_damage": {
+              "filters": {
+                "any_of": [
+                  {
+                    "test": "is_family",
+                    "subject": "other",
+                    "value": "undead_faction"
+                  }
+                ]
+              }
+            },
+            "deals_damage": false
+          },
+          {
+            "cause": "fall",
+            "deals_damage": false
+          },
+          {
+            "cause": "drowning",
+            "deals_damage": false
+          },
+          {
+            "cause": "lightning",
+            "deals_damage": false
+          }
+        ]
+      }
+    },
+    "events": {}
+  }
+}

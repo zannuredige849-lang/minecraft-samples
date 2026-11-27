@@ -1,0 +1,73 @@
+{
+  "format_version": "1.10.0",
+  "animation_controllers": {
+    "controller.animation.cb_circe.move": {
+      "initial_state": "default",
+      "states": {
+        "default": {
+          "animations": [
+            {
+              "walk": "q.modified_move_speed"
+            }
+          ],
+          "transitions": [
+            {
+              "angry": "q.property('cb:angry')"
+            }
+          ]
+        },
+        "angry": {
+          "animations": [
+            "angry",
+            {
+              "walk": "q.modified_move_speed"
+            }
+          ],
+          "blend_transition": 0.3,
+          "transitions": [
+            {
+              "default": "!q.property('cb:angry')"
+            }
+          ]
+        }
+      }
+    },
+    "controller.animation.cb_circe.attack": {
+      "initial_state": "default",
+      "states": {
+        "default": {
+          "transitions": [
+            {
+              "cast": "q.property('cb:cast')"
+            },
+            {
+              "strike": "q.property('cb:swing')"
+            }
+          ]
+        },
+        "cast": {
+          "animations": [
+            "cast"
+          ],
+          "blend_transition": 0.1,
+          "transitions": [
+            {
+              "default": "!q.property('cb:cast')"
+            }
+          ]
+        },
+        "strike": {
+          "animations": [
+            "strike"
+          ],
+          "blend_transition": 0.08,
+          "transitions": [
+            {
+              "default": "!q.property('cb:swing')"
+            }
+          ]
+        }
+      }
+    }
+  }
+}

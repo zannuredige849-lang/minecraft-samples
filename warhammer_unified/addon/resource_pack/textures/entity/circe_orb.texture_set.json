@@ -1,0 +1,8 @@
+{
+  "format_version": "1.16.100",
+  "minecraft:texture_set": {
+    "color": "circe_orb",
+    "metalness_emissive_roughness": "circe_orb_mer",
+    "heightmap": "circe_orb_height"
+  }
+}

@@ -1,0 +1,38 @@
+{
+ "format_version": "1.10.0",
+ "minecraft:client_entity": {
+  "description": {
+   "identifier": "warcraft:pink_horror",
+   "materials": {
+    "default": "entity_alphatest"
+   },
+   "textures": {
+    "default": "textures/entity/pink_horror_voxel"
+   },
+   "geometry": {
+    "default": "geometry.pink_horror"
+   },
+   "animations": {
+    "walk": "animation.pink_horror.walk",
+    "ability": "animation.pink_horror.ability",
+    "ability2": "animation.pink_horror.ability2",
+    "death": "animation.pink_horror.death",
+    "move_ctrl": "controller.animation.pink_horror",
+    "idle_a": "animation.pink_horror.idle",
+    "attack_a": "animation.pink_horror.attack"
+   },
+   "scripts": {
+    "animate": [
+     "move_ctrl"
+    ]
+   },
+   "render_controllers": [
+    "controller.render.default"
+   ],
+   "spawn_egg": {
+    "base_color": "#d15689",
+    "overlay_color": "#a98a4a"
+   }
+  }
+ }
+}

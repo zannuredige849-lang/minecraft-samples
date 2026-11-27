@@ -1,0 +1,119 @@
+{
+  "format_version": "1.10.0",
+  "animation_controllers": {
+    "controller.animation.guldan": {
+      "initial_state": "idle",
+      "states": {
+        "idle": {
+          "animations": [
+            "idle",
+            {
+              "walk": "q.ground_speed > 0.05"
+            }
+          ],
+          "transitions": [
+            {
+              "cast_orb": "q.property('cb:state') == 1"
+            },
+            {
+              "drain": "q.property('cb:state') == 2"
+            },
+            {
+              "cast_curse": "q.property('cb:state') == 3"
+            },
+            {
+              "rain_prep": "q.property('cb:state') == 4 || q.property('cb:state') == 5 || q.property('cb:state') == 6"
+            },
+            {
+              "fel_nova": "q.property('cb:state') == 7"
+            },
+            {
+              "chain_fel": "q.property('cb:state') == 8"
+            },
+            {
+              "cast_meteor": "q.property('cb:state') == 9"
+            }
+          ],
+          "blend_transition": 0.12
+        },
+        "cast_orb": {
+          "animations": [
+            "cast_orb"
+          ],
+          "transitions": [
+            {
+              "idle": "q.property('cb:state') != 1"
+            }
+          ],
+          "blend_transition": 0.12
+        },
+        "drain": {
+          "animations": [
+            "drain"
+          ],
+          "transitions": [
+            {
+              "idle": "q.property('cb:state') != 2"
+            }
+          ],
+          "blend_transition": 0.12
+        },
+        "cast_curse": {
+          "animations": [
+            "cast_curse"
+          ],
+          "transitions": [
+            {
+              "idle": "q.property('cb:state') != 3"
+            }
+          ],
+          "blend_transition": 0.12
+        },
+        "rain_prep": {
+          "animations": [
+            "rain_prep"
+          ],
+          "transitions": [
+            {
+              "idle": "q.property('cb:state') != 4 && q.property('cb:state') != 5 && q.property('cb:state') != 6"
+            }
+          ],
+          "blend_transition": 0.12
+        },
+        "fel_nova": {
+          "animations": [
+            "fel_nova"
+          ],
+          "transitions": [
+            {
+              "idle": "q.property('cb:state') != 7"
+            }
+          ],
+          "blend_transition": 0.1
+        },
+        "chain_fel": {
+          "animations": [
+            "chain_fel"
+          ],
+          "transitions": [
+            {
+              "idle": "q.property('cb:state') != 8"
+            }
+          ],
+          "blend_transition": 0.1
+        },
+        "cast_meteor": {
+          "animations": [
+            "cast_meteor"
+          ],
+          "transitions": [
+            {
+              "idle": "q.property('cb:state') != 9"
+            }
+          ],
+          "blend_transition": 0.12
+        }
+      }
+    }
+  }
+}

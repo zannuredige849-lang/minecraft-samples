@@ -1,0 +1,314 @@
+{
+  "format_version": "1.21.0",
+  "minecraft:entity": {
+    "description": {
+      "identifier": "cb:smart_troll",
+      "is_spawnable": true,
+      "is_summonable": true,
+      "is_experimental": false,
+      "properties": {
+        "cb:variant": {
+          "type": "int",
+          "range": [
+            0,
+            2
+          ],
+          "default": 0,
+          "client_sync": true
+        },
+        "cb:dancing": {
+          "type": "bool",
+          "default": false,
+          "client_sync": true
+        }
+      }
+    },
+    "components": {
+      "minecraft:type_family": {
+        "family": [
+          "smart_troll",
+          "troll",
+          "troll_tribe",
+          "brown_orc",
+          "brown_orc_faction",
+          "mob",
+          "f_tribes",
+          "summon_safe"
+        ]
+      },
+      "minecraft:breathable": {
+        "total_supply": 15,
+        "suffocate_time": 0
+      },
+      "minecraft:collision_box": {
+        "width": 0.95,
+        "height": 3.3
+      },
+      "minecraft:health": {
+        "value": 22,
+        "max": 22
+      },
+      "minecraft:attack": {
+        "damage": 4
+      },
+      "minecraft:movement": {
+        "value": 0.28
+      },
+      "minecraft:navigation.walk": {
+        "can_path_over_water": true,
+        "can_open_doors": true,
+        "can_pass_doors": true,
+        "avoid_damage_blocks": true
+      },
+      "minecraft:annotation.open_door": {},
+      "minecraft:movement.basic": {},
+      "minecraft:jump.static": {},
+      "minecraft:can_climb": {},
+      "minecraft:knockback_resistance": {
+        "value": 0.25
+      },
+      "minecraft:follow_range": {
+        "value": 32,
+        "max": 32
+      },
+      "minecraft:damage_sensor": {
+        "triggers": [
+          {
+            "on_damage": {
+              "filters": {
+                "any_of": [
+                  {
+                    "test": "is_family",
+                    "subject": "other",
+                    "value": "brown_orc"
+                  },
+                  {
+                    "test": "is_family",
+                    "subject": "other",
+                    "value": "brown_orc_faction"
+                  },
+                  {
+                    "test": "is_family",
+                    "subject": "other",
+                    "value": "troll_tribe"
+                  }
+                ]
+              }
+            },
+            "deals_damage": false
+          }
+        ]
+      },
+      "minecraft:behavior.float": {
+        "priority": 0
+      },
+      "minecraft:behavior.hurt_by_target": {
+        "priority": 1,
+        "alert_same_type": true,
+        "entity_types": [
+          {
+            "filters": {
+              "all_of": [
+                {
+                  "test": "is_family",
+                  "subject": "other",
+                  "operator": "!=",
+                  "value": "f_tribes"
+                },
+                {
+                  "test": "is_family",
+                  "subject": "other",
+                  "operator": "!=",
+                  "value": "brown_orc"
+                },
+                {
+                  "test": "is_family",
+                  "subject": "other",
+                  "operator": "!=",
+                  "value": "brown_orc_faction"
+                },
+                {
+                  "test": "is_family",
+                  "subject": "other",
+                  "operator": "!=",
+                  "value": "troll_tribe"
+                }
+              ]
+            }
+          }
+        ]
+      },
+      "minecraft:behavior.nearest_attackable_target": {
+        "priority": 2,
+        "must_see": true,
+        "reselect_targets": true,
+        "within_radius": 24,
+        "entity_types": [
+          {
+            "filters": {
+              "all_of": [
+                {
+                  "test": "is_family",
+                  "subject": "other",
+                  "operator": "!=",
+                  "value": "f_tribes"
+                },
+                {
+                  "any_of": [
+                    {
+                      "test": "is_family",
+                      "subject": "other",
+                      "value": "undead"
+                    },
+                    {
+                      "test": "is_family",
+                      "subject": "other",
+                      "value": "green_orc"
+                    },
+                    {
+                      "test": "is_family",
+                      "subject": "other",
+                      "value": "hell_orc"
+                    },
+                    {
+                      "test": "is_family",
+                      "subject": "other",
+                      "value": "fel_orc"
+                    },
+                    {
+                      "test": "is_family",
+                      "subject": "other",
+                      "value": "fel_demon"
+                    },
+                    {
+                      "test": "is_family",
+                      "subject": "other",
+                      "value": "inferno_golem"
+                    },
+                    {
+                      "test": "is_family",
+                      "subject": "other",
+                      "value": "guldan_boss"
+                    },
+                    {
+                      "test": "is_family",
+                      "subject": "other",
+                      "value": "wild_troll"
+                    },
+                    {
+                      "test": "is_family",
+                      "subject": "other",
+                      "value": "cannibal_troll"
+                    },
+                    {
+                      "test": "is_family",
+                      "subject": "other",
+                      "value": "nurgle"
+                    },
+                    {
+                      "test": "is_family",
+                      "subject": "other",
+                      "value": "tzeentch"
+                    },
+                    {
+                      "test": "is_family",
+                      "subject": "other",
+                      "value": "faceless"
+                    },
+                    {
+                      "test": "is_family",
+                      "subject": "other",
+                      "value": "norsca_bandits"
+                    },
+                    {
+                      "test": "is_family",
+                      "subject": "other",
+                      "value": "kingdom_order"
+                    },
+                    {
+                      "test": "is_family",
+                      "subject": "other",
+                      "value": "undead_scourge"
+                    },
+                    {
+                      "test": "is_family",
+                      "subject": "other",
+                      "value": "ember_colossus"
+                    },
+                    {
+                      "test": "is_family",
+                      "subject": "other",
+                      "value": "black_blocker"
+                    },
+                    {
+                      "test": "is_family",
+                      "subject": "other",
+                      "value": "nature_ent"
+                    },
+                    {
+                      "test": "is_family",
+                      "subject": "other",
+                      "value": "horned_demon"
+                    },
+                    {
+                      "test": "is_family",
+                      "subject": "other",
+                      "value": "void_knight"
+                    },
+                    {
+                      "test": "is_family",
+                      "subject": "other",
+                      "value": "chaos_knight"
+                    },
+                    {
+                      "test": "is_family",
+                      "subject": "other",
+                      "value": "blood_angel"
+                    }
+                  ]
+                }
+              ]
+            },
+            "max_dist": 24
+          }
+        ]
+      },
+      "minecraft:behavior.melee_box_attack": {
+        "priority": 3,
+        "track_target": true,
+        "speed_multiplier": 1.18
+      },
+      "minecraft:behavior.random_stroll": {
+        "priority": 7,
+        "speed_multiplier": 0.85
+      },
+      "minecraft:behavior.look_at_player": {
+        "priority": 8,
+        "look_distance": 10.0
+      },
+      "minecraft:behavior.random_look_around": {
+        "priority": 9
+      },
+      "minecraft:physics": {},
+      "minecraft:pushable": {
+        "is_pushable": true,
+        "is_pushable_by_piston": true
+      },
+      "minecraft:equipment": {
+        "table": "loot_tables/entities/smart_troll_gear.json"
+      },
+      "minecraft:equip_item": {},
+      "minecraft:equippable": {},
+      "minecraft:scale": {
+        "value": 0.86
+      }
+    },
+    "events": {
+      "minecraft:entity_spawned": {
+        "set_property": {
+          "cb:variant": "math.random_integer(0, 2)"
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,417 @@
+{
+  "format_version": "1.8.0",
+  "animations": {
+    "animation.guldan.idle": {
+      "loop": true,
+      "bones": {
+        "body": {
+          "rotation": [
+            "6 + math.sin(q.life_time * 75) * 1.5",
+            0,
+            0
+          ]
+        },
+        "head": {
+          "rotation": [
+            "-4 + math.cos(q.life_time * 75) * 2",
+            0,
+            0
+          ]
+        },
+        "rightArm": {
+          "rotation": [
+            "-25 + math.sin(q.life_time * 90) * 4",
+            -8,
+            6
+          ]
+        },
+        "leftArm": {
+          "rotation": [
+            "-12 - math.sin(q.life_time * 90) * 4",
+            8,
+            -6
+          ]
+        },
+        "robe": {
+          "rotation": [
+            "math.sin(q.life_time * 75) * 1.5",
+            0,
+            0
+          ]
+        }
+      }
+    },
+    "animation.guldan.walk": {
+      "loop": true,
+      "bones": {
+        "body": {
+          "rotation": [
+            10,
+            "math.sin(q.modified_distance_moved * 38.17) * 4",
+            0
+          ]
+        },
+        "rightLeg": {
+          "rotation": [
+            "math.cos(q.modified_distance_moved * 38.17) * 36",
+            0,
+            0
+          ]
+        },
+        "leftLeg": {
+          "rotation": [
+            "-math.cos(q.modified_distance_moved * 38.17) * 36",
+            0,
+            0
+          ]
+        },
+        "rightArm": {
+          "rotation": [
+            "-30 - math.cos(q.modified_distance_moved * 38.17) * 18",
+            0,
+            6
+          ]
+        },
+        "leftArm": {
+          "rotation": [
+            "math.cos(q.modified_distance_moved * 38.17) * 24",
+            0,
+            -6
+          ]
+        },
+        "robe": {
+          "rotation": [
+            "math.abs(math.cos(q.modified_distance_moved * 38.17)) * 6",
+            0,
+            0
+          ]
+        }
+      }
+    },
+    "animation.guldan.cast_orb": {
+      "loop": true,
+      "bones": {
+        "body": {
+          "rotation": [
+            12,
+            -10,
+            0
+          ]
+        },
+        "head": {
+          "rotation": [
+            -8,
+            10,
+            0
+          ]
+        },
+        "rightArm": {
+          "rotation": [
+            "-95 + math.sin(q.life_time * 400) * 8",
+            -15,
+            0
+          ]
+        },
+        "leftArm": {
+          "rotation": [
+            -55,
+            15,
+            -10
+          ]
+        }
+      }
+    },
+    "animation.guldan.drain": {
+      "loop": true,
+      "bones": {
+        "body": {
+          "rotation": [
+            16,
+            0,
+            0
+          ]
+        },
+        "head": {
+          "rotation": [
+            -12,
+            0,
+            0
+          ]
+        },
+        "rightArm": {
+          "rotation": [
+            "-90 + math.sin(q.life_time * 320) * 5",
+            -12,
+            10
+          ]
+        },
+        "leftArm": {
+          "rotation": [
+            "-90 - math.sin(q.life_time * 320) * 5",
+            12,
+            -10
+          ]
+        }
+      }
+    },
+    "animation.guldan.cast_curse": {
+      "loop": true,
+      "bones": {
+        "body": {
+          "rotation": [
+            14,
+            0,
+            0
+          ]
+        },
+        "head": {
+          "rotation": [
+            -15,
+            0,
+            0
+          ]
+        },
+        "rightArm": {
+          "rotation": [
+            -125,
+            -20,
+            15
+          ]
+        },
+        "leftArm": {
+          "rotation": [
+            -115,
+            25,
+            -20
+          ]
+        }
+      }
+    },
+    "animation.guldan.rain_prep": {
+      "loop": true,
+      "bones": {
+        "rightArm": {
+          "rotation": [
+            "-150 + math.sin(q.life_time * 300) * 6",
+            0,
+            22
+          ]
+        },
+        "leftArm": {
+          "rotation": [
+            "-150 - math.sin(q.life_time * 300) * 6",
+            0,
+            -22
+          ]
+        },
+        "head": {
+          "rotation": [
+            -32,
+            0,
+            0
+          ]
+        },
+        "body": {
+          "rotation": [
+            8,
+            0,
+            0
+          ]
+        }
+      }
+    },
+    "animation.guldan.hurt": {
+      "loop": false,
+      "animation_length": 0.35,
+      "bones": {
+        "body": {
+          "rotation": {
+            "0.0": [
+              22,
+              0,
+              0
+            ],
+            "0.15": [
+              10,
+              0,
+              -12
+            ],
+            "0.35": [
+              22,
+              0,
+              0
+            ]
+          }
+        }
+      }
+    },
+    "animation.guldan.dance": {
+      "loop": true,
+      "bones": {
+        "root": {
+          "position": [
+            0,
+            "math.abs(math.sin(q.life_time * 380)) * 2.5",
+            0
+          ],
+          "rotation": [
+            0,
+            "math.sin(q.life_time * 190) * 22",
+            "math.cos(q.life_time * 190) * 8"
+          ]
+        },
+        "body": {
+          "rotation": [
+            "math.sin(q.life_time * 380) * 10",
+            0,
+            "math.sin(q.life_time * 190) * 10"
+          ]
+        },
+        "head": {
+          "rotation": [
+            "math.sin(q.life_time * 380) * 15",
+            "math.cos(q.life_time * 190) * 18",
+            0
+          ]
+        },
+        "rightArm": {
+          "rotation": [
+            "-110 + math.sin(q.life_time * 380) * 35",
+            0,
+            20
+          ]
+        },
+        "leftArm": {
+          "rotation": [
+            "-110 - math.sin(q.life_time * 380) * 35",
+            0,
+            -20
+          ]
+        },
+        "rightLeg": {
+          "rotation": [
+            "math.sin(q.life_time * 380) * 24",
+            0,
+            0
+          ]
+        },
+        "leftLeg": {
+          "rotation": [
+            "-math.sin(q.life_time * 380) * 24",
+            0,
+            0
+          ]
+        }
+      }
+    },
+    "animation.guldan.fel_nova": {
+      "loop": true,
+      "bones": {
+        "body": {
+          "rotation": [
+            "22 + math.sin(q.life_time * 450) * 4",
+            0,
+            0
+          ],
+          "position": [
+            0,
+            "-1.5 + math.abs(math.sin(q.life_time * 300)) * 1.5",
+            0
+          ]
+        },
+        "head": {
+          "rotation": [
+            -18,
+            0,
+            0
+          ]
+        },
+        "rightArm": {
+          "rotation": [
+            "-155 + math.sin(q.life_time * 500) * 20",
+            -18,
+            12
+          ]
+        },
+        "leftArm": {
+          "rotation": [
+            "-155 + math.sin(q.life_time * 500) * 20",
+            18,
+            -12
+          ]
+        }
+      }
+    },
+    "animation.guldan.chain_fel": {
+      "loop": true,
+      "bones": {
+        "body": {
+          "rotation": [
+            14,
+            -18,
+            0
+          ]
+        },
+        "head": {
+          "rotation": [
+            -6,
+            18,
+            0
+          ]
+        },
+        "rightArm": {
+          "rotation": [
+            "-92 + math.sin(q.life_time * 650) * 10",
+            -8,
+            "math.cos(q.life_time * 650) * 8"
+          ]
+        },
+        "leftArm": {
+          "rotation": [
+            "-110 - math.sin(q.life_time * 650) * 12",
+            22,
+            -18
+          ]
+        }
+      }
+    },
+    "animation.guldan.cast_meteor": {
+      "loop": true,
+      "bones": {
+        "body": {
+          "rotation": [
+            "-16 + math.sin(q.life_time * 360) * 4",
+            "math.cos(q.life_time * 180) * 8",
+            0
+          ],
+          "position": [
+            0,
+            "1.2 + math.sin(q.life_time * 240) * 0.8",
+            0
+          ]
+        },
+        "head": {
+          "rotation": [
+            "-38 + math.sin(q.life_time * 360) * 5",
+            0,
+            0
+          ]
+        },
+        "rightArm": {
+          "rotation": [
+            "-168 + math.sin(q.life_time * 480) * 14",
+            "-25 + math.cos(q.life_time * 480) * 12",
+            "28 + math.sin(q.life_time * 480) * 10"
+          ]
+        },
+        "leftArm": {
+          "rotation": [
+            "-168 - math.sin(q.life_time * 480) * 14",
+            "25 - math.cos(q.life_time * 480) * 12",
+            "-28 - math.sin(q.life_time * 480) * 10"
+          ]
+        }
+      }
+    }
+  }
+}

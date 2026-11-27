@@ -1,0 +1,43 @@
+{
+ "format_version": "1.10.0",
+ "minecraft:client_entity": {
+  "description": {
+   "identifier": "warcraft:great_unclean_one",
+   "min_engine_version": "1.16.0",
+   "materials": {
+    "default": "entity_alphatest"
+   },
+   "textures": {
+    "default": "textures/entity/great_unclean_one"
+   },
+   "geometry": {
+    "default": "geometry.great_unclean_one"
+   },
+   "animations": {
+    "walk": "animation.great_unclean_one.walk",
+    "idle_a": "animation.great_unclean_one.idle_a",
+    "idle_b": "animation.great_unclean_one.idle_b",
+    "channel": "animation.great_unclean_one.channel",
+    "attack_a": "animation.great_unclean_one.attack_a",
+    "attack_b": "animation.great_unclean_one.attack_b",
+    "slam": "animation.great_unclean_one.slam",
+    "death": "animation.great_unclean_one.death",
+    "flies": "animation.great_unclean_one.flies",
+    "controller": "controller.animation.great_unclean_one"
+   },
+   "scripts": {
+    "animate": [
+     "flies",
+     "controller"
+    ]
+   },
+   "render_controllers": [
+    "controller.render.great_unclean_one"
+   ],
+   "spawn_egg": {
+    "base_color": "#809b56",
+    "overlay_color": "#c8c070"
+   }
+  }
+ }
+}

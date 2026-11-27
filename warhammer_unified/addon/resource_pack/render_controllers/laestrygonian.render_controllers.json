@@ -1,0 +1,25 @@
+{
+  "format_version": "1.8.0",
+  "render_controllers": {
+    "controller.render.cb_laestrygonian": {
+      "arrays": {
+        "textures": {
+          "Array.skins": [
+            "Texture.rubicund",
+            "Texture.olive",
+            "Texture.ashen"
+          ]
+        }
+      },
+      "geometry": "Geometry.default",
+      "materials": [
+        {
+          "*": "Material.default"
+        }
+      ],
+      "textures": [
+        "Array.skins[math.clamp(q.property('cb:variant'), 0, 2)]"
+      ]
+    }
+  }
+}

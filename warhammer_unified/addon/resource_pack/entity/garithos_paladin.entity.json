@@ -1,0 +1,39 @@
+{
+ "format_version": "1.10.0",
+ "minecraft:client_entity": {
+  "description": {
+   "identifier": "warcraft:garithos_paladin",
+   "materials": {
+    "default": "entity_alphatest"
+   },
+   "textures": {
+    "default": "textures/entity/garithos_paladin_voxel"
+   },
+   "geometry": {
+    "default": "geometry.garithos_paladin"
+   },
+   "animations": {
+    "idle_a": "animation.garithos_paladin.idle_a",
+    "idle_b": "animation.garithos_paladin.idle_b",
+    "walk": "animation.garithos_paladin.walk",
+    "attack_a": "animation.garithos_paladin.attack_a",
+    "attack_b": "animation.garithos_paladin.attack_b",
+    "ability": "animation.garithos_paladin.ability",
+    "death": "animation.garithos_paladin.death",
+    "move_ctrl": "controller.animation.garithos_paladin"
+   },
+   "scripts": {
+    "animate": [
+     "move_ctrl"
+    ]
+   },
+   "render_controllers": [
+    "controller.render.default"
+   ],
+   "spawn_egg": {
+    "base_color": "#e4bd57",
+    "overlay_color": "#dcae3c"
+   }
+  }
+ }
+}

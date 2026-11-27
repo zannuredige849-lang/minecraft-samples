@@ -1,0 +1,57 @@
+{
+  "format_version": "1.10.0",
+  "animation_controllers": {
+    "controller.animation.cyclops.attack": {
+      "initial_state": "default",
+      "states": {
+        "default": {
+          "transitions": [
+            {
+              "attack": "q.property('cb:swing')"
+            }
+          ]
+        },
+        "attack": {
+          "animations": [
+            {
+              "attack_punch": "q.property('cb:attack') == 0"
+            },
+            {
+              "attack_smash": "q.property('cb:attack') == 1"
+            },
+            {
+              "attack_kick": "q.property('cb:attack') == 2"
+            },
+            {
+              "attack_stomp": "q.property('cb:attack') == 3"
+            },
+            {
+              "attack_swing": "q.property('cb:attack') == 4"
+            },
+            {
+              "attack_uppercut": "q.property('cb:attack') == 5"
+            },
+            {
+              "attack_backhand": "q.property('cb:attack') == 6"
+            },
+            {
+              "attack_clap": "q.property('cb:attack') == 7"
+            },
+            {
+              "attack_pound": "q.property('cb:attack') == 8"
+            },
+            {
+              "attack_combo": "q.property('cb:attack') == 9"
+            }
+          ],
+          "blend_transition": 0.08,
+          "transitions": [
+            {
+              "default": "!q.property('cb:swing')"
+            }
+          ]
+        }
+      }
+    }
+  }
+}

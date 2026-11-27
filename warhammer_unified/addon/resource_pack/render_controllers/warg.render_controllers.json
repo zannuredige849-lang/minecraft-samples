@@ -1,0 +1,25 @@
+{
+  "format_version": "1.8.0",
+  "render_controllers": {
+    "controller.render.cb_warg": {
+      "arrays": {
+        "textures": {
+          "Array.skins": [
+            "Texture.dusk",
+            "Texture.bark",
+            "Texture.ash"
+          ]
+        }
+      },
+      "geometry": "Geometry.default",
+      "materials": [
+        {
+          "*": "Material.default"
+        }
+      ],
+      "textures": [
+        "Array.skins[math.clamp(q.property('cb:variant'), 0, 2)]"
+      ]
+    }
+  }
+}

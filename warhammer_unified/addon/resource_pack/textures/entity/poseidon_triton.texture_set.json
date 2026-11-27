@@ -1,0 +1,8 @@
+{
+  "format_version": "1.16.100",
+  "minecraft:texture_set": {
+    "color": "poseidon_triton",
+    "metalness_emissive_roughness": "poseidon_triton_mer",
+    "heightmap": "poseidon_triton_height"
+  }
+}

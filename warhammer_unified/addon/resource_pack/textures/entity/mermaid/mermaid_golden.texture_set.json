@@ -1,0 +1,8 @@
+{
+  "format_version": "1.16.100",
+  "minecraft:texture_set": {
+    "color": "mermaid_golden",
+    "metalness_emissive_roughness": "mermaid_golden_mer",
+    "heightmap": "mermaid_golden_height"
+  }
+}

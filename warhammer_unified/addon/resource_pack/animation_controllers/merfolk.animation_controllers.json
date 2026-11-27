@@ -1,0 +1,52 @@
+{
+  "format_version": "1.10.0",
+  "animation_controllers": {
+    "controller.animation.cb_merfolk.sing": {
+      "initial_state": "default",
+      "states": {
+        "default": {
+          "transitions": [
+            {
+              "sing": "q.property('cb:sing')"
+            }
+          ]
+        },
+        "sing": {
+          "animations": [
+            "sing"
+          ],
+          "blend_transition": 0.4,
+          "transitions": [
+            {
+              "default": "!q.property('cb:sing')"
+            }
+          ]
+        }
+      }
+    },
+    "controller.animation.cb_siren.angry": {
+      "initial_state": "default",
+      "states": {
+        "default": {
+          "transitions": [
+            {
+              "angry": "q.property('cb:angry')"
+            }
+          ]
+        },
+        "angry": {
+          "animations": [
+            "angry",
+            "attack"
+          ],
+          "blend_transition": 0.3,
+          "transitions": [
+            {
+              "default": "!q.property('cb:angry')"
+            }
+          ]
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,8 @@
+{
+  "format_version": "1.16.100",
+  "minecraft:texture_set": {
+    "color": "human_villager_1",
+    "metalness_emissive_roughness": "human_villager_1_mer",
+    "heightmap": "human_villager_1_height"
+  }
+}

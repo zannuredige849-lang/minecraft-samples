@@ -1,0 +1,43 @@
+{
+  "format_version": "1.8.0",
+  "minecraft:spawn_rules": {
+    "description": {
+      "identifier": "cb:redstone_beetle",
+      "population_control": "monster"
+    },
+    "conditions": [
+      {
+        "minecraft:spawns_underground": {},
+        "minecraft:spawns_on_block_filter": [
+          "minecraft:redstone_ore",
+          "minecraft:deepslate_redstone_ore",
+          "minecraft:lit_redstone_ore",
+          "minecraft:lit_deepslate_redstone_ore"
+        ],
+        "minecraft:weight": {
+          "default": 40
+        },
+        "minecraft:herd": {
+          "min_size": 1,
+          "max_size": 1
+        },
+        "minecraft:density_limit": {
+          "underground": 2
+        },
+        "minecraft:brightness_filter": {
+          "min": 0,
+          "max": 7,
+          "adjust_for_weather": false
+        },
+        "minecraft:height_filter": {
+          "min": -64,
+          "max": 16
+        },
+        "minecraft:biome_filter": {
+          "test": "has_biome_tag",
+          "value": "overworld"
+        }
+      }
+    ]
+  }
+}

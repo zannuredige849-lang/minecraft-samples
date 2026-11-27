@@ -1,0 +1,896 @@
+{
+  "format_version": "1.8.0",
+  "animations": {
+    "animation.cb_troll.look_at_target": {
+      "loop": true,
+      "bones": {
+        "head": {
+          "rotation": [
+            "math.clamp(query.target_x_rotation, -28, 28)",
+            "math.clamp(query.target_y_rotation, -40, 40)",
+            0
+          ]
+        }
+      }
+    },
+    "animation.cb_troll.idle": {
+      "loop": true,
+      "bones": {
+        "body": {
+          "rotation": [
+            "8 + math.sin(query.life_time * 90) * 2.0",
+            0,
+            0
+          ]
+        },
+        "body2": {
+          "rotation": [
+            "-6 - math.sin(query.life_time * 90) * 1.2",
+            0,
+            0
+          ]
+        },
+        "head": {
+          "rotation": [
+            "-5 + math.cos(query.life_time * 90) * 2.0",
+            0,
+            0
+          ]
+        },
+        "jaw": {
+          "rotation": [
+            "4 + math.sin(query.life_time * 90) * 3.5",
+            0,
+            0
+          ]
+        },
+        "rightArm": {
+          "rotation": [
+            "-6 + math.sin(query.life_time * 90) * 3.0",
+            0,
+            "5 + math.cos(query.life_time * 90) * 2.0"
+          ]
+        },
+        "rightForearm": {
+          "rotation": [
+            -14,
+            0,
+            0
+          ]
+        },
+        "leftArm": {
+          "rotation": [
+            "-6 - math.sin(query.life_time * 90) * 3.0",
+            0,
+            "-5 - math.cos(query.life_time * 90) * 2.0"
+          ]
+        },
+        "leftForearm": {
+          "rotation": [
+            -14,
+            0,
+            0
+          ]
+        }
+      }
+    },
+    "animation.cb_troll.walk": {
+      "loop": true,
+      "bones": {
+        "waist": {
+          "position": [
+            0,
+            "-math.abs(math.sin(query.modified_distance_moved * 26)) * 0.9",
+            0
+          ]
+        },
+        "body": {
+          "rotation": [
+            12.0,
+            "math.sin(query.modified_distance_moved * 26) * 4.0",
+            0
+          ]
+        },
+        "body2": {
+          "rotation": [
+            -8.0,
+            0,
+            0
+          ]
+        },
+        "head": {
+          "rotation": [
+            -6.0,
+            "-math.sin(query.modified_distance_moved * 26) * 3.0",
+            0
+          ]
+        },
+        "jaw": {
+          "rotation": [
+            "6 + math.abs(math.sin(query.modified_distance_moved * 26)) * 5.0",
+            0,
+            0
+          ]
+        },
+        "rightArm": {
+          "rotation": [
+            "-12 - math.cos(query.modified_distance_moved * 26) * 24.0 * query.modified_move_speed",
+            0,
+            6
+          ]
+        },
+        "rightForearm": {
+          "rotation": [
+            "-18 - math.abs(math.sin(query.modified_distance_moved * 26)) * 10.0",
+            0,
+            0
+          ]
+        },
+        "leftArm": {
+          "rotation": [
+            "-12 + math.cos(query.modified_distance_moved * 26) * 24.0 * query.modified_move_speed",
+            0,
+            -6
+          ]
+        },
+        "leftForearm": {
+          "rotation": [
+            "-18 - math.abs(math.cos(query.modified_distance_moved * 26)) * 10.0",
+            0,
+            0
+          ]
+        },
+        "rightLeg": {
+          "rotation": [
+            "math.cos(query.modified_distance_moved * 26) * 28.0 * query.modified_move_speed",
+            0,
+            0
+          ]
+        },
+        "rightShin": {
+          "rotation": [
+            "math.max(0, math.sin(query.modified_distance_moved * 26)) * 30.0 * query.modified_move_speed",
+            0,
+            0
+          ]
+        },
+        "leftLeg": {
+          "rotation": [
+            "-math.cos(query.modified_distance_moved * 26) * 28.0 * query.modified_move_speed",
+            0,
+            0
+          ]
+        },
+        "leftShin": {
+          "rotation": [
+            "math.max(0, -math.sin(query.modified_distance_moved * 26)) * 30.0 * query.modified_move_speed",
+            0,
+            0
+          ]
+        }
+      }
+    },
+    "animation.cb_troll.attack": {
+      "loop": false,
+      "animation_length": 0.65,
+      "bones": {
+        "body": {
+          "rotation": {
+            "0.0": [
+              0,
+              0,
+              0
+            ],
+            "0.2": [
+              -16,
+              18,
+              0
+            ],
+            "0.4": [
+              26,
+              -20,
+              0
+            ],
+            "0.65": [
+              0,
+              0,
+              0
+            ]
+          }
+        },
+        "jaw": {
+          "rotation": {
+            "0.0": [
+              4,
+              0,
+              0
+            ],
+            "0.2": [
+              32,
+              0,
+              0
+            ],
+            "0.65": [
+              4,
+              0,
+              0
+            ]
+          }
+        },
+        "rightArm": {
+          "rotation": {
+            "0.0": [
+              0,
+              0,
+              0
+            ],
+            "0.2": [
+              -105,
+              -10,
+              10
+            ],
+            "0.4": [
+              35,
+              14,
+              0
+            ],
+            "0.65": [
+              0,
+              0,
+              0
+            ]
+          }
+        },
+        "rightForearm": {
+          "rotation": {
+            "0.0": [
+              -14,
+              0,
+              0
+            ],
+            "0.2": [
+              -35,
+              0,
+              0
+            ],
+            "0.4": [
+              -5,
+              0,
+              0
+            ],
+            "0.65": [
+              -14,
+              0,
+              0
+            ]
+          }
+        },
+        "leftArm": {
+          "rotation": {
+            "0.0": [
+              0,
+              0,
+              0
+            ],
+            "0.2": [
+              -45,
+              12,
+              -10
+            ],
+            "0.4": [
+              18,
+              -10,
+              0
+            ],
+            "0.65": [
+              0,
+              0,
+              0
+            ]
+          }
+        }
+      }
+    },
+    "animation.cb_troll.throw_spear": {
+      "loop": false,
+      "animation_length": 0.65,
+      "bones": {
+        "body": {
+          "rotation": {
+            "0.0": [
+              0,
+              0,
+              0
+            ],
+            "0.25": [
+              -16,
+              28,
+              0
+            ],
+            "0.45": [
+              18,
+              -26,
+              0
+            ],
+            "0.65": [
+              0,
+              0,
+              0
+            ]
+          }
+        },
+        "jaw": {
+          "rotation": {
+            "0.0": [
+              4,
+              0,
+              0
+            ],
+            "0.25": [
+              26,
+              0,
+              0
+            ],
+            "0.65": [
+              4,
+              0,
+              0
+            ]
+          }
+        },
+        "rightArm": {
+          "rotation": {
+            "0.0": [
+              0,
+              0,
+              0
+            ],
+            "0.25": [
+              -135,
+              -14,
+              12
+            ],
+            "0.45": [
+              30,
+              10,
+              0
+            ],
+            "0.65": [
+              0,
+              0,
+              0
+            ]
+          }
+        },
+        "rightForearm": {
+          "rotation": {
+            "0.0": [
+              -14,
+              0,
+              0
+            ],
+            "0.25": [
+              -40,
+              0,
+              0
+            ],
+            "0.45": [
+              -5,
+              0,
+              0
+            ],
+            "0.65": [
+              -14,
+              0,
+              0
+            ]
+          }
+        }
+      }
+    },
+    "animation.cb_troll.totem_cast": {
+      "loop": false,
+      "animation_length": 0.85,
+      "bones": {
+        "body": {
+          "rotation": {
+            "0.0": [
+              0,
+              0,
+              0
+            ],
+            "0.35": [
+              -14,
+              0,
+              0
+            ],
+            "0.6": [
+              12,
+              0,
+              0
+            ],
+            "0.85": [
+              0,
+              0,
+              0
+            ]
+          }
+        },
+        "head": {
+          "rotation": {
+            "0.0": [
+              0,
+              0,
+              0
+            ],
+            "0.35": [
+              -24,
+              0,
+              0
+            ],
+            "0.85": [
+              0,
+              0,
+              0
+            ]
+          }
+        },
+        "jaw": {
+          "rotation": {
+            "0.0": [
+              4,
+              0,
+              0
+            ],
+            "0.35": [
+              32,
+              0,
+              0
+            ],
+            "0.85": [
+              4,
+              0,
+              0
+            ]
+          }
+        },
+        "rightArm": {
+          "rotation": {
+            "0.0": [
+              0,
+              0,
+              0
+            ],
+            "0.35": [
+              -115,
+              0,
+              15
+            ],
+            "0.6": [
+              -30,
+              0,
+              5
+            ],
+            "0.85": [
+              0,
+              0,
+              0
+            ]
+          }
+        },
+        "leftArm": {
+          "rotation": {
+            "0.0": [
+              0,
+              0,
+              0
+            ],
+            "0.35": [
+              -115,
+              0,
+              -15
+            ],
+            "0.6": [
+              -30,
+              0,
+              -5
+            ],
+            "0.85": [
+              0,
+              0,
+              0
+            ]
+          }
+        }
+      }
+    },
+    "animation.cb_troll.ground_slam": {
+      "loop": false,
+      "animation_length": 0.8,
+      "bones": {
+        "waist": {
+          "position": {
+            "0.0": [
+              0,
+              0,
+              0
+            ],
+            "0.28": [
+              0,
+              2.0,
+              0
+            ],
+            "0.5": [
+              0,
+              -3.5,
+              0
+            ],
+            "0.8": [
+              0,
+              0,
+              0
+            ]
+          }
+        },
+        "body": {
+          "rotation": {
+            "0.0": [
+              0,
+              0,
+              0
+            ],
+            "0.28": [
+              -22,
+              0,
+              0
+            ],
+            "0.5": [
+              36,
+              0,
+              0
+            ],
+            "0.8": [
+              0,
+              0,
+              0
+            ]
+          }
+        },
+        "jaw": {
+          "rotation": {
+            "0.0": [
+              4,
+              0,
+              0
+            ],
+            "0.28": [
+              36,
+              0,
+              0
+            ],
+            "0.8": [
+              4,
+              0,
+              0
+            ]
+          }
+        },
+        "rightArm": {
+          "rotation": {
+            "0.0": [
+              0,
+              0,
+              0
+            ],
+            "0.28": [
+              -135,
+              0,
+              14
+            ],
+            "0.5": [
+              35,
+              -14,
+              0
+            ],
+            "0.8": [
+              0,
+              0,
+              0
+            ]
+          }
+        },
+        "rightForearm": {
+          "rotation": {
+            "0.0": [
+              -14,
+              0,
+              0
+            ],
+            "0.28": [
+              -35,
+              0,
+              0
+            ],
+            "0.5": [
+              -5,
+              0,
+              0
+            ],
+            "0.8": [
+              -14,
+              0,
+              0
+            ]
+          }
+        },
+        "leftArm": {
+          "rotation": {
+            "0.0": [
+              0,
+              0,
+              0
+            ],
+            "0.28": [
+              -135,
+              0,
+              -14
+            ],
+            "0.5": [
+              35,
+              14,
+              0
+            ],
+            "0.8": [
+              0,
+              0,
+              0
+            ]
+          }
+        },
+        "leftForearm": {
+          "rotation": {
+            "0.0": [
+              -14,
+              0,
+              0
+            ],
+            "0.28": [
+              -35,
+              0,
+              0
+            ],
+            "0.5": [
+              -5,
+              0,
+              0
+            ],
+            "0.8": [
+              -14,
+              0,
+              0
+            ]
+          }
+        }
+      }
+    },
+    "animation.cb_troll.roar": {
+      "loop": false,
+      "animation_length": 0.9,
+      "bones": {
+        "body": {
+          "rotation": {
+            "0.0": [
+              0,
+              0,
+              0
+            ],
+            "0.25": [
+              -16,
+              0,
+              0
+            ],
+            "0.6": [
+              -12,
+              0,
+              0
+            ],
+            "0.9": [
+              0,
+              0,
+              0
+            ]
+          }
+        },
+        "head": {
+          "rotation": {
+            "0.0": [
+              0,
+              0,
+              0
+            ],
+            "0.25": [
+              -24,
+              8,
+              0
+            ],
+            "0.5": [
+              -24,
+              -8,
+              0
+            ],
+            "0.9": [
+              0,
+              0,
+              0
+            ]
+          }
+        },
+        "jaw": {
+          "rotation": {
+            "0.0": [
+              4,
+              0,
+              0
+            ],
+            "0.25": [
+              38,
+              0,
+              0
+            ],
+            "0.6": [
+              34,
+              0,
+              0
+            ],
+            "0.9": [
+              4,
+              0,
+              0
+            ]
+          }
+        },
+        "rightArm": {
+          "rotation": {
+            "0.0": [
+              0,
+              0,
+              0
+            ],
+            "0.25": [
+              -65,
+              0,
+              38
+            ],
+            "0.9": [
+              0,
+              0,
+              0
+            ]
+          }
+        },
+        "leftArm": {
+          "rotation": {
+            "0.0": [
+              0,
+              0,
+              0
+            ],
+            "0.25": [
+              -65,
+              0,
+              -38
+            ],
+            "0.9": [
+              0,
+              0,
+              0
+            ]
+          }
+        }
+      }
+    },
+    "animation.cb_troll.hurt": {
+      "loop": false,
+      "animation_length": 0.35,
+      "bones": {
+        "body": {
+          "rotation": {
+            "0.0": [
+              0,
+              0,
+              0
+            ],
+            "0.12": [
+              -12,
+              0,
+              7
+            ],
+            "0.35": [
+              0,
+              0,
+              0
+            ]
+          }
+        },
+        "head": {
+          "rotation": {
+            "0.0": [
+              0,
+              0,
+              0
+            ],
+            "0.12": [
+              -16,
+              0,
+              -8
+            ],
+            "0.35": [
+              0,
+              0,
+              0
+            ]
+          }
+        },
+        "jaw": {
+          "rotation": {
+            "0.0": [
+              4,
+              0,
+              0
+            ],
+            "0.12": [
+              26,
+              0,
+              0
+            ],
+            "0.35": [
+              4,
+              0,
+              0
+            ]
+          }
+        }
+      }
+    },
+    "animation.cb_troll.dance": {
+      "loop": true,
+      "bones": {
+        "waist": {
+          "position": [
+            0,
+            "math.abs(math.sin(query.life_time * 360)) * 2.0",
+            0
+          ]
+        },
+        "body": {
+          "rotation": [
+            0,
+            "math.sin(query.life_time * 180) * 15",
+            "math.cos(query.life_time * 360) * 8"
+          ]
+        },
+        "jaw": {
+          "rotation": [
+            "15 + math.sin(query.life_time * 360) * 12",
+            0,
+            0
+          ]
+        },
+        "rightArm": {
+          "rotation": [
+            "-95 + math.sin(query.life_time * 360) * 28",
+            0,
+            22
+          ]
+        },
+        "leftArm": {
+          "rotation": [
+            "-95 - math.sin(query.life_time * 360) * 28",
+            0,
+            -22
+          ]
+        }
+      }
+    }
+  }
+}

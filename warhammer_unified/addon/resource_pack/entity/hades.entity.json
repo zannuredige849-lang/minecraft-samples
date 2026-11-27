@@ -1,0 +1,61 @@
+{
+ "format_version": "1.10.0",
+ "minecraft:client_entity": {
+  "description": {
+   "identifier": "cb:hades",
+   "materials": {
+    "default": "entity_emissive_alpha"
+   },
+   "textures": {
+    "default": "textures/entity/hades"
+   },
+   "geometry": {
+    "default": "geometry.cb_hades"
+   },
+   "animations": {
+    "idle": "animation.hades.idle",
+    "walk": "animation.hades.walk",
+    "attack": "animation.hades.attack",
+    "special_attack": "animation.hades.special_attack",
+    "hurt": "animation.hades.hurt",
+    "death": "animation.hades.death",
+    "charge": "animation.hades.summon_souls",
+    "special1": "animation.hades.summon_souls",
+    "special2": "animation.hades.open_portal",
+    "special3": "animation.hades.dark_magic",
+    "stun": "animation.hades.stun",
+    "rage": "animation.hades.rage",
+    "dance": "animation.hades.dance",
+    "ctrl": "controller.animation.cb_hades",
+    "look_at_target": "animation.common.look_at_target"
+   },
+   "scripts": {
+    "animate": [
+     {
+      "idle": "!q.property('cb:dancing')"
+     },
+     {
+      "walk": "q.modified_move_speed > 0.015 && !q.property('cb:dancing') && !q.property('cb:charging')"
+     },
+     {
+      "rage": "q.property('cb:enraged') && !q.property('cb:dancing')"
+     },
+     {
+      "hurt": "q.hurt_time > 0 && !q.property('cb:dancing')"
+     },
+     "ctrl",
+     {
+      "look_at_target": "!q.property('cb:dancing') && q.property('cb:cast_state') == 0"
+     }
+    ]
+   },
+   "render_controllers": [
+    "controller.render.cb_hades"
+   ],
+   "spawn_egg": {
+    "base_color": "#1a132e",
+    "overlay_color": "#40c8e0"
+   }
+  }
+ }
+}

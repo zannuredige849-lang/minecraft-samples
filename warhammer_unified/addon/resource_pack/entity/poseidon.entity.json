@@ -1,0 +1,61 @@
+{
+ "format_version": "1.10.0",
+ "minecraft:client_entity": {
+  "description": {
+   "identifier": "cb:poseidon",
+   "materials": {
+    "default": "entity_emissive_alpha"
+   },
+   "textures": {
+    "default": "textures/entity/poseidon"
+   },
+   "geometry": {
+    "default": "geometry.cb_poseidon"
+   },
+   "animations": {
+    "idle": "animation.poseidon.idle",
+    "walk": "animation.poseidon.walk",
+    "attack": "animation.poseidon.attack",
+    "special_attack": "animation.poseidon.special_attack",
+    "hurt": "animation.poseidon.hurt",
+    "death": "animation.poseidon.death",
+    "charge": "animation.poseidon.trident_attack",
+    "special1": "animation.poseidon.trident_attack",
+    "special2": "animation.poseidon.tsunami",
+    "special3": "animation.poseidon.whirlpool",
+    "stun": "animation.poseidon.stun",
+    "rage": "animation.poseidon.rage",
+    "dance": "animation.poseidon.dance",
+    "ctrl": "controller.animation.cb_poseidon",
+    "look_at_target": "animation.common.look_at_target"
+   },
+   "scripts": {
+    "animate": [
+     {
+      "idle": "!q.property('cb:dancing')"
+     },
+     {
+      "walk": "q.modified_move_speed > 0.015 && !q.property('cb:dancing') && !q.property('cb:charging')"
+     },
+     {
+      "rage": "q.property('cb:enraged') && !q.property('cb:dancing')"
+     },
+     {
+      "hurt": "q.hurt_time > 0 && !q.property('cb:dancing')"
+     },
+     "ctrl",
+     {
+      "look_at_target": "!q.property('cb:dancing') && q.property('cb:cast_state') == 0"
+     }
+    ]
+   },
+   "render_controllers": [
+    "controller.render.cb_poseidon"
+   ],
+   "spawn_egg": {
+    "base_color": "#0e807d",
+    "overlay_color": "#40c8e0"
+   }
+  }
+ }
+}

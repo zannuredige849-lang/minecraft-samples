@@ -1,0 +1,8 @@
+{
+  "format_version": "1.16.100",
+  "minecraft:texture_set": {
+    "color": "diamond_beetle",
+    "metalness_emissive_roughness": "diamond_beetle_mer",
+    "heightmap": "diamond_beetle_height"
+  }
+}

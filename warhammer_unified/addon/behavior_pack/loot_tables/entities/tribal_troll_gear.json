@@ -1,0 +1,39 @@
+{
+  "pools": [
+    {
+      "rolls": 1,
+      "entries": [
+        {
+          "type": "item",
+          "name": "minecraft:trident",
+          "weight": 25
+        },
+        {
+          "type": "item",
+          "name": "minecraft:bone",
+          "weight": 25
+        },
+        {
+          "type": "item",
+          "name": "minecraft:totem_of_undying",
+          "weight": 20
+        },
+        {
+          "type": "item",
+          "name": "minecraft:golden_axe",
+          "weight": 10
+        },
+        {
+          "type": "item",
+          "name": "minecraft:wooden_spear",
+          "weight": 10
+        },
+        {
+          "type": "item",
+          "name": "minecraft:stone_spear",
+          "weight": 10
+        }
+      ]
+    }
+  ]
+}

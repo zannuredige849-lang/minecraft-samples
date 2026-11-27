@@ -1,0 +1,20 @@
+{
+  "format_version": "1.10.0",
+  "minecraft:client_entity": {
+    "description": {
+      "identifier": "cb:sargeras_prompt",
+      "materials": {
+        "default": "entity_alphatest"
+      },
+      "textures": {
+        "default": "textures/entity/fel_orb"
+      },
+      "geometry": {
+        "default": "geometry.cb_sargeras_prompt"
+      },
+      "render_controllers": [
+        "controller.render.default"
+      ]
+    }
+  }
+}

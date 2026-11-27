@@ -1,0 +1,8 @@
+{
+  "format_version": "1.16.100",
+  "minecraft:texture_set": {
+    "color": "warg_ash",
+    "metalness_emissive_roughness": "warg_ash_mer",
+    "heightmap": "warg_ash_height"
+  }
+}

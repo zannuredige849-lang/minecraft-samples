@@ -1,0 +1,85 @@
+{
+  "format_version": "1.10.0",
+  "animation_controllers": {
+    "controller.animation.cb_laestrygonian.swipe": {
+      "initial_state": "default",
+      "states": {
+        "default": {
+          "transitions": [
+            {
+              "swipe": "q.property('cb:swipe')"
+            }
+          ]
+        },
+        "swipe": {
+          "animations": [
+            "swipe"
+          ],
+          "blend_transition": 0.1,
+          "transitions": [
+            {
+              "default": "!q.property('cb:swipe') && q.all_animations_finished"
+            }
+          ]
+        }
+      }
+    },
+    "controller.animation.cb_laestrygonian.roar": {
+      "initial_state": "default",
+      "states": {
+        "default": {
+          "transitions": [
+            {
+              "roar": "q.property('cb:roar')"
+            }
+          ]
+        },
+        "roar": {
+          "animations": [
+            "roar"
+          ],
+          "blend_transition": 0.15,
+          "transitions": [
+            {
+              "default": "!q.property('cb:roar') && q.all_animations_finished"
+            }
+          ]
+        }
+      }
+    },
+    "controller.animation.cb_laestrygonian.attack": {
+      "initial_state": "default",
+      "states": {
+        "default": {
+          "transitions": [
+            {
+              "attack": "variable.attack_time > 0 || q.property('cb:attacking')"
+            }
+          ]
+        },
+        "attack": {
+          "animations": [
+            {
+              "attack_chop": "q.property('cb:style') == 0"
+            },
+            {
+              "attack_slash": "q.property('cb:style') == 1"
+            },
+            {
+              "attack_smash": "q.property('cb:style') == 2"
+            },
+            {
+              "attack_stomp": "q.property('cb:style') == 3"
+            }
+          ],
+          "blend_transition": 0.15,
+          "transitions": [
+            {
+              "default": "q.all_animations_finished && variable.attack_time <= 0 && !q.property('cb:attacking')"
+            }
+          ]
+        }
+      }
+    }
+  }
+}

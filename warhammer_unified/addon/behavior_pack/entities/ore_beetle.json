@@ -1,0 +1,172 @@
+{
+  "format_version": "1.21.0",
+  "minecraft:entity": {
+    "description": {
+      "identifier": "cb:ore_beetle",
+      "is_spawnable": true,
+      "is_summonable": true,
+      "is_experimental": false,
+      "properties": {
+        "cb:dancing": {
+          "type": "bool",
+          "default": false,
+          "client_sync": true
+        }
+      }
+    },
+    "component_groups": {
+      "cb:into_coal": {
+        "minecraft:transformation": {
+          "into": "cb:coal_beetle",
+          "delay": 0
+        }
+      },
+      "cb:into_copper": {
+        "minecraft:transformation": {
+          "into": "cb:copper_beetle",
+          "delay": 0
+        }
+      },
+      "cb:into_quartz": {
+        "minecraft:transformation": {
+          "into": "cb:quartz_beetle",
+          "delay": 0
+        }
+      },
+      "cb:into_redstone": {
+        "minecraft:transformation": {
+          "into": "cb:redstone_beetle",
+          "delay": 0
+        }
+      },
+      "cb:into_iron": {
+        "minecraft:transformation": {
+          "into": "cb:iron_beetle",
+          "delay": 0
+        }
+      },
+      "cb:into_lapis": {
+        "minecraft:transformation": {
+          "into": "cb:lapis_beetle",
+          "delay": 0
+        }
+      },
+      "cb:into_gold": {
+        "minecraft:transformation": {
+          "into": "cb:gold_beetle",
+          "delay": 0
+        }
+      },
+      "cb:into_emerald": {
+        "minecraft:transformation": {
+          "into": "cb:emerald_beetle",
+          "delay": 0
+        }
+      },
+      "cb:into_diamond": {
+        "minecraft:transformation": {
+          "into": "cb:diamond_beetle",
+          "delay": 0
+        }
+      }
+    },
+    "components": {
+      "minecraft:type_family": {
+        "family": [
+          "ore_beetle",
+          "arthropod",
+          "mob",
+          "f_beetles",
+          "summon_safe"
+        ]
+      },
+      "minecraft:health": {
+        "value": 8,
+        "max": 8
+      },
+      "minecraft:collision_box": {
+        "width": 0.7,
+        "height": 0.5
+      },
+      "minecraft:physics": {}
+    },
+    "events": {
+      "minecraft:entity_spawned": {
+        "randomize": [
+          {
+            "weight": 1,
+            "add": {
+              "component_groups": [
+                "cb:into_coal"
+              ]
+            }
+          },
+          {
+            "weight": 1,
+            "add": {
+              "component_groups": [
+                "cb:into_copper"
+              ]
+            }
+          },
+          {
+            "weight": 1,
+            "add": {
+              "component_groups": [
+                "cb:into_quartz"
+              ]
+            }
+          },
+          {
+            "weight": 1,
+            "add": {
+              "component_groups": [
+                "cb:into_redstone"
+              ]
+            }
+          },
+          {
+            "weight": 1,
+            "add": {
+              "component_groups": [
+                "cb:into_iron"
+              ]
+            }
+          },
+          {
+            "weight": 1,
+            "add": {
+              "component_groups": [
+                "cb:into_lapis"
+              ]
+            }
+          },
+          {
+            "weight": 1,
+            "add": {
+              "component_groups": [
+                "cb:into_gold"
+              ]
+            }
+          },
+          {
+            "weight": 1,
+            "add": {
+              "component_groups": [
+                "cb:into_emerald"
+              ]
+            }
+          },
+          {
+            "weight": 1,
+            "add": {
+              "component_groups": [
+                "cb:into_diamond"
+              ]
+            }
+          }
+        ]
+      }
+    }
+  }
+}

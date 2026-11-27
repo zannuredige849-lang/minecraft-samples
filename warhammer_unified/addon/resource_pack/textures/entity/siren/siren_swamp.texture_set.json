@@ -1,0 +1,8 @@
+{
+  "format_version": "1.16.100",
+  "minecraft:texture_set": {
+    "color": "siren_swamp",
+    "metalness_emissive_roughness": "siren_swamp_mer",
+    "heightmap": "siren_swamp_height"
+  }
+}

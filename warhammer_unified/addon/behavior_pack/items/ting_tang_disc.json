@@ -1,0 +1,20 @@
+{
+  "format_version": "1.21.0",
+  "minecraft:item": {
+    "description": {
+      "identifier": "cb:ting_tang_disc",
+      "menu_category": {
+        "category": "items",
+        "group": "itemGroup.name.record"
+      }
+    },
+    "components": {
+      "minecraft:max_stack_size": 1,
+      "minecraft:icon": "cb_ting_tang_disc",
+      "minecraft:display_name": {
+        "value": "item.cb:ting_tang_disc.name"
+      },
+      "minecraft:hover_text_color": "aqua"
+    }
+  }
+}

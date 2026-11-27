@@ -1,0 +1,896 @@
+{
+  "format_version": "1.21.0",
+  "minecraft:entity": {
+    "description": {
+      "identifier": "cb:dragon_west",
+      "is_spawnable": true,
+      "is_summonable": true,
+      "is_experimental": false,
+      "properties": {
+        "cb:element": {
+          "type": "int",
+          "range": [
+            0,
+            6
+          ],
+          "default": 0,
+          "client_sync": true
+        },
+        "cb:breath": {
+          "type": "bool",
+          "default": false,
+          "client_sync": true
+        },
+        "cb:dancing": {
+          "type": "bool",
+          "default": false,
+          "client_sync": true
+        }
+      }
+    },
+    "components": {
+      "minecraft:type_family": {
+        "family": [
+          "cb_dragon",
+          "cb_dragon_west",
+          "dragon",
+          "dragon_faction",
+          "monster",
+          "mob",
+          "f_dragons",
+          "summon_safe"
+        ]
+      },
+      "minecraft:health": {
+        "value": 33,
+        "max": 33
+      },
+      "minecraft:attack": {
+        "damage": 4
+      },
+      "minecraft:scale": {
+        "value": 0.6
+      },
+      "minecraft:collision_box": {
+        "width": 2.4,
+        "height": 2.0
+      },
+      "minecraft:movement": {
+        "value": 0.28
+      },
+      "minecraft:flying_speed": {
+        "value": 0.14
+      },
+      "minecraft:can_fly": {},
+      "minecraft:navigation.hover": {
+        "can_path_over_water": true,
+        "can_sink": false,
+        "can_pass_doors": false,
+        "can_path_from_air": true,
+        "avoid_water": true,
+        "avoid_damage_blocks": true,
+        "avoid_sun": false
+      },
+      "minecraft:movement.hover": {},
+      "minecraft:jump.static": {},
+      "minecraft:physics": {
+        "has_gravity": false
+      },
+      "minecraft:pushable": {
+        "is_pushable": false,
+        "is_pushable_by_piston": true
+      },
+      "minecraft:knockback_resistance": {
+        "value": 0.5
+      },
+      "minecraft:breathable": {
+        "total_supply": 15,
+        "suffocate_time": 0
+      },
+      "minecraft:follow_range": {
+        "value": 32,
+        "max": 32
+      },
+      "minecraft:nameable": {},
+      "minecraft:despawn": {
+        "despawn_from_distance": {
+          "min_distance": 64,
+          "max_distance": 128
+        }
+      },
+      "minecraft:damage_sensor": {
+        "triggers": [
+          {
+            "on_damage": {
+              "filters": {
+                "any_of": [
+                  {
+                    "test": "is_family",
+                    "subject": "other",
+                    "value": "dragon_faction"
+                  }
+                ]
+              }
+            },
+            "deals_damage": false
+          },
+          {
+            "cause": "fall",
+            "deals_damage": false
+          }
+        ]
+      },
+      "minecraft:loot": {
+        "table": "loot_tables/entities/dragon.json"
+      },
+      "minecraft:experience_reward": {
+        "on_death": "query.last_hit_by_player ? 20 : 0"
+      },
+      "minecraft:ambient_sound_interval": {
+        "value": 12,
+        "range": 10,
+        "event_name": "ambient"
+      },
+      "minecraft:game_event_movement_tracking": {
+        "emit_flap": true
+      },
+      "minecraft:behavior.float": {
+        "priority": 0
+      },
+      "minecraft:behavior.hurt_by_target": {
+        "priority": 1,
+        "entity_types": [
+          {
+            "filters": {
+              "all_of": [
+                {
+                  "test": "is_family",
+                  "subject": "other",
+                  "operator": "!=",
+                  "value": "f_dragons"
+                },
+                {
+                  "test": "is_family",
+                  "subject": "other",
+                  "operator": "!=",
+                  "value": "dragon_faction"
+                }
+              ]
+            }
+          }
+        ]
+      },
+      "minecraft:behavior.random_hover": {
+        "priority": 7,
+        "xz_dist": 16,
+        "y_dist": 8,
+        "y_offset": -1,
+        "interval": 1,
+        "hover_height": [
+          4,
+          14
+        ]
+      },
+      "minecraft:behavior.look_at_player": {
+        "priority": 8,
+        "look_distance": 16,
+        "probability": 0.03
+      },
+      "minecraft:behavior.random_look_around": {
+        "priority": 9
+      }
+    },
+    "component_groups": {
+      "cb:ordinary": {
+        "minecraft:health": {
+          "value": 33,
+          "max": 33
+        },
+        "minecraft:attack": {
+          "damage": 4
+        },
+        "minecraft:behavior.nearest_attackable_target": {
+          "priority": 2,
+          "must_see": true,
+          "reselect_targets": true,
+          "within_radius": 18,
+          "entity_types": [
+            {
+              "filters": {
+                "all_of": [
+                  {
+                    "test": "is_family",
+                    "subject": "other",
+                    "operator": "!=",
+                    "value": "f_dragons"
+                  },
+                  {
+                    "test": "is_family",
+                    "subject": "other",
+                    "value": "player"
+                  }
+                ]
+              },
+              "max_dist": 14
+            },
+            {
+              "filters": {
+                "all_of": [
+                  {
+                    "test": "is_family",
+                    "subject": "other",
+                    "operator": "!=",
+                    "value": "f_dragons"
+                  },
+                  {
+                    "any_of": [
+                      {
+                        "test": "is_family",
+                        "subject": "other",
+                        "value": "sheep"
+                      },
+                      {
+                        "test": "is_family",
+                        "subject": "other",
+                        "value": "cow"
+                      },
+                      {
+                        "test": "is_family",
+                        "subject": "other",
+                        "value": "pig"
+                      },
+                      {
+                        "test": "is_family",
+                        "subject": "other",
+                        "value": "goat"
+                      },
+                      {
+                        "test": "is_family",
+                        "subject": "other",
+                        "value": "llama"
+                      }
+                    ]
+                  }
+                ]
+              },
+              "max_dist": 18
+            }
+          ]
+        }
+      },
+      "cb:elemental": {
+        "minecraft:health": {
+          "value": 37,
+          "max": 37
+        },
+        "minecraft:attack": {
+          "damage": 5
+        },
+        "minecraft:behavior.nearest_attackable_target": {
+          "priority": 2,
+          "must_see": true,
+          "reselect_targets": true,
+          "within_radius": 28,
+          "entity_types": [
+            {
+              "filters": {
+                "all_of": [
+                  {
+                    "test": "is_family",
+                    "subject": "other",
+                    "operator": "!=",
+                    "value": "f_dragons"
+                  },
+                  {
+                    "test": "is_family",
+                    "subject": "other",
+                    "value": "player"
+                  }
+                ]
+              },
+              "max_dist": 28
+            },
+            {
+              "filters": {
+                "all_of": [
+                  {
+                    "test": "is_family",
+                    "subject": "other",
+                    "operator": "!=",
+                    "value": "f_dragons"
+                  },
+                  {
+                    "any_of": [
+                      {
+                        "test": "is_family",
+                        "subject": "other",
+                        "value": "sheep"
+                      },
+                      {
+                        "test": "is_family",
+                        "subject": "other",
+                        "value": "cow"
+                      },
+                      {
+                        "test": "is_family",
+                        "subject": "other",
+                        "value": "pig"
+                      },
+                      {
+                        "test": "is_family",
+                        "subject": "other",
+                        "value": "goat"
+                      },
+                      {
+                        "test": "is_family",
+                        "subject": "other",
+                        "value": "llama"
+                      }
+                    ]
+                  }
+                ]
+              },
+              "max_dist": 18
+            },
+            {
+              "filters": {
+                "all_of": [
+                  {
+                    "test": "is_family",
+                    "subject": "other",
+                    "operator": "!=",
+                    "value": "f_dragons"
+                  },
+                  {
+                    "test": "is_family",
+                    "subject": "other",
+                    "value": "irongolem"
+                  }
+                ]
+              },
+              "max_dist": 20
+            }
+          ]
+        }
+      },
+      "cb:melee": {
+        "minecraft:behavior.melee_box_attack": {
+          "priority": 3,
+          "speed_multiplier": 1.4,
+          "track_target": true,
+          "horizontal_reach": 1.2,
+          "cooldown_time": 1.0
+        }
+      },
+      "cb:mode_switcher": {
+        "minecraft:target_nearby_sensor": {
+          "inside_range": 4.0,
+          "outside_range": 6.0,
+          "must_see": true,
+          "on_inside_range": {
+            "event": "cb:to_melee",
+            "target": "self"
+          },
+          "on_outside_range": {
+            "event": "cb:to_ranged",
+            "target": "self"
+          }
+        }
+      },
+      "cb:fire": {
+        "minecraft:fire_immune": {},
+        "minecraft:damage_sensor": {
+          "triggers": [
+            {
+              "cause": "fall",
+              "deals_damage": false
+            },
+            {
+              "cause": "fire",
+              "deals_damage": false
+            },
+            {
+              "cause": "fire_tick",
+              "deals_damage": false
+            },
+            {
+              "cause": "lava",
+              "deals_damage": false
+            },
+            {
+              "cause": "freezing",
+              "damage_multiplier": 1.5
+            }
+          ]
+        }
+      },
+      "cb:ice": {
+        "minecraft:damage_sensor": {
+          "triggers": [
+            {
+              "cause": "fall",
+              "deals_damage": false
+            },
+            {
+              "cause": "freezing",
+              "deals_damage": false
+            },
+            {
+              "cause": "fire",
+              "damage_multiplier": 1.5
+            },
+            {
+              "cause": "fire_tick",
+              "damage_multiplier": 1.5
+            },
+            {
+              "cause": "lava",
+              "damage_multiplier": 1.5
+            }
+          ]
+        }
+      },
+      "cb:lightning": {
+        "minecraft:damage_sensor": {
+          "triggers": [
+            {
+              "cause": "fall",
+              "deals_damage": false
+            },
+            {
+              "cause": "lightning",
+              "deals_damage": false
+            }
+          ]
+        }
+      },
+      "cb:ranged_fire": {
+        "minecraft:behavior.ranged_attack": {
+          "priority": 3,
+          "attack_interval_min": 2.5,
+          "attack_interval_max": 4.0,
+          "attack_radius": 20,
+          "burst_shots": 3,
+          "burst_interval": 0.25,
+          "charge_shoot_trigger": 1.0,
+          "charge_charged_trigger": 0.0
+        },
+        "minecraft:shooter": {
+          "def": "cb:dragon_fire"
+        }
+      },
+      "cb:ranged_ice": {
+        "minecraft:behavior.ranged_attack": {
+          "priority": 3,
+          "attack_interval_min": 2.5,
+          "attack_interval_max": 4.0,
+          "attack_radius": 20,
+          "burst_shots": 2,
+          "burst_interval": 0.4,
+          "charge_shoot_trigger": 1.0,
+          "charge_charged_trigger": 0.0
+        },
+        "minecraft:shooter": {
+          "def": "cb:dragon_frost"
+        }
+      },
+      "cb:ranged_lightning": {
+        "minecraft:behavior.ranged_attack": {
+          "priority": 3,
+          "attack_interval_min": 2.5,
+          "attack_interval_max": 4.0,
+          "attack_radius": 20,
+          "burst_shots": 1,
+          "burst_interval": 0.0,
+          "charge_shoot_trigger": 1.0,
+          "charge_charged_trigger": 0.0
+        },
+        "minecraft:shooter": {
+          "def": "cb:dragon_spark"
+        }
+      }
+    },
+    "events": {
+      "minecraft:entity_spawned": {
+        "randomize": [
+          {
+            "weight": 22,
+            "set_property": {
+              "cb:element": 0
+            },
+            "add": {
+              "component_groups": [
+                "cb:ordinary",
+                "cb:melee"
+              ]
+            },
+            "remove": {
+              "component_groups": [
+                "cb:elemental",
+                "cb:mode_switcher",
+                "cb:fire",
+                "cb:ice",
+                "cb:lightning",
+                "cb:ranged_fire",
+                "cb:ranged_ice",
+                "cb:ranged_lightning"
+              ]
+            }
+          },
+          {
+            "weight": 22,
+            "set_property": {
+              "cb:element": 1
+            },
+            "add": {
+              "component_groups": [
+                "cb:ordinary",
+                "cb:melee"
+              ]
+            },
+            "remove": {
+              "component_groups": [
+                "cb:elemental",
+                "cb:mode_switcher",
+                "cb:fire",
+                "cb:ice",
+                "cb:lightning",
+                "cb:ranged_fire",
+                "cb:ranged_ice",
+                "cb:ranged_lightning"
+              ]
+            }
+          },
+          {
+            "weight": 22,
+            "set_property": {
+              "cb:element": 2
+            },
+            "add": {
+              "component_groups": [
+                "cb:ordinary",
+                "cb:melee"
+              ]
+            },
+            "remove": {
+              "component_groups": [
+                "cb:elemental",
+                "cb:mode_switcher",
+                "cb:fire",
+                "cb:ice",
+                "cb:lightning",
+                "cb:ranged_fire",
+                "cb:ranged_ice",
+                "cb:ranged_lightning"
+              ]
+            }
+          },
+          {
+            "weight": 22,
+            "set_property": {
+              "cb:element": 3
+            },
+            "add": {
+              "component_groups": [
+                "cb:ordinary",
+                "cb:melee"
+              ]
+            },
+            "remove": {
+              "component_groups": [
+                "cb:elemental",
+                "cb:mode_switcher",
+                "cb:fire",
+                "cb:ice",
+                "cb:lightning",
+                "cb:ranged_fire",
+                "cb:ranged_ice",
+                "cb:ranged_lightning"
+              ]
+            }
+          },
+          {
+            "weight": 4,
+            "set_property": {
+              "cb:element": 4
+            },
+            "add": {
+              "component_groups": [
+                "cb:elemental",
+                "cb:melee",
+                "cb:mode_switcher",
+                "cb:fire"
+              ]
+            },
+            "remove": {
+              "component_groups": [
+                "cb:ordinary",
+                "cb:ice",
+                "cb:lightning",
+                "cb:ranged_fire",
+                "cb:ranged_ice",
+                "cb:ranged_lightning"
+              ]
+            }
+          },
+          {
+            "weight": 4,
+            "set_property": {
+              "cb:element": 5
+            },
+            "add": {
+              "component_groups": [
+                "cb:elemental",
+                "cb:melee",
+                "cb:mode_switcher",
+                "cb:ice"
+              ]
+            },
+            "remove": {
+              "component_groups": [
+                "cb:ordinary",
+                "cb:fire",
+                "cb:lightning",
+                "cb:ranged_fire",
+                "cb:ranged_ice",
+                "cb:ranged_lightning"
+              ]
+            }
+          },
+          {
+            "weight": 4,
+            "set_property": {
+              "cb:element": 6
+            },
+            "add": {
+              "component_groups": [
+                "cb:elemental",
+                "cb:melee",
+                "cb:mode_switcher",
+                "cb:lightning"
+              ]
+            },
+            "remove": {
+              "component_groups": [
+                "cb:ordinary",
+                "cb:fire",
+                "cb:ice",
+                "cb:ranged_fire",
+                "cb:ranged_ice",
+                "cb:ranged_lightning"
+              ]
+            }
+          }
+        ]
+      },
+      "cb:as_oak": {
+        "set_property": {
+          "cb:element": 0
+        },
+        "add": {
+          "component_groups": [
+            "cb:ordinary",
+            "cb:melee"
+          ]
+        },
+        "remove": {
+          "component_groups": [
+            "cb:elemental",
+            "cb:mode_switcher",
+            "cb:fire",
+            "cb:ice",
+            "cb:lightning",
+            "cb:ranged_fire",
+            "cb:ranged_ice",
+            "cb:ranged_lightning"
+          ]
+        }
+      },
+      "cb:as_spruce": {
+        "set_property": {
+          "cb:element": 1
+        },
+        "add": {
+          "component_groups": [
+            "cb:ordinary",
+            "cb:melee"
+          ]
+        },
+        "remove": {
+          "component_groups": [
+            "cb:elemental",
+            "cb:mode_switcher",
+            "cb:fire",
+            "cb:ice",
+            "cb:lightning",
+            "cb:ranged_fire",
+            "cb:ranged_ice",
+            "cb:ranged_lightning"
+          ]
+        }
+      },
+      "cb:as_stone": {
+        "set_property": {
+          "cb:element": 2
+        },
+        "add": {
+          "component_groups": [
+            "cb:ordinary",
+            "cb:melee"
+          ]
+        },
+        "remove": {
+          "component_groups": [
+            "cb:elemental",
+            "cb:mode_switcher",
+            "cb:fire",
+            "cb:ice",
+            "cb:lightning",
+            "cb:ranged_fire",
+            "cb:ranged_ice",
+            "cb:ranged_lightning"
+          ]
+        }
+      },
+      "cb:as_deepslate": {
+        "set_property": {
+          "cb:element": 3
+        },
+        "add": {
+          "component_groups": [
+            "cb:ordinary",
+            "cb:melee"
+          ]
+        },
+        "remove": {
+          "component_groups": [
+            "cb:elemental",
+            "cb:mode_switcher",
+            "cb:fire",
+            "cb:ice",
+            "cb:lightning",
+            "cb:ranged_fire",
+            "cb:ranged_ice",
+            "cb:ranged_lightning"
+          ]
+        }
+      },
+      "cb:as_fire": {
+        "set_property": {
+          "cb:element": 4
+        },
+        "add": {
+          "component_groups": [
+            "cb:elemental",
+            "cb:melee",
+            "cb:mode_switcher",
+            "cb:fire"
+          ]
+        },
+        "remove": {
+          "component_groups": [
+            "cb:ordinary",
+            "cb:ice",
+            "cb:lightning",
+            "cb:ranged_fire",
+            "cb:ranged_ice",
+            "cb:ranged_lightning"
+          ]
+        }
+      },
+      "cb:as_ice": {
+        "set_property": {
+          "cb:element": 5
+        },
+        "add": {
+          "component_groups": [
+            "cb:elemental",
+            "cb:melee",
+            "cb:mode_switcher",
+            "cb:ice"
+          ]
+        },
+        "remove": {
+          "component_groups": [
+            "cb:ordinary",
+            "cb:fire",
+            "cb:lightning",
+            "cb:ranged_fire",
+            "cb:ranged_ice",
+            "cb:ranged_lightning"
+          ]
+        }
+      },
+      "cb:as_lightning": {
+        "set_property": {
+          "cb:element": 6
+        },
+        "add": {
+          "component_groups": [
+            "cb:elemental",
+            "cb:melee",
+            "cb:mode_switcher",
+            "cb:lightning"
+          ]
+        },
+        "remove": {
+          "component_groups": [
+            "cb:ordinary",
+            "cb:fire",
+            "cb:ice",
+            "cb:ranged_fire",
+            "cb:ranged_ice",
+            "cb:ranged_lightning"
+          ]
+        }
+      },
+      "cb:to_melee": {
+        "add": {
+          "component_groups": [
+            "cb:melee"
+          ]
+        },
+        "remove": {
+          "component_groups": [
+            "cb:ranged_fire",
+            "cb:ranged_ice",
+            "cb:ranged_lightning"
+          ]
+        }
+      },
+      "cb:to_ranged": {
+        "sequence": [
+          {
+            "remove": {
+              "component_groups": [
+                "cb:melee"
+              ]
+            }
+          },
+          {
+            "filters": {
+              "test": "int_property",
+              "subject": "self",
+              "domain": "cb:element",
+              "operator": "==",
+              "value": 4
+            },
+            "add": {
+              "component_groups": [
+                "cb:ranged_fire"
+              ]
+            }
+          },
+          {
+            "filters": {
+              "test": "int_property",
+              "subject": "self",
+              "domain": "cb:element",
+              "operator": "==",
+              "value": 5
+            },
+            "add": {
+              "component_groups": [
+                "cb:ranged_ice"
+              ]
+            }
+          },
+          {
+            "filters": {
+              "test": "int_property",
+              "subject": "self",
+              "domain": "cb:element",
+              "operator": "==",
+              "value": 6
+            },
+            "add": {
+              "component_groups": [
+                "cb:ranged_lightning"
+              ]
+            }
+          }
+        ]
+      }
+    }
+  }
+}

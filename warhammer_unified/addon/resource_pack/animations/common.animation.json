@@ -1,0 +1,58 @@
+{
+ "format_version": "1.8.0",
+ "animations": {
+  "animation.common.look_at_target": {
+   "loop": true,
+   "bones": {
+    "head": {
+     "rotation": [
+      "Math.clamp(query.target_x_rotation,-30,30)",
+      "Math.clamp(query.target_y_rotation,-45,45)",
+      0
+     ]
+    }
+   }
+  },
+  "animation.cb_projectile.spin": {
+   "loop": true,
+   "bones": {
+    "body": {
+     "rotation": [
+      "query.life_time * 360",
+      "query.life_time * 540",
+      "math.sin(query.life_time * 300) * 15"
+     ],
+     "scale": [
+      "1.0 + math.sin(query.life_time * 400) * 0.12",
+      "1.0 + math.sin(query.life_time * 400) * 0.12",
+      "1.0 + math.sin(query.life_time * 400) * 0.12"
+     ]
+    }
+   }
+  },
+  "animation.cb_troll_totem.idle": {
+   "loop": true,
+   "bones": {
+    "totemPole": {
+     "rotation": [
+      0,
+      "math.sin(query.life_time * 90) * 4",
+      0
+     ]
+    },
+    "floatingSkull": {
+     "position": [
+      0,
+      "math.sin(query.life_time * 180) * 1.5",
+      0
+     ],
+     "rotation": [
+      "math.sin(query.life_time * 140) * 6",
+      "query.life_time * 60",
+      0
+     ]
+    }
+   }
+  }
+ }
+}

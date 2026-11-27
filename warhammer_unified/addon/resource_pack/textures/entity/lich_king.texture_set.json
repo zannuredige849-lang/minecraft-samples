@@ -1,0 +1,8 @@
+{
+  "format_version": "1.16.100",
+  "minecraft:texture_set": {
+    "color": "lich_king",
+    "metalness_emissive_roughness": "lich_king_mer",
+    "heightmap": "lich_king_height"
+  }
+}

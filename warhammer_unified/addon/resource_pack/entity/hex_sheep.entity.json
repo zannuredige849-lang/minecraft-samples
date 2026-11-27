@@ -1,0 +1,39 @@
+{
+  "format_version": "1.10.0",
+  "minecraft:client_entity": {
+    "description": {
+      "identifier": "cb:hex_sheep",
+      "materials": {
+        "default": "entity_alphatest"
+      },
+      "textures": {
+        "default": "textures/entity/sheep/sheep"
+      },
+      "geometry": {
+        "default": "geometry.cb_hex_sheep",
+        "sheared": "geometry.cb_hex_sheep_sheared"
+      },
+      "animations": {
+        "walk": "animation.cb_hex.sheep_walk",
+        "dance": "animation.cb_hex.dance",
+        "idle": "animation.cb_hex.idle",
+        "look_at_target": "animation.common.look_at_target"
+      },
+      "scripts": {
+        "animate": [
+          "idle",
+          {
+            "walk": "query.modified_move_speed > 0.015"
+          },
+          "look_at_target",
+          {
+            "dance": "q.property('cb:dancing')"
+          }
+        ]
+      },
+      "render_controllers": [
+        "controller.render.cb_hex_sheep"
+      ]
+    }
+  }
+}

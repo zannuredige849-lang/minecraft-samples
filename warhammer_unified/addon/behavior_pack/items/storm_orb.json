@@ -1,0 +1,27 @@
+{
+  "format_version": "1.21.10",
+  "minecraft:item": {
+    "description": {
+      "identifier": "warcraft:storm_orb",
+      "menu_category": {
+        "category": "equipment"
+      }
+    },
+    "components": {
+      "minecraft:icon": {
+        "textures": {
+          "default": "storm_orb"
+        }
+      },
+      "minecraft:display_name": {
+        "value": "§9Сфера Грозового Голема"
+      },
+      "minecraft:max_stack_size": 1,
+      "minecraft:hand_equipped": true,
+      "minecraft:glint": true,
+      "minecraft:durability": {
+        "max_durability": 5
+      }
+    }
+  }
+}

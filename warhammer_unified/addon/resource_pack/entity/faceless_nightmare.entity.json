@@ -1,0 +1,39 @@
+{
+ "format_version": "1.10.0",
+ "minecraft:client_entity": {
+  "description": {
+   "identifier": "warcraft:faceless_nightmare",
+   "materials": {
+    "default": "entity_alphatest"
+   },
+   "textures": {
+    "default": "textures/entity/faceless_nightmare_voxel"
+   },
+   "geometry": {
+    "default": "geometry.faceless_nightmare"
+   },
+   "animations": {
+    "idle_a": "animation.faceless_nightmare.idle_a",
+    "idle_b": "animation.faceless_nightmare.idle_b",
+    "walk": "animation.faceless_nightmare.walk",
+    "attack_a": "animation.faceless_nightmare.attack_a",
+    "attack_b": "animation.faceless_nightmare.attack_b",
+    "ability": "animation.faceless_nightmare.ability",
+    "death": "animation.faceless_nightmare.death",
+    "move_ctrl": "controller.animation.faceless_nightmare"
+   },
+   "scripts": {
+    "animate": [
+     "move_ctrl"
+    ]
+   },
+   "render_controllers": [
+    "controller.render.default"
+   ],
+   "spawn_egg": {
+    "base_color": "#1c1334",
+    "overlay_color": "#5a3a9a"
+   }
+  }
+ }
+}

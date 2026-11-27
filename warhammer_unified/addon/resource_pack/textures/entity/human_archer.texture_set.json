@@ -1,0 +1,8 @@
+{
+  "format_version": "1.16.100",
+  "minecraft:texture_set": {
+    "color": "human_archer",
+    "metalness_emissive_roughness": "human_archer_mer",
+    "heightmap": "human_archer_height"
+  }
+}

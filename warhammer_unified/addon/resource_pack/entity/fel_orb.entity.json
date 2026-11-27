@@ -1,0 +1,28 @@
+{
+  "format_version": "1.10.0",
+  "minecraft:client_entity": {
+    "description": {
+      "identifier": "cb:fel_orb",
+      "materials": {
+        "default": "entity_alphatest"
+      },
+      "textures": {
+        "fel_orb": "textures/entity/fel_orb"
+      },
+      "geometry": {
+        "default": "geometry.cb_fel_orb"
+      },
+      "render_controllers": [
+        "controller.render.cb_fel_orb"
+      ],
+      "animations": {
+        "spin": "animation.cb_projectile.spin"
+      },
+      "scripts": {
+        "animate": [
+          "spin"
+        ]
+      }
+    }
+  }
+}

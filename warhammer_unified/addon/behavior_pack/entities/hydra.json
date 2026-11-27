@@ -1,0 +1,503 @@
+{
+  "format_version": "1.21.0",
+  "minecraft:entity": {
+    "description": {
+      "identifier": "cb:hydra",
+      "is_spawnable": true,
+      "is_summonable": true,
+      "is_experimental": false,
+      "properties": {
+        "cb:byaw": {
+          "type": "float",
+          "range": [
+            -180.0,
+            180.0
+          ],
+          "default": 0.0,
+          "client_sync": true
+        },
+        "cb:act0": {
+          "type": "int",
+          "range": [
+            0,
+            4
+          ],
+          "default": 0,
+          "client_sync": true
+        },
+        "cb:yaw0": {
+          "type": "float",
+          "range": [
+            -90.0,
+            90.0
+          ],
+          "default": 0.0,
+          "client_sync": true
+        },
+        "cb:pitch0": {
+          "type": "float",
+          "range": [
+            -1.0,
+            180.0
+          ],
+          "default": -1.0,
+          "client_sync": true
+        },
+        "cb:look0": {
+          "type": "float",
+          "range": [
+            -90.0,
+            90.0
+          ],
+          "default": 0.0,
+          "client_sync": true
+        },
+        "cb:lo0": {
+          "type": "float",
+          "range": [
+            -90.0,
+            270.0
+          ],
+          "default": 0.0,
+          "client_sync": true
+        },
+        "cb:up0": {
+          "type": "float",
+          "range": [
+            -90.0,
+            450.0
+          ],
+          "default": 90.0,
+          "client_sync": true
+        },
+        "cb:act1": {
+          "type": "int",
+          "range": [
+            0,
+            4
+          ],
+          "default": 0,
+          "client_sync": true
+        },
+        "cb:yaw1": {
+          "type": "float",
+          "range": [
+            -90.0,
+            90.0
+          ],
+          "default": 0.0,
+          "client_sync": true
+        },
+        "cb:pitch1": {
+          "type": "float",
+          "range": [
+            -1.0,
+            180.0
+          ],
+          "default": -1.0,
+          "client_sync": true
+        },
+        "cb:look1": {
+          "type": "float",
+          "range": [
+            -90.0,
+            90.0
+          ],
+          "default": 0.0,
+          "client_sync": true
+        },
+        "cb:lo1": {
+          "type": "float",
+          "range": [
+            -90.0,
+            270.0
+          ],
+          "default": 0.0,
+          "client_sync": true
+        },
+        "cb:up1": {
+          "type": "float",
+          "range": [
+            -90.0,
+            450.0
+          ],
+          "default": 90.0,
+          "client_sync": true
+        },
+        "cb:act2": {
+          "type": "int",
+          "range": [
+            0,
+            4
+          ],
+          "default": 0,
+          "client_sync": true
+        },
+        "cb:yaw2": {
+          "type": "float",
+          "range": [
+            -90.0,
+            90.0
+          ],
+          "default": 0.0,
+          "client_sync": true
+        },
+        "cb:pitch2": {
+          "type": "float",
+          "range": [
+            -1.0,
+            180.0
+          ],
+          "default": -1.0,
+          "client_sync": true
+        },
+        "cb:look2": {
+          "type": "float",
+          "range": [
+            -90.0,
+            90.0
+          ],
+          "default": 0.0,
+          "client_sync": true
+        },
+        "cb:lo2": {
+          "type": "float",
+          "range": [
+            -90.0,
+            270.0
+          ],
+          "default": 0.0,
+          "client_sync": true
+        },
+        "cb:up2": {
+          "type": "float",
+          "range": [
+            -90.0,
+            450.0
+          ],
+          "default": 90.0,
+          "client_sync": true
+        },
+        "cb:act3": {
+          "type": "int",
+          "range": [
+            0,
+            4
+          ],
+          "default": 0,
+          "client_sync": true
+        },
+        "cb:yaw3": {
+          "type": "float",
+          "range": [
+            -90.0,
+            90.0
+          ],
+          "default": 0.0,
+          "client_sync": true
+        },
+        "cb:pitch3": {
+          "type": "float",
+          "range": [
+            -1.0,
+            180.0
+          ],
+          "default": -1.0,
+          "client_sync": true
+        },
+        "cb:look3": {
+          "type": "float",
+          "range": [
+            -90.0,
+            90.0
+          ],
+          "default": 0.0,
+          "client_sync": true
+        },
+        "cb:lo3": {
+          "type": "float",
+          "range": [
+            -90.0,
+            270.0
+          ],
+          "default": 0.0,
+          "client_sync": true
+        },
+        "cb:up3": {
+          "type": "float",
+          "range": [
+            -90.0,
+            450.0
+          ],
+          "default": 90.0,
+          "client_sync": true
+        },
+        "cb:act4": {
+          "type": "int",
+          "range": [
+            0,
+            4
+          ],
+          "default": 0,
+          "client_sync": true
+        },
+        "cb:yaw4": {
+          "type": "float",
+          "range": [
+            -90.0,
+            90.0
+          ],
+          "default": 0.0,
+          "client_sync": true
+        },
+        "cb:pitch4": {
+          "type": "float",
+          "range": [
+            -1.0,
+            180.0
+          ],
+          "default": -1.0,
+          "client_sync": true
+        },
+        "cb:look4": {
+          "type": "float",
+          "range": [
+            -90.0,
+            90.0
+          ],
+          "default": 0.0,
+          "client_sync": true
+        },
+        "cb:lo4": {
+          "type": "float",
+          "range": [
+            -90.0,
+            270.0
+          ],
+          "default": 0.0,
+          "client_sync": true
+        },
+        "cb:up4": {
+          "type": "float",
+          "range": [
+            -90.0,
+            450.0
+          ],
+          "default": 90.0,
+          "client_sync": true
+        },
+        "cb:dancing": {
+          "type": "bool",
+          "default": false,
+          "client_sync": true
+        }
+      }
+    },
+    "component_groups": {
+      "cb:despawn": {
+        "minecraft:instant_despawn": {}
+      }
+    },
+    "components": {
+      "minecraft:type_family": {
+        "family": [
+          "hydra",
+          "hydra_faction",
+          "boss",
+          "monster",
+          "mob",
+          "f_hydra",
+          "summon_safe"
+        ]
+      },
+      "minecraft:health": {
+        "value": 165,
+        "max": 165
+      },
+      "minecraft:collision_box": {
+        "width": 2.4,
+        "height": 2.2
+      },
+      "minecraft:knockback_resistance": {
+        "value": 1.0
+      },
+      "minecraft:movement": {
+        "value": 0.2
+      },
+      "minecraft:movement.basic": {},
+      "minecraft:navigation.walk": {
+        "can_path_over_water": true,
+        "avoid_water": false,
+        "avoid_damage_blocks": true
+      },
+      "minecraft:jump.static": {},
+      "minecraft:variable_max_auto_step": {
+        "base_value": 1.0625,
+        "jump_prevented_value": 1.0625,
+        "controlled_value": 1.0625
+      },
+      "minecraft:physics": {},
+      "minecraft:pushable": {
+        "is_pushable": false,
+        "is_pushable_by_piston": false
+      },
+      "minecraft:breathable": {
+        "total_supply": 15,
+        "suffocate_time": 0,
+        "breathes_air": true,
+        "breathes_water": true
+      },
+      "minecraft:nameable": {
+        "always_show": false,
+        "allow_name_tag_renaming": true
+      },
+      "minecraft:persistent": {},
+      "minecraft:follow_range": {
+        "value": 32,
+        "max": 32
+      },
+      "minecraft:boss": {
+        "should_darken_sky": false,
+        "hud_range": 40,
+        "name": "entity.cb:hydra.name"
+      },
+      "minecraft:ambient_sound_interval": {
+        "value": 8,
+        "range": 12,
+        "event_name": "ambient"
+      },
+      "minecraft:loot": {
+        "table": "loot_tables/entities/hydra.json"
+      },
+      "minecraft:experience_reward": {
+        "on_death": "query.last_hit_by_player ? 80 : 0"
+      },
+      "minecraft:damage_sensor": {
+        "triggers": [
+          {
+            "on_damage": {
+              "filters": {
+                "test": "has_tag",
+                "subject": "self",
+                "operator": "!=",
+                "value": "cb_hydra_dying"
+              }
+            },
+            "deals_damage": false
+          }
+        ]
+      },
+      "minecraft:attack": {
+        "damage": 6,
+        "effect_name": "poison",
+        "effect_duration": 6
+      },
+      "minecraft:behavior.float": {
+        "priority": 0
+      },
+      "minecraft:behavior.nearest_attackable_target": {
+        "priority": 1,
+        "must_see": true,
+        "reselect_targets": true,
+        "within_radius": 24,
+        "entity_types": [
+          {
+            "filters": {
+              "all_of": [
+                {
+                  "test": "is_family",
+                  "subject": "other",
+                  "operator": "!=",
+                  "value": "f_hydra"
+                },
+                {
+                  "any_of": [
+                    {
+                      "test": "is_family",
+                      "subject": "other",
+                      "value": "player"
+                    },
+                    {
+                      "test": "is_family",
+                      "subject": "other",
+                      "value": "mob"
+                    }
+                  ]
+                },
+                {
+                  "test": "is_family",
+                  "subject": "other",
+                  "operator": "!=",
+                  "value": "hydra"
+                },
+                {
+                  "test": "is_family",
+                  "subject": "other",
+                  "operator": "!=",
+                  "value": "hydra_head"
+                },
+                {
+                  "test": "is_family",
+                  "subject": "other",
+                  "operator": "!=",
+                  "value": "hydra_spit"
+                },
+                {
+                  "test": "is_family",
+                  "subject": "other",
+                  "operator": "!=",
+                  "value": "inanimate"
+                },
+                {
+                  "test": "is_family",
+                  "subject": "other",
+                  "operator": "!=",
+                  "value": "armor_stand"
+                }
+              ]
+            },
+            "max_dist": 24
+          }
+        ]
+      },
+      "minecraft:behavior.melee_attack": {
+        "priority": 2,
+        "speed_multiplier": 1.2,
+        "track_target": true,
+        "reach_multiplier": 0.4
+      },
+      "minecraft:behavior.random_stroll": {
+        "priority": 6,
+        "speed_multiplier": 0.8
+      },
+      "minecraft:environment_sensor": {
+        "triggers": [
+          {
+            "filters": {
+              "test": "is_riding",
+              "subject": "self",
+              "value": true
+            },
+            "event": "cb:leave_boat"
+          }
+        ]
+      }
+    },
+    "events": {
+      "cb:despawn": {
+        "add": {
+          "component_groups": [
+            "cb:despawn"
+          ]
+        }
+      },
+      "cb:leave_boat": {
+        "queue_command": {
+          "command": [
+            "ride @s stop_riding"
+          ]
+        }
+      }
+    }
+  }
+}

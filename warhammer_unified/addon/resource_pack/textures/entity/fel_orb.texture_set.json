@@ -1,0 +1,8 @@
+{
+  "format_version": "1.16.100",
+  "minecraft:texture_set": {
+    "color": "fel_orb",
+    "metalness_emissive_roughness": "fel_orb_mer",
+    "heightmap": "fel_orb_height"
+  }
+}

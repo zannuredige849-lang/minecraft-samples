@@ -1,0 +1,213 @@
+{
+  "format_version": "1.8.0",
+  "animations": {
+    "animation.cb_hex.chicken_walk": {
+      "loop": true,
+      "bones": {
+        "leg0": {
+          "rotation": [
+            "math.cos(q.life_time * 600) * 60 * q.property('cb:speed')",
+            0,
+            0
+          ]
+        },
+        "leg1": {
+          "rotation": [
+            "-math.cos(q.life_time * 600) * 60 * q.property('cb:speed')",
+            0,
+            0
+          ]
+        },
+        "wing0": {
+          "rotation": [
+            0,
+            0,
+            "q.property('cb:air') ? (math.sin(q.life_time * 1200) + 1) * 35 : 0"
+          ]
+        },
+        "wing1": {
+          "rotation": [
+            0,
+            0,
+            "q.property('cb:air') ? -(math.sin(q.life_time * 1200) + 1) * 35 : 0"
+          ]
+        }
+      }
+    },
+    "animation.cb_hex.goat_walk": {
+      "loop": true,
+      "bones": {
+        "right_front_leg": {
+          "rotation": [
+            "math.cos(q.life_time * 600) * 38 * q.property('cb:speed')",
+            0,
+            0
+          ]
+        },
+        "left_back_leg": {
+          "rotation": [
+            "math.cos(q.life_time * 600) * 38 * q.property('cb:speed')",
+            0,
+            0
+          ]
+        },
+        "left_front_leg": {
+          "rotation": [
+            "-math.cos(q.life_time * 600) * 38 * q.property('cb:speed')",
+            0,
+            0
+          ]
+        },
+        "right_back_leg": {
+          "rotation": [
+            "-math.cos(q.life_time * 600) * 38 * q.property('cb:speed')",
+            0,
+            0
+          ]
+        }
+      }
+    },
+    "animation.cb_hex.pig_walk": {
+      "loop": true,
+      "bones": {
+        "leg0": {
+          "rotation": [
+            "math.cos(q.life_time * 600) * 38 * q.property('cb:speed')",
+            0,
+            0
+          ]
+        },
+        "leg3": {
+          "rotation": [
+            "math.cos(q.life_time * 600) * 38 * q.property('cb:speed')",
+            0,
+            0
+          ]
+        },
+        "leg1": {
+          "rotation": [
+            "-math.cos(q.life_time * 600) * 38 * q.property('cb:speed')",
+            0,
+            0
+          ]
+        },
+        "leg2": {
+          "rotation": [
+            "-math.cos(q.life_time * 600) * 38 * q.property('cb:speed')",
+            0,
+            0
+          ]
+        }
+      }
+    },
+    "animation.cb_hex.sheep_walk": {
+      "loop": true,
+      "bones": {
+        "leg0": {
+          "rotation": [
+            "math.cos(q.life_time * 600) * 38 * q.property('cb:speed')",
+            0,
+            0
+          ]
+        },
+        "leg3": {
+          "rotation": [
+            "math.cos(q.life_time * 600) * 38 * q.property('cb:speed')",
+            0,
+            0
+          ]
+        },
+        "leg1": {
+          "rotation": [
+            "-math.cos(q.life_time * 600) * 38 * q.property('cb:speed')",
+            0,
+            0
+          ]
+        },
+        "leg2": {
+          "rotation": [
+            "-math.cos(q.life_time * 600) * 38 * q.property('cb:speed')",
+            0,
+            0
+          ]
+        }
+      }
+    },
+    "animation.cb_hex.horse_walk": {
+      "loop": true,
+      "bones": {
+        "leg3a": {
+          "rotation": [
+            "math.cos(q.life_time * 600) * 40 * q.property('cb:speed')",
+            0,
+            0
+          ]
+        },
+        "leg2a": {
+          "rotation": [
+            "math.cos(q.life_time * 600) * 40 * q.property('cb:speed')",
+            0,
+            0
+          ]
+        },
+        "leg4a": {
+          "rotation": [
+            "-math.cos(q.life_time * 600) * 40 * q.property('cb:speed')",
+            0,
+            0
+          ]
+        },
+        "leg1a": {
+          "rotation": [
+            "-math.cos(q.life_time * 600) * 40 * q.property('cb:speed')",
+            0,
+            0
+          ]
+        }
+      }
+    },
+    "animation.cb_hex.dance": {
+      "loop": true,
+      "bones": {
+        "body": {
+          "position": [
+            0,
+            "math.abs(math.sin(q.life_time * 400)) * 2.2",
+            0
+          ],
+          "rotation": [
+            "math.sin(q.life_time * 400) * 10",
+            "math.cos(q.life_time * 200) * 22",
+            "math.sin(q.life_time * 200) * 10"
+          ]
+        },
+        "head": {
+          "rotation": [
+            "math.sin(q.life_time * 400) * 16",
+            "math.cos(q.life_time * 200) * 18",
+            0
+          ]
+        }
+      }
+    },
+    "animation.cb_hex.idle": {
+      "loop": true,
+      "bones": {
+        "head": {
+          "rotation": [
+            "math.sin(query.life_time * 120) * 3",
+            0,
+            0
+          ]
+        },
+        "body": {
+          "position": [
+            0,
+            "math.sin(query.life_time * 120) * 0.15",
+            0
+          ]
+        }
+      }
+    }
+  }
+}

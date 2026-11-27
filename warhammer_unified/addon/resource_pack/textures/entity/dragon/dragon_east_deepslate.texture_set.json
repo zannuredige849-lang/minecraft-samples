@@ -1,0 +1,8 @@
+{
+  "format_version": "1.16.100",
+  "minecraft:texture_set": {
+    "color": "dragon_east_deepslate",
+    "metalness_emissive_roughness": "dragon_east_deepslate_mer",
+    "heightmap": "dragon_east_deepslate_height"
+  }
+}

@@ -1,0 +1,76 @@
+{
+ "format_version": "1.10.0",
+ "minecraft:client_entity": {
+  "description": {
+   "identifier": "cb:cyclops",
+   "materials": {
+    "default": "entity_emissive_alpha"
+   },
+   "textures": {
+    "default": "textures/entity/cyclops",
+    "blind": "textures/entity/cyclops_blind"
+   },
+   "geometry": {
+    "default": "geometry.cyclops"
+   },
+   "animations": {
+    "move_ctrl": "controller.animation.cyclops.move",
+    "walk": "animation.cyclops.walk",
+    "charge": "animation.cyclops.charge",
+    "blind_walk": "animation.cyclops.blind_walk",
+    "limp": "animation.cyclops.limp",
+    "hold_two": "animation.cyclops.hold_two",
+    "hold_squeeze": "animation.cyclops.hold_squeeze",
+    "hold_pinch": "animation.cyclops.hold_pinch",
+    "eat_bite": "animation.cyclops.eat_bite",
+    "eat_toss": "animation.cyclops.eat_toss",
+    "eat_swallow": "animation.cyclops.eat_swallow",
+    "idle": "animation.cyclops.idle",
+    "inspect": "animation.cyclops.inspect",
+    "poisoned": "animation.cyclops.poisoned",
+    "sleep": "animation.cyclops.sleep",
+    "sleep_lie": "animation.cyclops.sleep_lie",
+    "look_at_target": "animation.common.look_at_target",
+    "attack_ctrl": "controller.animation.cyclops.attack",
+    "attack_punch": "animation.cyclops.attack_punch",
+    "attack_smash": "animation.cyclops.attack_smash",
+    "attack_kick": "animation.cyclops.attack_kick",
+    "attack_stomp": "animation.cyclops.attack_stomp",
+    "attack_swing": "animation.cyclops.attack_swing",
+    "attack_uppercut": "animation.cyclops.attack_uppercut",
+    "attack_backhand": "animation.cyclops.attack_backhand",
+    "attack_clap": "animation.cyclops.attack_clap",
+    "attack_pound": "animation.cyclops.attack_pound",
+    "attack_combo": "animation.cyclops.attack_combo",
+    "stack": "animation.cyclops.stack",
+    "dance": "animation.cyclops.dance"
+   },
+   "scripts": {
+    "animate": [
+     {
+      "idle": "q.property('cb:state') == 0 && !q.property('cb:swing') && !q.property('cb:stack') && !q.property('cb:dancing') && q.modified_move_speed < 0.08"
+     },
+     {
+      "move_ctrl": "!q.property('cb:dancing')"
+     },
+     {
+      "attack_ctrl": "!q.property('cb:dancing') && q.property('cb:state') == 0 && !q.property('cb:stack')"
+     },
+     {
+      "look_at_target": "q.property('cb:state') == 0 && !q.property('cb:blind') && !q.property('cb:swing') && !q.property('cb:dancing')"
+     },
+     {
+      "dance": "q.property('cb:dancing')"
+     }
+    ]
+   },
+   "render_controllers": [
+    "controller.render.cyclops"
+   ],
+   "spawn_egg": {
+    "base_color": "#c76136",
+    "overlay_color": "#e8c080"
+   }
+  }
+ }
+}

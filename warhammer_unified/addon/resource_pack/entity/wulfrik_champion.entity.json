@@ -1,0 +1,39 @@
+{
+ "format_version": "1.10.0",
+ "minecraft:client_entity": {
+  "description": {
+   "identifier": "warcraft:wulfrik_champion",
+   "materials": {
+    "default": "entity_alphatest"
+   },
+   "textures": {
+    "default": "textures/entity/wulfrik_champion_voxel"
+   },
+   "geometry": {
+    "default": "geometry.wulfrik_champion"
+   },
+   "animations": {
+    "idle_a": "animation.wulfrik_champion.idle_a",
+    "idle_b": "animation.wulfrik_champion.idle_b",
+    "walk": "animation.wulfrik_champion.walk",
+    "attack_a": "animation.wulfrik_champion.attack_a",
+    "attack_b": "animation.wulfrik_champion.attack_b",
+    "ability": "animation.wulfrik_champion.ability",
+    "death": "animation.wulfrik_champion.death",
+    "move_ctrl": "controller.animation.wulfrik_champion"
+   },
+   "scripts": {
+    "animate": [
+     "move_ctrl"
+    ]
+   },
+   "render_controllers": [
+    "controller.render.default"
+   ],
+   "spawn_egg": {
+    "base_color": "#59392e",
+    "overlay_color": "#b02a2a"
+   }
+  }
+ }
+}

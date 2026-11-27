@@ -1,0 +1,264 @@
+{
+  "format_version": "1.10.0",
+  "animation_controllers": {
+    "controller.animation.cyclops.move": {
+      "initial_state": "walk",
+      "states": {
+        "walk": {
+          "animations": [
+            "walk"
+          ],
+          "blend_transition": 0.25,
+          "transitions": [
+            {
+              "swinging": "q.property('cb:swing') && q.property('cb:state') == 0"
+            },
+            {
+              "stack": "q.property('cb:stack')"
+            },
+            {
+              "sleep": "q.property('cb:state') == 4"
+            },
+            {
+              "poisoned": "q.property('cb:state') == 3"
+            },
+            {
+              "inspect": "q.property('cb:state') == 2"
+            },
+            {
+              "grab": "q.property('cb:state') == 1"
+            },
+            {
+              "blind": "q.property('cb:blind')"
+            },
+            {
+              "limp": "q.health / math.max(q.max_health, 1) < 0.3"
+            },
+            {
+              "charge": "q.has_target"
+            }
+          ]
+        },
+        "charge": {
+          "animations": [
+            "charge"
+          ],
+          "blend_transition": 0.25,
+          "transitions": [
+            {
+              "swinging": "q.property('cb:swing') && q.property('cb:state') == 0"
+            },
+            {
+              "stack": "q.property('cb:stack')"
+            },
+            {
+              "sleep": "q.property('cb:state') == 4"
+            },
+            {
+              "poisoned": "q.property('cb:state') == 3"
+            },
+            {
+              "inspect": "q.property('cb:state') == 2"
+            },
+            {
+              "grab": "q.property('cb:state') == 1"
+            },
+            {
+              "blind": "q.property('cb:blind')"
+            },
+            {
+              "limp": "q.health / math.max(q.max_health, 1) < 0.3"
+            },
+            {
+              "walk": "!q.has_target"
+            }
+          ]
+        },
+        "limp": {
+          "animations": [
+            "limp"
+          ],
+          "blend_transition": 0.3,
+          "transitions": [
+            {
+              "swinging": "q.property('cb:swing') && q.property('cb:state') == 0"
+            },
+            {
+              "stack": "q.property('cb:stack')"
+            },
+            {
+              "sleep": "q.property('cb:state') == 4"
+            },
+            {
+              "poisoned": "q.property('cb:state') == 3"
+            },
+            {
+              "inspect": "q.property('cb:state') == 2"
+            },
+            {
+              "grab": "q.property('cb:state') == 1"
+            },
+            {
+              "blind": "q.property('cb:blind')"
+            },
+            {
+              "walk": "q.health / math.max(q.max_health, 1) >= 0.3"
+            }
+          ]
+        },
+        "blind": {
+          "animations": [
+            "blind_walk"
+          ],
+          "blend_transition": 0.4,
+          "transitions": [
+            {
+              "swinging": "q.property('cb:swing') && q.property('cb:state') == 0"
+            },
+            {
+              "stack": "q.property('cb:stack')"
+            },
+            {
+              "sleep": "q.property('cb:state') == 4"
+            },
+            {
+              "poisoned": "q.property('cb:state') == 3"
+            },
+            {
+              "inspect": "q.property('cb:state') == 2"
+            },
+            {
+              "grab": "q.property('cb:state') == 1"
+            }
+          ]
+        },
+        "grab": {
+          "animations": [
+            {
+              "hold_two": "q.property('cb:hold') == 0"
+            },
+            {
+              "hold_squeeze": "q.property('cb:hold') == 1"
+            },
+            {
+              "hold_pinch": "q.property('cb:hold') == 2"
+            },
+            {
+              "eat_bite": "q.property('cb:eat') == 0"
+            },
+            {
+              "eat_toss": "q.property('cb:eat') == 1"
+            },
+            {
+              "eat_swallow": "q.property('cb:eat') == 2"
+            }
+          ],
+          "blend_transition": 0.2,
+          "transitions": [
+            {
+              "sleep": "q.property('cb:state') == 4"
+            },
+            {
+              "poisoned": "q.property('cb:state') == 3"
+            },
+            {
+              "walk": "q.property('cb:state') == 0"
+            },
+            {
+              "inspect": "q.property('cb:state') == 2"
+            }
+          ]
+        },
+        "inspect": {
+          "animations": [
+            "inspect"
+          ],
+          "blend_transition": 0.4,
+          "transitions": [
+            {
+              "sleep": "q.property('cb:state') == 4"
+            },
+            {
+              "poisoned": "q.property('cb:state') == 3"
+            },
+            {
+              "walk": "q.property('cb:state') == 0"
+            },
+            {
+              "grab": "q.property('cb:state') == 1"
+            }
+          ]
+        },
+        "poisoned": {
+          "animations": [
+            "poisoned"
+          ],
+          "blend_transition": 0.6,
+          "transitions": [
+            {
+              "sleep": "q.property('cb:state') == 4"
+            },
+            {
+              "walk": "q.property('cb:state') == 0"
+            }
+          ]
+        },
+        "sleep": {
+          "animations": [
+            {
+              "sleep": "!q.property('cb:lie')"
+            },
+            {
+              "sleep_lie": "q.property('cb:lie')"
+            }
+          ],
+          "blend_transition": 0.8,
+          "transitions": [
+            {
+              "walk": "q.property('cb:state') == 0"
+            }
+          ]
+        },
+        "stack": {
+          "animations": [
+            "stack"
+          ],
+          "blend_transition": 0.3,
+          "transitions": [
+            {
+              "sleep": "q.property('cb:state') == 4"
+            },
+            {
+              "walk": "!q.property('cb:stack')"
+            }
+          ]
+        },
+        "swinging": {
+          "animations": [
+            {
+              "walk": "q.modified_move_speed > 0.02 && q.property('cb:attack') != 2 && q.property('cb:attack') != 3"
+            }
+          ],
+          "blend_transition": 0.1,
+          "transitions": [
+            {
+              "sleep": "q.property('cb:state') == 4"
+            },
+            {
+              "poisoned": "q.property('cb:state') == 3"
+            },
+            {
+              "grab": "q.property('cb:state') == 1"
+            },
+            {
+              "inspect": "q.property('cb:state') == 2"
+            },
+            {
+              "walk": "!q.property('cb:swing')"
+            }
+          ]
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,185 @@
+{
+  "format_version": "1.10.0",
+  "animation_controllers": {
+    "controller.animation.cb_zeus": {
+      "initial_state": "default",
+      "states": {
+        "default": {
+          "blend_transition": 0.12,
+          "transitions": [
+            {
+              "dance": "q.property('cb:dancing')"
+            },
+            {
+              "stun": "q.property('cb:cast_state') == 4"
+            },
+            {
+              "special3": "q.property('cb:cast_state') == 3"
+            },
+            {
+              "special2": "q.property('cb:cast_state') == 2"
+            },
+            {
+              "special1": "q.property('cb:cast_state') == 1"
+            },
+            {
+              "charge": "q.property('cb:charging')"
+            },
+            {
+              "attack": "variable.attack_time > 0.0 || q.property('cb:cast_state') == 5"
+            }
+          ]
+        },
+        "attack": {
+          "animations": [
+            "attack"
+          ],
+          "blend_transition": 0.08,
+          "transitions": [
+            {
+              "dance": "q.property('cb:dancing')"
+            },
+            {
+              "stun": "q.property('cb:cast_state') == 4"
+            },
+            {
+              "special3": "q.property('cb:cast_state') == 3"
+            },
+            {
+              "special2": "q.property('cb:cast_state') == 2"
+            },
+            {
+              "special1": "q.property('cb:cast_state') == 1"
+            },
+            {
+              "charge": "q.property('cb:charging')"
+            },
+            {
+              "default": "variable.attack_time <= 0.0 && q.property('cb:cast_state') != 5"
+            }
+          ]
+        },
+        "charge": {
+          "animations": [
+            "charge"
+          ],
+          "blend_transition": 0.12,
+          "transitions": [
+            {
+              "dance": "q.property('cb:dancing')"
+            },
+            {
+              "stun": "q.property('cb:cast_state') == 4"
+            },
+            {
+              "special3": "q.property('cb:cast_state') == 3"
+            },
+            {
+              "special2": "q.property('cb:cast_state') == 2"
+            },
+            {
+              "special1": "q.property('cb:cast_state') == 1"
+            },
+            {
+              "default": "!q.property('cb:charging')"
+            }
+          ]
+        },
+        "special1": {
+          "animations": [
+            "special1"
+          ],
+          "blend_transition": 0.12,
+          "transitions": [
+            {
+              "dance": "q.property('cb:dancing')"
+            },
+            {
+              "stun": "q.property('cb:cast_state') == 4"
+            },
+            {
+              "special3": "q.property('cb:cast_state') == 3"
+            },
+            {
+              "special2": "q.property('cb:cast_state') == 2"
+            },
+            {
+              "default": "q.property('cb:cast_state') != 1"
+            }
+          ]
+        },
+        "special2": {
+          "animations": [
+            "special2"
+          ],
+          "blend_transition": 0.12,
+          "transitions": [
+            {
+              "dance": "q.property('cb:dancing')"
+            },
+            {
+              "stun": "q.property('cb:cast_state') == 4"
+            },
+            {
+              "special3": "q.property('cb:cast_state') == 3"
+            },
+            {
+              "special1": "q.property('cb:cast_state') == 1"
+            },
+            {
+              "default": "q.property('cb:cast_state') != 2"
+            }
+          ]
+        },
+        "special3": {
+          "animations": [
+            "special3"
+          ],
+          "blend_transition": 0.12,
+          "transitions": [
+            {
+              "dance": "q.property('cb:dancing')"
+            },
+            {
+              "stun": "q.property('cb:cast_state') == 4"
+            },
+            {
+              "special2": "q.property('cb:cast_state') == 2"
+            },
+            {
+              "special1": "q.property('cb:cast_state') == 1"
+            },
+            {
+              "default": "q.property('cb:cast_state') != 3"
+            }
+          ]
+        },
+        "stun": {
+          "animations": [
+            "stun"
+          ],
+          "blend_transition": 0.15,
+          "transitions": [
+            {
+              "dance": "q.property('cb:dancing')"
+            },
+            {
+              "default": "q.property('cb:cast_state') != 4"
+            }
+          ]
+        },
+        "dance": {
+          "animations": [
+            "dance"
+          ],
+          "blend_transition": 0.2,
+          "transitions": [
+            {
+              "default": "!q.property('cb:dancing')"
+            }
+          ]
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,38 @@
+{
+ "format_version": "1.10.0",
+ "minecraft:client_entity": {
+  "description": {
+   "identifier": "warcraft:faceless_sorcerer",
+   "min_engine_version": "1.16.0",
+   "materials": {
+    "default": "entity_alphatest"
+   },
+   "textures": {
+    "default": "textures/entity/faceless_sorcerer"
+   },
+   "geometry": {
+    "default": "geometry.faceless_sorcerer"
+   },
+   "animations": {
+    "idle_a": "animation.faceless_sorcerer.idle_a",
+    "walk": "animation.faceless_sorcerer.walk",
+    "attack_a": "animation.faceless_sorcerer.attack_a",
+    "spell": "animation.faceless_sorcerer.spell",
+    "death": "animation.faceless_sorcerer.death",
+    "controller": "controller.animation.faceless_sorcerer"
+   },
+   "scripts": {
+    "animate": [
+     "controller"
+    ]
+   },
+   "render_controllers": [
+    "controller.render.faceless_sorcerer"
+   ],
+   "spawn_egg": {
+    "base_color": "#513983",
+    "overlay_color": "#5a3a9a"
+   }
+  }
+ }
+}

@@ -1,0 +1,38 @@
+{
+ "format_version": "1.10.0",
+ "minecraft:client_entity": {
+  "description": {
+   "identifier": "warcraft:lightning_golem",
+   "min_engine_version": "1.16.0",
+   "materials": {
+    "default": "entity_alphatest"
+   },
+   "textures": {
+    "default": "textures/entity/lightning_golem"
+   },
+   "geometry": {
+    "default": "geometry.lightning_golem"
+   },
+   "animations": {
+    "idle_a": "animation.lightning_golem.idle_a",
+    "walk": "animation.lightning_golem.walk",
+    "attack_a": "animation.lightning_golem.attack_a",
+    "spell": "animation.lightning_golem.spell",
+    "death": "animation.lightning_golem.death",
+    "controller": "controller.animation.lightning_golem"
+   },
+   "scripts": {
+    "animate": [
+     "controller"
+    ]
+   },
+   "render_controllers": [
+    "controller.render.lightning_golem"
+   ],
+   "spawn_egg": {
+    "base_color": "#4d5867",
+    "overlay_color": "#ffb040"
+   }
+  }
+ }
+}

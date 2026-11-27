@@ -1,0 +1,151 @@
+{
+ "format_version": "1.10.0",
+ "minecraft:client_entity": {
+  "description": {
+   "identifier": "cb:hydra",
+   "materials": {
+    "default": "entity_emissive_alpha"
+   },
+   "textures": {
+    "default": "textures/entity/hydra"
+   },
+   "geometry": {
+    "default": "geometry.hydra"
+   },
+   "animations": {
+    "walk": "animation.hydra.walk",
+    "idle": "animation.hydra.idle",
+    "align": "animation.hydra.align",
+    "aim0": "animation.hydra.aim0",
+    "strike0": "animation.hydra.strike0",
+    "hurt0": "animation.hydra.hurt0",
+    "dead0": "animation.hydra.dead0",
+    "grow0": "animation.hydra.grow0",
+    "ctrl0": "controller.animation.hydra.head0",
+    "aim1": "animation.hydra.aim1",
+    "strike1": "animation.hydra.strike1",
+    "hurt1": "animation.hydra.hurt1",
+    "dead1": "animation.hydra.dead1",
+    "grow1": "animation.hydra.grow1",
+    "ctrl1": "controller.animation.hydra.head1",
+    "aim2": "animation.hydra.aim2",
+    "strike2": "animation.hydra.strike2",
+    "hurt2": "animation.hydra.hurt2",
+    "dead2": "animation.hydra.dead2",
+    "grow2": "animation.hydra.grow2",
+    "ctrl2": "controller.animation.hydra.head2",
+    "aim3": "animation.hydra.aim3",
+    "strike3": "animation.hydra.strike3",
+    "hurt3": "animation.hydra.hurt3",
+    "dead3": "animation.hydra.dead3",
+    "grow3": "animation.hydra.grow3",
+    "ctrl3": "controller.animation.hydra.head3",
+    "aim4": "animation.hydra.aim4",
+    "strike4": "animation.hydra.strike4",
+    "hurt4": "animation.hydra.hurt4",
+    "dead4": "animation.hydra.dead4",
+    "grow4": "animation.hydra.grow4",
+    "ctrl4": "controller.animation.hydra.head4",
+    "dance": "animation.hydra.dance"
+   },
+   "scripts": {
+    "initialize": [
+     "v.ny = 0.0;",
+     "v.yd = 0.0;",
+     "v.dt = 0.0;",
+     "v.e0 = 0.0;",
+     "v.y0 = 0.0;",
+     "v.p0 = 90.0;",
+     "v.l0 = 0.0;",
+     "v.g0 = 0.0;",
+     "v.e1 = 0.0;",
+     "v.y1 = 0.0;",
+     "v.p1 = 90.0;",
+     "v.l1 = 0.0;",
+     "v.g1 = 0.0;",
+     "v.e2 = 0.0;",
+     "v.y2 = 0.0;",
+     "v.p2 = 90.0;",
+     "v.l2 = 0.0;",
+     "v.g2 = 0.0;",
+     "v.e3 = 0.0;",
+     "v.y3 = 0.0;",
+     "v.p3 = 90.0;",
+     "v.l3 = 0.0;",
+     "v.g3 = 0.0;",
+     "v.e4 = 0.0;",
+     "v.y4 = 0.0;",
+     "v.p4 = 90.0;",
+     "v.l4 = 0.0;",
+     "v.g4 = 0.0;"
+    ],
+    "pre_animation": [
+     "v.dt = math.min(q.delta_time * 8.0, 1.0);",
+     "v.yd = q.property('cb:byaw') - q.body_y_rotation;",
+     "v.yd = v.yd - 360.0 * math.floor((v.yd + 180.0) / 360.0);",
+     "v.ny = v.ny + (v.yd - v.ny) * math.min(q.delta_time * 10.0, 1.0);",
+     "v.g0 = q.property('cb:pitch0') >= 0.0;",
+     "v.e0 = v.e0 + (v.g0 - v.e0) * v.dt * 0.6;",
+     "v.y0 = v.y0 + ((v.g0 ? q.property('cb:yaw0') : 0.0) - v.y0) * v.dt;",
+     "v.p0 = v.g0 ? (v.p0 + (q.property('cb:pitch0') - v.p0) * v.dt) : v.p0;",
+     "v.l0 = v.l0 + ((v.g0 ? q.property('cb:look0') : 0.0) - v.l0) * v.dt;",
+     "v.g1 = q.property('cb:pitch1') >= 0.0;",
+     "v.e1 = v.e1 + (v.g1 - v.e1) * v.dt * 0.6;",
+     "v.y1 = v.y1 + ((v.g1 ? q.property('cb:yaw1') : 0.0) - v.y1) * v.dt;",
+     "v.p1 = v.g1 ? (v.p1 + (q.property('cb:pitch1') - v.p1) * v.dt) : v.p1;",
+     "v.l1 = v.l1 + ((v.g1 ? q.property('cb:look1') : 0.0) - v.l1) * v.dt;",
+     "v.g2 = q.property('cb:pitch2') >= 0.0;",
+     "v.e2 = v.e2 + (v.g2 - v.e2) * v.dt * 0.6;",
+     "v.y2 = v.y2 + ((v.g2 ? q.property('cb:yaw2') : 0.0) - v.y2) * v.dt;",
+     "v.p2 = v.g2 ? (v.p2 + (q.property('cb:pitch2') - v.p2) * v.dt) : v.p2;",
+     "v.l2 = v.l2 + ((v.g2 ? q.property('cb:look2') : 0.0) - v.l2) * v.dt;",
+     "v.g3 = q.property('cb:pitch3') >= 0.0;",
+     "v.e3 = v.e3 + (v.g3 - v.e3) * v.dt * 0.6;",
+     "v.y3 = v.y3 + ((v.g3 ? q.property('cb:yaw3') : 0.0) - v.y3) * v.dt;",
+     "v.p3 = v.g3 ? (v.p3 + (q.property('cb:pitch3') - v.p3) * v.dt) : v.p3;",
+     "v.l3 = v.l3 + ((v.g3 ? q.property('cb:look3') : 0.0) - v.l3) * v.dt;",
+     "v.g4 = q.property('cb:pitch4') >= 0.0;",
+     "v.e4 = v.e4 + (v.g4 - v.e4) * v.dt * 0.6;",
+     "v.y4 = v.y4 + ((v.g4 ? q.property('cb:yaw4') : 0.0) - v.y4) * v.dt;",
+     "v.p4 = v.g4 ? (v.p4 + (q.property('cb:pitch4') - v.p4) * v.dt) : v.p4;",
+     "v.l4 = v.l4 + ((v.g4 ? q.property('cb:look4') : 0.0) - v.l4) * v.dt;"
+    ],
+    "animate": [
+     "walk",
+     "idle",
+     "align",
+     {
+      "aim0": "q.property('cb:act0') != 3"
+     },
+     "ctrl0",
+     {
+      "aim1": "q.property('cb:act1') != 3"
+     },
+     "ctrl1",
+     {
+      "aim2": "q.property('cb:act2') != 3"
+     },
+     "ctrl2",
+     {
+      "aim3": "q.property('cb:act3') != 3"
+     },
+     "ctrl3",
+     {
+      "aim4": "q.property('cb:act4') != 3"
+     },
+     "ctrl4",
+     {
+      "dance": "q.property('cb:dancing')"
+     }
+    ]
+   },
+   "render_controllers": [
+    "controller.render.default"
+   ],
+   "spawn_egg": {
+    "base_color": "#04827b",
+    "overlay_color": "#e0c070"
+   }
+  }
+ }
+}

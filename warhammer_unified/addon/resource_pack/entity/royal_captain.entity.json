@@ -1,0 +1,39 @@
+{
+ "format_version": "1.10.0",
+ "minecraft:client_entity": {
+  "description": {
+   "identifier": "warcraft:royal_captain",
+   "materials": {
+    "default": "entity_alphatest"
+   },
+   "textures": {
+    "default": "textures/entity/royal_captain_voxel"
+   },
+   "geometry": {
+    "default": "geometry.royal_captain"
+   },
+   "animations": {
+    "idle_a": "animation.royal_captain.idle_a",
+    "idle_b": "animation.royal_captain.idle_b",
+    "walk": "animation.royal_captain.walk",
+    "attack_a": "animation.royal_captain.attack_a",
+    "attack_b": "animation.royal_captain.attack_b",
+    "ability": "animation.royal_captain.ability",
+    "death": "animation.royal_captain.death",
+    "move_ctrl": "controller.animation.royal_captain"
+   },
+   "scripts": {
+    "animate": [
+     "move_ctrl"
+    ]
+   },
+   "render_controllers": [
+    "controller.render.default"
+   ],
+   "spawn_egg": {
+    "base_color": "#d3ae58",
+    "overlay_color": "#dcae3c"
+   }
+  }
+ }
+}

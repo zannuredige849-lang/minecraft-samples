@@ -1,0 +1,8 @@
+{
+  "format_version": "1.16.100",
+  "minecraft:texture_set": {
+    "color": "mermaid_lagoon",
+    "metalness_emissive_roughness": "mermaid_lagoon_mer",
+    "heightmap": "mermaid_lagoon_height"
+  }
+}

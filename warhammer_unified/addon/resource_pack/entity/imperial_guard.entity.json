@@ -1,0 +1,39 @@
+{
+ "format_version": "1.10.0",
+ "minecraft:client_entity": {
+  "description": {
+   "identifier": "warcraft:imperial_guard",
+   "materials": {
+    "default": "entity_alphatest"
+   },
+   "textures": {
+    "default": "textures/entity/imperial_guard_voxel"
+   },
+   "geometry": {
+    "default": "geometry.imperial_guard"
+   },
+   "animations": {
+    "idle_a": "animation.imperial_guard.idle_a",
+    "idle_b": "animation.imperial_guard.idle_b",
+    "walk": "animation.imperial_guard.walk",
+    "attack_a": "animation.imperial_guard.attack_a",
+    "attack_b": "animation.imperial_guard.attack_b",
+    "ability": "animation.imperial_guard.ability",
+    "death": "animation.imperial_guard.death",
+    "move_ctrl": "controller.animation.imperial_guard"
+   },
+   "scripts": {
+    "animate": [
+     "move_ctrl"
+    ]
+   },
+   "render_controllers": [
+    "controller.render.default"
+   ],
+   "spawn_egg": {
+    "base_color": "#340c0a",
+    "overlay_color": "#dcae3c"
+   }
+  }
+ }
+}

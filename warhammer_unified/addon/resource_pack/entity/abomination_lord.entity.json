@@ -1,0 +1,39 @@
+{
+ "format_version": "1.10.0",
+ "minecraft:client_entity": {
+  "description": {
+   "identifier": "warcraft:abomination_lord",
+   "min_engine_version": "1.16.0",
+   "materials": {
+    "default": "entity_alphatest"
+   },
+   "textures": {
+    "default": "textures/entity/abomination_lord"
+   },
+   "geometry": {
+    "default": "geometry.abomination_lord"
+   },
+   "animations": {
+    "idle_a": "animation.abomination_lord.idle_a",
+    "walk": "animation.abomination_lord.walk",
+    "attack_a": "animation.abomination_lord.attack_a",
+    "attack_b": "animation.abomination_lord.attack_b",
+    "spell": "animation.abomination_lord.spell",
+    "death": "animation.abomination_lord.death",
+    "controller": "controller.animation.abomination_lord"
+   },
+   "scripts": {
+    "animate": [
+     "controller"
+    ]
+   },
+   "render_controllers": [
+    "controller.render.abomination_lord"
+   ],
+   "spawn_egg": {
+    "base_color": "#a6a058",
+    "overlay_color": "#c8c070"
+   }
+  }
+ }
+}

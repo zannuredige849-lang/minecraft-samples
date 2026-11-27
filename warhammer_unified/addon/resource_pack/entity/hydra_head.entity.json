@@ -1,0 +1,20 @@
+{
+  "format_version": "1.10.0",
+  "minecraft:client_entity": {
+    "description": {
+      "identifier": "cb:hydra_head",
+      "materials": {
+        "default": "entity_alphatest"
+      },
+      "textures": {
+        "default": "textures/entity/hydra"
+      },
+      "geometry": {
+        "default": "geometry.cb_empty"
+      },
+      "render_controllers": [
+        "controller.render.default"
+      ]
+    }
+  }
+}

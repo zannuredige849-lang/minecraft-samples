@@ -1,0 +1,39 @@
+{
+ "format_version": "1.10.0",
+ "minecraft:client_entity": {
+  "description": {
+   "identifier": "warcraft:santa_claus",
+   "materials": {
+    "default": "entity_alphatest"
+   },
+   "textures": {
+    "default": "textures/entity/santa_claus_voxel"
+   },
+   "geometry": {
+    "default": "geometry.santa_claus"
+   },
+   "animations": {
+    "idle_a": "animation.santa_claus.idle_a",
+    "idle_b": "animation.santa_claus.idle_b",
+    "walk": "animation.santa_claus.walk",
+    "attack_a": "animation.santa_claus.attack_a",
+    "attack_b": "animation.santa_claus.attack_b",
+    "ability": "animation.santa_claus.ability",
+    "death": "animation.santa_claus.death",
+    "move_ctrl": "controller.animation.santa_claus"
+   },
+   "scripts": {
+    "animate": [
+     "move_ctrl"
+    ]
+   },
+   "render_controllers": [
+    "controller.render.default"
+   ],
+   "spawn_egg": {
+    "base_color": "#a20e1b",
+    "overlay_color": "#f0f0f0"
+   }
+  }
+ }
+}

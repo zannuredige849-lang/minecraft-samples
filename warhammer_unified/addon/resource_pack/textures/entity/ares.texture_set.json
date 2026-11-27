@@ -1,0 +1,8 @@
+{
+  "format_version": "1.16.100",
+  "minecraft:texture_set": {
+    "color": "ares",
+    "metalness_emissive_roughness": "ares_mer",
+    "heightmap": "ares_height"
+  }
+}

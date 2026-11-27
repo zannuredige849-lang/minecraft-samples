@@ -1,0 +1,61 @@
+{
+ "format_version": "1.10.0",
+ "minecraft:client_entity": {
+  "description": {
+   "identifier": "cb:hephaestus",
+   "materials": {
+    "default": "entity_emissive_alpha"
+   },
+   "textures": {
+    "default": "textures/entity/hephaestus"
+   },
+   "geometry": {
+    "default": "geometry.cb_hephaestus"
+   },
+   "animations": {
+    "idle": "animation.hephaestus.idle",
+    "walk": "animation.hephaestus.walk",
+    "attack": "animation.hephaestus.attack",
+    "special_attack": "animation.hephaestus.special_attack",
+    "hurt": "animation.hephaestus.hurt",
+    "death": "animation.hephaestus.death",
+    "charge": "animation.hephaestus.hammer_slam",
+    "special1": "animation.hephaestus.hammer_slam",
+    "special2": "animation.hephaestus.forging",
+    "special3": "animation.hephaestus.create_golems",
+    "stun": "animation.hephaestus.stun",
+    "rage": "animation.hephaestus.rage",
+    "dance": "animation.hephaestus.dance",
+    "ctrl": "controller.animation.cb_hephaestus",
+    "look_at_target": "animation.common.look_at_target"
+   },
+   "scripts": {
+    "animate": [
+     {
+      "idle": "!q.property('cb:dancing')"
+     },
+     {
+      "walk": "q.modified_move_speed > 0.015 && !q.property('cb:dancing') && !q.property('cb:charging')"
+     },
+     {
+      "rage": "q.property('cb:enraged') && !q.property('cb:dancing')"
+     },
+     {
+      "hurt": "q.hurt_time > 0 && !q.property('cb:dancing')"
+     },
+     "ctrl",
+     {
+      "look_at_target": "!q.property('cb:dancing') && q.property('cb:cast_state') == 0"
+     }
+    ]
+   },
+   "render_controllers": [
+    "controller.render.cb_hephaestus"
+   ],
+   "spawn_egg": {
+    "base_color": "#ff5703",
+    "overlay_color": "#40c8e0"
+   }
+  }
+ }
+}

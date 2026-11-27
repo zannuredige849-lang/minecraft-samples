@@ -1,0 +1,105 @@
+{
+  "format_version": "1.21.0",
+  "minecraft:entity": {
+    "description": {
+      "identifier": "cb:sargeras_prompt",
+      "is_spawnable": false,
+      "is_summonable": true,
+      "is_experimental": false,
+      "properties": {
+        "cb:used": {
+          "type": "bool",
+          "default": false,
+          "client_sync": false
+        }
+      }
+    },
+    "component_groups": {
+      "cb:despawn": {
+        "minecraft:instant_despawn": {}
+      }
+    },
+    "components": {
+      "minecraft:type_family": {
+        "family": [
+          "sargeras_prompt",
+          "inanimate",
+          "f_fel",
+          "summon_safe"
+        ]
+      },
+      "minecraft:health": {
+        "value": 20,
+        "max": 20
+      },
+      "minecraft:collision_box": {
+        "width": 1.1,
+        "height": 1.1
+      },
+      "minecraft:physics": {
+        "has_gravity": false,
+        "has_collision": false
+      },
+      "minecraft:pushable": {
+        "is_pushable": false,
+        "is_pushable_by_piston": false
+      },
+      "minecraft:knockback_resistance": {
+        "value": 0.8
+      },
+      "minecraft:fire_immune": {},
+      "minecraft:damage_sensor": {
+        "triggers": [
+          {
+            "deals_damage": false
+          }
+        ]
+      },
+      "minecraft:interact": {
+        "interactions": [
+          {
+            "on_interact": {
+              "filters": {
+                "test": "has_equipment",
+                "domain": "hand",
+                "subject": "other",
+                "value": "cb:sargeras_shard"
+              },
+              "event": "cb:summon_golem_btn",
+              "target": "self"
+            },
+            "interact_text": "action.interact.cb_summon_golem",
+            "swing": true
+          }
+        ]
+      },
+      "minecraft:timer": {
+        "looping": false,
+        "time": 3.0,
+        "time_down_event": {
+          "event": "cb:kill",
+          "target": "self"
+        }
+      }
+    },
+    "events": {
+      "cb:summon_golem_btn": {
+        "set_property": {
+          "cb:used": true
+        },
+        "queue_command": {
+          "command": [
+            "scriptevent cb:sargeras_use"
+          ]
+        }
+      },
+      "cb:kill": {
+        "add": {
+          "component_groups": [
+            "cb:despawn"
+          ]
+        }
+      }
+    }
+  }
+}

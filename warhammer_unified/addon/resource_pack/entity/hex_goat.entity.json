@@ -1,0 +1,38 @@
+{
+  "format_version": "1.10.0",
+  "minecraft:client_entity": {
+    "description": {
+      "identifier": "cb:hex_goat",
+      "materials": {
+        "default": "entity_alphatest"
+      },
+      "textures": {
+        "default": "textures/entity/goat/goat"
+      },
+      "geometry": {
+        "default": "geometry.cb_hex_goat"
+      },
+      "animations": {
+        "walk": "animation.cb_hex.goat_walk",
+        "dance": "animation.cb_hex.dance",
+        "idle": "animation.cb_hex.idle",
+        "look_at_target": "animation.common.look_at_target"
+      },
+      "scripts": {
+        "animate": [
+          "idle",
+          {
+            "walk": "query.modified_move_speed > 0.015"
+          },
+          "look_at_target",
+          {
+            "dance": "q.property('cb:dancing')"
+          }
+        ]
+      },
+      "render_controllers": [
+        "controller.render.cb_hex_goat"
+      ]
+    }
+  }
+}

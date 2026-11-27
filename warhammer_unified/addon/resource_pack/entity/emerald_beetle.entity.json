@@ -1,0 +1,42 @@
+{
+  "format_version": "1.10.0",
+  "minecraft:client_entity": {
+    "description": {
+      "identifier": "cb:emerald_beetle",
+      "materials": {
+        "default": "entity_emissive_alpha"
+      },
+      "textures": {
+        "default": "textures/entity/beetles/emerald_beetle"
+      },
+      "geometry": {
+        "default": "geometry.cb_emerald_beetle"
+      },
+      "animations": {
+        "walk": "animation.ore_beetle.walk",
+        "idle": "animation.ore_beetle.idle",
+        "armor": "animation.ore_beetle.armor",
+        "eat": "animation.ore_beetle.eat",
+        "look_at_target": "animation.common.look_at_target",
+        "dance": "animation.ore_beetle.dance"
+      },
+      "scripts": {
+        "animate": [
+          "walk",
+          "idle",
+          "armor",
+          {
+            "eat": "q.property('cb:eating')"
+          },
+          "look_at_target",
+          {
+            "dance": "q.property('cb:dancing')"
+          }
+        ]
+      },
+      "render_controllers": [
+        "controller.render.default"
+      ]
+    }
+  }
+}

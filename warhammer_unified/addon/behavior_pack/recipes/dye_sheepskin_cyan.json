@@ -1,0 +1,28 @@
+{
+  "format_version": "1.20.10",
+  "minecraft:recipe_shapeless": {
+    "description": {
+      "identifier": "cb:dye_sheepskin_cyan"
+    },
+    "tags": [
+      "crafting_table"
+    ],
+    "ingredients": [
+      {
+        "tag": "cb:is_sheepskin"
+      },
+      {
+        "item": "minecraft:cyan_dye"
+      }
+    ],
+    "unlock": [
+      {
+        "item": "minecraft:cyan_dye"
+      }
+    ],
+    "result": {
+      "item": "cb:sheepskin_cyan",
+      "count": 1
+    }
+  }
+}

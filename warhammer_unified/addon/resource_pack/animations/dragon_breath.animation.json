@@ -1,0 +1,20 @@
+{
+  "format_version": "1.8.0",
+  "animations": {
+    "animation.cb_dragon_breath.spin": {
+      "loop": true,
+      "bones": {
+        "core": {
+          "rotation": [
+            "q.life_time * 720",
+            "q.life_time * 540",
+            0
+          ]
+        },
+        "halo": {
+          "scale": "1 + math.sin(q.life_time * 1400) * 0.2"
+        }
+      }
+    }
+  }
+}

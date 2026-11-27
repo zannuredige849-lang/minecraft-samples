@@ -1,0 +1,8 @@
+{
+  "format_version": "1.16.100",
+  "minecraft:texture_set": {
+    "color": "fel_minion",
+    "metalness_emissive_roughness": "fel_minion_mer",
+    "heightmap": "fel_minion_height"
+  }
+}

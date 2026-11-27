@@ -1,0 +1,8 @@
+{
+  "format_version": "1.16.100",
+  "minecraft:texture_set": {
+    "color": "thunder_lizard_storm",
+    "metalness_emissive_roughness": "thunder_lizard_storm_mer",
+    "heightmap": "thunder_lizard_storm_height"
+  }
+}

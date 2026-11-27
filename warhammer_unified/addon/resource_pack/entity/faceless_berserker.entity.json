@@ -1,0 +1,38 @@
+{
+ "format_version": "1.10.0",
+ "minecraft:client_entity": {
+  "description": {
+   "identifier": "warcraft:faceless_berserker",
+   "min_engine_version": "1.16.0",
+   "materials": {
+    "default": "entity_alphatest"
+   },
+   "textures": {
+    "default": "textures/entity/faceless_berserker"
+   },
+   "geometry": {
+    "default": "geometry.faceless_berserker"
+   },
+   "animations": {
+    "idle_a": "animation.faceless_berserker.idle_a",
+    "walk": "animation.faceless_berserker.walk",
+    "attack_a": "animation.faceless_berserker.attack_a",
+    "slam": "animation.faceless_berserker.slam",
+    "death": "animation.faceless_berserker.death",
+    "controller": "controller.animation.faceless_berserker"
+   },
+   "scripts": {
+    "animate": [
+     "controller"
+    ]
+   },
+   "render_controllers": [
+    "controller.render.faceless_berserker"
+   ],
+   "spawn_egg": {
+    "base_color": "#339e88",
+    "overlay_color": "#5a3a9a"
+   }
+  }
+ }
+}

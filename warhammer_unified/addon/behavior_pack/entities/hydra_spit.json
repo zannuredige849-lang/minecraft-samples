@@ -1,0 +1,74 @@
+{
+  "format_version": "1.21.0",
+  "minecraft:entity": {
+    "description": {
+      "identifier": "cb:hydra_spit",
+      "is_spawnable": false,
+      "is_summonable": true,
+      "is_experimental": false
+    },
+    "components": {
+      "minecraft:type_family": {
+        "family": [
+          "hydra_spit",
+          "projectile",
+          "f_hydra",
+          "summon_safe"
+        ]
+      },
+      "minecraft:collision_box": {
+        "width": 0.3,
+        "height": 0.3
+      },
+      "minecraft:projectile": {
+        "on_hit": {
+          "impact_damage": {
+            "damage": 4,
+            "knockback": false,
+            "semi_random_diff_damage": false,
+            "destroy_on_hit": true
+          },
+          "mob_effect": {
+            "effect": "poison",
+            "durationeasy": 80,
+            "durationnormal": 120,
+            "durationhard": 160,
+            "amplifier": 1
+          },
+          "particle_on_hit": {
+            "particle_type": "slime",
+            "num_particles": 10,
+            "on_entity_hit": true,
+            "on_other_hit": true
+          },
+          "remove_on_hit": {}
+        },
+        "power": 1.3,
+        "gravity": 0.03,
+        "inertia": 1.0,
+        "liquid_inertia": 0.6,
+        "uncertainty_base": 0,
+        "uncertainty_multiplier": 0,
+        "anchor": 1,
+        "offset": [
+          0,
+          0,
+          0
+        ],
+        "hit_sound": "hit"
+      },
+      "minecraft:physics": {},
+      "minecraft:pushable": {
+        "is_pushable": false,
+        "is_pushable_by_piston": false
+      },
+      "minecraft:conditional_bandwidth_optimization": {
+        "default_values": {
+          "max_optimized_distance": 80.0,
+          "max_dropped_ticks": 7,
+          "use_motion_prediction_hints": true
+        }
+      }
+    }
+  }
+}

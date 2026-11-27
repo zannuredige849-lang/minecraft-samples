@@ -1,0 +1,45 @@
+{
+  "format_version": "1.10.0",
+  "minecraft:client_entity": {
+    "description": {
+      "identifier": "cb:athena_hoplite",
+      "materials": {
+        "default": "entity_emissive_alpha"
+      },
+      "textures": {
+        "default": "textures/entity/athena_hoplite"
+      },
+      "geometry": {
+        "default": "geometry.cb_athena_hoplite"
+      },
+      "animations": {
+        "idle": "animation.athena.idle",
+        "walk": "animation.athena.walk",
+        "attack": "animation.athena.attack",
+        "special_attack": "animation.athena.special_attack",
+        "hurt": "animation.athena.hurt",
+        "rage": "animation.athena.rage",
+        "dance": "animation.athena.dance",
+        "look_at_target": "animation.common.look_at_target"
+      },
+      "scripts": {
+        "animate": [
+          "idle",
+          {
+            "walk": "q.modified_move_speed > 0.02"
+          },
+          {
+            "attack": "variable.attack_time > 0"
+          },
+          {
+            "hurt": "q.hurt_time > 0"
+          },
+          "look_at_target"
+        ]
+      },
+      "render_controllers": [
+        "controller.render.cb_athena_hoplite"
+      ]
+    }
+  }
+}

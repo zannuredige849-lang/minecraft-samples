@@ -1,0 +1,395 @@
+{
+  "format_version": "1.21.0",
+  "minecraft:entity": {
+    "description": {
+      "identifier": "cb:fel_minion",
+      "is_spawnable": true,
+      "is_summonable": true,
+      "is_experimental": false,
+      "properties": {
+        "cb:dancing": {
+          "type": "bool",
+          "default": false,
+          "client_sync": true
+        }
+      }
+    },
+    "component_groups": {
+      "cb:expired": {
+        "minecraft:instant_despawn": {}
+      }
+    },
+    "components": {
+      "minecraft:type_family": {
+        "family": [
+          "fel_minion",
+          "fel_demon",
+          "fel_orc",
+          "fel",
+          "fel_faction",
+          "fel_ally",
+          "mob",
+          "f_fel",
+          "summon_safe"
+        ]
+      },
+      "minecraft:health": {
+        "value": 15,
+        "max": 15
+      },
+      "minecraft:attack": {
+        "damage": 2
+      },
+      "minecraft:scale": {
+        "value": 0.72
+      },
+      "minecraft:collision_box": {
+        "width": 0.55,
+        "height": 1.35
+      },
+      "minecraft:movement": {
+        "value": 0.34
+      },
+      "minecraft:movement.basic": {},
+      "minecraft:navigation.walk": {
+        "can_path_over_water": true,
+        "avoid_water": false,
+        "avoid_damage_blocks": true
+      },
+      "minecraft:jump.static": {},
+      "minecraft:physics": {},
+      "minecraft:timer": {
+        "looping": false,
+        "time": 30.0,
+        "time_down_event": {
+          "event": "cb:despawn",
+          "target": "self"
+        }
+      },
+      "minecraft:behavior.float": {
+        "priority": 0
+      },
+      "minecraft:behavior.melee_attack": {
+        "priority": 2,
+        "speed_multiplier": 1.15,
+        "track_target": true
+      },
+      "minecraft:behavior.hurt_by_target": {
+        "priority": 1,
+        "alert_same_type": false,
+        "entity_types": [
+          {
+            "filters": {
+              "all_of": [
+                {
+                  "test": "is_family",
+                  "subject": "other",
+                  "operator": "!=",
+                  "value": "f_fel"
+                },
+                {
+                  "test": "is_family",
+                  "subject": "other",
+                  "operator": "!=",
+                  "value": "fel_faction"
+                },
+                {
+                  "test": "is_family",
+                  "subject": "other",
+                  "operator": "!=",
+                  "value": "fel"
+                },
+                {
+                  "test": "is_family",
+                  "subject": "other",
+                  "operator": "!=",
+                  "value": "fel_lord"
+                },
+                {
+                  "test": "is_family",
+                  "subject": "other",
+                  "operator": "!=",
+                  "value": "guldan_boss"
+                },
+                {
+                  "test": "is_family",
+                  "subject": "other",
+                  "operator": "!=",
+                  "value": "green_orc"
+                },
+                {
+                  "test": "is_family",
+                  "subject": "other",
+                  "operator": "!=",
+                  "value": "hell_orc"
+                },
+                {
+                  "test": "is_family",
+                  "subject": "other",
+                  "operator": "!=",
+                  "value": "fel_demon"
+                },
+                {
+                  "test": "is_family",
+                  "subject": "other",
+                  "operator": "!=",
+                  "value": "inferno_golem"
+                },
+                {
+                  "test": "is_family",
+                  "subject": "other",
+                  "operator": "!=",
+                  "value": "orc_slave"
+                },
+                {
+                  "test": "is_family",
+                  "subject": "other",
+                  "operator": "!=",
+                  "value": "fel_orb"
+                },
+                {
+                  "test": "is_family",
+                  "subject": "other",
+                  "operator": "!=",
+                  "value": "fel_rain"
+                },
+                {
+                  "test": "is_family",
+                  "subject": "other",
+                  "operator": "!=",
+                  "value": "warg"
+                },
+                {
+                  "test": "is_family",
+                  "subject": "other",
+                  "operator": "!=",
+                  "value": "thunder_lizard"
+                }
+              ]
+            }
+          }
+        ]
+      },
+      "minecraft:behavior.nearest_attackable_target": {
+        "priority": 2,
+        "must_see": false,
+        "reselect_targets": true,
+        "within_radius": 28,
+        "entity_types": [
+          {
+            "filters": {
+              "all_of": [
+                {
+                  "test": "is_family",
+                  "subject": "other",
+                  "operator": "!=",
+                  "value": "f_fel"
+                },
+                {
+                  "any_of": [
+                    {
+                      "test": "is_family",
+                      "subject": "other",
+                      "value": "player"
+                    },
+                    {
+                      "test": "is_family",
+                      "subject": "other",
+                      "value": "cyclops"
+                    },
+                    {
+                      "test": "is_family",
+                      "subject": "other",
+                      "value": "hydra"
+                    },
+                    {
+                      "test": "is_family",
+                      "subject": "other",
+                      "value": "hydra_head"
+                    },
+                    {
+                      "test": "is_family",
+                      "subject": "other",
+                      "value": "undead"
+                    },
+                    {
+                      "test": "is_family",
+                      "subject": "other",
+                      "value": "illager"
+                    },
+                    {
+                      "test": "is_family",
+                      "subject": "other",
+                      "value": "pillager"
+                    },
+                    {
+                      "test": "is_family",
+                      "subject": "other",
+                      "value": "vindicator"
+                    },
+                    {
+                      "test": "is_family",
+                      "subject": "other",
+                      "value": "evoker"
+                    },
+                    {
+                      "test": "is_family",
+                      "subject": "other",
+                      "value": "ravager"
+                    },
+                    {
+                      "test": "is_family",
+                      "subject": "other",
+                      "value": "witch"
+                    },
+                    {
+                      "test": "is_family",
+                      "subject": "other",
+                      "value": "vex"
+                    },
+                    {
+                      "test": "is_family",
+                      "subject": "other",
+                      "value": "villager"
+                    },
+                    {
+                      "test": "is_family",
+                      "subject": "other",
+                      "value": "wandering_trader"
+                    },
+                    {
+                      "test": "is_family",
+                      "subject": "other",
+                      "value": "brown_orc"
+                    },
+                    {
+                      "test": "is_family",
+                      "subject": "other",
+                      "value": "player_inferno_golem"
+                    },
+                    {
+                      "test": "is_family",
+                      "subject": "other",
+                      "value": "nurgle"
+                    },
+                    {
+                      "test": "is_family",
+                      "subject": "other",
+                      "value": "tzeentch"
+                    },
+                    {
+                      "test": "is_family",
+                      "subject": "other",
+                      "value": "faceless"
+                    },
+                    {
+                      "test": "is_family",
+                      "subject": "other",
+                      "value": "norsca_bandits"
+                    },
+                    {
+                      "test": "is_family",
+                      "subject": "other",
+                      "value": "kingdom_order"
+                    },
+                    {
+                      "test": "is_family",
+                      "subject": "other",
+                      "value": "undead_scourge"
+                    },
+                    {
+                      "test": "is_family",
+                      "subject": "other",
+                      "value": "ember_colossus"
+                    },
+                    {
+                      "test": "is_family",
+                      "subject": "other",
+                      "value": "black_blocker"
+                    },
+                    {
+                      "test": "is_family",
+                      "subject": "other",
+                      "value": "nature_ent"
+                    },
+                    {
+                      "test": "is_family",
+                      "subject": "other",
+                      "value": "horned_demon"
+                    },
+                    {
+                      "test": "is_family",
+                      "subject": "other",
+                      "value": "void_knight"
+                    },
+                    {
+                      "test": "is_family",
+                      "subject": "other",
+                      "value": "chaos_knight"
+                    },
+                    {
+                      "test": "is_family",
+                      "subject": "other",
+                      "value": "blood_angel"
+                    }
+                  ]
+                }
+              ]
+            },
+            "max_dist": 28
+          }
+        ]
+      },
+      "minecraft:behavior.random_stroll": {
+        "priority": 5,
+        "speed_multiplier": 0.9
+      },
+      "minecraft:behavior.look_at_player": {
+        "priority": 6,
+        "look_distance": 12
+      },
+      "minecraft:damage_sensor": {
+        "triggers": [
+          {
+            "on_damage": {
+              "filters": {
+                "any_of": [
+                  {
+                    "test": "is_family",
+                    "subject": "other",
+                    "value": "fel_faction"
+                  },
+                  {
+                    "test": "is_family",
+                    "subject": "other",
+                    "value": "fel"
+                  },
+                  {
+                    "test": "is_family",
+                    "subject": "other",
+                    "value": "fel_orb"
+                  },
+                  {
+                    "test": "is_family",
+                    "subject": "other",
+                    "value": "fel_rain"
+                  }
+                ]
+              }
+            },
+            "deals_damage": false
+          }
+        ]
+      }
+    },
+    "events": {
+      "cb:despawn": {
+        "add": {
+          "component_groups": [
+            "cb:expired"
+          ]
+        }
+      }
+    }
+  }
+}

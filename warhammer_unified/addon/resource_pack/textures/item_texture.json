@@ -1,0 +1,87 @@
+{
+  "resource_pack_name": "claude_mobs",
+  "texture_name": "atlas.items",
+  "texture_data": {
+    "cb_sheepskin": {
+      "textures": "textures/items/cb_sheepskin"
+    },
+    "cb_island_compass": {
+      "textures": "textures/items/cb_island_compass"
+    },
+    "cb_bronze_ingot": {
+      "textures": "textures/items/cb_bronze_ingot"
+    },
+    "cb_laestrygonian_sword": {
+      "textures": "textures/items/cb_laestrygonian_sword"
+    },
+    "cb_dragon_scale": {
+      "textures": "textures/items/cb_dragon_scale"
+    },
+    "cb_sargeras_shard": {
+      "textures": "textures/items/cb_sargeras_shard"
+    },
+    "cb_ting_tang_disc": {
+      "textures": "textures/items/cb_ting_tang_disc"
+    },
+    "cb_sheepskin_orange": {
+      "textures": "textures/items/cb_sheepskin_orange"
+    },
+    "cb_sheepskin_magenta": {
+      "textures": "textures/items/cb_sheepskin_magenta"
+    },
+    "cb_sheepskin_light_blue": {
+      "textures": "textures/items/cb_sheepskin_light_blue"
+    },
+    "cb_sheepskin_yellow": {
+      "textures": "textures/items/cb_sheepskin_yellow"
+    },
+    "cb_sheepskin_lime": {
+      "textures": "textures/items/cb_sheepskin_lime"
+    },
+    "cb_sheepskin_pink": {
+      "textures": "textures/items/cb_sheepskin_pink"
+    },
+    "cb_sheepskin_gray": {
+      "textures": "textures/items/cb_sheepskin_gray"
+    },
+    "cb_sheepskin_light_gray": {
+      "textures": "textures/items/cb_sheepskin_light_gray"
+    },
+    "cb_sheepskin_cyan": {
+      "textures": "textures/items/cb_sheepskin_cyan"
+    },
+    "cb_sheepskin_purple": {
+      "textures": "textures/items/cb_sheepskin_purple"
+    },
+    "cb_sheepskin_blue": {
+      "textures": "textures/items/cb_sheepskin_blue"
+    },
+    "cb_sheepskin_brown": {
+      "textures": "textures/items/cb_sheepskin_brown"
+    },
+    "cb_sheepskin_green": {
+      "textures": "textures/items/cb_sheepskin_green"
+    },
+    "cb_sheepskin_red": {
+      "textures": "textures/items/cb_sheepskin_red"
+    },
+    "cb_sheepskin_black": {
+      "textures": "textures/items/cb_sheepskin_black"
+    },
+    "cb_hell_scimitar": {
+      "textures": "textures/items/cb_hell_scimitar"
+    },
+    "inferno_orb": {
+      "textures": "textures/items/inferno_orb"
+    },
+    "frost_orb": {
+      "textures": "textures/items/frost_orb"
+    },
+    "storm_orb": {
+      "textures": "textures/items/storm_orb"
+    },
+    "cb_bestiary": {
+      "textures": "textures/items/cb_bestiary"
+    }
+  }
+}

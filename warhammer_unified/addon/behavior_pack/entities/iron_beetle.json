@@ -1,0 +1,358 @@
+{
+  "format_version": "1.21.0",
+  "minecraft:entity": {
+    "description": {
+      "identifier": "cb:iron_beetle",
+      "is_spawnable": false,
+      "is_summonable": true,
+      "is_experimental": false,
+      "properties": {
+        "cb:armor": {
+          "type": "int",
+          "range": [
+            0,
+            3
+          ],
+          "default": 1,
+          "client_sync": true
+        },
+        "cb:eating": {
+          "type": "bool",
+          "default": false,
+          "client_sync": true
+        },
+        "cb:dancing": {
+          "type": "bool",
+          "default": false,
+          "client_sync": true
+        }
+      }
+    },
+    "component_groups": {
+      "cb:hungry": {
+        "minecraft:behavior.move_to_block": {
+          "priority": 4,
+          "speed_multiplier": 1.0,
+          "search_range": 8,
+          "search_height": 4,
+          "goal_radius": 1.2,
+          "tick_interval": 20,
+          "target_blocks": [
+            "minecraft:iron_ore",
+            "minecraft:deepslate_iron_ore",
+            "minecraft:iron_block",
+            "minecraft:raw_iron_block"
+          ]
+        }
+      },
+      "cb:wild": {
+        "minecraft:tameable": {
+          "probability": 0.33,
+          "tame_items": "glow_berries",
+          "tame_event": {
+            "event": "cb:on_tame",
+            "target": "self"
+          }
+        },
+        "minecraft:behavior.panic": {
+          "priority": 1,
+          "speed_multiplier": 1.5
+        },
+        "minecraft:despawn": {
+          "despawn_from_distance": {}
+        }
+      },
+      "cb:tamed": {
+        "minecraft:is_tamed": {},
+        "minecraft:health": {
+          "value": 20,
+          "max": 20
+        },
+        "minecraft:healable": {
+          "items": [
+            {
+              "item": "glow_berries",
+              "heal_amount": 6
+            }
+          ]
+        },
+        "minecraft:attack": {
+          "damage": 3
+        },
+        "minecraft:behavior.melee_attack": {
+          "priority": 2,
+          "speed_multiplier": 1.3,
+          "track_target": true
+        },
+        "minecraft:behavior.owner_hurt_by_target": {
+          "priority": 3,
+          "entity_types": [
+            {
+              "filters": {
+                "all_of": [
+                  {
+                    "test": "is_family",
+                    "subject": "other",
+                    "operator": "!=",
+                    "value": "f_beetles"
+                  }
+                ]
+              },
+              "max_dist": 64
+            }
+          ]
+        },
+        "minecraft:behavior.owner_hurt_target": {
+          "priority": 3
+        },
+        "minecraft:behavior.hurt_by_target": {
+          "priority": 3,
+          "entity_types": [
+            {
+              "filters": {
+                "all_of": [
+                  {
+                    "test": "is_family",
+                    "subject": "other",
+                    "operator": "!=",
+                    "value": "f_beetles"
+                  }
+                ]
+              },
+              "max_dist": 64
+            }
+          ]
+        },
+        "minecraft:behavior.nearest_attackable_target": {
+          "priority": 4,
+          "must_see": true,
+          "reselect_targets": true,
+          "entity_types": [
+            {
+              "filters": {
+                "all_of": [
+                  {
+                    "test": "is_family",
+                    "subject": "other",
+                    "operator": "!=",
+                    "value": "f_beetles"
+                  },
+                  {
+                    "test": "is_family",
+                    "subject": "other",
+                    "value": "monster"
+                  },
+                  {
+                    "test": "is_family",
+                    "subject": "other",
+                    "operator": "!=",
+                    "value": "creeper"
+                  },
+                  {
+                    "test": "is_family",
+                    "subject": "other",
+                    "operator": "!=",
+                    "value": "cyclops"
+                  },
+                  {
+                    "test": "is_family",
+                    "subject": "other",
+                    "operator": "!=",
+                    "value": "hydra"
+                  },
+                  {
+                    "test": "is_family",
+                    "subject": "other",
+                    "operator": "!=",
+                    "value": "hydra_head"
+                  }
+                ]
+              },
+              "max_dist": 12
+            }
+          ]
+        },
+        "minecraft:behavior.follow_owner": {
+          "priority": 5,
+          "speed_multiplier": 1.2,
+          "start_distance": 8,
+          "stop_distance": 3
+        }
+      }
+    },
+    "components": {
+      "minecraft:type_family": {
+        "family": [
+          "ore_beetle",
+          "iron_beetle",
+          "arthropod",
+          "mob",
+          "f_beetles",
+          "summon_safe"
+        ]
+      },
+      "minecraft:health": {
+        "value": 13,
+        "max": 13
+      },
+      "minecraft:scale": {
+        "value": 1.0
+      },
+      "minecraft:collision_box": {
+        "width": 0.7,
+        "height": 0.5
+      },
+      "minecraft:movement": {
+        "value": 0.22
+      },
+      "minecraft:movement.basic": {},
+      "minecraft:navigation.walk": {
+        "can_path_over_water": false,
+        "avoid_water": true,
+        "avoid_damage_blocks": true
+      },
+      "minecraft:jump.static": {},
+      "minecraft:physics": {},
+      "minecraft:pushable": {
+        "is_pushable": true,
+        "is_pushable_by_piston": true
+      },
+      "minecraft:breathable": {
+        "total_supply": 15,
+        "suffocate_time": 0
+      },
+      "minecraft:nameable": {},
+      "minecraft:ambient_sound_interval": {
+        "value": 10,
+        "range": 20,
+        "event_name": "ambient"
+      },
+      "minecraft:leashable": {
+        "soft_distance": 4,
+        "hard_distance": 6,
+        "max_distance": 10
+      },
+      "minecraft:loot": {
+        "table": "loot_tables/entities/iron_beetle.json"
+      },
+      "minecraft:experience_reward": {
+        "on_death": "query.last_hit_by_player ? 4 : 0"
+      },
+      "minecraft:damage_sensor": {
+        "triggers": [
+          {
+            "on_damage": {
+              "filters": {
+                "all_of": [
+                  {
+                    "test": "has_tag",
+                    "subject": "self",
+                    "value": "cb_armored"
+                  },
+                  {
+                    "none_of": [
+                      {
+                        "test": "has_equipment",
+                        "subject": "other",
+                        "domain": "hand",
+                        "value": "minecraft:wooden_pickaxe"
+                      },
+                      {
+                        "test": "has_equipment",
+                        "subject": "other",
+                        "domain": "hand",
+                        "value": "minecraft:stone_pickaxe"
+                      },
+                      {
+                        "test": "has_equipment",
+                        "subject": "other",
+                        "domain": "hand",
+                        "value": "minecraft:iron_pickaxe"
+                      },
+                      {
+                        "test": "has_equipment",
+                        "subject": "other",
+                        "domain": "hand",
+                        "value": "minecraft:golden_pickaxe"
+                      },
+                      {
+                        "test": "has_equipment",
+                        "subject": "other",
+                        "domain": "hand",
+                        "value": "minecraft:diamond_pickaxe"
+                      },
+                      {
+                        "test": "has_equipment",
+                        "subject": "other",
+                        "domain": "hand",
+                        "value": "minecraft:netherite_pickaxe"
+                      }
+                    ]
+                  }
+                ]
+              }
+            },
+            "deals_damage": false
+          }
+        ]
+      },
+      "minecraft:behavior.float": {
+        "priority": 0
+      },
+      "minecraft:behavior.random_stroll": {
+        "priority": 7,
+        "speed_multiplier": 0.8
+      },
+      "minecraft:behavior.look_at_player": {
+        "priority": 8,
+        "look_distance": 6,
+        "probability": 0.02
+      },
+      "minecraft:behavior.random_look_around": {
+        "priority": 9
+      }
+    },
+    "events": {
+      "minecraft:entity_spawned": {
+        "add": {
+          "component_groups": [
+            "cb:wild"
+          ]
+        }
+      },
+      "minecraft:entity_transformed": {
+        "add": {
+          "component_groups": [
+            "cb:wild"
+          ]
+        }
+      },
+      "cb:on_tame": {
+        "remove": {
+          "component_groups": [
+            "cb:wild"
+          ]
+        },
+        "add": {
+          "component_groups": [
+            "cb:tamed"
+          ]
+        }
+      },
+      "cb:hungry": {
+        "add": {
+          "component_groups": [
+            "cb:hungry"
+          ]
+        }
+      },
+      "cb:full": {
+        "remove": {
+          "component_groups": [
+            "cb:hungry"
+          ]
+        }
+      }
+    }
+  }
+}

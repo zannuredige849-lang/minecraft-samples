@@ -1,0 +1,8 @@
+{
+  "format_version": "1.16.100",
+  "minecraft:texture_set": {
+    "color": "human_child_4",
+    "metalness_emissive_roughness": "human_child_4_mer",
+    "heightmap": "human_child_4_height"
+  }
+}

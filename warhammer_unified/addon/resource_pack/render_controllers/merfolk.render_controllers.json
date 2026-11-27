@@ -1,0 +1,51 @@
+{
+  "format_version": "1.8.0",
+  "render_controllers": {
+    "controller.render.cb_mermaid": {
+      "arrays": {
+        "textures": {
+          "Array.skins": [
+            "Texture.coral",
+            "Texture.lagoon",
+            "Texture.golden",
+            "Texture.amethyst",
+            "Texture.emerald",
+            "Texture.pearl"
+          ]
+        }
+      },
+      "geometry": "Geometry.default",
+      "materials": [
+        {
+          "*": "Material.default"
+        }
+      ],
+      "textures": [
+        "Array.skins[math.clamp(q.property('cb:variant'), 0, 5)]"
+      ]
+    },
+    "controller.render.cb_siren": {
+      "arrays": {
+        "textures": {
+          "Array.skins": [
+            "Texture.abyss",
+            "Texture.swamp",
+            "Texture.blood",
+            "Texture.bone",
+            "Texture.nightshade",
+            "Texture.toxic"
+          ]
+        }
+      },
+      "geometry": "Geometry.default",
+      "materials": [
+        {
+          "*": "Material.default"
+        }
+      ],
+      "textures": [
+        "Array.skins[math.clamp(q.property('cb:variant'), 0, 5)]"
+      ]
+    }
+  }
+}

@@ -1,0 +1,29 @@
+pack.description=v10.0.0 NEW STYLE: all mobs, golems, items and spawn eggs in one chunky block style with shared palettes/shading; factions & alliances (same faction and all golems never fight each other, summons stay loyal).
+
+entity.cb:zeus_archon.name=Zeus Storm Archon
+item.spawn_egg.entity.cb:zeus_archon.name=Spawn Zeus Storm Archon
+entity.cb:hades_shade.name=Hades Underworld Shade
+item.spawn_egg.entity.cb:hades_shade.name=Spawn Hades Underworld Shade
+entity.cb:ares_berserker.name=Ares Blood Berserker
+item.spawn_egg.entity.cb:ares_berserker.name=Spawn Ares Blood Berserker
+cb.msg.isle.olympus=Sky Temple of Zeus
+cb.msg.isle.olympus.rise=§e§lThe Sky Temple of Zeus§r has risen (%1, %2)!
+cb.msg.isle.hades=Citadel of Hades
+cb.msg.isle.hades.rise=§5§lThe Citadel of Hades§r has risen from the Underworld (%1, %2)!
+cb.msg.isle.ares=Blood Arena of Ares
+cb.msg.isle.ares.rise=§c§lThe Blood Arena of Ares§r has emerged (%1, %2)!
+cb.msg.isle.athena=Acropolis of Athena
+cb.msg.isle.athena.rise=§9§lThe Acropolis of Athena§r shines upon the sea (%1, %2)!
+cb.msg.isle.hephaestus=Divine Forge of Hephaestus
+cb.msg.isle.hephaestus.rise=§6§lThe Divine Forge of Hephaestus§r roars with flame (%1, %2)!
+
+item.cb:hell_scimitar.name=Hell Scimitar
+item.cb:hell_scimitar=Hell Scimitar
+
+cb.msg.isle.plain.hades=Citadel of Hades
+cb.msg.isle.plain.ares=Blood Arena of Ares
+cb.msg.isle.plain.athena=Acropolis of Athena
+cb.msg.isle.plain.hephaestus=Divine Forge of Hephaestus
+cb.msg.beam.blue=blue
+action.interact.cb_human_trade=Trade / Hire
+item.cb:bestiary.name=Bestiary of Uniqueness

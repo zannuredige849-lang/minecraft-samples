@@ -1,0 +1,8 @@
+{
+  "format_version": "1.16.100",
+  "minecraft:texture_set": {
+    "color": "siren_nightshade",
+    "metalness_emissive_roughness": "siren_nightshade_mer",
+    "heightmap": "siren_nightshade_height"
+  }
+}

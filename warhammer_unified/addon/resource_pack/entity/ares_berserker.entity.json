@@ -1,0 +1,49 @@
+{
+ "format_version": "1.10.0",
+ "minecraft:client_entity": {
+  "description": {
+   "identifier": "cb:ares_berserker",
+   "materials": {
+    "default": "entity_emissive_alpha"
+   },
+   "textures": {
+    "default": "textures/entity/ares_berserker"
+   },
+   "geometry": {
+    "default": "geometry.cb_ares_berserker"
+   },
+   "animations": {
+    "idle": "animation.ares.idle",
+    "walk": "animation.ares.walk",
+    "attack": "animation.ares.attack",
+    "special_attack": "animation.ares.special_attack",
+    "hurt": "animation.ares.hurt",
+    "rage": "animation.ares.rage",
+    "dance": "animation.ares.dance",
+    "look_at_target": "animation.common.look_at_target"
+   },
+   "scripts": {
+    "animate": [
+     "idle",
+     {
+      "walk": "q.modified_move_speed > 0.02"
+     },
+     {
+      "attack": "variable.attack_time > 0"
+     },
+     {
+      "hurt": "q.hurt_time > 0"
+     },
+     "look_at_target"
+    ]
+   },
+   "render_controllers": [
+    "controller.render.cb_ares"
+   ],
+   "spawn_egg": {
+    "base_color": "#a30409",
+    "overlay_color": "#40c8e0"
+   }
+  }
+ }
+}

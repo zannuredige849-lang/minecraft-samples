@@ -1,0 +1,8 @@
+{
+  "format_version": "1.16.100",
+  "minecraft:texture_set": {
+    "color": "siren_toxic",
+    "metalness_emissive_roughness": "siren_toxic_mer",
+    "heightmap": "siren_toxic_height"
+  }
+}

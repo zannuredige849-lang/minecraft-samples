@@ -1,0 +1,26 @@
+# Источники скинов людей
+
+Скины игроков, выложенные в общий доступ на NameMC (теги каталога скинов). Файл -> страница скина.
+
+* `bandit_raider.png` — https://namemc.com/skin/a04cd416cb9e2cc7 (тег «bandit»)
+* `chaos_warrior.png` — https://namemc.com/skin/dcb735a916d88e35 (тег «knight»)
+* `chival_warrior.png` — https://namemc.com/skin/850927c39ebd8630 (тег «knight»)
+* `dark_plate_knight.png` — https://namemc.com/skin/9fe67cbe5a67d3d2 (тег «knight»)
+* `elector_knight.png` — https://namemc.com/skin/11242a94822ad9df (тег «knight»)
+* `garithos_paladin.png` — https://namemc.com/skin/6c5c0e9d4fb6210b (тег «paladin»)
+* `heide_hood_knight.png` — https://namemc.com/skin/919023da45186cab (тег «knight»)
+* `heide_knight.png` — https://namemc.com/skin/f9bb3d5b5962982a (тег «knight»)
+* `high_elf_spearman.png` — https://namemc.com/skin/a50c6e5d7f0e82cd (тег «elf»)
+* `imperial_guard.png` — https://namemc.com/skin/9329851c4d5cc273 (тег «knight»)
+* `norse_berserker.png` — https://namemc.com/skin/8e6228e947c23a7a (тег «viking»)
+* `norse_marauder.png` — https://namemc.com/skin/3d06cc3c6c83fb03 (тег «viking»)
+* `norse_shaman.png` — https://namemc.com/skin/176aeba90b40cde5 (тег «viking»)
+* `paladin_swordsman.png` — https://namemc.com/skin/144ca7b2962fbbc3 (тег «paladin»)
+* `royal_captain.png` — https://namemc.com/skin/b5f9834f3cfbd821 (тег «knight»)
+* `royal_knight.png` — https://namemc.com/skin/67a06b2e268fabec (тег «knight»)
+* `royal_queen.png` — https://namemc.com/skin/92880dd05c40d1c2 (тег «queen»)
+* `sabertooth_rider.png` — https://namemc.com/skin/75d729e960fa4760 (тег «barbarian»)
+* `santa_claus.png` — https://namemc.com/skin/5bb2476c85584ab6 (тег «santa»)
+* `skaal_villager.png` — https://namemc.com/skin/b5ca7eda39a85f62 (тег «viking»)
+* `teutonic_cleric.png` — https://namemc.com/skin/26ad91e968a284a1 (тег «paladin»)
+* `wulfrik_champion.png` — https://namemc.com/skin/b06b6ab007c928eb (тег «viking»)

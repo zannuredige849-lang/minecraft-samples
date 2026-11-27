@@ -1,0 +1,53 @@
+{
+  "format_version": "1.8.0",
+  "minecraft:spawn_rules": {
+    "description": {
+      "identifier": "cb:emerald_beetle",
+      "population_control": "monster"
+    },
+    "conditions": [
+      {
+        "minecraft:spawns_underground": {},
+        "minecraft:spawns_on_block_filter": [
+          "minecraft:emerald_ore",
+          "minecraft:deepslate_emerald_ore"
+        ],
+        "minecraft:weight": {
+          "default": 40
+        },
+        "minecraft:herd": {
+          "min_size": 1,
+          "max_size": 1
+        },
+        "minecraft:density_limit": {
+          "underground": 2
+        },
+        "minecraft:brightness_filter": {
+          "min": 0,
+          "max": 7,
+          "adjust_for_weather": false
+        },
+        "minecraft:height_filter": {
+          "min": -16,
+          "max": 256
+        },
+        "minecraft:biome_filter": {
+          "any_of": [
+            {
+              "test": "has_biome_tag",
+              "value": "extreme_hills"
+            },
+            {
+              "test": "has_biome_tag",
+              "value": "mountains"
+            },
+            {
+              "test": "has_biome_tag",
+              "value": "mountain"
+            }
+          ]
+        }
+      }
+    ]
+  }
+}

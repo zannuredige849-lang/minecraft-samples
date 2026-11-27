@@ -1,0 +1,51 @@
+{
+ "format_version": "1.10.0",
+ "minecraft:client_entity": {
+  "description": {
+   "identifier": "cb:guldan",
+   "materials": {
+    "default": "entity_emissive_alpha"
+   },
+   "textures": {
+    "guldan": "textures/entity/guldan"
+   },
+   "geometry": {
+    "default": "geometry.cb_guldan"
+   },
+   "animations": {
+    "idle": "animation.guldan.idle",
+    "walk": "animation.guldan.walk",
+    "cast_orb": "animation.guldan.cast_orb",
+    "drain": "animation.guldan.drain",
+    "cast_curse": "animation.guldan.cast_curse",
+    "rain_prep": "animation.guldan.rain_prep",
+    "hurt": "animation.guldan.hurt",
+    "dance": "animation.guldan.dance",
+    "look_at_target": "animation.common.look_at_target",
+    "ctrl": "controller.animation.guldan",
+    "fel_nova": "animation.guldan.fel_nova",
+    "chain_fel": "animation.guldan.chain_fel",
+    "cast_meteor": "animation.guldan.cast_meteor"
+   },
+   "scripts": {
+    "animate": [
+     "ctrl",
+     "look_at_target",
+     {
+      "hurt": "q.hurt_time > 0"
+     },
+     {
+      "dance": "q.property('cb:dancing')"
+     }
+    ]
+   },
+   "render_controllers": [
+    "controller.render.cb_guldan"
+   ],
+   "spawn_egg": {
+    "base_color": "#eaa401",
+    "overlay_color": "#9aff30"
+   }
+  }
+ }
+}

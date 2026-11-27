@@ -1,0 +1,355 @@
+{
+  "format_version": "1.21.0",
+  "minecraft:entity": {
+    "description": {
+      "identifier": "cb:circe",
+      "is_spawnable": true,
+      "is_summonable": true,
+      "is_experimental": false,
+      "properties": {
+        "cb:angry": {
+          "type": "bool",
+          "default": false,
+          "client_sync": true
+        },
+        "cb:cast": {
+          "type": "bool",
+          "default": false,
+          "client_sync": true
+        },
+        "cb:swing": {
+          "type": "bool",
+          "default": false,
+          "client_sync": true
+        },
+        "cb:dancing": {
+          "type": "bool",
+          "default": false,
+          "client_sync": true
+        }
+      }
+    },
+    "component_groups": {
+      "cb:calm": {
+        "minecraft:behavior.random_stroll": {
+          "priority": 6,
+          "speed_multiplier": 0.7
+        },
+        "minecraft:behavior.look_at_player": {
+          "priority": 7,
+          "look_distance": 10,
+          "probability": 0.4
+        },
+        "minecraft:behavior.nearest_attackable_target": {
+          "priority": 2,
+          "must_see": false,
+          "reselect_targets": true,
+          "within_radius": 32,
+          "entity_types": [
+            {
+              "filters": {
+                "all_of": [
+                  {
+                    "test": "is_family",
+                    "subject": "other",
+                    "operator": "!=",
+                    "value": "f_witches"
+                  },
+                  {
+                    "any_of": [
+                      {
+                        "test": "is_family",
+                        "subject": "other",
+                        "value": "warden"
+                      },
+                      {
+                        "test": "is_family",
+                        "subject": "other",
+                        "value": "guldan_boss"
+                      }
+                    ]
+                  }
+                ]
+              },
+              "max_dist": 32
+            }
+          ]
+        }
+      },
+      "cb:angry": {
+        "minecraft:behavior.hurt_by_target": {
+          "priority": 1,
+          "entity_types": [
+            {
+              "filters": {
+                "all_of": [
+                  {
+                    "test": "is_family",
+                    "subject": "other",
+                    "operator": "!=",
+                    "value": "f_witches"
+                  }
+                ]
+              },
+              "max_dist": 64
+            }
+          ]
+        },
+        "minecraft:behavior.nearest_attackable_target": {
+          "priority": 2,
+          "must_see": true,
+          "reselect_targets": true,
+          "within_radius": 24,
+          "entity_types": [
+            {
+              "filters": {
+                "all_of": [
+                  {
+                    "test": "is_family",
+                    "subject": "other",
+                    "operator": "!=",
+                    "value": "f_witches"
+                  },
+                  {
+                    "any_of": [
+                      {
+                        "test": "is_family",
+                        "subject": "other",
+                        "value": "warden"
+                      },
+                      {
+                        "test": "is_family",
+                        "subject": "other",
+                        "value": "guldan_boss"
+                      }
+                    ]
+                  }
+                ]
+              },
+              "max_dist": 32
+            },
+            {
+              "filters": {
+                "all_of": [
+                  {
+                    "test": "is_family",
+                    "subject": "other",
+                    "operator": "!=",
+                    "value": "f_witches"
+                  },
+                  {
+                    "test": "is_family",
+                    "subject": "other",
+                    "value": "player"
+                  },
+                  {
+                    "test": "has_tag",
+                    "subject": "other",
+                    "value": "cb_circe_foe"
+                  }
+                ]
+              },
+              "max_dist": 28
+            }
+          ]
+        },
+        "minecraft:behavior.delayed_attack": {
+          "priority": 3,
+          "speed_multiplier": 1.15,
+          "track_target": true,
+          "attack_duration": 0.6,
+          "hit_delay_pct": 0.6,
+          "reach_multiplier": 1.5,
+          "require_complete_path": false,
+          "random_stop_interval": 0,
+          "attack_once": false
+        },
+        "minecraft:behavior.random_stroll": {
+          "priority": 7,
+          "speed_multiplier": 0.9
+        }
+      }
+    },
+    "components": {
+      "minecraft:type_family": {
+        "family": [
+          "circe",
+          "witch_faction",
+          "boss",
+          "monster",
+          "mob",
+          "f_witches",
+          "summon_safe"
+        ]
+      },
+      "minecraft:health": {
+        "value": 70,
+        "max": 70
+      },
+      "minecraft:attack": {
+        "damage": 0
+      },
+      "minecraft:collision_box": {
+        "width": 0.6,
+        "height": 1.95
+      },
+      "minecraft:movement": {
+        "value": 0.27
+      },
+      "minecraft:movement.basic": {},
+      "minecraft:navigation.walk": {
+        "can_path_over_water": true,
+        "avoid_damage_blocks": true,
+        "can_open_doors": true
+      },
+      "minecraft:jump.static": {},
+      "minecraft:physics": {},
+      "minecraft:pushable": {
+        "is_pushable": true,
+        "is_pushable_by_piston": true
+      },
+      "minecraft:breathable": {
+        "total_supply": 15,
+        "suffocate_time": 0
+      },
+      "minecraft:knockback_resistance": {
+        "value": 0.5
+      },
+      "minecraft:nameable": {
+        "always_show": false,
+        "allow_name_tag_renaming": false
+      },
+      "minecraft:persistent": {},
+      "minecraft:follow_range": {
+        "value": 32,
+        "max": 32
+      },
+      "minecraft:boss": {
+        "should_darken_sky": false,
+        "hud_range": 40,
+        "name": "entity.cb:circe.name"
+      },
+      "minecraft:loot": {
+        "table": "loot_tables/entities/circe.json"
+      },
+      "minecraft:experience_reward": {
+        "on_death": "query.last_hit_by_player ? 60 : 0"
+      },
+      "minecraft:damage_sensor": {
+        "triggers": [
+          {
+            "cause": "fall",
+            "deals_damage": false
+          }
+        ]
+      },
+      "minecraft:ambient_sound_interval": {
+        "value": 12,
+        "range": 12,
+        "event_name": "ambient"
+      },
+      "minecraft:behavior.float": {
+        "priority": 0
+      },
+      "minecraft:behavior.random_look_around": {
+        "priority": 9
+      },
+      "minecraft:interact": {
+        "interactions": [
+          {
+            "on_interact": {
+              "filters": {
+                "any_of": [
+                  {
+                    "test": "has_equipment",
+                    "domain": "hand",
+                    "subject": "other",
+                    "value": "gold_ingot"
+                  },
+                  {
+                    "test": "has_equipment",
+                    "domain": "hand",
+                    "subject": "other",
+                    "value": "apple"
+                  }
+                ]
+              },
+              "event": "cb:offer",
+              "target": "self"
+            },
+            "interact_text": "action.interact.cb_offer",
+            "swing": true
+          }
+        ]
+      },
+      "minecraft:environment_sensor": {
+        "triggers": [
+          {
+            "filters": {
+              "test": "is_riding",
+              "subject": "self",
+              "value": true
+            },
+            "event": "cb:leave_boat"
+          }
+        ]
+      }
+    },
+    "events": {
+      "minecraft:entity_spawned": {
+        "add": {
+          "component_groups": [
+            "cb:calm"
+          ]
+        }
+      },
+      "cb:anger": {
+        "set_property": {
+          "cb:angry": true
+        },
+        "remove": {
+          "component_groups": [
+            "cb:calm"
+          ]
+        },
+        "add": {
+          "component_groups": [
+            "cb:angry"
+          ]
+        }
+      },
+      "cb:offer": {
+        "set_property": {
+          "cb:cast": false
+        },
+        "queue_command": {
+          "command": [
+            "scriptevent cb:offer"
+          ]
+        }
+      },
+      "cb:calm_down": {
+        "set_property": {
+          "cb:angry": false
+        },
+        "remove": {
+          "component_groups": [
+            "cb:angry"
+          ]
+        },
+        "add": {
+          "component_groups": [
+            "cb:calm"
+          ]
+        }
+      },
+      "cb:leave_boat": {
+        "queue_command": {
+          "command": [
+            "ride @s stop_riding"
+          ]
+        }
+      }
+    }
+  }
+}

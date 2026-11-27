@@ -1,0 +1,8 @@
+{
+  "format_version": "1.16.100",
+  "minecraft:texture_set": {
+    "color": "mermaid_amethyst",
+    "metalness_emissive_roughness": "mermaid_amethyst_mer",
+    "heightmap": "mermaid_amethyst_height"
+  }
+}

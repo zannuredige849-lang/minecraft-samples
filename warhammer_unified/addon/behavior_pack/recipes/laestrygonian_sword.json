@@ -1,0 +1,32 @@
+{
+  "format_version": "1.20.10",
+  "minecraft:recipe_shaped": {
+    "description": {
+      "identifier": "cb:laestrygonian_sword"
+    },
+    "tags": [
+      "crafting_table"
+    ],
+    "pattern": [
+      "B",
+      "B",
+      "S"
+    ],
+    "key": {
+      "B": {
+        "item": "cb:bronze_ingot"
+      },
+      "S": {
+        "item": "minecraft:stick"
+      }
+    },
+    "unlock": [
+      {
+        "item": "cb:bronze_ingot"
+      }
+    ],
+    "result": {
+      "item": "cb:laestrygonian_sword"
+    }
+  }
+}

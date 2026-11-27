@@ -1,0 +1,65 @@
+{
+  "format_version": "1.21.0",
+  "minecraft:entity": {
+    "description": {
+      "identifier": "cb:dragon_spark",
+      "is_spawnable": false,
+      "is_summonable": true,
+      "is_experimental": false
+    },
+    "components": {
+      "minecraft:type_family": {
+        "family": [
+          "cb_dragon_breath",
+          "projectile",
+          "f_dragons",
+          "summon_safe"
+        ]
+      },
+      "minecraft:collision_box": {
+        "width": 0.4,
+        "height": 0.4
+      },
+      "minecraft:projectile": {
+        "on_hit": {
+          "impact_damage": {
+            "damage": 5,
+            "knockback": true,
+            "destroy_on_hit": true
+          },
+          "particle_on_hit": {
+            "particle_type": "critical",
+            "num_particles": 8,
+            "on_entity_hit": true,
+            "on_other_hit": true
+          },
+          "remove_on_hit": {}
+        },
+        "power": 2.2,
+        "gravity": 0.0,
+        "inertia": 1.0,
+        "liquid_inertia": 0.6,
+        "uncertainty_base": 4,
+        "uncertainty_multiplier": 1,
+        "anchor": 1,
+        "offset": [
+          0,
+          0,
+          0
+        ],
+        "reflect_on_hurt": false
+      },
+      "minecraft:physics": {},
+      "minecraft:pushable": {
+        "is_pushable": false,
+        "is_pushable_by_piston": false
+      },
+      "minecraft:despawn": {
+        "despawn_from_distance": {
+          "min_distance": 0,
+          "max_distance": 64
+        }
+      }
+    }
+  }
+}

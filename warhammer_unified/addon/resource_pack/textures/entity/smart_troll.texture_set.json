@@ -1,0 +1,8 @@
+{
+  "format_version": "1.16.100",
+  "minecraft:texture_set": {
+    "color": "smart_troll",
+    "metalness_emissive_roughness": "smart_troll_mer",
+    "heightmap": "smart_troll_height"
+  }
+}

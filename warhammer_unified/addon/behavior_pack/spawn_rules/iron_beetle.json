@@ -1,0 +1,41 @@
+{
+  "format_version": "1.8.0",
+  "minecraft:spawn_rules": {
+    "description": {
+      "identifier": "cb:iron_beetle",
+      "population_control": "monster"
+    },
+    "conditions": [
+      {
+        "minecraft:spawns_underground": {},
+        "minecraft:spawns_on_block_filter": [
+          "minecraft:iron_ore",
+          "minecraft:deepslate_iron_ore"
+        ],
+        "minecraft:weight": {
+          "default": 40
+        },
+        "minecraft:herd": {
+          "min_size": 1,
+          "max_size": 1
+        },
+        "minecraft:density_limit": {
+          "underground": 2
+        },
+        "minecraft:brightness_filter": {
+          "min": 0,
+          "max": 7,
+          "adjust_for_weather": false
+        },
+        "minecraft:height_filter": {
+          "min": -64,
+          "max": 72
+        },
+        "minecraft:biome_filter": {
+          "test": "has_biome_tag",
+          "value": "overworld"
+        }
+      }
+    ]
+  }
+}
